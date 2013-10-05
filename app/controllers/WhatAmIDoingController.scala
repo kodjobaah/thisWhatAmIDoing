@@ -71,17 +71,18 @@ object WhatAmIDoingController extends Controller {
         
         import com.whatamidoing.actors.neo4j.Neo4JWriter._
         val createUser = CypherBuilder.createUserFuntion(fn,ln, em, p);
+        
         val response: Future[Any] = ask(neo4jwriter, PerformOperation(createUser)).mapTo[Any]
         
         var results  = response.flatMap(
           {
             case WriteOperationResult(results) => {
-            	future(results)
+            	future(Ok(results.results.toString()))
               }
            }).recover {
             case _: AskTimeoutException => future(Ok(views.html.timeout("TIME OUT")))
           }
-         results.asInstanceOf[Future[play.api.mvc.SimpleResult]]
+         future(Ok(results.asInstanceOf[String]))
          
       } else {
 
