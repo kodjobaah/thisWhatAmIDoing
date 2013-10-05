@@ -49,11 +49,12 @@ object CypherBuilder {
   }
 
   import models._
+  import com.whatamidoing.actors.neo4j.Neo4JWriter._
+  import org.anormcypher._
+
   def createUserFuntion(fn: String, ln: String, em: String, p: String): () => Neo4jResult = {
 
     import org.mindrot.jbcrypt.BCrypt
-    import com.whatamidoing.actors.neo4j.Neo4JWriter._
-    import org.anormcypher._
 
     val createUser: Function0[Neo4jResult] = () => {
       val pw_hash = BCrypt.hashpw(p, BCrypt.gensalt())
@@ -76,4 +77,14 @@ object CypherBuilder {
     createUser
   }
 
+  def searchForUserFunction(em: String): () => Neo4jResult = {
+    
+    val searchForUser: Function0[Neo4jResult] = () => {
+    	var res = Cypher(CypherBuilder.searchForUser(em))
+    	val response = res.apply().map(row => row[String]("password")).toList
+        val neo4jResult = new Neo4jResult(response)
+    	neo4jResult
+    }
+    searchForUser
+  }
 }

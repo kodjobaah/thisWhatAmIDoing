@@ -27,6 +27,7 @@ object WhatAmIDoingController extends Controller {
   //NOTE: Should we just be passing one database access service..or should each actor get a copy of their own
   val rtmpSender = system.actorOf(RTMPSender.props("hey"), "rtmpsender")
   val neo4jwriter = system.actorOf(Neo4JWriter.props(), "neo-4j-writer-supervisor")
+  val neo4jreader = system.actorOf(Neo4JReader.props(), "neo-4j-reader-supervisor")
 
   def whatAmIdoing = Action { implicit request =>
     Ok(views.html.whatamidoing())
@@ -60,49 +61,57 @@ object WhatAmIDoingController extends Controller {
       val fn = firstName.get
       val ln = lastName.get
 
-      var res = Cypher(CypherBuilder.searchForUser(em))
-      val response = res.apply().map(row => row[String]("password")).toList
+      val searchForUser = CypherBuilder.searchForUserFunction(em)
 
-      Logger("WhatAmIDoingController.registerLogin").info("response:" + response)
+      import com.whatamidoing.actors.neo4j.Neo4JReader._
+      val response: Future[Any] = ask(neo4jreader, PerformReadOperation(searchForUser)).mapTo[Any]
 
-      import org.mindrot.jbcrypt.BCrypt
-      var stuff = "Not Logged In"
-      if (response.size < 1) {
-        
-        import com.whatamidoing.actors.neo4j.Neo4JWriter._
-        val createUser = CypherBuilder.createUserFuntion(fn,ln, em, p);
-        
-        val response: Future[Any] = ask(neo4jwriter, PerformOperation(createUser)).mapTo[Any]
-        
-        var results : scala.concurrent.Future[play.api.mvc.SimpleResult] = response.map(
-          {
-            case WriteOperationResult(results) => {
-            	Ok(results.results.toString())
+      var results: scala.concurrent.Future[play.api.mvc.SimpleResult] = response.map(
+        {
+          case ReadOperationResult(readResults) => {
+
+            import org.mindrot.jbcrypt.BCrypt
+            var stuff = "Not Logged In"
+            if (readResults.results.size < 1) {
+
+              import com.whatamidoing.actors.neo4j.Neo4JWriter._
+              val createUser = CypherBuilder.createUserFuntion(fn, ln, em, p);
+
+              val readResponse: Future[Any] = ask(neo4jwriter, PerformOperation(createUser)).mapTo[Any]
+
+              var readResult: scala.concurrent.Future[play.api.mvc.SimpleResult] = readResponse.map(
+                {
+                  case WriteOperationResult(results) => {
+                    Ok(results.results.toString())
+                  }
+                })
+
+              readResult
+            } else {
+
+              val dbhash = readResults.results.head
+              if (BCrypt.checkpw(p, dbhash)) {
+                val tokens = Cypher(CypherBuilder.getTokenForUser(em)).apply().map(row => (row[String]("token"), row[String]("status"))).toList
+                val tok = tokens.head
+                Logger("WhatAmIDoingController.registerLogin").info("this is the token: " + tok)
+                if (tok._2 == "true") {
+                  Logger("WhatAmIDoingController.registerLogin").info("adding to cookie: " + tok._1)
+                  import play.api.mvc.Cookie
+                  future(
+                    Ok("DID THE STUFF").withSession(
+                      "whatAmIdoing-authenticationToken" -> tok._1))
+                } else {
+                  future(Ok("TOKEN NOT VALID"))
+                }
+              } else {
+                stuff = "Wrong Password"
+                future(Ok(stuff))
               }
-           })
-      
-         results
-      } else {
-
-        val dbhash = response.head
-        if (BCrypt.checkpw(p, dbhash)) {
-          val tokens = Cypher(CypherBuilder.getTokenForUser(em)).apply().map(row => (row[String]("token"), row[String]("status"))).toList
-          val tok = tokens.head
-          Logger("WhatAmIDoingController.registerLogin").info("this is the token: " + tok)
-          if (tok._2 == "true") {
-            Logger("WhatAmIDoingController.registerLogin").info("adding to cookie: " + tok._1)
-            import play.api.mvc.Cookie
-            future(
-              Ok("DID THE STUFF").withSession(
-                "whatAmIdoing-authenticationToken" -> tok._1))
-          } else {
-            future(Ok("TOKEN NOT VALID"))
+            }
+            Ok(readResults.results.toString())
           }
-        } else {
-          stuff = "Wrong Password"
-          future(Ok(stuff))
-        }
-      }
+        })
+        results
     }
 
   import play.api.mvc.WebSocket
@@ -121,7 +130,7 @@ object WhatAmIDoingController extends Controller {
       //Logger("MyApp").info("Log established %d".format(username.length()))
       rtmpSender ! RTMPMessage(s)
 
-    }).mapDone { _ =>
+    }).map { _ =>
       println("Disconnected")
     }
 
