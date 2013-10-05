@@ -66,7 +66,7 @@ object WhatAmIDoingController extends Controller {
       import com.whatamidoing.actors.neo4j.Neo4JReader._
       val response: Future[Any] = ask(neo4jreader, PerformReadOperation(searchForUser)).mapTo[Any]
 
-      var results: scala.concurrent.Future[play.api.mvc.SimpleResult] = response.map(
+      var searchForUserResult: scala.concurrent.Future[play.api.mvc.SimpleResult] = response.map(
         {
           case ReadOperationResult(readResults) => {
 
@@ -77,41 +77,57 @@ object WhatAmIDoingController extends Controller {
               import com.whatamidoing.actors.neo4j.Neo4JWriter._
               val createUser = CypherBuilder.createUserFuntion(fn, ln, em, p);
 
-              val readResponse: Future[Any] = ask(neo4jwriter, PerformOperation(createUser)).mapTo[Any]
+              val writeResponse: Future[Any] = ask(neo4jwriter, PerformOperation(createUser)).mapTo[Any]
 
-              var readResult: scala.concurrent.Future[play.api.mvc.SimpleResult] = readResponse.map(
+              var writeResult: scala.concurrent.Future[play.api.mvc.SimpleResult]   = writeResponse.flatMap(
                 {
                   case WriteOperationResult(results) => {
-                    Ok(results.results.toString())
+                	  future(Ok(results.results.toString()))
+                   
                   }
                 })
-
-              readResult
+              
+                var res: play.api.mvc.SimpleResult = Ok("SHOULD NOT SEE THIS")
+                writeResult foreach( x => res = x)
+                res
             } else {
 
               val dbhash = readResults.results.head
-              if (BCrypt.checkpw(p, dbhash)) {
-                val tokens = Cypher(CypherBuilder.getTokenForUser(em)).apply().map(row => (row[String]("token"), row[String]("status"))).toList
-                val tok = tokens.head
-                Logger("WhatAmIDoingController.registerLogin").info("this is the token: " + tok)
-                if (tok._2 == "true") {
-                  Logger("WhatAmIDoingController.registerLogin").info("adding to cookie: " + tok._1)
-                  import play.api.mvc.Cookie
-                  future(
-                    Ok("DID THE STUFF").withSession(
-                      "whatAmIdoing-authenticationToken" -> tok._1))
-                } else {
-                  future(Ok("TOKEN NOT VALID"))
-                }
+              if (BCrypt.checkpw(p, dbhash.asInstanceOf[String])) {
+
+                  val getUserToken = CypherBuilder.getUserTokenFunction(em)
+
+                 import com.whatamidoing.actors.neo4j.Neo4JReader._
+                 val getUserTokenResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getUserToken)).mapTo[Any]
+                var getUserTokenResult: scala.concurrent.Future[play.api.mvc.SimpleResult] = getUserTokenResponse.map(
+                {
+                       case ReadOperationResult(results) => {
+                	       val tok = results.results.head.asInstanceOf[(String,String)]
+                           Logger("WhatAmIDoingController.registerLogin").info("this is the token: " + tok)
+                           if (tok._2 == "true") {
+                                Logger("WhatAmIDoingController.registerLogin").info("adding to cookie: " + tok._1)
+                                import play.api.mvc.Cookie
+                                future(
+                                   Ok("ADDED AUTHENTICATION TOKEN TO SESSISON").withSession(
+                                  "whatAmIdoing-authenticationToken" -> tok._1)
+                                )
+                            } else {
+                              future(Ok("TOKEN NOT VALID - NOT ADDED TO SESSION"))
+                            }
+                            Ok(results.results.toString())
+                       }
+                })
+                
+                var res: play.api.mvc.SimpleResult = Ok("SHOULD NOT SEE THIS")
+                getUserTokenResult foreach( x => res = x)
+                res
               } else {
-                stuff = "Wrong Password"
-                future(Ok(stuff))
+                Ok("WRONG PASSWORD")
               }
             }
-            Ok(readResults.results.toString())
-          }
+           }
         })
-        results
+        searchForUserResult
     }
 
   import play.api.mvc.WebSocket

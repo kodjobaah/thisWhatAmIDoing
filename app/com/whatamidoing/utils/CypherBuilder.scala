@@ -66,9 +66,9 @@ object CypherBuilder {
       val createToken = Cypher(CypherBuilder.createToken(token, valid)).execute();
       val linkToken = Cypher(CypherBuilder.linkUserToToken(em, token)).execute();
 
-      Logger("WhatAmIDoingController.registerLogin").info("this is one: " + newRes)
-      Logger("WhatAmIDoingController.registerLogin").info("this is two: " + createToken)
-      Logger("WhatAmIDoingController.registerLogin").info("this is three: " + linkToken)
+      Logger("CypherBuilder.registerLogin").info("this is one: " + newRes)
+      Logger("CypherBuilder.registerLogin").info("this is two: " + createToken)
+      Logger("CypherBuilder.registerLogin").info("this is three: " + linkToken)
 
       val results: List[String] = List(newRes.toString(), createToken.toString(), linkToken.toString())
       val neo4jResult = new Neo4jResult(results)
@@ -86,5 +86,16 @@ object CypherBuilder {
     	neo4jResult
     }
     searchForUser
+  }
+  
+  def getUserTokenFunction(em: String): () => Neo4jResult = {
+    
+    val getUserToken: Function0[Neo4jResult] = () => {
+    	val tokens = Cypher(CypherBuilder.getTokenForUser(em)).apply().map(row => (row[String]("token"), row[String]("status"))).toList
+        val neo4jResult = new Neo4jResult(tokens)
+        Logger("CypherBuilder.registerLogin").info("this is the token: " + tokens.head)
+        neo4jResult
+    }
+    getUserToken
   }
 }
