@@ -1,10 +1,10 @@
-2013-10-05 13:54:51,867 - [INFO] - from play in pool-123-thread-5 
+2013-10-05 15:13:55,125 - [INFO] - from play in pool-4-thread-4 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2013-10-05 13:55:02,779 - [ERROR] - from application in New I/O worker #1 
+2013-10-05 15:14:09,017 - [ERROR] - from application in New I/O worker #1 
 
 
-! @6foabje5i - Internal server error, for (POST) [/registerLogin?email=kodjo_baah@hotmail.com&password=letmein&repeatPassword=letmein&firstName=kodjo&lastName=baah] ->
+! @6foam3f75 - Internal server error, for (POST) [/registerLogin?email=kodjo_baah@hotmail.com&password=letmein&repeatPassword=letmein&firstName=kodjo&lastName=baah] ->
 
 play.PlayExceptions$CompilationException: Compilation error[object creation impossible, since method apply in trait Function0 of type ()models.Neo4jResult is not defined]
 	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
@@ -27,39 +27,13 @@ play.PlayExceptions$CompilationException: Compilation error[object creation impo
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
 
-2013-10-05 13:55:02,832 - [WARN] - from play in New I/O worker #1 
+2013-10-05 15:14:09,071 - [WARN] - from play in New I/O worker #1 
 No application found at invoker init
 
-2013-10-05 13:56:59,748 - [ERROR] - from application in New I/O worker #1 
+2013-10-05 15:14:53,131 - [ERROR] - from application in New I/O worker #1 
 
 
-! @6foac056j - Internal server error, for (POST) [/registerLogin?email=kodjo_baah@hotmail.com&password=letmein&repeatPassword=letmein&firstName=kodjo&lastName=baah] ->
-
-play.PlayExceptions$CompilationException: Compilation error[not found: value Neo4jResult]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
-	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
-	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
-	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
-	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.0]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.0]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
-
-2013-10-05 13:58:27,200 - [ERROR] - from application in New I/O worker #1 
-
-
-! @6foac54g7 - Internal server error, for (POST) [/registerLogin?email=kodjo_baah@hotmail.com&password=letmein&repeatPassword=letmein&firstName=kodjo&lastName=baah] ->
+! @6foam62e6 - Internal server error, for (POST) [/registerLogin?email=kodjo_baah@hotmail.com&password=letmein&repeatPassword=letmein&firstName=kodjo&lastName=baah] ->
 
 play.PlayExceptions$CompilationException: Compilation error[object creation impossible, since method apply in trait Function0 of type ()models.Neo4jResult is not defined]
 	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
@@ -82,10 +56,10 @@ play.PlayExceptions$CompilationException: Compilation error[object creation impo
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
 
-2013-10-05 14:00:01,712 - [ERROR] - from application in New I/O worker #1 
+2013-10-05 15:17:46,305 - [ERROR] - from application in New I/O worker #1 
 
 
-! @6foacaeb9 - Internal server error, for (POST) [/registerLogin?email=kodjo_baah@hotmail.com&password=letmein&repeatPassword=letmein&firstName=kodjo&lastName=baah] ->
+! @6foamfoik - Internal server error, for (POST) [/registerLogin?email=kodjo_baah@hotmail.com&password=letmein&repeatPassword=letmein&firstName=kodjo&lastName=baah] ->
 
 play.PlayExceptions$CompilationException: Compilation error[object creation impossible, since method apply in trait Function0 of type ()models.Neo4jResult is not defined]
 	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
@@ -107,4 +81,279 @@ play.PlayExceptions$CompilationException: Compilation error[object creation impo
 	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-10-05 15:17:48,691 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6foamg26e - Internal server error, for (POST) [/registerLogin?email=kodjo_baah@hotmail.com&password=letmein&repeatPassword=letmein&firstName=kodjo&lastName=baah] ->
+
+play.PlayExceptions$CompilationException: Compilation error[object creation impossible, since method apply in trait Function0 of type ()models.Neo4jResult is not defined]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-10-05 15:22:08,750 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6foan4mol - Internal server error, for (POST) [/registerLogin?email=kodjo_baah@hotmail.com&password=letmein&repeatPassword=letmein&firstName=kodjo&lastName=baah] ->
+
+play.PlayExceptions$CompilationException: Compilation error[object creation impossible, since method apply in trait Function0 of type ()models.Neo4jResult is not defined]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-10-05 15:23:07,084 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6foan856b - Internal server error, for (POST) [/registerLogin?email=kodjo_baah@hotmail.com&password=letmein&repeatPassword=letmein&firstName=kodjo&lastName=baah] ->
+
+play.PlayExceptions$CompilationException: Compilation error[object creation impossible, since method apply in trait Function0 of type ()models.Neo4jResult is not defined]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-10-05 15:25:00,543 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6foaneh26 - Internal server error, for (POST) [/registerLogin?email=kodjo_baah@hotmail.com&password=letmein&repeatPassword=letmein&firstName=kodjo&lastName=baah] ->
+
+play.PlayExceptions$CompilationException: Compilation error[object creation impossible, since method apply in trait Function0 of type ()models.Neo4jResult is not defined]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-10-05 15:25:29,992 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6foang8gn - Internal server error, for (POST) [/registerLogin?email=kodjo_baah@hotmail.com&password=letmein&repeatPassword=letmein&firstName=kodjo&lastName=baah] ->
+
+play.PlayExceptions$CompilationException: Compilation error[object creation impossible, since method apply in trait Function0 of type ()models.Neo4jResult is not defined]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-10-05 15:37:06,467 - [INFO] - from org.reflections.Reflections in play-internal-execution-context-1 
+Reflections took 154 ms to scan 3 urls, producing 7 keys and 9 values 
+
+2013-10-05 15:37:06,859 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2013-10-05 15:37:06,965 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-3 
+Slf4jLogger started
+
+2013-10-05 15:37:06,967 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-3 
+[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
+
+2013-10-05 15:37:06,968 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-3 
+logger log1-Slf4jEventHandler started
+
+2013-10-05 15:37:06,969 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-3 
+Default Loggers started
+
+2013-10-05 15:37:07,732 - [ERROR] - from org.ffmpeg in whatamidoing-system-akka.actor.default-dispatcher-4 
+RTMP_Connect0, failed to connect socket. 61 (Connection refused)
+
+2013-10-05 15:37:07,837 - [ERROR] - from akka.actor.OneForOneStrategy in whatamidoing-system-akka.actor.default-dispatcher-4 
+Unhandled and unknown native exception
+akka.actor.ActorInitializationException: exception during creation
+	at akka.actor.ActorInitializationException$.apply(Actor.scala:218) ~[akka-actor_2.10.jar:2.2.0]
+	at akka.actor.ActorCell.create(ActorCell.scala:578) ~[akka-actor_2.10.jar:2.2.0]
+	at akka.actor.ActorCell.invokeAll$1(ActorCell.scala:425) ~[akka-actor_2.10.jar:2.2.0]
+	at akka.actor.ActorCell.systemInvoke(ActorCell.scala:447) ~[akka-actor_2.10.jar:2.2.0]
+	at akka.dispatch.Mailbox.processAllSystemMessages(Mailbox.scala:262) ~[akka-actor_2.10.jar:2.2.0]
+	at akka.dispatch.Mailbox.run(Mailbox.scala:218) ~[akka-actor_2.10.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) [akka-actor_2.10.jar:2.2.0]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
+Caused by: java.lang.RuntimeException: Unhandled and unknown native exception
+	at com.xuggle.xuggler.XugglerJNI.IContainer_open__SWIG_1(Native Method) ~[xuggle-xuggler-5.4.jar:5.4.0]
+	at com.xuggle.xuggler.IContainer.open(IContainer.java:641) ~[xuggle-xuggler-5.4.jar:5.4.0]
+	at com.xuggle.mediatool.MediaWriter.open(MediaWriter.java:1280) ~[xuggle-xuggler-5.4.jar:5.4.0]
+	at com.xuggle.mediatool.MediaWriter.establishStream(MediaWriter.java:627) ~[xuggle-xuggler-5.4.jar:5.4.0]
+	at com.xuggle.mediatool.MediaWriter.addVideoStream(MediaWriter.java:496) ~[xuggle-xuggler-5.4.jar:5.4.0]
+	at com.xuggle.mediatool.MediaWriter.addVideoStream(MediaWriter.java:444) ~[xuggle-xuggler-5.4.jar:5.4.0]
+	at com.xuggle.mediatool.MediaWriter.addVideoStream(MediaWriter.java:430) ~[xuggle-xuggler-5.4.jar:5.4.0]
+	at com.whatamidoing.actors.red5.services.Xuggler.<init>(Xuggler.scala:28) ~[na:na]
+	at com.whatamidoing.actors.red5.services.Xuggler$.apply(Xuggler.scala:74) ~[na:na]
+	at com.whatamidoing.actors.red5.RTMPSender.<init>(RTMPSender.scala:16) ~[na:na]
+	at com.whatamidoing.actors.red5.RTMPSender$$anonfun$props$1.apply(RTMPSender.scala:43) ~[na:na]
+	at com.whatamidoing.actors.red5.RTMPSender$$anonfun$props$1.apply(RTMPSender.scala:43) ~[na:na]
+	at akka.actor.CreatorFunctionConsumer.produce(Props.scala:369) ~[akka-actor_2.10.jar:2.2.0]
+	at akka.actor.Props.newActor(Props.scala:323) ~[akka-actor_2.10.jar:2.2.0]
+	at akka.actor.ActorCell.newActor(ActorCell.scala:534) ~[akka-actor_2.10.jar:2.2.0]
+	at akka.actor.ActorCell.create(ActorCell.scala:560) ~[akka-actor_2.10.jar:2.2.0]
+	... 9 common frames omitted
+
+2013-10-05 15:37:08,514 - [ERROR] - from play in play-akka.actor.default-dispatcher-5 
+Cannot invoke the action, eventually got an error: java.util.concurrent.ExecutionException: java.net.ConnectException: Connection refused: localhost/127.0.0.1:7474 to http://localhost:7474/db/data/cypher
+
+2013-10-05 15:37:08,552 - [ERROR] - from application in play-akka.actor.default-dispatcher-5 
+
+
+! @6foap420d - Internal server error, for (POST) [/registerLogin?email=kodjo_baah@hotmail.com&password=letmein&repeatPassword=letmein&firstName=kodjo&lastName=baah] ->
+
+play.api.Application$$anon$1: Execution exception[[ExecutionException: java.net.ConnectException: Connection refused: localhost/127.0.0.1:7474 to http://localhost:7474/db/data/cypher]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.0]
+	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10.jar:2.2.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.0]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) [play_2.10.jar:2.2.0]
+	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:33) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:411) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:408) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10.jar:2.2.0]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1$$anonfun$apply$3.apply(Future.scala:278) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1$$anonfun$apply$3.apply(Future.scala:278) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$Batch$$anonfun$run$1.processBatch$1(Future.scala:731) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$Batch$$anonfun$run$1.apply$mcV$sp(Future.scala:746) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$Batch$$anonfun$run$1.apply(Future.scala:723) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$Batch$$anonfun$run$1.apply(Future.scala:723) [scala-library.jar:na]
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:72) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$Batch.run(Future.scala:722) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$.scala$concurrent$Future$InternalCallbackExecutor$$unbatchedExecute(Future.scala:782) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$.execute(Future.scala:773) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:274) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:274) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$2.execute(Execution.scala:70) [play-iteratees_2.10.jar:2.2.0]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:274) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:274) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$2.execute(Execution.scala:70) [play-iteratees_2.10.jar:2.2.0]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) [akka-actor_2.10.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) [akka-actor_2.10.jar:2.2.0]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
+java.util.concurrent.ExecutionException: java.net.ConnectException: Connection refused: localhost/127.0.0.1:7474 to http://localhost:7474/db/data/cypher
+	at com.ning.http.client.providers.netty.NettyResponseFuture.abort(NettyResponseFuture.java:336) ~[async-http-client.jar:na]
+	at com.ning.http.client.providers.netty.NettyConnectListener.operationComplete(NettyConnectListener.java:107) ~[async-http-client.jar:na]
+	at org.jboss.netty.channel.DefaultChannelFuture.notifyListener(DefaultChannelFuture.java:427) ~[netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelFuture.notifyListeners(DefaultChannelFuture.java:418) ~[netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelFuture.setFailure(DefaultChannelFuture.java:380) ~[netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioClientBoss.processSelectedKeys(NioClientBoss.java:109) ~[netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:79) ~[netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:312) ~[netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:42) ~[netty.jar:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108) ~[netty.jar:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) ~[netty.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) ~[na:1.7.0_40]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) ~[na:1.7.0_40]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_40]
+Caused by: java.net.ConnectException: Connection refused: localhost/127.0.0.1:7474 to http://localhost:7474/db/data/cypher
+	at com.ning.http.client.providers.netty.NettyConnectListener.operationComplete(NettyConnectListener.java:103) ~[async-http-client.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: localhost/127.0.0.1:7474
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[na:1.7.0_40]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:735) ~[na:1.7.0_40]
+	at org.jboss.netty.channel.socket.nio.NioClientBoss.connect(NioClientBoss.java:150) ~[netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioClientBoss.processSelectedKeys(NioClientBoss.java:105) ~[netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:79) ~[netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:312) ~[netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:42) ~[netty.jar:na]
+	... 3 common frames omitted
 

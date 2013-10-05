@@ -68,29 +68,11 @@ object WhatAmIDoingController extends Controller {
       import org.mindrot.jbcrypt.BCrypt
       var stuff = "Not Logged In"
       if (response.size < 1) {
+        
         import com.whatamidoing.actors.neo4j.Neo4JWriter._
-        import models.Neo4jResult
-        val createUser = new Function0[Neo4jResult] {
-          val pw_hash = BCrypt.hashpw(p, BCrypt.gensalt())
-          val newRes = Cypher(CypherBuilder.createUser(fn, ln, em, pw_hash)).execute();
-
-          val token = java.util.UUID.randomUUID.toString
-          val valid = "true"
-
-          val createToken = Cypher(CypherBuilder.createToken(token, valid)).execute();
-          val linkToken = Cypher(CypherBuilder.linkUserToToken(em, token)).execute();
-
-          Logger("WhatAmIDoingController.registerLogin").info("this is one: " + newRes)
-          Logger("WhatAmIDoingController.registerLogin").info("this is two: " + createToken)
-          Logger("WhatAmIDoingController.registerLogin").info("this is three: " + linkToken)
-
-          val results: List[String] = List(newRes.toString(),createToken.toString(),linkToken.toString())
-          import models._
-          new Neo4jResult(results)
-        }
-
+        val createUser = CypherBuilder.createUserFuntion(fn,ln, em, p);
         val response: Future[Any] = ask(neo4jwriter, PerformOperation(createUser)).mapTo[Any]
-        //Updating the tables
+        
         var results  = response.flatMap(
           {
             case WriteOperationResult(results) => {
