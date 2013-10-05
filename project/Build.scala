@@ -30,7 +30,7 @@ object ApplicationBuild extends Build {
     "com.typesafe.akka" %% "akka-actor" % "2.2.0",
     "com.typesafe.akka" %% "akka-actor-tests" % "2.2.0" % "test",
     "com.typesafe.play" %% "play-slick" % "0.4.0" exclude("org.scala-stm", "scala-stm_2.10.0"), 
-    "org.scalatest" %% "scalatest" % "2.0.RC1" % "test"
+    "org.scalatest" %% "scalatest" % "2.0.RC1" % "test",
     "org.ostermiller" % "utils" % "1.07.00",
     "org.scalamock" %% "scalamock-scalatest-support" % "3.0.1" % "test",
     "net.java.dev.jna" % "jna" % "3.5.2",
