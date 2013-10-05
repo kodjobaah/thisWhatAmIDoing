@@ -74,16 +74,14 @@ object WhatAmIDoingController extends Controller {
         
         val response: Future[Any] = ask(neo4jwriter, PerformOperation(createUser)).mapTo[Any]
         
-        var results  = response.flatMap(
+        var results : scala.concurrent.Future[play.api.mvc.SimpleResult] = response.map(
           {
             case WriteOperationResult(results) => {
-            	future(Ok(results.results.toString()))
+            	Ok(results.results.toString())
               }
-           }).recover {
-            case _: AskTimeoutException => future(Ok(views.html.timeout("TIME OUT")))
-          }
-         future(Ok(results.asInstanceOf[String]))
-         
+           })
+      
+         results
       } else {
 
         val dbhash = response.head
