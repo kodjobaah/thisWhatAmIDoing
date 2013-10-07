@@ -142,8 +142,12 @@ object WhatAmIDoingController extends Controller {
       import com.whatamidoing.actors.neo4j.Neo4JReader._
       val getValidTokenResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getValidToken)).mapTo[Any]
 
-      var res = Await.result(getValidTokenResponse, 10 seconds)
-
+      var res = Await.result(getValidTokenResponse, 10 seconds) match {
+        case ReadOperationResult(readResults) => {
+        	readResults.results
+        }
+      }
+      
       if (res.asInstanceOf[List[String]].size > 0) {
         import com.whatamidoing.actors.red5.FrameSupervisor._
         val in = Iteratee.foreach[String](s => {
