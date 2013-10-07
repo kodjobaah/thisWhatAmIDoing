@@ -10,7 +10,7 @@ import sun.misc.BASE64Decoder
 import com.whatamidoing.utils.ActorUtils
 import akka.actor.ActorRef
 import play.api.Logger
-
+import play.api.libs.json._
 class FrameSupervisor(username: String) extends Actor {
 
   
@@ -33,7 +33,7 @@ class FrameSupervisor(username: String) extends Actor {
       				
       				}
       	Logger("FrameSupervisor.receive:").info("send message to be encoded");
-        videoEncoder ! EncodeFrame(message)
+        videoEncoder ! EncodeFrame( (message \ "frame").as[String])
     }
      
     case StopVideo(token) => {
@@ -56,7 +56,7 @@ object FrameSupervisor {
 
   def props(username: String) = Props(new FrameSupervisor(username))
 
-  case class RTMPMessage(val message: String, val token: String)
+  case class RTMPMessage(val message: JsValue, val token: String)
   
   case class StopVideo(val token: String)
 

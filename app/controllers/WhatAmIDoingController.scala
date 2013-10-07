@@ -1,20 +1,26 @@
 package controllers
 
 import play.api.mvc.Controller
+
 import play.api.mvc.Action
 import play.api.Logger
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
+import play.api.libs.json._
+
 import scala.concurrent._
 import scala.concurrent.future
 import scala.concurrent.duration.DurationInt
+
 import akka.actor.ActorSystem
 import akka.pattern.ask
 import akka.pattern.AskTimeoutException
 import akka.util.Timeout
+
+import org.anormcypher._
+
 import com.whatamidoing.actors.red5._
 import com.whatamidoing.actors.neo4j._
 import com.whatamidoing.utils.ActorUtils
-import org.anormcypher._
 import com.whatamidoing.utils.CypherBuilder
 
 object WhatAmIDoingController extends Controller {
@@ -129,7 +135,7 @@ object WhatAmIDoingController extends Controller {
   import play.api.libs.concurrent.Execution.Implicits._
   import scala.concurrent.Future
   var v = 0
-  def publishVideo = WebSocket.async[String] { implicit request =>
+  def publishVideo = WebSocket.async[JsValue] { implicit request =>
 
     val token = request.session.get("whatAmIdoing-authenticationToken").map { tok => tok }.getOrElse {
       "NOT FOUND"
@@ -150,7 +156,7 @@ object WhatAmIDoingController extends Controller {
       
       if (res.asInstanceOf[List[String]].size > 0) {
         import com.whatamidoing.actors.red5.FrameSupervisor._
-        val in = Iteratee.foreach[String](s => {
+        val in = Iteratee.foreach[JsValue](s => {
           
           frameSupervisor ! RTMPMessage(s, token)
 
@@ -163,14 +169,14 @@ object WhatAmIDoingController extends Controller {
         Future((in, out))
         
       } else {
-        val in = Iteratee.foreach[String](println).map { _ =>
+        val in = Iteratee.foreach[JsValue](println).map { _ =>
           Logger("WhatAmIdoingController.pulishVideo").info("TOKEN NOT VALID [" + token + "]")
         }
         val out = Enumerator("TOKEN NOT VALID")
         Future((in, out))
       }
     } else {
-      val in = Iteratee.foreach[String](println).map { _ =>
+      val in = Iteratee.foreach[JsValue](println).map { _ =>
         Logger("WhatAmIdoingController.pulishVideo").info("TOKEN NOT IN SESSION [" + token + "]")
       }
       val out = Enumerator("TOKEN NOT IN SESSION")
