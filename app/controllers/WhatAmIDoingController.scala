@@ -164,22 +164,44 @@ object WhatAmIDoingController extends Controller {
            frameSupervisor ! StopVideo(token)
            Logger("WhatAmIDoingController.publishVide").info("Disconnected")
         }
-
-        val out = Enumerator("Connection Established")
+        
+        val json: JsValue = Json.parse("""
+        		{ 
+        		"response": {
+        		"value" : "Connection Established"
+        		}
+        		} 
+        	""")
+        val out = Enumerator(json)
         Future((in, out))
         
       } else {
         val in = Iteratee.foreach[JsValue](println).map { _ =>
           Logger("WhatAmIdoingController.pulishVideo").info("TOKEN NOT VALID [" + token + "]")
         }
-        val out = Enumerator("TOKEN NOT VALID")
+        
+        val json: JsValue = Json.parse("""
+        		{ 
+        		"response": {
+        		"value" : "TOKEN NOT VALID"
+        		}
+        		} 
+        	""")
+        val out = Enumerator(json)
         Future((in, out))
       }
     } else {
       val in = Iteratee.foreach[JsValue](println).map { _ =>
         Logger("WhatAmIdoingController.pulishVideo").info("TOKEN NOT IN SESSION [" + token + "]")
       }
-      val out = Enumerator("TOKEN NOT IN SESSION")
+      val json: JsValue = Json.parse("""
+        		{ 
+        		"response": {
+        		"value" : "TOKEN NOT IN SESSION"
+        		}
+        		} 
+        	""")
+      val out = Enumerator(json)
       Future((in, out))
     }
 
