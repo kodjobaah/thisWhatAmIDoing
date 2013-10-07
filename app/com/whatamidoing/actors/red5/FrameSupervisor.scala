@@ -25,7 +25,7 @@ class FrameSupervisor(username: String) extends Actor {
       var videoEncoder: ActorRef = videoEncoders get token match {
     					case None => {
     					    Logger("FrameSupervisor-receive").info("creating actor for token:"+token)
-    						val ve = system.actorOf(VideoEncoder.props(token+".flv"), "rtmpsender")
+    						val ve = system.actorOf(VideoEncoder.props(token+".flv"), "rtmpsender+")
     						videoEncoders += token -> ve
     						ve
     					}
@@ -40,10 +40,12 @@ class FrameSupervisor(username: String) extends Actor {
       
        videoEncoders get token match {
     					case None => {
+    					  Logger("FrameSupervisor.receive").info("ACTOR NOT FOUND-- NOT STOPPING:"+token+"]");
     					}
     					case videoEncoder => {
-    					  system.stop(videoEncoder.get) 
-    					  videoEncoders -= token
+    					   Logger("FrameSupervisor.receive").info("ACTOR FOUND STOPPING [:"+token+"]");
+      				       system.stop(videoEncoder.get) 
+    					   videoEncoders -= token
     					}
       				
       	}
