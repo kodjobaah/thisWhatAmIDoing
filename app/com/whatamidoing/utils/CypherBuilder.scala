@@ -52,7 +52,7 @@ object CypherBuilder {
     
     val res=s"""
     		match token:AuthenticationToken
-    		when token.token="$token" and token.valid="true"
+    		where token.token="$token" and token.valid="true"
     		return token.token as token
       
       """
@@ -113,7 +113,7 @@ object CypherBuilder {
   
   def getValidTokenFunction(token: String): () => Neo4jResult = {
     val getValidToken: Function0[Neo4jResult] = () => {
-    	val tokens = Cypher(CypherBuilder.getValidToken(token)).apply().map(row => (row[String]("token"), row[String]("status"))).toList
+    	val tokens = Cypher(CypherBuilder.getValidToken(token)).apply().map(row => (row[String]("token"))).toList
         val neo4jResult = new Neo4jResult(tokens)
         Logger("CypherBuilder.getUserToken").info("this is a valid token: " + tokens.head)
         neo4jResult
