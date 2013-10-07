@@ -9,6 +9,7 @@ import play.api.Logger
 import sun.misc.BASE64Decoder
 import com.whatamidoing.utils.ActorUtils
 import akka.actor.ActorRef
+import play.api.Logger
 
 class FrameSupervisor(username: String) extends Actor {
 
@@ -23,6 +24,7 @@ class FrameSupervisor(username: String) extends Actor {
       
       var videoEncoder: ActorRef = videoEncoders get token match {
     					case None => {
+    					    Logger("FrameSupervisor-receive").info("creating actor for token:"+token)
     						val ve = system.actorOf(VideoEncoder.props(token+".flv"), "rtmpsender")
     						videoEncoders += token -> ve
     						ve
@@ -30,6 +32,7 @@ class FrameSupervisor(username: String) extends Actor {
     					case videoEncoder => videoEncoder.get 
       				
       				}
+      	Logger("FrameSupervisor.receive:").info("send message to be encoded");
         videoEncoder ! EncodeFrame(message)
     }
      

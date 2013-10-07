@@ -129,14 +129,14 @@ object WhatAmIDoingController extends Controller {
   import play.api.libs.concurrent.Execution.Implicits._
   import scala.concurrent.Future
   var v = 0
-  def publishVideo(frame: String) = WebSocket.async[String] { implicit request =>
+  def publishVideo = WebSocket.async[String] { implicit request =>
 
     val token = request.session.get("whatAmIdoing-authenticationToken").map { tok => tok }.getOrElse {
       "NOT FOUND"
     }
 
     Logger("WhatAmIDoingController.publishVideo").info(" token=" + token)
-    if (token.equalsIgnoreCase("NOT FOUND")) {
+    if (!token.equalsIgnoreCase("NOT FOUND")) {
 
       val getValidToken = CypherBuilder.getValidTokenFunction(token)
       import com.whatamidoing.actors.neo4j.Neo4JReader._
@@ -159,14 +159,14 @@ object WhatAmIDoingController extends Controller {
         Future((in, out))
         
       } else {
-        val in = Iteratee.foreach[String](println).mapDone { _ =>
+        val in = Iteratee.foreach[String](println).map { _ =>
           Logger("WhatAmIdoingController.pulishVideo").info("TOKEN NOT VALID [" + token + "]")
         }
         val out = Enumerator("TOKEN NOT VALID")
         Future((in, out))
       }
     } else {
-      val in = Iteratee.foreach[String](println).mapDone { _ =>
+      val in = Iteratee.foreach[String](println).map { _ =>
         Logger("WhatAmIdoingController.pulishVideo").info("TOKEN NOT IN SESSION [" + token + "]")
       }
       val out = Enumerator("TOKEN NOT IN SESSION")

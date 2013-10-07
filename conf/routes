@@ -5,7 +5,7 @@
 
 # Home page
 
-GET /publishVideo 					controllers.WhatAmIDoingController.publishVideo(username)
+GET /publishVideo 					controllers.WhatAmIDoingController.publishVideo
 GET /whatamidoing					controllers.WhatAmIDoingController.whatAmIdoing
 POST /invite 						controllers.WhatAmIDoingController.invite(email: String)
 
