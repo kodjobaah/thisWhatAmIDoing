@@ -131,8 +131,14 @@ object WhatAmIDoingController extends Controller {
   import play.api.libs.concurrent.Execution.Implicits._
   import scala.concurrent.Future
   var v = 0
-  def publishVideo(username: String) = WebSocket.async[String] { request =>
+  def publishVideo(username: String) = WebSocket.async[String] {implicit request =>
 
+    val token = request.session.get("whatAmIdoing-authenticationToken").map { tok => tok }.getOrElse {
+    "NOT FOUND"
+    }
+    
+    Logger("WhatAmIDoingController.publishVideo").info(" token="+token)
+    
     // Log events to the console
     v = v + 1
 
