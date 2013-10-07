@@ -25,7 +25,7 @@ class FrameSupervisor(username: String) extends Actor {
       var videoEncoder: ActorRef = videoEncoders get token match {
     					case None => {
     					    Logger("FrameSupervisor-receive").info("creating actor for token:"+token)
-    						val ve = system.actorOf(VideoEncoder.props(token+".flv"), "rtmpsender+")
+    						val ve = system.actorOf(VideoEncoder.props(token+".flv"), "videoencoder:"+java.util.UUID.randomUUID.toString)
     						videoEncoders += token -> ve
     						ve
     					}
