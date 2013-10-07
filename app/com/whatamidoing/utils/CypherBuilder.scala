@@ -47,6 +47,18 @@ object CypherBuilder {
 	  """
     return res
   }
+  
+  def getValidToken(token: String): String = {
+    
+    val res=s"""
+    		match token:AuthenticationToken
+    		when token.token="$token" and token.valid="true"
+    		return token.token as token
+      
+      """
+      return res
+    
+  }
 
   import models._
   import com.whatamidoing.actors.neo4j.Neo4JWriter._
@@ -93,9 +105,20 @@ object CypherBuilder {
     val getUserToken: Function0[Neo4jResult] = () => {
     	val tokens = Cypher(CypherBuilder.getTokenForUser(em)).apply().map(row => (row[String]("token"), row[String]("status"))).toList
         val neo4jResult = new Neo4jResult(tokens)
-        Logger("CypherBuilder.registerLogin").info("this is the token: " + tokens.head)
+        Logger("CypherBuilder.getUserToken").info("this is the token: " + tokens.head)
         neo4jResult
     }
     getUserToken
+  }
+  
+  def getValidTokenFunction(token: String): () => Neo4jResult = {
+    val getValidToken: Function0[Neo4jResult] = () => {
+    	val tokens = Cypher(CypherBuilder.getValidToken(token)).apply().map(row => (row[String]("token"), row[String]("status"))).toList
+        val neo4jResult = new Neo4jResult(tokens)
+        Logger("CypherBuilder.getUserToken").info("this is a valid token: " + tokens.head)
+        neo4jResult
+    }
+    getValidToken
+    
   }
 }

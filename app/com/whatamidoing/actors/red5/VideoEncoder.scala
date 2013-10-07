@@ -1,25 +1,21 @@
 package com.whatamidoing.actors.red5
 
-import java.io.ByteArrayInputStream
+import akka.actor.Actor
+import akka.actor.Props
 
 import com.whatamidoing.actors.red5.services.Xuggler
 
-import akka.actor.Actor
-import akka.actor.Props
-import javax.imageio.ImageIO
-import play.api.Logger
-import sun.misc.BASE64Decoder
+class VideoEncoder(streamName: String) extends Actor {
 
-class RTMPSender(username: String) extends Actor {
-
-  import RTMPSender._
-  val xuggler = Xuggler(username)
-
-  override def receive: Receive = {
-    case RTMPMessage(message) => {
+  val xuggler = Xuggler(streamName)
+  
+  import VideoEncoder._
+   override def receive: Receive = {
+ 
+      case EncodeFrame(frame) => {
       import sun.misc.BASE64Decoder
       val base64: BASE64Decoder = new BASE64Decoder();
-      val bytes64: Array[Byte] = base64.decodeBuffer(message);
+      val bytes64: Array[Byte] = base64.decodeBuffer(frame);
       import java.io.ByteArrayInputStream
       val bais: ByteArrayInputStream = new ByteArrayInputStream(bytes64)
 
@@ -34,15 +30,19 @@ class RTMPSender(username: String) extends Actor {
         }
       }
 
-    }
-  }
+      }
+      case EndTransmission => {
+        
+      }
+   }
+   
 }
 
-object RTMPSender {
-
-  def props(username: String) = Props(new RTMPSender(username))
-
-  case class RTMPMessage(val message: String)
-
+object VideoEncoder {
+  
+  def props(streamName: String) = Props(new VideoEncoder(streamName))
+  
+  case class EncodeFrame(frame: String)
+  case class EndTransmission
+  
 }
-
