@@ -66,15 +66,17 @@ class FrameSupervisor(username: String) extends Actor {
     					  Logger("FrameSupervisor.receive").info("ACTOR NOT FOUND-- NOT STOPPING:"+token+"]");
     					}
     					case videoEncoder => {
-    					  val getValidToken = CypherReaderFunction.getValidToken(token)
+    					  val findStreamForToken = CypherReaderFunction.findActiveStreamForToken(token)
     				      import com.whatamidoing.actors.neo4j.Neo4JReader._
-    				      val getValidTokenResponse: Future[Any] = ask(WhatAmIDoingController.neo4jreader, PerformReadOperation(getValidToken)).mapTo[Any]
+    				      val getValidTokenResponse: Future[Any] = ask(WhatAmIDoingController.neo4jreader, PerformReadOperation(findStreamForToken)).mapTo[Any]
 
-    				       var streamName = Await.result(getValidTokenResponse, 10 seconds) match {
+    					   var streamName = Await.result(getValidTokenResponse, 10 seconds) match {
     				           case ReadOperationResult(readResults) => {
     				        	   readResults.results.head.asInstanceOf[String]
     				           }
-    					   }
+    					  }
+    					  
+    					  Logger("FrameSupervisor.receive").info("stream name:"+streamName)
     					  
     					   
     					    import com.whatamidoing.actors.neo4j.Neo4JWriter._
