@@ -31,6 +31,7 @@ trait Neo4jTestDb {
     engine.execute(CypherWriter.linkStreamToDay(testStream, testDay, testTime))
     engine.execute(CypherWriter.linkStreamToToken(testStream, testToken))
     engine.execute(CypherWriter.linkUserToToken(testUser, testToken))
+    engine.execute(CypherWriter.associateStreamCloseToDay(testStream, testDay, testTime))
     engine
   }
 
