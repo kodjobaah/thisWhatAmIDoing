@@ -37,8 +37,9 @@ object WhatAmIDoingController extends Controller {
   val neo4jreader = system.actorOf(Neo4JReader.props(), "neo-4j-reader-supervisor")
 
   def whatAmIdoing = Action { implicit request =>
-    Ok(views.html.whatamidoing())
-
+    
+    	Ok(views.html.whatamidoing())
+  
   }
 
   def invite(email: String) = Action { implicit request =>

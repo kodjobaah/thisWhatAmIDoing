@@ -14,6 +14,10 @@ trait Neo4jTestDb {
   val testLastName = "testLastName"
   val testPassword = "testPassword"
   val testToken = "test-Token"
+  val testStream = "test-stream-id"
+  val testDay = 2
+  val testTime = "12:01:00:00"
+    
   val db: GraphDatabaseService =
     new TestGraphDatabaseFactory().newImpermanentDatabase()
 
@@ -21,6 +25,9 @@ trait Neo4jTestDb {
     val engine: ExecutionEngine = new ExecutionEngine(db)
     engine.execute(CypherWriter.createUser(testFirstName, testLastName, testUser, testPassword))
     engine.execute(CypherWriter.createToken(testToken, "true"))
+    engine.execute(CypherWriter.createStream(testStream))
+    engine.execute(CypherWriter.linkStreamToDay(testStream, testDay, testTime))
+    engine.execute(CypherWriter.linkStreamToToken(testStream, testToken))
     engine.execute(CypherWriter.linkUserToToken(testUser, testToken))
     engine
   }
