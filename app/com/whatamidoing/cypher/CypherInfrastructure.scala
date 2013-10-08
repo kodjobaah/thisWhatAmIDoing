@@ -2,7 +2,7 @@ package com.whatamidoing.cypher
 
 object CypherInfrastructure {
   
-  def createTime(): String = {
+  def createTimeLine(): String = {
     val t = s"""
                  create (timeline:TimeLine {value:"timeline"})
                 """
