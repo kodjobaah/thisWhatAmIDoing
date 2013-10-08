@@ -43,6 +43,10 @@ object BuildInfrastructureData extends App {
   val res14 = Cypher(CypherInfrastructure.createYear(2014)).execute() 
   val res15 = Cypher(CypherInfrastructure.createYear(2015)).execute() 
   
+  val res16 = Cypher(CypherInfrastructure.linkTimeLineWithYear(2013)).execute
+  val res17 = Cypher(CypherInfrastructure.linkTimeLineWithYear(2014)).execute
+  val res18 = Cypher(CypherInfrastructure.linkTimeLineWithYear(2015)).execute
+  
   for(month <- 1 to 12) {
 	  val res14 = Cypher(CypherInfrastructure.linkMonthWithYear(month,2013)).execute()
 	  val res15 = Cypher(CypherInfrastructure.linkMonthWithYear(month,2014)).execute()
