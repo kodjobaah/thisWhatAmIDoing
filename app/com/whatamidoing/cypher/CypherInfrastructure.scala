@@ -34,7 +34,7 @@ object CypherInfrastructure {
   
  def linkTimeLineWithYear(year: Int): String = {
     val linkMonthWithYear = s"""
- 			  match a:TimeLine, b:year
+ 			  match a:TimeLine, b:Year
 			  where a.value="timeline" AND b.value = "$year"
 			  create a-[r:YEAR]->b
 			  return r

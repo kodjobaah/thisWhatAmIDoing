@@ -4,6 +4,9 @@ import com.whatamidoing.cypher.CypherInfrastructure
 object BuildInfrastructureData extends App {
   
   
+  
+  val res19 = Cypher(CypherInfrastructure.createTimeLine()).execute()
+  println("should have created timeline")
   for(day <- 1 to 31) {
     val res = Cypher(CypherInfrastructure.createDay(day, "day")).execute()
   }
@@ -50,7 +53,6 @@ object BuildInfrastructureData extends App {
 	  val res16 = Cypher(CypherInfrastructure.linkMonthWithYear(month,2015)).execute()
   }
   
-  val res19 = Cypher(CypherInfrastructure.createTimeLine()).execute()
   val res16 = Cypher(CypherInfrastructure.linkTimeLineWithYear(2013)).execute()
   val res17 = Cypher(CypherInfrastructure.linkTimeLineWithYear(2014)).execute()
   val res18 = Cypher(CypherInfrastructure.linkTimeLineWithYear(2015)).execute()
