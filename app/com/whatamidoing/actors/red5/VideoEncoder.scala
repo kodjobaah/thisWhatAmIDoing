@@ -7,6 +7,7 @@ import com.whatamidoing.actors.red5.services.Xuggler
 
 class VideoEncoder(streamName: String) extends Actor {
 
+  def nameOfStream = streamName
   val xuggler = Xuggler(streamName)
   
   import VideoEncoder._

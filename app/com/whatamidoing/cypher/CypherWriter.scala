@@ -19,7 +19,7 @@ object CypherWriter {
 
  def createStream(stream: String): String = {
     val t = s"""
-                 create (stream:Stream {name:"$stream", state="active"})
+                 create (stream:Stream {name:"$stream", state:"active"})
                 """
     return t;
   }
@@ -39,8 +39,8 @@ object CypherWriter {
     val t = s"""
     			match a:Stream, b:Day
     			where a.name="$stream" AND b.value="$day"
-    			create a-[r:BROADCAST_ON {time="$time"}]->b
-                
+    			create a-[r:BROADCAST_ON {time:"$time"}]->b
+                return r
     			"""
     return t;
   }
@@ -55,4 +55,28 @@ object CypherWriter {
     return linkToToken
   }
 
+  def associateStreamCloseToDay(stream: String, day: Int, time: String): String  = {
+     val linkCloseStreamToDay = s"""
+     
+ 			  match a:Stream, b:Day
+			  where a.name="$stream" AND b.token = "$day"
+			  create a-[r:BROADCAST_ENDED_ON {time:"$time"}]->b
+			  return r
+			  
+			  """
+    return linkCloseStreamToDay    
+  }
+  
+  def closeStream(stream: String): String = {
+    
+    val res=s"""
+    		match stream:Stream
+    		where stream.name="$stream"
+    		SET stream.state ="inactive"
+    		return stream.state as state
+    """
+    return res;
+  }
+  
+  
 }

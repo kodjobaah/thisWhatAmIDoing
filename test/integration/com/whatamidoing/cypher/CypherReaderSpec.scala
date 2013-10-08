@@ -8,6 +8,7 @@ import org.scalatest.BeforeAndAfter
 import org.neo4j.cypher.javacompat.ExecutionEngine
 import org.neo4j.graphdb.Transaction
 import org.neo4j.tooling.GlobalGraphOperations
+import com.whatamidoing.cypher.CypherWriter
 
 class CypherReaderSpec extends FlatSpec with Neo4jTestDb with Matchers with BeforeAndAfter {
   
@@ -44,5 +45,17 @@ class CypherReaderSpec extends FlatSpec with Neo4jTestDb with Matchers with Befo
     var result = getEngine.execute(CypherReader.getValidToken("test-invalid-token"))
     result.iterator().hasNext() should equal (false)
   }
+   
+   "Given a active stream" should "turn inactive when the stream is close" in {
+     var result = getEngine.execute(CypherWriter.closeStream(testStream))
+     var resp = ""
+     val it = result.iterator()
+     while(it.hasNext()) {
+        val res = it.next()
+	     resp = res.get("state").asInstanceOf[String]
+     }
+     
+     resp should equal ("inactive")
+   }
 
 }

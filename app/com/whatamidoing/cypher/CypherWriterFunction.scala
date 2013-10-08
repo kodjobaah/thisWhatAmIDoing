@@ -9,6 +9,23 @@ object CypherWriterFunction {
   import com.whatamidoing.actors.neo4j.Neo4JWriter._
   import org.anormcypher._
 
+  
+  def closeStream(stream: String): () => Neo4jResult =  {
+    val closeStream: Function0[Neo4jResult] = () => {
+    	val closeStream = Cypher(CypherWriter.closeStream(stream)).execute()
+    
+        val dt = new DateTime();
+        val day = dt.getDayOfMonth();
+        val time = dt.getHourOfDay()+":"+dt.getMinuteOfDay()+":"+dt.getSecondOfDay()+":"+dt.getMillisOfDay()
+        val endStream = Cypher(CypherWriter.associateStreamCloseToDay(stream,day,time)).execute()
+       
+        val results: List[String] = List(closeStream.toString(), endStream.toString())
+     	val neo4jResult = new Neo4jResult(results)
+        neo4jResult
+    }
+    closeStream
+  }
+  
   def createStream(stream: String, token: String): () => Neo4jResult = {
     val createStream: Function0[Neo4jResult] = () => {
        val createStream = Cypher(CypherWriter.createStream(stream)).execute()
