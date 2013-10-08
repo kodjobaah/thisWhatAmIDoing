@@ -35,6 +35,21 @@ object CypherReader {
     
   }
   
+  def findActiveStreamForToken(token: String) : String = {
+    
+    val res=s"""
+    		match a:AuthenticationToken
+    		where a.token="$token" and a.valid="true"
+    		with a
+    		match a-[r]-b
+    		where type(r) = 'USING' and b.state='active'
+    		return b.name as name
+      
+      """
+      return res
+    
+  }
+  
 
 
 }

@@ -38,5 +38,15 @@ object CypherReaderFunction {
     getValidToken
 
   }
+  
+  def findActiveStreamForToken(token: String): () => Neo4jResult = {
+     val findActiveStream: Function0[Neo4jResult] = () => {
+       val name = Cypher(CypherReader.findActiveStreamForToken(token)).apply().map(row => (row[String]("name"))).toList
+       val neo4jResult = new Neo4jResult(name)
+       Logger("CypherBuiler.findActiveStreamForToken").info("name of active strem:"++name.head)
+       neo4jResult
+     }
+     findActiveStream
+  }
 
 }

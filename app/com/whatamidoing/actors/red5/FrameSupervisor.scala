@@ -19,6 +19,7 @@ import akka.pattern.ask
 import akka.pattern.AskTimeoutException
 import akka.util.Timeout
 import controllers.WhatAmIDoingController
+import com.whatamidoing.cypher.CypherReaderFunction
 
 class FrameSupervisor(username: String) extends Actor {
 
@@ -34,9 +35,10 @@ class FrameSupervisor(username: String) extends Actor {
       
       var videoEncoder: ActorRef = videoEncoders get token match {
     					case None => {
-    					    Logger("FrameSupervisor-receive").info("creating actor for token:"+token)
     					     import com.whatamidoing.actors.neo4j.Neo4JWriter._
     					    var streamName = token+":"+java.util.UUID.randomUUID.toString+".flv"
+    					    Logger("FrameSupervisor-receive").info("creating actor for token:"+streamName)
+    					    
     					    var stream = CypherWriterFunction.createStream(streamName, token)
     						val writeResponse: Future[Any] = ask(WhatAmIDoingController.neo4jwriter, PerformOperation(stream)).mapTo[Any]
 
@@ -45,6 +47,7 @@ class FrameSupervisor(username: String) extends Actor {
     					                		results.results.mkString
     						 		}
     					    }
+    					    Logger("FrameSupervisor.receive").info("results from creating stream:"+res)
     					    val ve = system.actorOf(VideoEncoder.props(streamName), "videoencoder:"+java.util.UUID.randomUUID.toString)
     						videoEncoders += token -> ve
     						ve
@@ -63,8 +66,16 @@ class FrameSupervisor(username: String) extends Actor {
     					  Logger("FrameSupervisor.receive").info("ACTOR NOT FOUND-- NOT STOPPING:"+token+"]");
     					}
     					case videoEncoder => {
-    					   val ve = videoEncoder.get.asInstanceOf[VideoEncoder]
-    					   val streamName = ve.nameOfStream
+    					  val getValidToken = CypherReaderFunction.getValidToken(token)
+    				      import com.whatamidoing.actors.neo4j.Neo4JReader._
+    				      val getValidTokenResponse: Future[Any] = ask(WhatAmIDoingController.neo4jreader, PerformReadOperation(getValidToken)).mapTo[Any]
+
+    				       var streamName = Await.result(getValidTokenResponse, 10 seconds) match {
+    				           case ReadOperationResult(readResults) => {
+    				        	   readResults.results.head.asInstanceOf[String]
+    				           }
+    					   }
+    					  
     					   
     					    import com.whatamidoing.actors.neo4j.Neo4JWriter._
     					    Logger("FrameSupervisor.receive").info("ACTOR FOUND STOPPING [:"+token+"]");

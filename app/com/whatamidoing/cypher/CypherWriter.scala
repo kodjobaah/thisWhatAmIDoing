@@ -26,12 +26,13 @@ object CypherWriter {
  
  def linkStreamToToken(stream: String, token: String): String = {
     val t = s"""
-    			match a:Stream, b:Token
-    			where a.name="$stream" AND b.value="$token"
-    			create a-[r:USING]->b
-                
-    			"""
-    return t;
+    
+    		match a:Stream, b:AuthenticationToken
+    		where a.name="$stream" and b.token="$token"
+    		create a-[r:USING]->b
+    		return r
+    """
+    return t
    
  }
  
@@ -42,7 +43,7 @@ object CypherWriter {
     			create a-[r:BROADCAST_ON {time:"$time"}]->b
                 return r
     			"""
-    return t;
+    return t
   }
  
   def linkUserToToken(em: String, token: String): String = {
@@ -75,7 +76,7 @@ object CypherWriter {
     		SET stream.state ="inactive"
     		return stream.state as state
     """
-    return res;
+    return res
   }
   
   

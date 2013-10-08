@@ -47,7 +47,7 @@ class CypherReaderSpec extends FlatSpec with Neo4jTestDb with Matchers with Befo
   }
    
    "Given a active stream" should "turn inactive when the stream is close" in {
-     var result = getEngine.execute(CypherWriter.closeStream(testStream))
+     var result = getEngine.execute(CypherWriter.closeStream(testMakeInactiveStream))
      var resp = ""
      val it = result.iterator()
      while(it.hasNext()) {
@@ -56,6 +56,21 @@ class CypherReaderSpec extends FlatSpec with Neo4jTestDb with Matchers with Befo
      }
      
      resp should equal ("inactive")
+   }
+   
+   "given the token" should "return the name of the active stream " in {
+     var result = getEngine.execute(CypherReader.findActiveStreamForToken(testToken))
+     var res = ""
+     val it = result.iterator()
+     while(it.hasNext()) {
+       val resp = it.next()
+       res = resp.get("name").asInstanceOf[String]
+       
+     }
+     println(res)
+     res should equal(testStream)
+     
+     
    }
 
 }
