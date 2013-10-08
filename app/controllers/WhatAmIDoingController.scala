@@ -21,7 +21,8 @@ import org.anormcypher._
 import com.whatamidoing.actors.red5._
 import com.whatamidoing.actors.neo4j._
 import com.whatamidoing.utils.ActorUtils
-import com.whatamidoing.utils.CypherBuilder
+import com.whatamidoing.cypher.CypherReaderFunction
+import com.whatamidoing.cypher.CypherWriterFunction
 
 object WhatAmIDoingController extends Controller {
 
@@ -64,7 +65,7 @@ object WhatAmIDoingController extends Controller {
       val fn = firstName.get
       val ln = lastName.get
 
-      val searchForUser = CypherBuilder.searchForUserFunction(em)
+      val searchForUser = CypherReaderFunction.searchForUser(em)
 
       import com.whatamidoing.actors.neo4j.Neo4JReader._
       val response: Future[Any] = ask(neo4jreader, PerformReadOperation(searchForUser)).mapTo[Any]
@@ -84,7 +85,7 @@ object WhatAmIDoingController extends Controller {
 
         import com.whatamidoing.actors.neo4j.Neo4JWriter._
 
-        val createUser = CypherBuilder.createUserFuntion(fn, ln, em, p);
+        val createUser = CypherWriterFunction.createUser(fn, ln, em, p);
 
         val writeResponse: Future[Any] = ask(neo4jwriter, PerformOperation(createUser)).mapTo[Any]
 
@@ -103,7 +104,7 @@ object WhatAmIDoingController extends Controller {
         val dbhash = res
         if (BCrypt.checkpw(p, dbhash)) {
 
-          val getUserToken = CypherBuilder.getUserTokenFunction(em)
+          val getUserToken = CypherReaderFunction.getUserToken(em)
           import com.whatamidoing.actors.neo4j.Neo4JReader._
           val getUserTokenResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getUserToken)).mapTo[Any]
           var getUserTokenResult: scala.concurrent.Future[play.api.mvc.SimpleResult] = getUserTokenResponse.map(
@@ -144,7 +145,7 @@ object WhatAmIDoingController extends Controller {
     Logger("WhatAmIDoingController.publishVideo").info(" token=" + token)
     if (!token.equalsIgnoreCase("NOT FOUND")) {
 
-      val getValidToken = CypherBuilder.getValidTokenFunction(token)
+      val getValidToken = CypherReaderFunction.getValidToken(token)
       import com.whatamidoing.actors.neo4j.Neo4JReader._
       val getValidTokenResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getValidToken)).mapTo[Any]
 

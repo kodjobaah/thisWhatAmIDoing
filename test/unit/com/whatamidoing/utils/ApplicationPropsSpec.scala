@@ -1,4 +1,4 @@
-package com.whatamidoing.utils
+package unit.com.whatamidoing.utils
 
 import org.scalatest._
 import org.scalatest.matchers._
