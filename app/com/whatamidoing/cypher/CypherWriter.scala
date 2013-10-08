@@ -60,7 +60,7 @@ object CypherWriter {
      val linkCloseStreamToDay = s"""
      
  			  match a:Stream, b:Day
-			  where a.name="$stream" AND b.token = "$day"
+			  where a.name="$stream" AND b.value = "$day"
 			  create a-[r:BROADCAST_ENDED_ON {time:"$time"}]->b
 			  return r
 			  

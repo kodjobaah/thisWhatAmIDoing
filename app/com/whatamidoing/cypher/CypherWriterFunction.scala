@@ -21,6 +21,7 @@ object CypherWriterFunction {
        
         val results: List[String] = List(closeStream.toString(), endStream.toString())
      	val neo4jResult = new Neo4jResult(results)
+        Logger("CypherWriterFunction.closeStream").info("results from closing stream:"+results)
         neo4jResult
     }
     closeStream
