@@ -22,7 +22,7 @@ object BuildInfrastructureData extends App {
 	    val yearMonth = Cypher(CypherInfrastructure.linkMonthWithYear(month+1,years(1))).execute()
       //Associating a days to a month
       for(day <- 0 to 30) {
-	      var dayDescription =  "day "+day+1+" - month "+month+1
+	      var dayDescription =  "day "+day+1+" - month "+month+1 + "- year"+year+1
 	      val dayNode = Cypher(CypherInfrastructure.createDay(day+1,dayDescription)).execute()
 		  val monthToDay = Cypher(CypherInfrastructure.linkMonthToDay(monthDescription,dayDescription)).execute()
 	   }
