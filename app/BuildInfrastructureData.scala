@@ -19,7 +19,7 @@ object BuildInfrastructureData extends App {
  for(month <-0 to 11) {
 	 	var monthDescription = months(month)+" - "+years(year)  
         val monthNode = Cypher(CypherInfrastructure.createMonth(month+1,monthDescription)).execute() 
-	    val yearMonth = Cypher(CypherInfrastructure.linkMonthWithYear(month+1,years(1))).execute()
+	    val yearMonth = Cypher(CypherInfrastructure.linkMonthWithYear(monthDescription,years(1))).execute()
       //Associating a days to a month
       for(day <- 0 to 30) {
 	      var dayDescription =  "day "+day+1+" - month "+month+1 + "- year"+year+1

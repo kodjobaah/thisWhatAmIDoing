@@ -43,10 +43,10 @@ object CypherInfrastructure {
    
  }
 
- def linkMonthWithYear(month: Int, year: Int): String = {
+ def linkMonthWithYear(month: String, year: Int): String = {
     val linkMonthWithYear = s"""
  			  match a:Year, b:Month
-			  where a.value="$year" AND b.value = "$month"
+			  where a.value="$year" AND b.description = "$month"
 			  create a-[r:MONTH]->b
 			  return r
 			  """
