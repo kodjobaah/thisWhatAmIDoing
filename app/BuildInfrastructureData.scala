@@ -15,24 +15,20 @@ object BuildInfrastructureData extends App {
 	val yearTimeLine = Cypher(CypherInfrastructure.linkTimeLineWithYear(years(year))).execute()   
   } 
 
+ for(year <-0 to 4) {
  for(month <-0 to 11) {
-	 for(year <- 0 to 4 ) {
-		var monthDescription = months(month)  
+	 	var monthDescription = months(month)+" - "+years(year)  
         val monthNode = Cypher(CypherInfrastructure.createMonth(month+1,monthDescription)).execute() 
-	    val yearMonth = Cypher(CypherInfrastructure.linkMonthWithYear(month+1,years(year))).execute()
-	  
-      
+	    val yearMonth = Cypher(CypherInfrastructure.linkMonthWithYear(month+1,years(1))).execute()
       //Associating a days to a month
       for(day <- 0 to 30) {
 	      var dayDescription =  "day "+day+1+" - month "+month+1
 	      val dayNode = Cypher(CypherInfrastructure.createDay(day+1,dayDescription)).execute()
 		  val monthToDay = Cypher(CypherInfrastructure.linkMonthToDay(monthDescription,dayDescription)).execute()
 	   }
-	 }
-   
-       	   
-
-  }
+	 
+ }
+ }   
   
  
  
