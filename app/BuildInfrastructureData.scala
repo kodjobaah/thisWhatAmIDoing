@@ -15,7 +15,7 @@ object BuildInfrastructureData extends App {
 	val yearTimeLine = Cypher(CypherInfrastructure.linkTimeLineWithYear(years(year))).execute()   
     for(month <-0 to 11) {
    
-      var monthDescription = months(month+1)  
+      var monthDescription = months(month)  
       val monthNode = Cypher(CypherInfrastructure.createMonth(month+1,monthDescription)).execute()
       val yearMonth = Cypher(CypherInfrastructure.linkMonthWithYear(month+1,years(year))).execute()
       
