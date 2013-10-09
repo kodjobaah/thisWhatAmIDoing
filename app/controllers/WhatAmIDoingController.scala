@@ -27,19 +27,20 @@ import com.whatamidoing.cypher.CypherWriterFunction
 object WhatAmIDoingController extends Controller {
 
   //Used by ?(ask)
-  implicit val timeout = Timeout(1 seconds)
+  implicit val timeout = Timeout(500 seconds)
 
   val system = ActorUtils.system
 
   //NOTE: Should we just be passing one database access service..or should each actor get a copy of their own
-  val frameSupervisor = system.actorOf(FrameSupervisor.props("hey"), "frameSupervisor")
-  val neo4jwriter = system.actorOf(Neo4JWriter.props(), "neo-4j-writer-supervisor")
-  val neo4jreader = system.actorOf(Neo4JReader.props(), "neo-4j-reader-supervisor")
+  var frameSupervisor = system.actorOf(FrameSupervisor.props("hey"), "frameSupervisor")
+  var neo4jwriter = system.actorOf(Neo4JWriter.props(), "neo-4j-writer-supervisor")
+  var neo4jreader = system.actorOf(Neo4JReader.props(), "neo-4j-reader-supervisor")
 
-  def whatAmIdoing = Action { implicit request =>
+  def whatAmIdoing(stream: String) = Action { implicit request =>
     
-    	Ok(views.html.whatamidoing())
+    //	Ok(views.html.whatamidoing(stream))
   
+    	Ok("hey")
   }
 
   def invite(email: String) = Action { implicit request =>
@@ -47,11 +48,81 @@ object WhatAmIDoingController extends Controller {
     import com.whatamidoing.mail._
     import com.whatamidoing.mail.mailer._
 
+   import com.whatamidoing.actors.neo4j.Neo4JReader._
+   
+   val token = request.session.get("whatAmIdoing-authenticationToken").map { tok => tok }.getOrElse {
+      "NOT FOUND"
+    }
+     
+     
+    val findStreamForToken = CypherReaderFunction.findActiveStreamForToken(token)
+    val getValidTokenResponse: Future[Any] = ask(WhatAmIDoingController.neo4jreader, PerformReadOperation(findStreamForToken)).mapTo[Any]
+    var streamName = Await.result(getValidTokenResponse, 10 seconds) match {
+    				           case ReadOperationResult(readResults) => {
+    				        	   readResults.results.head.asInstanceOf[String]
+    				           }
+     }
+    
+    /*
+     * Checking to see if invite is already in the system
+     */
+     val searchForUser = CypherReaderFunction.searchForUser(email)
+      import com.whatamidoing.actors.neo4j.Neo4JReader._
+      val response: Future[Any] = ask(neo4jreader, PerformReadOperation(searchForUser)).mapTo[Any]
+
+      val res = Await.result(response, 10 seconds) match {
+        case ReadOperationResult(readResults) => {
+          readResults.results.mkString
+        }
+      }
+     
+     if (res.isEmpty()) {
+        import com.whatamidoing.actors.neo4j.Neo4JWriter._
+        val password = "test"
+        val createUser = CypherWriterFunction.createUser("", "", email, password)
+
+        val writeResponse: Future[Any] = ask(neo4jwriter, PerformOperation(createUser)).mapTo[Any]
+
+        
+        val res = Await.result(response, 10 seconds) match {
+            case WriteOperationResult(results) => {
+                      results.results.mkString
+            }
+        }
+        
+       val inviteMessage = s"""
+               <div>
+      			An account has been create for you just download 
+                the iphone up and start sharing what you are doing:
+              <div>
+               <table>
+               <row>
+                 <td>
+      			email = $email 
+      			</td>
+      		  </row>
+      		  <row>
+      			<td>
+                password = $password
+      			</td>
+      	      </row>
+      	      </table>
+      """
+      
+                send a new Mail(
+      from = ("kodjobaah@gmail.com", "What Am I doing!!"),
+      to = email,
+      subject = "What Am I Doing - Invite mail",
+      message = inviteMessage)
+      Logger("WhatAmIDoingController.invite").info("sending email to =:" + email)
+
+     }
+ 
     send a new Mail(
       from = ("kodjobaah@gmail.com", "What Am I doing!!"),
       to = email,
       subject = "What Am I Doing",
-      message = "Click on the link http://5.79.24.141:9000/whatamidoing ")
+      message = "Click on the link http://5.79.24.141:9000/whatamidoing?stream="+streamName)
     Logger("WhatAmIDoingController.invite").info("sending email to =:" + email)
 
     Ok("done")
@@ -67,7 +138,6 @@ object WhatAmIDoingController extends Controller {
       val ln = lastName.get
 
       val searchForUser = CypherReaderFunction.searchForUser(em)
-
       import com.whatamidoing.actors.neo4j.Neo4JReader._
       val response: Future[Any] = ask(neo4jreader, PerformReadOperation(searchForUser)).mapTo[Any]
 
@@ -137,14 +207,9 @@ object WhatAmIDoingController extends Controller {
   import play.api.libs.concurrent.Execution.Implicits._
   import scala.concurrent.Future
   var v = 0
-  def publishVideo = WebSocket.async[JsValue] { implicit request =>
-
-    val token = request.session.get("whatAmIdoing-authenticationToken").map { tok => tok }.getOrElse {
-      "NOT FOUND"
-    }
+  def publishVideo(token: String) = WebSocket.async[JsValue] { implicit request =>
 
     Logger("WhatAmIDoingController.publishVideo").info(" token=" + token)
-    if (!token.equalsIgnoreCase("NOT FOUND")) {
 
       val getValidToken = CypherReaderFunction.getValidToken(token)
       import com.whatamidoing.actors.neo4j.Neo4JReader._
@@ -178,11 +243,10 @@ object WhatAmIDoingController extends Controller {
         Future((in, out))
         
       } else {
-        val in = Iteratee.foreach[JsValue](println).map { _ =>
-          Logger("WhatAmIdoingController.pulishVideo").info("TOKEN NOT VALID [" + token + "]")
-        }
-        
-        val json: JsValue = Json.parse("""
+         // Just consume and ignore the input
+      val in = Iteratee.ignore[JsValue]
+      
+      val json: JsValue = Json.parse("""
         		{ 
         		"response": {
         		"value" : "TOKEN NOT VALID"
@@ -192,21 +256,7 @@ object WhatAmIDoingController extends Controller {
         val out = Enumerator(json)
         Future((in, out))
       }
-    } else {
-      val in = Iteratee.foreach[JsValue](println).map { _ =>
-        Logger("WhatAmIdoingController.pulishVideo").info("TOKEN NOT IN SESSION [" + token + "]")
-      }
-      val json: JsValue = Json.parse("""
-        		{ 
-        		"response": {
-        		"value" : "TOKEN NOT IN SESSION"
-        		}
-        		} 
-        	""")
-      val out = Enumerator(json)
-      Future((in, out))
-    }
-
+   
   }
 
 }

@@ -54,10 +54,10 @@ object CypherInfrastructure {
    
  }
 
-  def linkMonthToDay(month: Int, day: Int): String = {
+  def linkMonthToDay(month: String, day: String): String = {
     val linkToToken = s"""
  			  match a:Month, b:Day
-			  where a.value="$month" AND b.value = "$day"
+			  where a.description="$month" AND b.description = "$day"
 			  create a-[r:DAY]->b
 			  return r
 			  """

@@ -1,4 +1,4 @@
-package integration.whatamidoing.cypher.suite
+package integration.com.whatamidoing.cypher.suite
 import org.scalatest._
 import integration.com.whatamidoing.cypher.CypherReaderSpec
 import org.neo4j.graphdb.GraphDatabaseService

@@ -47,6 +47,7 @@ object ApplicationBuild extends Build {
     "org.apache.commons" % "commons-email" % "1.3.1",
     "org.neo4j" % "neo4j-kernel" % "2.0.0-M05" % "test" classifier "tests" classifier "",
      "joda-time" % "joda-time" % "2.2",
+     "org.eclipse.jetty" % "jetty-websocket" % "8.1.13.v20130916",
     "org.neo4j" % "neo4j-cypher" % "2.0.0-M05" % "test"
      )
     
