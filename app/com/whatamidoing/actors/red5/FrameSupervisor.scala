@@ -37,7 +37,7 @@ class FrameSupervisor(username: String) extends Actor {
     					case None => {
     					     import com.whatamidoing.actors.neo4j.Neo4JWriter._
     					    var streamName = token+":"+java.util.UUID.randomUUID.toString+".flv"
-    					    Logger("FrameSupervisor-receive").info("creating actor for token:"+streamName)
+    					   // Logger("FrameSupervisor-receive").info("creating actor for token:"+streamName)
     					    
     					    var stream = CypherWriterFunction.createStream(streamName, token)
     						val writeResponse: Future[Any] = ask(WhatAmIDoingController.neo4jwriter, PerformOperation(stream)).mapTo[Any]
@@ -55,7 +55,7 @@ class FrameSupervisor(username: String) extends Actor {
     					case videoEncoder => videoEncoder.get 
       				
       				}
-      	Logger("FrameSupervisor.receive:").info("send message to be encoded");
+      	//Logger("FrameSupervisor.receive:").info("send message to be encoded");
         videoEncoder ! EncodeFrame( (message \ "frame").as[String])
     }
      
