@@ -79,5 +79,19 @@ object CypherWriter {
     return res
   }
   
+  def createInvite(stream: String, email: String): String = {
+    
+    val res=s"""
+    		match stream:Stream, a:User
+    		where stream.name="$stream" and a.email="$email"
+    		create (invite:Invite {name=${stream}-${email}})
+    		create invite-[r:TO_WATCH]->stream
+    		create a-[s:INVITED]-invite
+    		return s,r
+    """
+    return res
+    
+  }
+  
   
 }
