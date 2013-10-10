@@ -17,7 +17,6 @@ object BuildInfrastructureData extends App {
     for (month <- 0 to 11) {
       println("month:" + month)
       val actualMonth = month + 1
-      val actualYear = year + 1
       var monthDescription = months(month) + " - " + years(year)
       val monthNode = Cypher(CypherInfrastructure.createMonth(month + 1, monthDescription)).execute()
       val yearMonth = Cypher(CypherInfrastructure.linkMonthWithYear(monthDescription, years(year))).execute()
@@ -25,7 +24,7 @@ object BuildInfrastructureData extends App {
       for (day <- 0 to 30) {
         println("day:" + day)
         val actualDay = day + 1;
-        var dayDescription = "day " + actualDay + " - month " + actualMonth + "- year " + actualYear
+        var dayDescription = "day " + actualDay + " - month " + actualMonth + "- year " + years(year)
         val dayNode = Cypher(CypherInfrastructure.createDay(actualDay, dayDescription)).execute()
         val monthToDay = Cypher(CypherInfrastructure.linkMonthToDay(monthDescription, dayDescription)).execute()
       }
