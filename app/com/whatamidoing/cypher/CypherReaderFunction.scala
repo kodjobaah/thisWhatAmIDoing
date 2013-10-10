@@ -43,7 +43,7 @@ object CypherReaderFunction {
      val findActiveStream: Function0[Neo4jResult] = () => {
        val name = Cypher(CypherReader.findActiveStreamForToken(token)).apply().map(row => (row[String]("name"))).toList
        val neo4jResult = new Neo4jResult(name)
-       Logger("CypherBuiler.findActiveStreamForToken").info("name of active strem:"++name.head)
+       Logger("CypherBuiler.findActiveStreamForToken").info("name of active strem:"+name)
        neo4jResult
      }
      findActiveStream
