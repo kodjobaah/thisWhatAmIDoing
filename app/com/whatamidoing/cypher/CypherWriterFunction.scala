@@ -17,7 +17,8 @@ object CypherWriterFunction {
         val dt = new DateTime();
         val day = dt.getDayOfMonth();
         val time = dt.getHourOfDay()+":"+dt.getMinuteOfDay()+":"+dt.getSecondOfDay()+":"+dt.getMillisOfDay()
-        val endStream = Cypher(CypherWriter.associateStreamCloseToDay(stream,day,time)).execute()
+       val dayDescription = "day " + day + " - month " + dt.getMonthOfYear() + "- year "+dt.getYear()
+        val endStream = Cypher(CypherWriter.associateStreamCloseToDay(stream,dayDescription,time)).execute()
        
         val results: List[String] = List(closeStream.toString(), endStream.toString())
      	val neo4jResult = new Neo4jResult(results)
@@ -33,9 +34,10 @@ object CypherWriterFunction {
      
        val dt = new DateTime();
        val day = dt.getDayOfMonth();
+       val dayDescription = "day " + day + " - month " + dt.getMonthOfYear() + "- year "+dt.getYear()
        val time = dt.getHourOfDay()+":"+dt.getMinuteOfDay()+":"+dt.getSecondOfDay()+":"+dt.getMillisOfDay()
        
-       val linkStreamToDay = Cypher(CypherWriter.linkStreamToDay(stream, day,time)).execute()
+       val linkStreamToDay = Cypher(CypherWriter.linkStreamToDay(stream, dayDescription,time)).execute()
        
        val linkSteamToToken = Cypher(CypherWriter.linkStreamToToken(stream,token)).execute()
        

@@ -36,10 +36,10 @@ object CypherWriter {
    
  }
  
- def linkStreamToDay(stream: String, day: Int, time: String): String = {
+ def linkStreamToDay(stream: String, day: String, time: String): String = {
     val t = s"""
     			match a:Stream, b:Day
-    			where a.name="$stream" AND b.value="$day"
+    			where a.name="$stream" AND b.description="$day"
     			create a-[r:BROADCAST_ON {time:"$time"}]->b
                 return r
     			"""
@@ -56,11 +56,11 @@ object CypherWriter {
     return linkToToken
   }
 
-  def associateStreamCloseToDay(stream: String, day: Int, time: String): String  = {
+  def associateStreamCloseToDay(stream: String, day: String, time: String): String  = {
      val linkCloseStreamToDay = s"""
      
  			  match a:Stream, b:Day
-			  where a.name="$stream" AND b.value = "$day"
+			  where a.name="$stream" AND b.description = "$day"
 			  create a-[r:BROADCAST_ENDED_ON {time:"$time"}]->b
 			  return r
 			  

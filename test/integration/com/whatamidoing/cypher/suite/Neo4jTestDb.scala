@@ -17,9 +17,9 @@ trait Neo4jTestDb {
   val testToken = "test-Token"
   val testStream = "test-stream-id"
   val testMakeInactiveStream = "test-make-me-inactive"
-  val testDay = 2
+  val testDay = 1
   val testTime = "12:01:00:00"
-    
+  val testDayDescription="day"
   val db: GraphDatabaseService =
     new TestGraphDatabaseFactory().newImpermanentDatabase()
 
@@ -29,8 +29,8 @@ trait Neo4jTestDb {
     engine.execute(CypherWriter.createToken(testToken, "true"))
     engine.execute(CypherWriter.createStream(testStream))
     engine.execute(CypherWriter.createStream(testMakeInactiveStream))
-    engine.execute(CypherInfrastructure.createDay(testDay,"day"))
-    engine.execute(CypherWriter.linkStreamToDay(testStream, testDay, testTime))
+    engine.execute(CypherInfrastructure.createDay(testDay,testDayDescription))
+    engine.execute(CypherWriter.linkStreamToDay(testStream, testDayDescription, testTime))
     engine.execute(CypherWriter.linkStreamToToken(testStream, testToken))
     engine.execute(CypherWriter.linkUserToToken(testUser, testToken))
     engine.execute(CypherWriter.associateStreamCloseToDay(testStream, testDay, testTime))
