@@ -21,6 +21,7 @@ trait Neo4jTestDb {
   val testTime = "12:01:00:00"
   val testDayDescription="day"
   val testDayToClose = "day"
+  val testInviteEmail = "testInviteEmail"
   val db: GraphDatabaseService =
     new TestGraphDatabaseFactory().newImpermanentDatabase()
 
@@ -35,6 +36,7 @@ trait Neo4jTestDb {
     engine.execute(CypherWriter.linkStreamToToken(testStream, testToken))
     engine.execute(CypherWriter.linkUserToToken(testUser, testToken))
     engine.execute(CypherWriter.associateStreamCloseToDay(testStream, testDayToClose, testTime))
+    engine.execute(CypherWriter.createInvite(testStream, testInviteEmail))
     engine
   }
 
