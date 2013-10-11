@@ -39,7 +39,7 @@ object WhatAmIDoingController extends Controller {
   def invalidateToken(token: String) = Action.async { implicit request =>
 
     var valid = ActorUtils.invalidateToken(token)
-    future(Ok(valid))
+    future(Ok(valid).withNewSession)
   }
 
   
