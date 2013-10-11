@@ -44,6 +44,6 @@ object VideoEncoder {
   def props(streamName: String) = Props(new VideoEncoder(streamName))
   
   case class EncodeFrame(frame: String)
-  case class EndTransmission
+  case class EndTransmission()
   
 }

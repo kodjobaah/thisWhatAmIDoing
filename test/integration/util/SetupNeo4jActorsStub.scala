@@ -15,6 +15,7 @@ trait SetupNeo4jActorsStub extends BeforeAndAfterEach  { this: Suite =>
   val password = Option("testpassword")
   val firstName = Option("firstName")
   val lastName = Option("lastName")
+  val newToken = "newToken"
 
   var currentTest = "NOTHING"
 
@@ -31,8 +32,9 @@ trait SetupNeo4jActorsStub extends BeforeAndAfterEach  { this: Suite =>
     val neo4jWriter = TestActorRef(new Actor {
     	def receive = {
     	   case PerformOperation(operation) => {
+    	  
     	    var result = List(("true"))
-            val res = Neo4jResult(result)
+            var res = Neo4jResult(result)
     	    sender ! WriteOperationResult(res) 
     	   }
     	       
@@ -46,7 +48,10 @@ trait SetupNeo4jActorsStub extends BeforeAndAfterEach  { this: Suite =>
 
           var res: Neo4jResult = Neo4jResult(List(""))
           println("------------operation received:"+operation)
-          if (currentTest.equalsIgnoreCase("whatAmIdoingViewPage")) {
+          
+          if (currentTest.equalsIgnoreCase("registerLoginNewAuthenticationToken")) {
+            
+          } else if (currentTest.equalsIgnoreCase("whatAmIdoingViewPage")) {
             println("---- INSIDE ----THIS---")
              if (numberOfTimesCalled == 0) {
               var result = List("testPageToView.flv")

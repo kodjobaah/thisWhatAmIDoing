@@ -93,5 +93,31 @@ object CypherWriter {
     
   }
   
+  def invalidateToken(token: String) : String = {
+      val res=s"""
+    		match a:AuthenticationToken
+    		where a.token = "$token"
+    		SET a.valid ="false"
+    		return a.valid as valid
+      """
+      return res
+    
+  }
+  
+  def createTokenForUser(token: String, email: String): String = {
+      val res=s"""
+    		match a:Email
+    		where a.email = "$email"
+    		with a
+    		create (token:AuthenticationToken {token:"$token",valid:"true"})
+    		create a-[r:HAS_TOKEN]->token
+    		return r
+      """
+      return res
+    
+    
+  }
+
+  
   
 }

@@ -33,6 +33,16 @@ object WhatAmIDoingController extends Controller {
   var neo4jreader = system.actorOf(Neo4JReader.props(), "neo-4j-reader-supervisor")
   var emailSenderService = EmailSenderService()
 
+   /**
+   * Used to return the page for the user to view the stream
+   */
+  def invalidateToken(token: String) = Action.async { implicit request =>
+
+    var valid = ActorUtils.invalidateToken(token)
+    future(Ok(valid))
+  }
+
+  
   /**
    * Used to return the page for the user to view the stream
    */
@@ -113,15 +123,15 @@ object WhatAmIDoingController extends Controller {
 
         if (decrypt) {
 
-          val token = ActorUtils.getUserToken(em)
+          var token = ActorUtils.getUserToken(em)
 
-          if (!token.equalsIgnoreCase("-1")) {
-            import play.api.mvc.Cookie
-            future(Ok("ADDED AUTHENTICATION TOKEN TO SESSISON").withSession(
+          if (token.equalsIgnoreCase("-1")) {
+            
+        	  token = java.util.UUID.randomUUID().toString()
+        	  val res = ActorUtils.createTokenForUser(token, email.get)
+          } 
+          future(Ok("ADDED AUTHENTICATION TOKEN TO SESSISON").withSession(
               "whatAmIdoing-authenticationToken" -> token))
-          } else {
-            future(Ok("TOKEN NOT VALID - NOT ADDED TO SESSION"))
-          }
 
         } else {
           future(Ok("PASSWORD NOT VALID"))

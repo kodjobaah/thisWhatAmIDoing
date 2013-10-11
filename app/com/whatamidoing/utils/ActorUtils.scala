@@ -12,8 +12,7 @@ import scala.concurrent.Future
 import scala.concurrent.future
 import com.whatamidoing.cypher.CypherWriterFunction
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
- import com.whatamidoing.actors.neo4j.Neo4JWriter._
-
+import com.whatamidoing.actors.neo4j.Neo4JWriter._
 
 object ActorUtils {
 
@@ -40,7 +39,7 @@ object ActorUtils {
 
   import play.api.mvc.Results._
   def createUser(fn: String, ln: String, em: String, p: String) = {
-   
+
     val createUser = CypherWriterFunction.createUser(fn, ln, em, p);
 
     val writeResponse: Future[Any] = ask(WhatAmIDoingController.neo4jwriter, PerformOperation(createUser)).mapTo[Any]
@@ -98,12 +97,12 @@ object ActorUtils {
         readResults.results
       }
     }
-    
+
     res
   }
-  
+
   def createInvite(stream: String, email: String, id: String) = {
-    val createInvite = CypherWriterFunction.createInvite(stream, email,id)
+    val createInvite = CypherWriterFunction.createInvite(stream, email, id)
     val writeResponse: Future[Any] = ask(WhatAmIDoingController.neo4jwriter, PerformOperation(createInvite)).mapTo[Any]
 
     var streamName = Await.result(writeResponse, 10 seconds) match {
@@ -113,11 +112,10 @@ object ActorUtils {
     }
     streamName
   }
-  
- def findStreamForInvitedId(invitedId: String) = {
-   println("should be finding stream")
-	val createInvite = CypherReaderFunction.findStreamForInvitedId(invitedId)
-	val readerResponse: Future[Any] = ask(WhatAmIDoingController.neo4jreader, PerformReadOperation(createInvite)).mapTo[Any]
+
+  def findStreamForInvitedId(invitedId: String) = {
+    val createInvite = CypherReaderFunction.findStreamForInvitedId(invitedId)
+    val readerResponse: Future[Any] = ask(WhatAmIDoingController.neo4jreader, PerformReadOperation(createInvite)).mapTo[Any]
 
     var streamName = Await.result(readerResponse, 10 seconds) match {
       case ReadOperationResult(results) => {
@@ -125,7 +123,33 @@ object ActorUtils {
       }
     }
     streamName
-    
- }
+
+  }
+
+  def invalidateToken(token: String) = {
+
+    val invalidateToken = CypherWriterFunction.invalidateToken(token)
+    val writerResponse: Future[Any] = ask(WhatAmIDoingController.neo4jwriter, PerformOperation(invalidateToken)).mapTo[Any]
+
+    var res = Await.result(writerResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        results.results.head.asInstanceOf[String]
+      }
+    }
+   res
+  }
+  
+  def createTokenForUser(token: String, email: String) = {
+
+    val createTokenForUser = CypherWriterFunction.createTokenForUser(token, email)
+    val writerResponse: Future[Any] = ask(WhatAmIDoingController.neo4jwriter, PerformOperation(createTokenForUser)).mapTo[Any]
+
+    var res = Await.result(writerResponse, 10 seconds) match {
+      case  WriteOperationResult(results) => {
+        results.results.head.asInstanceOf[String]
+      }
+    }
+    res
+  }
 
 }

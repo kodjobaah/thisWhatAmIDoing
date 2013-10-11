@@ -80,8 +80,8 @@ object CypherWriterFunction {
   def createInvite(stream: String, email: String, id: String): () => Neo4jResult = {
 
     val createInvite: Function0[Neo4jResult] = () => {
-    val createInvite = Cypher(CypherWriter.createInvite(stream, email,id)).execute()
-    Logger("CypherWriterFunction.createUser").info("this is three: " + createInvite)
+      val createInvite = Cypher(CypherWriter.createInvite(stream, email, id)).execute()
+      Logger("CypherWriterFunction.createUser").info("this is createinvite: " + createInvite)
 
       val results: List[String] = List(createInvite.toString())
       val neo4jResult = new Neo4jResult(results)
@@ -91,4 +91,31 @@ object CypherWriterFunction {
     createInvite
   }
 
+  def invalidateToken(token: String): () => Neo4jResult = {
+
+    val invalidate: Function0[Neo4jResult] = () => {
+      val invalidate = Cypher(CypherWriter.invalidateToken(token)).execute()
+      Logger("CypherWriterFunction.invalidateToken").info("this is invalidateToken: " + invalidate)
+
+      val results: List[String] = List(invalidate.toString())
+      val neo4jResult = new Neo4jResult(results)
+      neo4jResult
+    }
+
+    invalidate
+  }
+  
+  def createTokenForUser(token: String, email: String): () => Neo4jResult = {
+    val createTokenForUser: Function0[Neo4jResult] = () => {
+      val createTokenForUser = Cypher(CypherWriter.createTokenForUser(token, email)).execute()
+      Logger("CypherWriterFunction.createTokenForUser").info("this is invalidateToken: " + createTokenForUser)
+
+      val results: List[String] = List(createTokenForUser.toString())
+      val neo4jResult = new Neo4jResult(List(createTokenForUser.toString()))
+      neo4jResult
+    }
+
+    createTokenForUser
+    
+  }
 }

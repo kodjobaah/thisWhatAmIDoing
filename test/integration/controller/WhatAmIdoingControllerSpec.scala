@@ -51,6 +51,7 @@ class WhatAmIdoingControllerSpec extends FlatSpec  with MockitoSugar with SetupN
         contentAsString(someResult) should include ("rtmp://5.79.24.141:1935/oflaDemo/testPageToView.flv")
        }
   }
+  
   "when a user is invited to join and token is not valid" should "not be sent an email" in {
     running(TestServer(3333)) {
         currentTest = "invitedToViewTokenNotValid"
@@ -125,8 +126,7 @@ class WhatAmIdoingControllerSpec extends FlatSpec  with MockitoSugar with SetupN
     	  case None => ""
     	}
         
-        play_session should be (empty)
-        play_session should not include ("whatAmIdoing-authenticationToken")  
+        play_session should include ("whatAmIdoing-authenticationToken")  
           
       }
     
@@ -201,7 +201,24 @@ class WhatAmIdoingControllerSpec extends FlatSpec  with MockitoSugar with SetupN
         }
 
     }
-
+  
+  "when a user logs out" should "invalidte the session" in {
+    running(TestServer(3333)) {
+      
+      var fakeRequest = FakeRequest().withSession( "whatAmIdoing-authenticationToken" -> "token")
+      val result = controllers.WhatAmIDoingController.invalidateToken("token")(fakeRequest)
+      
+      
+      val cookies = Helpers.cookies(result)
+       val play_session: String = cookies.get("PLAY_SESSION") match {
+          case Some(cookie) => cookie.value
+          case None => ""
+        }
+        
+        play_session should be (empty)
+    }
+  }
+  
   "when user token is not valid" should "not be allowed to encoded video" in {
 
     running(TestServer(3333)) {
