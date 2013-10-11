@@ -6,7 +6,7 @@
 # Home page
 
 GET /publishVideo 					controllers.WhatAmIDoingController.publishVideo(token: String)
-GET /whatamidoing					controllers.WhatAmIDoingController.whatAmIdoing(stream: String)
+GET /whatamidoing					controllers.WhatAmIDoingController.whatAmIdoing(invitedId: String)
 POST /invite 						controllers.WhatAmIDoingController.invite(token: String, email: String)
 
 POST /registerLogin				        controllers.WhatAmIDoingController.registerLogin(email: Option[String], password: Option[String], firstName: Option[String], lastName: Option[String])

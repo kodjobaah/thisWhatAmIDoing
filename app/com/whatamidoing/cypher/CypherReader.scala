@@ -50,6 +50,18 @@ object CypherReader {
     
   }
   
+  def findStreamForInvitedId(invitedId: String) : String = {
+    val res=s"""
+    		match a:Invite
+    		where a.id="$invitedId"
+    		with a
+    		match a-[r:TO_WATCH]-b
+    		return b.name as name
+      """
+      return res
+    
+  }
+  
 
 
 }

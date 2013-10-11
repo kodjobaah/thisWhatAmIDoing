@@ -77,11 +77,11 @@ object CypherWriterFunction {
     createUser
   }
 
-  def createInvite(stream: String, email: String): () => Neo4jResult = {
+  def createInvite(stream: String, email: String, id: String): () => Neo4jResult = {
 
     val createInvite: Function0[Neo4jResult] = () => {
-      val createInvite = Cypher(CypherWriter.createInvite(stream, email)).execute()
-      Logger("CypherWriterFunction.createUser").info("this is three: " + createInvite)
+    val createInvite = Cypher(CypherWriter.createInvite(stream, email,id)).execute()
+    Logger("CypherWriterFunction.createUser").info("this is three: " + createInvite)
 
       val results: List[String] = List(createInvite.toString())
       val neo4jResult = new Neo4jResult(results)

@@ -70,8 +70,10 @@ object WhatAmIDoingController extends Controller {
           emailSenderService.sendRegistrationEmail(email, password)
         }
 
-        emailSenderService.sendInviteEmail(email, streamName)
-        ActorUtils.createInvite(streamName, email)
+        val invitedId = java.util.UUID.randomUUID().toString()
+        ActorUtils.createInvite(streamName, email,invitedId)
+        emailSenderService.sendInviteEmail(email, invitedId)
+        
         future(Ok("Done"))
 
       } else {

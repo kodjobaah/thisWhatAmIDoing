@@ -73,5 +73,19 @@ class CypherReaderSpec extends FlatSpec with Neo4jTestDb with Matchers with Befo
      
      
    }
+   
+   "given the invited id" should "return the name of the stream" in {
+	   var result = getEngine.execute(CypherReader.findStreamForInvitedId(testInvitedId))
+	   var res = ""
+       val it = result.iterator()
+       while(it.hasNext()) {
+        val resp = it.next()
+        res = resp.get("name").asInstanceOf[String]
+       
+      }
+     res should equal(testStream)
+     
+     
+   }
 
 }

@@ -102,8 +102,8 @@ object ActorUtils {
     res
   }
   
-  def createInvite(stream: String, email: String) = {
-    val createInvite = CypherWriterFunction.createInvite(stream, email)
+  def createInvite(stream: String, email: String, id: String) = {
+    val createInvite = CypherWriterFunction.createInvite(stream, email,id)
     val writeResponse: Future[Any] = ask(WhatAmIDoingController.neo4jwriter, PerformOperation(createInvite)).mapTo[Any]
 
     var streamName = Await.result(writeResponse, 10 seconds) match {

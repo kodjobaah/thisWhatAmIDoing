@@ -7,13 +7,13 @@ import com.whatamidoing.mail.mailer._
 class EmailSenderService {
 
   
-  def sendInviteEmail(email:String, streamName: String) = {
+  def sendInviteEmail(email:String, invitedId: String) = {
  
     send a new Mail(
       from = ("kodjobaah@gmail.com", "What Am I doing!!"),
       to = email,
       subject = "What Am I Doing",
-      message = "Click on the link http://5.79.24.141:9000/whatamidoing?stream="+streamName)
+      message = "Click on the link http://5.79.24.141:9000/whatamidoing?invitedId="+invitedId)
 
   }
 
