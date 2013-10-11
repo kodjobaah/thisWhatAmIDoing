@@ -54,9 +54,9 @@ class CypherReaderSpec extends FlatSpec with Neo4jTestDb with Matchers with Befo
      while(it.hasNext()) {
         val res = it.next()
 	     resp = res.get("state").asInstanceOf[String]
-     }
-     
+     }     
      resp should equal ("inactive")
+   
    }
    
    "given the token" should "return the name of the active stream " in {
@@ -68,10 +68,8 @@ class CypherReaderSpec extends FlatSpec with Neo4jTestDb with Matchers with Befo
        res = resp.get("name").asInstanceOf[String]
        
      }
-     println(res)
      res should equal(testStream)
-     
-     
+        
    }
    
    "given the invited id" should "return the name of the stream" in {
@@ -83,8 +81,7 @@ class CypherReaderSpec extends FlatSpec with Neo4jTestDb with Matchers with Befo
         res = resp.get("name").asInstanceOf[String]
        
       }
-     res should equal(testStream)
-     
+	 res should equal(testStream)    
      
    }
 

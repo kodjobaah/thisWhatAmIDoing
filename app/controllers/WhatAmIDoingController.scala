@@ -36,11 +36,10 @@ object WhatAmIDoingController extends Controller {
   /**
    * Used to return the page for the user to view the stream
    */
-  def whatAmIdoing(stream: String) = Action { implicit request =>
+  def whatAmIdoing(invitedId: String) = Action.async { implicit request =>
 
-    //	Ok(views.html.whatamidoing(stream))
-
-    Ok("hey")
+    var streamId = ActorUtils.findStreamForInvitedId(invitedId)
+    future(Ok(views.html.whatamidoing(streamId)))
   }
 
   /**

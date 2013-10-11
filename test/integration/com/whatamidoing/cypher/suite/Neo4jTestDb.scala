@@ -38,6 +38,7 @@ trait Neo4jTestDb {
     engine.execute(CypherWriter.linkUserToToken(testUser, testToken))
     engine.execute(CypherWriter.associateStreamCloseToDay(testStream, testDayToClose, testTime))
     engine.execute(CypherWriter.createInvite(testStream, testInviteEmail,testInvitedId))
+    println("created the test data")
     engine
   }
 

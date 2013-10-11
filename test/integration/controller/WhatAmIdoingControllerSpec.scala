@@ -42,6 +42,15 @@ import org.scalatest.mock.MockitoSugar
 
 class WhatAmIdoingControllerSpec extends FlatSpec  with MockitoSugar with SetupNeo4jActorsStub with Matchers {
 
+  "when given the invited id" should "get the page with the right ur" in {
+    running(TestServer(3333)) {
+       currentTest = "whatAmIdoingViewPage"
+       val fakeRequest = FakeRequest() 
+        val someResult = controllers.WhatAmIDoingController.whatAmIdoing("testInvitedId")(fakeRequest)
+
+        contentAsString(someResult) should include ("rtmp://5.79.24.141:1935/oflaDemo/testPageToView.flv")
+       }
+  }
   "when a user is invited to join and token is not valid" should "not be sent an email" in {
     running(TestServer(3333)) {
         currentTest = "invitedToViewTokenNotValid"

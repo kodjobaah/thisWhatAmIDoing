@@ -113,5 +113,19 @@ object ActorUtils {
     }
     streamName
   }
+  
+ def findStreamForInvitedId(invitedId: String) = {
+   println("should be finding stream")
+	val createInvite = CypherReaderFunction.findStreamForInvitedId(invitedId)
+	val readerResponse: Future[Any] = ask(WhatAmIDoingController.neo4jreader, PerformReadOperation(createInvite)).mapTo[Any]
+
+    var streamName = Await.result(readerResponse, 10 seconds) match {
+      case ReadOperationResult(results) => {
+        results.results.head.asInstanceOf[String]
+      }
+    }
+    streamName
+    
+ }
 
 }

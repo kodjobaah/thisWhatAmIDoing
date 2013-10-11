@@ -45,9 +45,15 @@ trait SetupNeo4jActorsStub extends BeforeAndAfterEach  { this: Suite =>
         case PerformReadOperation(operation) => {
 
           var res: Neo4jResult = Neo4jResult(List(""))
-          
-          
-          if (currentTest.equalsIgnoreCase("invitedToViewTokenNotValid")) {
+          println("------------operation received:"+operation)
+          if (currentTest.equalsIgnoreCase("whatAmIdoingViewPage")) {
+            println("---- INSIDE ----THIS---")
+             if (numberOfTimesCalled == 0) {
+              var result = List("testPageToView.flv")
+              res = Neo4jResult(result)
+              numberOfTimesCalled = numberOfTimesCalled + 1
+            }
+          } else if (currentTest.equalsIgnoreCase("invitedToViewTokenNotValid")) {
         	  if (numberOfTimesCalled == 0) {
               var result = List()
               res = Neo4jResult(result)
