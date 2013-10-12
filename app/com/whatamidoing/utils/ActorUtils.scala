@@ -80,7 +80,12 @@ object ActorUtils {
     val findStreamForTokenResponse: Future[Any] = ask(WhatAmIDoingController.neo4jreader, PerformReadOperation(findStreamForToken)).mapTo[Any]
     var streamName = Await.result(findStreamForTokenResponse, 10 seconds) match {
       case ReadOperationResult(readResults) => {
+        
+        if (readResults.results.size > 0) {
         readResults.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
       }
     }
 
