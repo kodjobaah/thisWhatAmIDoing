@@ -1,29 +1,19 @@
 import sbt._
 import Keys._
 import play.Project._
+import de.johoop.jacoco4sbt._
+import JacocoPlugin._
 //import com.typesafe.sbt.SbtAtmos.atmosSettings
 //import com.typesafe.sbt.SbtAtmos.traceAkka 
 // imports standard command parsing functionality
-import complete.DefaultParsers._
+//import complete.DefaultParsers._
 object ApplicationBuild extends Build {
 
-  // The command changes the foreground or background terminal color
-  //  according to the input.
-  lazy val change = Space ~> (reset | setColor)
-  lazy val reset = token("reset" ^^^ "\033[0m")
-  lazy val color = token(Space ~> ("blue" ^^^ "4" | "green" ^^^ "2"))
-  lazy val select = token("fg" ^^^ "3" | "bg" ^^^ "4")
-  lazy val setColor = (select ~ color) map { case (g, c) => "\033[" + g + c + "m" }
-
-  def changeColor = Command("color")(_ => change) { (state, ansicode) =>
-    print(ansicode)
-    state
-  }
-
+ 
   val appName = "thisIsWhatIAmDoing"
   val appVersion = "1.0-SNAPSHOT"
-
-  val appDependencies = Seq(
+  jacoco.settings
+   val appDependencies = Seq(
     // Add your project dependencies here,
     "com.typesafe.slick" % "slick_2.10" % "1.0.0-RC2",
     "com.typesafe.slick" %% "slick-extensions" % "1.0.0",
@@ -52,15 +42,15 @@ object ApplicationBuild extends Build {
     "org.neo4j" % "neo4j-cypher" % "2.0.0-M05" % "test"
      )
     
+     
     val main = play.Project(appName, appVersion, appDependencies).settings(
-    
     resolvers ++= Seq(
     	"anormcypher" at "http://repo.anormcypher.org/"
     ),
     testOptions in Test := Nil,
  	 
     libraryDependencies ++= Dependencies.traceAkka,
-
+    javaOptions in Test += "-Dconfig.file=webapp/conf/application.conf",
     scalacOptions += "-language:postfixOps",
     javaOptions in run ++= Seq(
       "-javaagent:c:\\software\\typesafe\\typesafe-console-developer-1.2.0\\lib\\weaver\\aspectjweaver.jar",

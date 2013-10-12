@@ -110,12 +110,29 @@ object CypherWriterFunction {
       val createTokenForUser = Cypher(CypherWriter.createTokenForUser(token, email)).execute()
       Logger("CypherWriterFunction.createTokenForUser").info("this is invalidateToken: " + createTokenForUser)
 
-      val results: List[String] = List(createTokenForUser.toString())
       val neo4jResult = new Neo4jResult(List(createTokenForUser.toString()))
       neo4jResult
     }
 
     createTokenForUser
+  }
+
+  def associateDayWithInvite(inviteId: String): () => Neo4jResult = {
     
+    val associatedDayWithInvite: Function0[Neo4jResult] = () => {
+      
+      val dt = new DateTime();
+      val day = dt.getDayOfMonth();
+      val dayDescription = "day " + day + " - month " + dt.getMonthOfYear() + "- year " + dt.getYear()
+      val time = dt.getHourOfDay() + ":" + dt.getMinuteOfDay() + ":" + dt.getSecondOfDay() + ":" + dt.getMillisOfDay()
+
+      val assocaiteDayWithInvited = Cypher(CypherWriter.associateDayWithInvite(inviteId, dayDescription, time)).execute()
+      Logger("CypherWriterFunction.assocaiteDayWithInvited").info("this is invalidateToken: " + assocaiteDayWithInvited)
+
+      val neo4jResult = new Neo4jResult(List(assocaiteDayWithInvited.toString()))
+      neo4jResult
+    }
+
+    associatedDayWithInvite
   }
 }

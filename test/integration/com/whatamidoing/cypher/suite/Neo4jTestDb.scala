@@ -19,8 +19,8 @@ trait Neo4jTestDb {
   val testMakeInactiveStream = "test-make-me-inactive"
   val testDay = 1
   val testTime = "12:01:00:00"
-  val testDayDescription="day"
-  val testDayToClose = "day"
+  val testDayDescription="day-description"
+  val testDayToClose = "day-to-close"
   val testInviteEmail = "testInviteEmail"
   val testInvitedId = "test-invited-id"
   val testTokenToInvalidate = "test-token-to-invalidate"
@@ -43,6 +43,7 @@ trait Neo4jTestDb {
     engine.execute(CypherWriter.createInvite(testStream, testInviteEmail,testInvitedId))
     engine.execute(CypherWriter.createToken(testTokenToInvalidate, "true"))
     engine.execute(CypherWriter.createTokenForUser(testNewToken, testUser))
+    engine.execute(CypherWriter.associateDayWithInvite(testInvitedId, testInvitedId, testTime))
     println("created the test data")
     engine
   }

@@ -114,8 +114,17 @@ object CypherWriter {
     		return r
       """
       return res
-    
-    
+  }
+  
+  def associateDayWithInvite(inviteId:String, day: String, time: String): String = {
+      val res=s"""
+    		match a:Invite, b:Day
+    		where a.id = "$inviteId" and b.description="$day"
+    		with a
+    		create a-[r:ACCEPTED_ON {time:"$time"]->b
+    		return r
+      """
+      return res
   }
 
   

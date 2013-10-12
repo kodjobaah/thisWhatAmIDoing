@@ -8,6 +8,7 @@ import org.scalamock.scalatest.MockFactory
 import models.Neo4jResult
 import akka.pattern.{ pipe }
 import controllers.WhatAmIDoingController
+import play.api.Logger
 
 trait SetupNeo4jActorsStub extends BeforeAndAfterEach  { this: Suite =>
 
@@ -47,12 +48,15 @@ trait SetupNeo4jActorsStub extends BeforeAndAfterEach  { this: Suite =>
         case PerformReadOperation(operation) => {
 
           var res: Neo4jResult = Neo4jResult(List(""))
-          println("------------operation received:"+operation)
+          Logger("SetupNeo4jActorsStub").info("------------operation received:"+operation)
           
-          if (currentTest.equalsIgnoreCase("registerLoginNewAuthenticationToken")) {
-            
+          if (currentTest.equalsIgnoreCase("whatAmIdoingViewPageInvitedIdDoesNotExist")) {
+             if (numberOfTimesCalled == 0) {
+              var result = List()
+              res = Neo4jResult(result)
+              numberOfTimesCalled = numberOfTimesCalled + 1
+            }
           } else if (currentTest.equalsIgnoreCase("whatAmIdoingViewPage")) {
-            println("---- INSIDE ----THIS---")
              if (numberOfTimesCalled == 0) {
               var result = List("testPageToView.flv")
               res = Neo4jResult(result)

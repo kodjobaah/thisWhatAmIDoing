@@ -119,7 +119,12 @@ object ActorUtils {
 
     var streamName = Await.result(readerResponse, 10 seconds) match {
       case ReadOperationResult(results) => {
-        results.results.head.asInstanceOf[String]
+        
+        if (results.results.size > 0) {
+        	results.results.head.asInstanceOf[String]
+        } else {
+        	""
+        }
       }
     }
     streamName
@@ -150,6 +155,20 @@ object ActorUtils {
       }
     }
     res
+  }
+  
+  def associatedInviteWithDayOfAcceptance(inviteId: String) = {
+	val associateInviteWithAcceptanceDay = CypherWriterFunction.associateDayWithInvite(inviteId)
+    val writerResponse: Future[Any] = ask(WhatAmIDoingController.neo4jwriter, PerformOperation(associateInviteWithAcceptanceDay)).mapTo[Any]
+
+    var res = Await.result(writerResponse, 10 seconds) match {
+      case  WriteOperationResult(results) => {
+        results.results.head.asInstanceOf[String]
+      }
+    }
+    res
+    
+    
   }
 
 }
