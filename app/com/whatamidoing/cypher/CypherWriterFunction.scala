@@ -108,7 +108,7 @@ object CypherWriterFunction {
   def createTokenForUser(token: String, email: String): () => Neo4jResult = {
     val createTokenForUser: Function0[Neo4jResult] = () => {
       val createTokenForUser = Cypher(CypherWriter.createTokenForUser(token, email)).execute()
-      Logger("CypherWriterFunction.createTokenForUser").info("this is invalidateToken: " + createTokenForUser)
+      Logger("CypherWriterFunction.createTokenForUser").info("this is createTokenForUser: " + createTokenForUser)
 
       val neo4jResult = new Neo4jResult(List(createTokenForUser.toString()))
       neo4jResult

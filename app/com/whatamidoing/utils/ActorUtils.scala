@@ -194,5 +194,49 @@ object ActorUtils {
     res
 
   }
+  
+  def createStream(token: String, streamName: String): String = {
+    // Logger("FrameSupervisor-receive").info("creating actor for token:"+streamName)
+
+    var stream = CypherWriterFunction.createStream(streamName, token)
+    val writeResponse: Future[Any] = ask(WhatAmIDoingController.neo4jwriter, PerformOperation(stream)).mapTo[Any]
+
+    var res = Await.result(writeResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        results.results.mkString
+      }
+    }
+    res
+  }
+  
+  def findActiveStreamForToken(token: String): String = {
+    
+    val findStreamForToken = CypherReaderFunction.findActiveStreamForToken(token)
+    import com.whatamidoing.actors.neo4j.Neo4JReader._
+    val getValidTokenResponse: Future[Any] = ask(WhatAmIDoingController.neo4jreader, PerformReadOperation(findStreamForToken)).mapTo[Any]
+
+    var streamName = Await.result(getValidTokenResponse, 10 seconds) match {
+      case ReadOperationResult(readResults) => {
+        
+        if (readResults.results.size > 0 ) {
+        	readResults.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
+      }
+    }
+    streamName
+  }
+  
+ def closeStream(streamName: String) = {
+    var closeStream = CypherWriterFunction.closeStream(streamName)
+    val writeResponse: Future[Any] = ask(WhatAmIDoingController.neo4jwriter, PerformOperation(closeStream)).mapTo[Any]
+
+    var res = Await.result(writeResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        results.results.mkString
+      }
+    }
+  }
 
 }

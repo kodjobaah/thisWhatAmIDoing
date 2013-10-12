@@ -35,18 +35,9 @@ class FrameSupervisor(username: String) extends Actor {
 
       var videoEncoder: ActorRef = videoEncoders get token match {
         case None => {
-          import com.whatamidoing.actors.neo4j.Neo4JWriter._
           var streamName = token + ":" + java.util.UUID.randomUUID.toString + ".flv"
-          // Logger("FrameSupervisor-receive").info("creating actor for token:"+streamName)
-
-          var stream = CypherWriterFunction.createStream(streamName, token)
-          val writeResponse: Future[Any] = ask(WhatAmIDoingController.neo4jwriter, PerformOperation(stream)).mapTo[Any]
-
-          var res = Await.result(writeResponse, 10 seconds) match {
-            case WriteOperationResult(results) => {
-              results.results.mkString
-            }
-          }
+          var res = ActorUtils.createStream(token, streamName)
+          
           Logger("FrameSupervisor.receive").info("results from creating stream:" + res)
           val ve = system.actorOf(VideoEncoder.props(streamName), "videoencoder:" + java.util.UUID.randomUUID.toString)
           videoEncoders += token -> ve
@@ -62,36 +53,21 @@ class FrameSupervisor(username: String) extends Actor {
     case StopVideo(token) => {
 
       videoEncoders get token match {
-        case None => {
+        
+      	case None => {
           Logger("FrameSupervisor.receive").info("ACTOR NOT FOUND-- NOT STOPPING:" + token + "]");
         }
+        
         case videoEncoder => {
-          val findStreamForToken = CypherReaderFunction.findActiveStreamForToken(token)
-          import com.whatamidoing.actors.neo4j.Neo4JReader._
-          val getValidTokenResponse: Future[Any] = ask(WhatAmIDoingController.neo4jreader, PerformReadOperation(findStreamForToken)).mapTo[Any]
-
-          var streamName = Await.result(getValidTokenResponse, 10 seconds) match {
-            case ReadOperationResult(readResults) => {
-              readResults.results.head.asInstanceOf[String]
-            }
-          }
-
-          Logger("FrameSupervisor.receive").info("stream name:" + streamName)
-
-          import com.whatamidoing.actors.neo4j.Neo4JWriter._
+          
           Logger("FrameSupervisor.receive").info("ACTOR FOUND STOPPING [:" + token + "]");
           system.stop(videoEncoder.get)
           videoEncoders -= token
 
+          var streamName = ActorUtils.findActiveStreamForToken(token)
+          Logger("FrameSupervisor.receive").info("stream name:" + streamName)
           if (!streamName.isEmpty()) {
-            var closeStream = CypherWriterFunction.closeStream(streamName)
-            val writeResponse: Future[Any] = ask(WhatAmIDoingController.neo4jwriter, PerformOperation(closeStream)).mapTo[Any]
-
-            var res = Await.result(writeResponse, 10 seconds) match {
-              case WriteOperationResult(results) => {
-                results.results.mkString
-              }
-            }
+            var res = ActorUtils.closeStream(streamName)
           }
 
         }
