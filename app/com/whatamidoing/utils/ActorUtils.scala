@@ -13,6 +13,7 @@ import scala.concurrent.future
 import com.whatamidoing.cypher.CypherWriterFunction
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import com.whatamidoing.actors.neo4j.Neo4JWriter._
+import play.api.Logger
 
 object ActorUtils {
 
@@ -163,6 +164,7 @@ object ActorUtils {
 
   def createTokenForUser(token: String, email: String) = {
 
+    Logger("ActorUtils.createTokenForUser").info("token["+token+"] email["+email+"]")
     val createTokenForUser = CypherWriterFunction.createTokenForUser(token, email)
     val writerResponse: Future[Any] = ask(WhatAmIDoingController.neo4jwriter, PerformOperation(createTokenForUser)).mapTo[Any]
 
