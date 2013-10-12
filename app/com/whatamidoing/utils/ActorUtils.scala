@@ -26,12 +26,15 @@ object ActorUtils {
     val getUserTokenResponse: Future[Any] = ask(WhatAmIDoingController.neo4jreader, PerformReadOperation(getUserToken)).mapTo[Any]
     var res = Await.result(getUserTokenResponse, 10 seconds) match {
       case ReadOperationResult(results) => {
-        val tok = results.results.head.asInstanceOf[(String, String)]
-        if (tok._2 == "true") {
-          tok._1
-        } else {
-          "-1"
+        if (results.results.size > 0) {
+          val tok = results.results.head.asInstanceOf[(String, String)]
+          if (tok._2 == "true") {
+            tok._1
+          } else {
+            "-1"
+          }
         }
+        "-1"
       }
     }
     res
@@ -80,9 +83,9 @@ object ActorUtils {
     val findStreamForTokenResponse: Future[Any] = ask(WhatAmIDoingController.neo4jreader, PerformReadOperation(findStreamForToken)).mapTo[Any]
     var streamName = Await.result(findStreamForTokenResponse, 10 seconds) match {
       case ReadOperationResult(readResults) => {
-        
+
         if (readResults.results.size > 0) {
-        readResults.results.head.asInstanceOf[String]
+          readResults.results.head.asInstanceOf[String]
         } else {
           ""
         }
@@ -124,11 +127,11 @@ object ActorUtils {
 
     var streamName = Await.result(readerResponse, 10 seconds) match {
       case ReadOperationResult(results) => {
-        
+
         if (results.results.size > 0) {
-        	results.results.head.asInstanceOf[String]
+          results.results.head.asInstanceOf[String]
         } else {
-        	""
+          ""
         }
       }
     }
@@ -143,41 +146,40 @@ object ActorUtils {
 
     var res = Await.result(writerResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
-        if (results.results.size > 0 ) {
+        if (results.results.size > 0) {
           results.results.head.asInstanceOf[String]
         } else {
           ""
         }
       }
     }
-   res
+    res
   }
-  
+
   def createTokenForUser(token: String, email: String) = {
 
     val createTokenForUser = CypherWriterFunction.createTokenForUser(token, email)
     val writerResponse: Future[Any] = ask(WhatAmIDoingController.neo4jwriter, PerformOperation(createTokenForUser)).mapTo[Any]
 
     var res = Await.result(writerResponse, 10 seconds) match {
-      case  WriteOperationResult(results) => {
+      case WriteOperationResult(results) => {
         results.results.head.asInstanceOf[String]
       }
     }
     res
   }
-  
+
   def associatedInviteWithDayOfAcceptance(inviteId: String) = {
-	val associateInviteWithAcceptanceDay = CypherWriterFunction.associateDayWithInvite(inviteId)
+    val associateInviteWithAcceptanceDay = CypherWriterFunction.associateDayWithInvite(inviteId)
     val writerResponse: Future[Any] = ask(WhatAmIDoingController.neo4jwriter, PerformOperation(associateInviteWithAcceptanceDay)).mapTo[Any]
 
     var res = Await.result(writerResponse, 10 seconds) match {
-      case  WriteOperationResult(results) => {
+      case WriteOperationResult(results) => {
         results.results.head.asInstanceOf[String]
       }
     }
     res
-    
-    
+
   }
 
 }
