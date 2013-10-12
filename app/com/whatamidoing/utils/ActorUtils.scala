@@ -143,7 +143,11 @@ object ActorUtils {
 
     var res = Await.result(writerResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
-        results.results.head.asInstanceOf[String]
+        if (results.results.size > 0 ) {
+          results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
       }
     }
    res
