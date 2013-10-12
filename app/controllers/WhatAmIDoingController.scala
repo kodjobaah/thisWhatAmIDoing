@@ -38,6 +38,10 @@ object WhatAmIDoingController extends Controller {
    */
   def invalidateToken(token: String) = Action.async { implicit request =>
 
+    var streamId = ActorUtils.findActiveStreamForToken(token)
+    if (!streamId.isEmpty()) {
+       ActorUtils.closeStream(streamId)
+    }
     var valid = ActorUtils.invalidateToken(token)
     future(Ok(valid).withNewSession)
   }

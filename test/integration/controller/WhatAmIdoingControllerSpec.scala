@@ -214,7 +214,8 @@ class WhatAmIdoingControllerSpec extends FlatSpec with MockitoSugar with SetupNe
 
   "when a user logs out" should "invalidte the session" in {
     running(TestServer(3333)) {
-
+      currentTest = "invalidteTheSessionWhenNoActiveStream"
+        
       var fakeRequest = FakeRequest().withSession("whatAmIdoing-authenticationToken" -> "token")
       val result = controllers.WhatAmIDoingController.invalidateToken("token")(fakeRequest)
 
