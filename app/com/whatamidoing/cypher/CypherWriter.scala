@@ -120,7 +120,7 @@ object CypherWriter {
       val res=s"""
     		match a:Invite, b:Day
     		where a.id = "$inviteId" and b.description="$day"
-    		with a
+    		with a,b
     		create a-[r:ACCEPTED_ON {time:"$time"}]->b
     		return r
       """
