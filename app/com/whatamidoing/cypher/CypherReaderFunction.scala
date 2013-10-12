@@ -22,7 +22,7 @@ object CypherReaderFunction {
     val getUserToken: Function0[Neo4jResult] = () => {
       val tokens = Cypher(CypherReader.getTokenForUser(em)).apply().map(row => (row[String]("token"), row[String]("status"))).toList
       val neo4jResult = new Neo4jResult(tokens)
-      Logger("CypherBuilder.getUserToken").info("this is the token: " + tokens.head)
+      Logger("CypherBuilder.getUserToken").info("this is the token: " + tokens)
       neo4jResult
     }
     getUserToken
@@ -32,7 +32,7 @@ object CypherReaderFunction {
     val getValidToken: Function0[Neo4jResult] = () => {
       val tokens = Cypher(CypherReader.getValidToken(token)).apply().map(row => (row[String]("token"))).toList
       val neo4jResult = new Neo4jResult(tokens)
-      Logger("CypherBuilder.getUserToken").info("this is a valid token: " + tokens.head)
+      Logger("CypherBuilder.getUserToken").info("this is a valid token: " + tokens)
       neo4jResult
     }
     getValidToken
