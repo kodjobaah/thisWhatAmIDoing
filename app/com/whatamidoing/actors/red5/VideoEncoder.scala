@@ -36,6 +36,11 @@ class VideoEncoder(streamName: String) extends Actor {
         
       }
    }
+  
+  override def postStop() {
+    xuggler.mediaWriter.close()
+    
+  }
    
 }
 
