@@ -55,7 +55,7 @@ object CypherReader {
     		match a:Invite
     		where a.id = "$invitedId"
     		with a
-    		match a-[:TO_WATCH]-r
+    		match a-[:TO_WATCH]->r
     		return r.name as name
       """
       return res

@@ -127,7 +127,7 @@ object CypherWriterFunction {
       val time = dt.getHourOfDay() + ":" + dt.getMinuteOfDay() + ":" + dt.getSecondOfDay() + ":" + dt.getMillisOfDay()
 
       val assocaiteDayWithInvited = Cypher(CypherWriter.associateDayWithInvite(inviteId, dayDescription, time)).execute()
-      Logger("CypherWriterFunction.assocaiteDayWithInvited").info("this is invalidateToken: " + assocaiteDayWithInvited)
+      Logger("CypherWriterFunction.assocaiteDayWithInvited").info("this is associateDayWithInvited: " + assocaiteDayWithInvited)
 
       val neo4jResult = new Neo4jResult(List(assocaiteDayWithInvited.toString()))
       neo4jResult

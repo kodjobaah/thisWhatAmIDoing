@@ -86,7 +86,7 @@ object CypherWriter {
     		where stream.name="$stream" and a.email="$email"
     		create (invite:Invite {name:"${stream}-${email}", id:"$id"})
     		create invite-[r:TO_WATCH]->stream
-    		create a-[s:INVITED]-invite
+    		create a-[s:INVITED]->invite
     		return s,r
     """
     return res
@@ -121,7 +121,7 @@ object CypherWriter {
     		match a:Invite, b:Day
     		where a.id = "$inviteId" and b.description="$day"
     		with a
-    		create a-[r:ACCEPTED_ON {time:"$time"]->b
+    		create a-[r:ACCEPTED_ON {time:"$time"}]->b
     		return r
       """
       return res

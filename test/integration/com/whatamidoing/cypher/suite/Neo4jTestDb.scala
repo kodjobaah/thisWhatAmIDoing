@@ -43,7 +43,7 @@ trait Neo4jTestDb {
     engine.execute(CypherWriter.createInvite(testStream, testInviteEmail,testInvitedId))
     engine.execute(CypherWriter.createToken(testTokenToInvalidate, "true"))
     engine.execute(CypherWriter.createTokenForUser(testNewToken, testUser))
-    engine.execute(CypherWriter.associateDayWithInvite(testInvitedId, testInvitedId, testTime))
+    engine.execute(CypherWriter.associateDayWithInvite(testInvitedId, testDayDescription, testTime))
     println("created the test data")
     engine
   }
