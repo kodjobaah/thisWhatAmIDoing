@@ -106,7 +106,7 @@ object CypherWriter {
   
   def createTokenForUser(token: String, email: String): String = {
       val res=s"""
-    		match a:Email
+    		match a:User
     		where a.email = "$email"
     		with a
     		create (token:AuthenticationToken {token:"$token",valid:"true"})
