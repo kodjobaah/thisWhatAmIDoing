@@ -1,23 +1,15 @@
 @* whatamidoing Template File *@
 @(stream: String)
-    <!DOCTYPE html>
-    <html>
-    <head>
-    <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")"></script>
+@main("What Am I Doing") {
     <script type="text/javascript" src="@routes.Assets.at("javascripts/jwplayer/jwplayer.js")"></script>
 	<script type="text/javascript">jwplayer.key="DdoUgqs9Nb+GfdfINwAZCazIQbGLeW5d1nYtBg==";</script>
-    </head>
-    <body>
-    
-    <h1> What Am I Doing</h1>
-     
-     
+}{
      <div id="player">
 	<script type="text/javascript">
 		jwplayer('player').setup({
 			 'flashplayer': '@routes.Assets.at("javascripts/jwplayer/jwplayer.flash.swf")',
 			    'id': 'playerID',
-			    'width': '650',
+			    'width': '600',
 			    'height': '480',
 			    'file': 'rtmp://5.79.24.141:1935/oflaDemo/@stream',
 			    'streamer': 'rtmp://5.79.24.141:1935/oflaDemo',
@@ -25,5 +17,4 @@
 	  });
 	</script>
 	  </div>
- 	    </body>
-    </html>
+}

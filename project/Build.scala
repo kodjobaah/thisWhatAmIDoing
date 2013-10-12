@@ -29,16 +29,16 @@ object ApplicationBuild extends Build {
     "ch.qos.logback" % "logback-core" % "1.0.13",
     "ch.qos.logback" % "logback-classic" % "1.0.13",
     "ch.qos.logback" % "logback-access" % "1.0.13",
-    "org.webjars" % "jquery" % "1.8.2",
-    "org.webjars" % "bootstrap" % "2.1.1",
-    "org.webjars" % "webjars-play" % "2.1.0-1",
     "org.mindrot" % "jbcrypt" % "0.3m",
     "org.anormcypher" %% "anormcypher" % "0.4.3",
     "org.apache.commons" % "commons-email" % "1.3.1",
     "org.neo4j" % "neo4j-kernel" % "2.0.0-M05" % "test" classifier "tests" classifier "",
-     "joda-time" % "joda-time" % "2.2",
-     "org.mockito" % "mockito-all" % "1.9.5",
-     "org.eclipse.jetty" % "jetty-websocket" % "8.1.13.v20130916",
+    "joda-time" % "joda-time" % "2.2",
+    "org.mockito" % "mockito-all" % "1.9.5",
+    "org.webjars" % "jquery" % "1.9.0",
+    "org.webjars" %% "webjars-play" % "2.1.0-2",
+    "org.webjars" % "bootstrap" % "2.3.2",
+    "org.eclipse.jetty" % "jetty-websocket" % "8.1.13.v20130916",
     "org.neo4j" % "neo4j-cypher" % "2.0.0-M05" % "test"
      )
     

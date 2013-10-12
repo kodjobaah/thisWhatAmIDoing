@@ -48,6 +48,7 @@ object WhatAmIDoingController extends Controller {
    */
   def whatAmIdoing(invitedId: String) = Action.async { implicit request =>
 
+    /*
     var streamId = ActorUtils.findStreamForInvitedId(invitedId)
     
     if (streamId.isEmpty()) {
@@ -56,11 +57,14 @@ object WhatAmIDoingController extends Controller {
     	ActorUtils.associatedInviteWithDayOfAcceptance(invitedId)
     	future(Ok(views.html.whatamidoing(streamId)))
     }
+    * 
+    */
+    	future(Ok(views.html.whatamidoing(invitedId)))
   }
 
   /**
    * *
-   * Used to send an invit to some one to come and view the stream
+   * Used to send an invite to some one to come and view the stream
    */
   def invite(token: String, email: String) = Action.async { implicit request =>
 

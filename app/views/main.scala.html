@@ -1,15 +1,31 @@
-@(title: String)(content: Html)
+@(title: String)(head: Html)(content: Html)
 
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title>@title</title>
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
-        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-        <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
-    </head>
-    <body>
-        @content
-    </body>
+<head>
+<title>@title</title>
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+<link
+	href='@routes.WebJarAssets.at(WebJarAssets.locate("css/bootstrap.min.css"))'
+	rel='stylesheet'>
+<script
+	src='@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))'
+	type='text/javascript'></script>
+@head
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row-fluid" >
+			    <div class="row-fluid" style="height:70px;background-color: #bbd8e9;">
+			     <p style="text-align: center"> @title</p>
+				</div>
+				<div class="row-fluid">
+				    
+					<div style="vertical-align: middle; border: 10px 10px 10px 10px;border-color: red;">@content</div>
+			  </div>
+		</div>
+	</div>
+</body>
 </html>

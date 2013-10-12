@@ -6,9 +6,10 @@
 # Home page
 
 POST /invalidateToken				controllers.WhatAmIDoingController.invalidateToken(token: String)
-GET /publishVideo 					controllers.WhatAmIDoingController.publishVideo(token: String)
-GET /whatamidoing					controllers.WhatAmIDoingController.whatAmIdoing(invitedId: String)
+GET  /publishVideo 					controllers.WhatAmIDoingController.publishVideo(token: String)
+GET  /whatamidoing					controllers.WhatAmIDoingController.whatAmIdoing(invitedId: String)
 POST /invite 						controllers.WhatAmIDoingController.invite(token: String, email: String)
+GET  /webjars/*file                 controllers.WebJarAssets.at(file)
 
 POST /registerLogin				        controllers.WhatAmIDoingController.registerLogin(email: Option[String], password: Option[String], firstName: Option[String], lastName: Option[String])
 # Obtain require.js with built-in knowledge of how webjars resources can be
