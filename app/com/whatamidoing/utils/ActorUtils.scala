@@ -115,7 +115,12 @@ object ActorUtils {
 
     var streamName = Await.result(writeResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
-        results.results.head.asInstanceOf[String]
+        if (results.results.size > 0) {
+          results.results.head.asInstanceOf[String]
+        } else {
+          ""
+
+        }
       }
     }
     streamName
@@ -163,7 +168,11 @@ object ActorUtils {
 
     var res = Await.result(writerResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
-        results.results.head.asInstanceOf[String]
+        if (results.results.size > 0) {
+        	results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
       }
     }
     res
@@ -175,7 +184,11 @@ object ActorUtils {
 
     var res = Await.result(writerResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
+        if (results.results.size > 0) {
         results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
       }
     }
     res
