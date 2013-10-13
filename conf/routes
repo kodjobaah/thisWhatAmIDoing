@@ -5,10 +5,10 @@
 
 # Home page
 
-POST /invalidateToken				controllers.WhatAmIDoingController.invalidateToken(token: String)
-GET  /publishVideo 					controllers.WhatAmIDoingController.publishVideo(token: String)
-GET  /whatamidoing					controllers.WhatAmIDoingController.whatAmIdoing(invitedId: String)
-POST /invite 						controllers.WhatAmIDoingController.invite(token: String, email: String)
+POST /invalidateToken				controllers.WhatAmIDoingController.invalidateToken(token: Option[String])
+GET  /publishVideo 					controllers.WhatAmIDoingController.publishVideo(token: Option[String])
+GET  /whatamidoing					controllers.WhatAmIDoingController.whatAmIdoing(invitedId: Option[String])
+POST /invite 						controllers.WhatAmIDoingController.invite(token: Option[String], email: Option[String])
 GET  /webjars/*file                 controllers.WebJarAssets.at(file)
 
 POST /registerLogin				        controllers.WhatAmIDoingController.registerLogin(email: Option[String], password: Option[String], firstName: Option[String], lastName: Option[String])

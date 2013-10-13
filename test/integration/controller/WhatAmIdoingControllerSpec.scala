@@ -22,27 +22,60 @@ import play.api.test.TestServer
 
 class WhatAmIdoingControllerSpec extends FlatSpec with MockitoSugar with SetupNeo4jActorsStub with Matchers {
 
+  "when invited id is not supplied" should "send them to page with appropriate message" in {
+    running(TestServer(3333)) {
+      currentTest = "whatAmIdoingViewPageInvitedIdIsNotSupplied"
+      val fakeRequest = FakeRequest()
+      val someResult = controllers.WhatAmIDoingController.whatAmIdoing(None)(fakeRequest)
+
+      contentAsString(someResult) should not include ("rtmp://5.79.24.141:1935/oflaDemo/testPageToView.flv")
+      contentAsString(someResult) should include("No Invitation Found")
+
+    }
+  }
+
   "when invited id does not exist" should "send them to page with appropriate message" in {
     running(TestServer(3333)) {
       currentTest = "whatAmIdoingViewPageInvitedIdDoesNotExist"
       val fakeRequest = FakeRequest()
-      val someResult = controllers.WhatAmIDoingController.whatAmIdoing("testInvitedId")(fakeRequest)
+      val someResult = controllers.WhatAmIDoingController.whatAmIdoing(Option("testInvitedId"))(fakeRequest)
 
-      contentAsString(someResult) should not include("rtmp://5.79.24.141:1935/oflaDemo/testPageToView.flv")
+      contentAsString(someResult) should not include ("rtmp://5.79.24.141:1935/oflaDemo/testPageToView.flv")
       contentAsString(someResult) should include("No Invitation Found")
-      
+
     }
   }
   "when given the invited id" should "get the page with the right url" in {
     running(TestServer(3333)) {
       currentTest = "whatAmIdoingViewPage"
       val fakeRequest = FakeRequest()
-      val someResult = controllers.WhatAmIDoingController.whatAmIdoing("testInvitedId")(fakeRequest)
+      val someResult = controllers.WhatAmIDoingController.whatAmIdoing(Option("testInvitedId"))(fakeRequest)
 
       contentAsString(someResult) should include("rtmp://5.79.24.141:1935/oflaDemo/testPageToView.flv")
     }
   }
 
+  "when a user tries to invite some one with an invalid email" should "not send the email" in {
+    running(TestServer(3333)) {
+      currentTest = "invitedToViewInvalidEmail"
+      val fakeRequest = FakeRequest()
+      val mockEmailService = mock[EmailSenderService]
+      controllers.WhatAmIDoingController.emailSenderService = mockEmailService
+      val testToken = "testToken"
+      //val someResult = play.api.test.Helpers.await(controllers.WhatAmIDoingController.invite(email.get,testToken)(fakeRequest))
+      val someResult = controllers.WhatAmIDoingController.invite(Option(testToken), Option("invalid email address"))(fakeRequest)
+
+      import org.mockito.Mockito._
+      import org.mockito.Matchers._
+
+      verify(mockEmailService, never()).sendRegistrationEmail(org.mockito.Matchers.eq(email.get), any())
+      verify(mockEmailService, never()).sendInviteEmail(org.mockito.Matchers.eq(email.get), any())
+
+      contentAsString(someResult) should include("Invalid Email")
+
+    }
+
+  }
   "when a user is invited to join and token is not valid" should "not be sent an email" in {
     running(TestServer(3333)) {
       currentTest = "invitedToViewTokenNotValid"
@@ -51,7 +84,7 @@ class WhatAmIdoingControllerSpec extends FlatSpec with MockitoSugar with SetupNe
       controllers.WhatAmIDoingController.emailSenderService = mockEmailService
       val testToken = "testToken"
       //val someResult = play.api.test.Helpers.await(controllers.WhatAmIDoingController.invite(email.get,testToken)(fakeRequest))
-      val someResult = controllers.WhatAmIDoingController.invite(testToken, email.get)(fakeRequest)
+      val someResult = controllers.WhatAmIDoingController.invite(Option(testToken), email)(fakeRequest)
 
       import org.mockito.Mockito._
       import org.mockito.Matchers._
@@ -71,7 +104,7 @@ class WhatAmIdoingControllerSpec extends FlatSpec with MockitoSugar with SetupNe
       controllers.WhatAmIDoingController.emailSenderService = mockEmailService
       val testToken = "testToken"
       //val someResult = play.api.test.Helpers.await(controllers.WhatAmIDoingController.invite(email.get,testToken)(fakeRequest))
-      val someResult = controllers.WhatAmIDoingController.invite(testToken, email.get)(fakeRequest)
+      val someResult = controllers.WhatAmIDoingController.invite(Option(testToken), email)(fakeRequest)
 
       import org.mockito.Mockito._
       import org.mockito.Matchers._
@@ -92,7 +125,7 @@ class WhatAmIdoingControllerSpec extends FlatSpec with MockitoSugar with SetupNe
       controllers.WhatAmIDoingController.emailSenderService = mockEmailService
       val testToken = "testToken"
       //val someResult = play.api.test.Helpers.await(controllers.WhatAmIDoingController.invite(email.get,testToken)(fakeRequest))
-      val someResult = controllers.WhatAmIDoingController.invite(testToken, email.get)(fakeRequest)
+      val someResult = controllers.WhatAmIDoingController.invite(Option(testToken), email)(fakeRequest)
 
       import org.mockito.Mockito._
       import org.mockito.Matchers._
@@ -105,6 +138,105 @@ class WhatAmIdoingControllerSpec extends FlatSpec with MockitoSugar with SetupNe
     }
   }
 
+  "when a user is invited to join and but not email is supplied" should "not be invited" in {
+    running(TestServer(3333)) {
+      val fakeRequest = FakeRequest()
+      currentTest = "invitedToJoinButNoEmailProvided"
+      val mockEmailService = mock[EmailSenderService]
+      controllers.WhatAmIDoingController.emailSenderService = mockEmailService
+      val testToken = "testToken"
+      //val someResult = play.api.test.Helpers.await(controllers.WhatAmIDoingController.invite(email.get,testToken)(fakeRequest))
+      val someResult = controllers.WhatAmIDoingController.invite(Option(testToken), None)(fakeRequest)
+
+      import org.mockito.Mockito._
+      import org.mockito.Matchers._
+
+      verify(mockEmailService, never()).sendRegistrationEmail(org.mockito.Matchers.eq(email.get), any())
+      verify(mockEmailService, never()).sendInviteEmail(org.mockito.Matchers.eq(email.get), any())
+
+      contentAsString(someResult) should include("No email provided")
+
+    }
+  }
+
+  "when a user is invited to join and but no token is supplied" should "not be invited" in {
+    running(TestServer(3333)) {
+      val fakeRequest = FakeRequest()
+      currentTest = "invitedToJoinButNoTokenProvided"
+      val mockEmailService = mock[EmailSenderService]
+      controllers.WhatAmIDoingController.emailSenderService = mockEmailService
+      val testToken = "testToken"
+      //val someResult = play.api.test.Helpers.await(controllers.WhatAmIDoingController.invite(email.get,testToken)(fakeRequest))
+      val someResult = controllers.WhatAmIDoingController.invite(None, email)(fakeRequest)
+
+      import org.mockito.Mockito._
+      import org.mockito.Matchers._
+
+      verify(mockEmailService, never()).sendRegistrationEmail(org.mockito.Matchers.eq(email.get), any())
+      verify(mockEmailService, never()).sendInviteEmail(org.mockito.Matchers.eq(email.get), any())
+
+      contentAsString(someResult) should include("No token provided")
+
+    }
+  }
+
+  "when no email is supplied user" should "not be allowed to regsiter" in {
+    running(TestServer(3333)) {
+      val fakeRequest = FakeRequest()
+      currentTest = "registeredLoginWithOutSupplyingEmail"
+      val someResult = controllers.WhatAmIDoingController.registerLogin(None, password, firstName, lastName)(fakeRequest)
+
+      contentAsString(someResult) should include("Email not supplied")
+
+      val cookies = Helpers.cookies(someResult)
+      val play_session = cookies.get("PLAY_SESSION") match {
+        case Some(cookie) => cookie.value
+        case None => ""
+      }
+
+      play_session should not include ("whatAmIdoing-authenticationToken")
+
+    }
+
+  }
+
+  "when a user tries to registerd without supplying a password" should "not be allowed to register" in {
+    running(TestServer(3333)) {
+      val fakeRequest = FakeRequest()
+      currentTest = "registeredLoginWithOutSupplyingPassword"
+      val someResult = controllers.WhatAmIDoingController.registerLogin(email, None, firstName, lastName)(fakeRequest)
+
+      contentAsString(someResult) should include("Password not supplied")
+
+      val cookies = Helpers.cookies(someResult)
+      val play_session = cookies.get("PLAY_SESSION") match {
+        case Some(cookie) => cookie.value
+        case None => ""
+      }
+
+      play_session should not include ("whatAmIdoing-authenticationToken")
+
+    }
+  }
+
+  "when a user tries to registerd with an invalid email" should "not be allowed to register" in {
+    running(TestServer(3333)) {
+      val fakeRequest = FakeRequest()
+      currentTest = "registeredLoginWithValidPasswordInvalidToken"
+      val someResult = controllers.WhatAmIDoingController.registerLogin(Option("invalid email address"), password, firstName, lastName)(fakeRequest)
+
+      contentAsString(someResult) should include("Email Not Valid")
+
+      val cookies = Helpers.cookies(someResult)
+      val play_session = cookies.get("PLAY_SESSION") match {
+        case Some(cookie) => cookie.value
+        case None => ""
+      }
+
+      play_session should not include ("whatAmIdoing-authenticationToken")
+
+    }
+  }
   "when a user is registered" should "not return authentication token if passoword is valid but token is invalid" in {
     running(TestServer(3333)) {
       val fakeRequest = FakeRequest()
@@ -193,12 +325,32 @@ class WhatAmIdoingControllerSpec extends FlatSpec with MockitoSugar with SetupNe
 
     }
 
+  "when user tries to logout without providind a token" should "invalidate the session" in {
+    running(TestServer(3333)) {
+      currentTest = "invalidteTheSessionWhenNoToken"
+
+      var fakeRequest = FakeRequest().withSession("whatAmIdoing-authenticationToken" -> "token")
+      val result = controllers.WhatAmIDoingController.invalidateToken(None)(fakeRequest)
+
+      val cookies = Helpers.cookies(result)
+      val play_session: String = cookies.get("PLAY_SESSION") match {
+        case Some(cookie) => cookie.value
+        case None => ""
+      }
+
+      play_session should be(empty)
+
+      contentAsString(result) should include("No token provided")
+
+    }
+  }
+
   "when a user logs out" should "invalidte the session" in {
     running(TestServer(3333)) {
       currentTest = "invalidteTheSessionWhenNoActiveStream"
-        
+
       var fakeRequest = FakeRequest().withSession("whatAmIdoing-authenticationToken" -> "token")
-      val result = controllers.WhatAmIDoingController.invalidateToken("token")(fakeRequest)
+      val result = controllers.WhatAmIDoingController.invalidateToken(Option("token"))(fakeRequest)
 
       val cookies = Helpers.cookies(result)
       val play_session: String = cookies.get("PLAY_SESSION") match {

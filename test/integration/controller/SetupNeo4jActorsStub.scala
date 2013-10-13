@@ -9,6 +9,7 @@ import play.api.Logger
 import models.Messages._
 import akka.actor.actorRef2Scala
 import akka.testkit.TestActorRef
+import com.whatamidoing.utils.ActorUtils
 
 trait SetupNeo4jActorsStub extends BeforeAndAfterEach  { this: Suite =>
 
@@ -50,7 +51,13 @@ trait SetupNeo4jActorsStub extends BeforeAndAfterEach  { this: Suite =>
           var res: Neo4jResult = Neo4jResult(List(""))
           Logger("SetupNeo4jActorsStub").info("------------operation received:"+operation)
           
-          if (currentTest.equalsIgnoreCase("whatAmIdoingViewPageInvitedIdDoesNotExist")) {
+          if (currentTest.equalsIgnoreCase("registeredLoginWithOutSupplyingPassword")) {
+             if (numberOfTimesCalled == 0) {
+              var result = List("authentionid")
+              res = Neo4jResult(result)
+              numberOfTimesCalled = numberOfTimesCalled + 1
+            }
+          } else if (currentTest.equalsIgnoreCase("whatAmIdoingViewPageInvitedIdDoesNotExist")) {
              if (numberOfTimesCalled == 0) {
               var result = List()
               res = Neo4jResult(result)
@@ -181,9 +188,9 @@ trait SetupNeo4jActorsStub extends BeforeAndAfterEach  { this: Suite =>
       }
     })
 
-    controllers.WhatAmIDoingController.neo4jreader = neo4jReader
-    controllers.WhatAmIDoingController.frameSupervisor = frameSupervisor
-    controllers.WhatAmIDoingController.neo4jwriter = neo4jWriter
+    ActorUtils.neo4jreader = neo4jReader
+    ActorUtils.frameSupervisor = frameSupervisor
+    ActorUtils.neo4jwriter = neo4jWriter
 
     super.beforeEach() // To be stackable, must call super.beforeEach
   }

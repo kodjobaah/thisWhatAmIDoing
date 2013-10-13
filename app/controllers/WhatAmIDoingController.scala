@@ -5,6 +5,9 @@ import play.api.mvc.Action
 import play.api.Logger
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import play.api.libs.json._
+
+import play.data.validation.Constraints.EmailValidator
+
 import scala.concurrent._
 import scala.concurrent.future
 import scala.concurrent.duration.DurationInt
@@ -22,80 +25,102 @@ import models.Messages._
 
 object WhatAmIDoingController extends Controller {
 
-  //Used by ?(ask)
-  implicit val timeout = Timeout(500 seconds)
-
-  val system = ActorUtils.system
-
-  //NOTE: Should we just be passing one database access service..or should each actor get a copy of their own
-  var frameSupervisor = ActorUtils.frameSupervisor
-  var neo4jwriter = ActorUtils.neo4jwriter
-  var neo4jreader = ActorUtils.neo4jreader
   var emailSenderService = EmailSenderService()
 
-   /**
-   * Used to return the page for the user to view the stream
-   */
-  def invalidateToken(token: String) = Action.async { implicit request =>
-
-    var streamId = ActorUtils.findActiveStreamForToken(token)
-    if (!streamId.isEmpty()) {
-       ActorUtils.closeStream(streamId)
-    }
-    var valid = ActorUtils.invalidateToken(token)
-    future(Ok(valid).withNewSession)
-  }
-
-  
   /**
    * Used to return the page for the user to view the stream
    */
-  def whatAmIdoing(invitedId: String) = Action.async { implicit request =>
+  def invalidateToken(tokenOption: Option[String]) = Action.async { implicit request =>
 
-     var streamId = ActorUtils.findStreamForInvitedId(invitedId)
-    
-    if (streamId.isEmpty()) {
-       future(Ok(views.html.whatamidoingnoinviteId()))
-    }  else {
-    	ActorUtils.associatedInviteWithDayOfAcceptance(invitedId)
-    	future(Ok(views.html.whatamidoing(streamId)))
+    val token = tokenOption.getOrElse("no-token-provided")
+
+    if (!token.equalsIgnoreCase("no-token-provided")) {
+      var streamId = ActorUtils.findActiveStreamForToken(token)
+      if (!streamId.isEmpty()) {
+        ActorUtils.closeStream(streamId)
+      }
+      var valid = ActorUtils.invalidateToken(token)
+      future(Ok(valid).withNewSession)
+    } else {
+      future(Ok("No token provided").withNewSession)
     }
-   }
+  }
+
+  /**
+   * Used to return the page for the user to view the stream
+   */
+  def whatAmIdoing(invitedIdOption: Option[String]) = Action.async { implicit request =>
+
+    val invitedId = invitedIdOption.getOrElse("no-invited-id")
+
+    if (!invitedId.equalsIgnoreCase("no-invited-id")) {
+      var streamId = ActorUtils.findStreamForInvitedId(invitedId)
+
+      if (streamId.isEmpty()) {
+        future(Ok(views.html.whatamidoingnoinviteId()))
+      } else {
+        ActorUtils.associatedInviteWithDayOfAcceptance(invitedId)
+        future(Ok(views.html.whatamidoing(streamId)))
+      }
+    } else {
+      future(Ok(views.html.whatamidoingnoinviteId()))
+    }
+  }
 
   /**
    * *
    * Used to send an invite to some one to come and view the stream
    */
-  def invite(token: String, email: String) = Action.async { implicit request =>
+  def invite(tokenOption: Option[String], emailOption: Option[String]) = Action.async { implicit request =>
 
-    var valid = ActorUtils.getValidToken(token)
+    val email = emailOption.getOrElse("no-email-provided")
+    val token = tokenOption.getOrElse("no-token-provided")
 
-    if (valid.asInstanceOf[List[String]].size > 0) {
-      var streamName = ActorUtils.streamNameForToken(token)
-      if ((streamName != null) && (!streamName.isEmpty())) {
+    if (!token.equalsIgnoreCase("no-token-provided")) {
+      if (!email.equalsIgnoreCase("no-email-provided")) {
+        var emailValidator = new EmailValidator()
 
-        /*
+        var isEmailValid = emailValidator.isValid(email)
+
+        if (isEmailValid) {
+
+          var valid = ActorUtils.getValidToken(token)
+
+          if (valid.asInstanceOf[List[String]].size > 0) {
+            var streamName = ActorUtils.streamNameForToken(token)
+            if ((streamName != null) && (!streamName.isEmpty())) {
+
+              /*
          * Checking to see if invite is already in the system
          */
-        val res = ActorUtils.searchForUser(email)
+              val res = ActorUtils.searchForUser(email)
 
-        if (res.isEmpty()) {
-          val password = "test"
-          val res = ActorUtils.createUser("", "", email, password)
-          emailSenderService.sendRegistrationEmail(email, password)
+              if (res.isEmpty()) {
+                val password = "test"
+                val res = ActorUtils.createUser("", "", email, password)
+                emailSenderService.sendRegistrationEmail(email, password)
+              }
+
+              val invitedId = java.util.UUID.randomUUID().toString()
+              ActorUtils.createInvite(streamName, email, invitedId)
+              emailSenderService.sendInviteEmail(email, invitedId)
+
+              future(Ok("Done"))
+
+            } else {
+              future(Ok("Unable to Invite No Stream"))
+            }
+          } else {
+            future(Ok("Unable To Invite"))
+          }
+        } else {
+          future(Ok("Invalid Email"))
         }
-
-        val invitedId = java.util.UUID.randomUUID().toString()
-        ActorUtils.createInvite(streamName, email,invitedId)
-        emailSenderService.sendInviteEmail(email, invitedId)
-        
-        future(Ok("Done"))
-
       } else {
-    	  future(Ok("Unable to Invite No Stream"))
+        future(Ok("No email provided"))
       }
     } else {
-      future(Ok("Unable To Invite"))
+      future(Ok("No token provided"))
     }
   }
 
@@ -103,50 +128,66 @@ object WhatAmIDoingController extends Controller {
   def registerLogin(email: Option[String], password: Option[String], firstName: Option[String], lastName: Option[String]) =
     Action.async { implicit request =>
 
-      val em = email.get
-      val p = password.get
-      val fn = firstName.get
-      val ln = lastName.get
+      val em = email.getOrElse("no-email-address-provided")
+      val p = password.getOrElse("no-password-provided")
+      val fn = firstName.getOrElse("no-first-name-provided")
+      val ln = lastName.getOrElse("no-last-name-provided")
 
-      var res = ActorUtils.searchForUser(em)
+      if (!em.equalsIgnoreCase("no-email-address-provided")) {
+        val emailValidator = new EmailValidator()
+        val isEmailValid = emailValidator.isValid(email.get)
 
-     Logger.info("results from searching for a user:"+res)
-      //Creating the user
-      if (res.isEmpty()) {
-        val writeResult = ActorUtils.createUser(fn, ln, em, p);
-        writeResult
-      } else {
+        if (isEmailValid) {
+          var res = ActorUtils.searchForUser(em)
 
-        //Checking the users password
-        import org.mindrot.jbcrypt.BCrypt
-        val dbhash = res
-        var decrypt = true;
+          Logger.info("results from searching for a user:" + p + ":")
+          //Creating the user
+          if (res.isEmpty()) {
+            val writeResult = ActorUtils.createUser(fn, ln, em, p);
+            writeResult
+          } else {
 
-        try {
-          BCrypt.checkpw(p, dbhash)
-        } catch {
-          case e: java.lang.IllegalArgumentException => decrypt = false
-        }
+            if (!p.equalsIgnoreCase("no-password-provided")) {
+              //Checking the users password
+              import org.mindrot.jbcrypt.BCrypt
+              val dbhash = res
+              var decrypt = true;
 
-        if (decrypt) {
+              try {
+                BCrypt.checkpw(p, dbhash)
+              } catch {
+                case e: java.lang.IllegalArgumentException => decrypt = false
+              }
 
-          Logger.info("--getting token for user:"+em)
-          var token = ActorUtils.getUserToken(em)
-          Logger.info("---returned:"+token)
+              if (decrypt) {
 
-          if (token.equalsIgnoreCase("-1")) {
-            
-        	  token = java.util.UUID.randomUUID().toString()
-        	  val res = ActorUtils.createTokenForUser(token, email.get)
-          } 
-          future(Ok("ADDED AUTHENTICATION TOKEN TO SESSISON").withSession(
-              "whatAmIdoing-authenticationToken" -> token))
+                Logger.info("--getting token for user:" + em)
+                var token = ActorUtils.getUserToken(em)
+                Logger.info("---returned:" + token)
 
+                if (token.equalsIgnoreCase("-1")) {
+
+                  token = java.util.UUID.randomUUID().toString()
+                  val res = ActorUtils.createTokenForUser(token, email.get)
+                }
+                future(Ok("ADDED AUTHENTICATION TOKEN TO SESSISON").withSession(
+                  "whatAmIdoing-authenticationToken" -> token))
+
+              } else {
+                future(Ok("PASSWORD NOT VALID"))
+              }
+
+            } else {
+              future(Ok("Password not supplied"))
+            }
+          }
         } else {
-          future(Ok("PASSWORD NOT VALID"))
+          future(Ok("Email Not Valid"))
         }
-
+      } else {
+        future(Ok("Email not supplied"))
       }
+
     }
 
   import play.api.mvc.WebSocket
@@ -154,47 +195,62 @@ object WhatAmIDoingController extends Controller {
   import play.api.libs.iteratee.Enumerator
   import scala.concurrent.Future
   var v = 0
-  def publishVideo(token: String) = WebSocket.async[JsValue] { implicit request =>
+  def publishVideo(tokenOption: Option[String]) = WebSocket.async[JsValue] { implicit request =>
 
+    val token = tokenOption.getOrElse("no-token-supplied")
     Logger("WhatAmIDoingController.publishVideo").info(" token=" + token)
 
-    val res = ActorUtils.getValidToken(token)
-    if (res.asInstanceOf[List[String]].size > 0) {
-      import com.whatamidoing.actors.red5.FrameSupervisor._
-      val in = Iteratee.foreach[JsValue](s => {
+    if (token.equalsIgnoreCase("no-token-supplied")) {
+      val res = ActorUtils.getValidToken(token)
+      if (res.asInstanceOf[List[String]].size > 0) {
+        import com.whatamidoing.actors.red5.FrameSupervisor._
+        val in = Iteratee.foreach[JsValue](s => {
 
-        frameSupervisor ! RTMPMessage(s, token)
+          ActorUtils.frameSupervisor ! RTMPMessage(s, token)
 
-      }).map { _ =>
-        frameSupervisor ! StopVideo(token)
-        Logger("WhatAmIDoingController.publishVide").info("Disconnected")
-      }
+        }).map { _ =>
+          ActorUtils.frameSupervisor ! StopVideo(token)
+          Logger("WhatAmIDoingController.publishVide").info("Disconnected")
+        }
 
-      val json: JsValue = Json.parse("""
+        val json: JsValue = Json.parse("""
         		{ 
         		"response": {
         		"value" : "Connection Established"
         		}
         		} 
         	""")
-      val out = Enumerator(json)
-      Future((in, out))
+        val out = Enumerator(json)
+        Future((in, out))
 
-    } else {
-      // Just consume and ignore the input
-      val in = Iteratee.ignore[JsValue]
+      } else {
+        // Just consume and ignore the input
+        val in = Iteratee.ignore[JsValue]
 
-      val json: JsValue = Json.parse("""
+        val json: JsValue = Json.parse("""
         		{ 
         		"response": {
         		"value" : "TOKEN NOT VALID"
         		}
         		} 
         	""")
+        val out = Enumerator(json)
+        Future((in, out))
+      }
+
+    } else {
+      val in = Iteratee.ignore[JsValue]
+
+      val json: JsValue = Json.parse("""
+        		{ 
+        		"response": {
+        		"value" : "TOKEN NOT SUPPLIED"
+        		}
+        		} 
+        	""")
       val out = Enumerator(json)
       Future((in, out))
+
     }
-
   }
-
 }

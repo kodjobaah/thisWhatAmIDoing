@@ -22,9 +22,9 @@ object ActorUtils {
 
   val system = ActorSystem("whatamidoing-system")
   implicit val timeout = Timeout(500 seconds)
-  val frameSupervisor = system.actorOf(FrameSupervisor.props("hey"), "frameSupervisor")
-  val neo4jwriter = system.actorOf(Neo4JWriter.props(), "neo-4j-writer-supervisor")
-  val neo4jreader = system.actorOf(Neo4JReader.props(), "neo-4j-reader-supervisor")
+  var frameSupervisor = system.actorOf(FrameSupervisor.props("hey"), "frameSupervisor")
+  var neo4jwriter = system.actorOf(Neo4JWriter.props(), "neo-4j-writer-supervisor")
+  var neo4jreader = system.actorOf(Neo4JReader.props(), "neo-4j-reader-supervisor")
   
   import models.Messages._
   
@@ -35,12 +35,8 @@ object ActorUtils {
     val getUserTokenResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getUserToken)).mapTo[Any]
     var res = Await.result(getUserTokenResponse, 10 seconds) match {
       case ReadOperationResult(results) => {
-        Logger.info("--results -siez:"+results.results.size)
         if (results.results.size > 0) {
           val tok = results.results.head.asInstanceOf[(String, String)]
-          Logger.info("-- this token:"+tok+":"+tok._2.equalsIgnoreCase("true"))
-          Logger.info("-- this token-1:"+tok+":"+tok._1)
-          Logger.info("-- this token=2:"+tok+":"+tok._2)
           if (tok._2.equalsIgnoreCase("true") ){
             tok._1
           } else {
