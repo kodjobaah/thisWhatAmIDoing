@@ -1,11 +1,9 @@
-package integration.com.whatamidoing.cypher.suite
+package integration.com.whatamidoing.cypher
 
 import org.neo4j.graphdb.GraphDatabaseService
 import org.neo4j.cypher.javacompat.ExecutionEngine
 import org.neo4j.test.TestGraphDatabaseFactory
 import com.whatamidoing.cypher.CypherWriter
-import org.neo4j.graphdb.Transaction
-import org.neo4j.tooling.GlobalGraphOperations
 import com.whatamidoing.cypher.CypherInfrastructure
 
 trait Neo4jTestDb {
@@ -29,6 +27,8 @@ trait Neo4jTestDb {
   val testNonActiveStreamInvitedId= "test-non-active-stream-invite-id"
   val testNonActiveStreamInvitedIdEmail = "test-non-active-stream@ho.me"
   val testStreamNonActive = "test-stream-non-active"
+  val testUserWithInactiveToken = "test-user-with-inactive-token"
+  val testUserWithInactiveTokenToken = "test-user-withn-inactive-token-token"
   
     
   val db: GraphDatabaseService =
@@ -61,7 +61,8 @@ trait Neo4jTestDb {
     engine.execute(CypherWriter.createUser(testFirstName, testLastName, testNonActiveStreamInvitedIdEmail, testPassword))
     engine.execute(CypherWriter.createInvite(testStreamNonActive, testInviteEmail,testNonActiveStreamInvitedId))
 
-
+     engine.execute(CypherWriter.createUser(testFirstName, testLastName, testUserWithInactiveToken, testPassword))
+     engine.execute(CypherWriter.createToken(testUserWithInactiveTokenToken, "false"))
     engine
   }
 

@@ -17,7 +17,8 @@ object CypherReader {
     		  match a:User
     		  where a.email = "$em"
 			  with a
-    		  match a-[:HAS_TOKEN]->(b)
+    		  match a-[:HAS_TOKEN]->b
+    		  where b.valid = "true"
 			  return b.token as token , b.valid as status
 	  """
     return res

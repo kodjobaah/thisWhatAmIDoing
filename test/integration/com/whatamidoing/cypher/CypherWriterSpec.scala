@@ -1,7 +1,6 @@
 package integration.com.whatamidoing.cypher
 
 import org.scalatest.FlatSpec
-import integration.com.whatamidoing.cypher.suite.Neo4jTestDb
 import com.whatamidoing.cypher.CypherReader
 import org.scalatest.Matchers
 import org.scalatest.BeforeAndAfter
@@ -9,7 +8,6 @@ import org.neo4j.cypher.javacompat.ExecutionEngine
 import org.neo4j.graphdb.Transaction
 import org.neo4j.tooling.GlobalGraphOperations
 import com.whatamidoing.cypher.CypherWriter
-import integration.com.whatamidoing.cypher.suite.Neo4jTestDb
 
 class CypherWriterSpec extends FlatSpec with Neo4jTestDb with Matchers with BeforeAndAfter {
   

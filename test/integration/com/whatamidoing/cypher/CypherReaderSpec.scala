@@ -1,7 +1,6 @@
 package integration.com.whatamidoing.cypher
 
 import org.scalatest.FlatSpec
-import integration.com.whatamidoing.cypher.suite.Neo4jTestDb
 import com.whatamidoing.cypher.CypherReader
 import org.scalatest.Matchers
 import org.scalatest.BeforeAndAfter
@@ -9,10 +8,24 @@ import org.neo4j.cypher.javacompat.ExecutionEngine
 import org.neo4j.graphdb.Transaction
 import org.neo4j.tooling.GlobalGraphOperations
 import com.whatamidoing.cypher.CypherWriter
-import integration.com.whatamidoing.cypher.suite.Neo4jTestDb
 
 class CypherReaderSpec extends FlatSpec with Neo4jTestDb with Matchers with BeforeAndAfter {
   
+  "Given a valid user with no active token" should "return nothing" in {
+      var result = getEngine.execute(CypherReader.getTokenForUser(testUserWithInactiveToken))
+	  result.columns().size should equal(2)
+	  var token = ""
+	  var status = ""
+	  val it = result.iterator()
+	  while(it.hasNext()) {
+	    val res = it.next()
+	     token = res.get("token").asInstanceOf[String]
+	     status = res.get("status").asInstanceOf[String]
+	  }
+	  
+	  token.length should equal(0) 
+	  status.length should equal(0)
+  }
   "Given a valid user" should "return the token" in {
 	  var result = getEngine.execute(CypherReader.getTokenForUser(testUser))
 	  result.columns().size should equal(2)
