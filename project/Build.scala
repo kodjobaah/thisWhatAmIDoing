@@ -9,20 +9,19 @@ import JacocoPlugin._
 //import complete.DefaultParsers._
 object ApplicationBuild extends Build {
 
- 
   val appName = "thisIsWhatIAmDoing"
   val appVersion = "1.0-SNAPSHOT"
   jacoco.settings
-   val appDependencies = Seq(
+  val appDependencies = Seq(
     // Add your project dependencies here,
     "com.typesafe.slick" % "slick_2.10" % "1.0.0-RC2",
     "com.typesafe.slick" %% "slick-extensions" % "1.0.0",
     "com.typesafe.akka" %% "akka-actor" % "2.2.0",
     "com.typesafe.akka" %% "akka-actor-tests" % "2.2.0" % "test",
-    "com.typesafe.play" %% "play-slick" % "0.4.0" exclude("org.scala-stm", "scala-stm_2.10.0"), 
+    "com.typesafe.play" %% "play-slick" % "0.4.0" exclude ("org.scala-stm", "scala-stm_2.10.0"),
     "org.scalatest" %% "scalatest" % "2.0.RC1" % "test",
     "org.ostermiller" % "utils" % "1.07.00",
-    "org.scalamock" %% "scalamock-scalatest-support" % "3.0.1" % "test" exclude("org.scalatest","scalatest_2.10"),
+    "org.scalamock" %% "scalamock-scalatest-support" % "3.0.1" % "test" exclude ("org.scalatest", "scalatest_2.10"),
     "net.java.dev.jna" % "jna" % "3.5.2",
     "org.apache.commons" % "commons-lang3" % "3.0",
     "commons-cli" % "commons-cli" % "1.2",
@@ -39,31 +38,25 @@ object ApplicationBuild extends Build {
     "org.webjars" %% "webjars-play" % "2.1.0-2",
     "org.webjars" % "bootstrap" % "2.3.2",
     "org.eclipse.jetty" % "jetty-websocket" % "8.1.13.v20130916",
-    "org.neo4j" % "neo4j-cypher" % "2.0.0-M05" % "test"
-     )
-    
-     
-    val main = play.Project(appName, appVersion, appDependencies).settings(
+    "org.neo4j" % "neo4j-cypher" % "2.0.0-M05" % "test")
+
+  def traceSettings = atmosSettings ++ Seq(traceAkka("2.2.1"))
+  val main = play.Project(appName, appVersion, appDependencies).settings(
     resolvers ++= Seq(
-    	"anormcypher" at "http://repo.anormcypher.org/"
-    ),
+      "anormcypher" at "http://repo.anormcypher.org/"),
     testOptions in Test := Nil,
- 	 
+
     libraryDependencies ++= Dependencies.traceAkka,
     javaOptions in Test += "-Dconfig.file=webapp/conf/application.conf",
     scalacOptions += "-language:postfixOps",
-    javaOptions in run ++= Seq(
-      "-javaagent:/home/play/typesafe/typesafe-console-developer-1.3.1/lib/weaver/aspectjweaver.jar",
-      "-Dorg.aspectj.tracing.factory=default",
-      "-Djava.library.path=/home/play/typesafe/typesafe-console-developer-1.3.1/lib/sigar"),
     Keys.fork in run := true // Add your own project settings here      
-	    //connectInput in run := true
-    )
-    
+    //connectInput in run := true
+    ).settings(traceSettings: _*)
+
   object Dependencies {
 
     object V {
-      val Akka = "2.1.4"
+      val Akka = "2.2.1"
       val Atmos = "1.2.0"
       val Logback = "1.0.7"
     }
