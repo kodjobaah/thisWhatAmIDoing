@@ -52,8 +52,7 @@ object WhatAmIDoingController extends Controller {
    */
   def whatAmIdoing(invitedId: String) = Action.async { implicit request =>
 
-    /*
-    var streamId = ActorUtils.findStreamForInvitedId(invitedId)
+     var streamId = ActorUtils.findStreamForInvitedId(invitedId)
     
     if (streamId.isEmpty()) {
        future(Ok(views.html.whatamidoingnoinviteId()))
@@ -61,9 +60,7 @@ object WhatAmIDoingController extends Controller {
     	ActorUtils.associatedInviteWithDayOfAcceptance(invitedId)
     	future(Ok(views.html.whatamidoing(streamId)))
     }
-    */
-     future(Ok(views.html.whatamidoingnoinviteId()))
-  }
+   }
 
   /**
    * *
@@ -113,6 +110,7 @@ object WhatAmIDoingController extends Controller {
 
       var res = ActorUtils.searchForUser(em)
 
+     Logger.info("results from searching for a user:"+res)
       //Creating the user
       if (res.isEmpty()) {
         val writeResult = ActorUtils.createUser(fn, ln, em, p);
