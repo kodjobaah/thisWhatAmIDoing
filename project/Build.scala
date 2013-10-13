@@ -53,9 +53,9 @@ object ApplicationBuild extends Build {
     javaOptions in Test += "-Dconfig.file=webapp/conf/application.conf",
     scalacOptions += "-language:postfixOps",
     javaOptions in run ++= Seq(
-      "-javaagent:/Users/valtechuk/software/typesafe-console/typesafe-console-developer-1.3.1/lib/weaver/aspectjweaver.jar",
+      "-javaagent:/home/play/typesafe/typesafe-console-developer-1.3.1/lib/weaver/aspectjweaver.jar",
       "-Dorg.aspectj.tracing.factory=default",
-      "-Djava.library.path=/Users/valtechuk/software/typesafe-console/typesafe-console-developer-1.3.1/lib/sigar"),
+      "-Djava.library.path=/home/play/typesafe/typesafe-console-developer-1.3.1/lib/sigar"),
     Keys.fork in run := true // Add your own project settings here      
 	    //connectInput in run := true
     )
