@@ -56,6 +56,7 @@ object CypherReader {
     		where a.id = "$invitedId"
     		with a
     		match a-[:TO_WATCH]->r
+    		where r.state = "active"
     		return r.name as name
       """
       return res

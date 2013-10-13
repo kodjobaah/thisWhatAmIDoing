@@ -26,6 +26,9 @@ trait Neo4jTestDb {
   val testTokenToInvalidate = "test-token-to-invalidate"
   val testNewToken = "test-new-token"
   val testStreamToClose = "test-stream-to-close"
+  val testNonActiveStreamInvitedId= "test-non-active-stream-invite-id"
+  val testNonActiveStreamInvitedIdEmail = "test-non-active-stream@ho.me"
+  val testStreamNonActive = "test-stream-non-active"
   
     
   val db: GraphDatabaseService =
@@ -52,6 +55,12 @@ trait Neo4jTestDb {
     
     engine.execute(CypherWriter.createStream(testStreamToClose))
     engine.execute(CypherWriter.closeStream(testStreamToClose))
+    
+    engine.execute(CypherWriter.createStream(testStreamNonActive))
+    engine.execute(CypherWriter.closeStream(testStreamNonActive))
+    engine.execute(CypherWriter.createUser(testFirstName, testLastName, testNonActiveStreamInvitedIdEmail, testPassword))
+    engine.execute(CypherWriter.createInvite(testStreamNonActive, testInviteEmail,testNonActiveStreamInvitedId))
+
 
     engine
   }
