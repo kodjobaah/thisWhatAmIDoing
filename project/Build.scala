@@ -53,10 +53,9 @@ object ApplicationBuild extends Build {
     javaOptions in Test += "-Dconfig.file=webapp/conf/application.conf",
     scalacOptions += "-language:postfixOps",
     javaOptions in run ++= Seq(
-      "-javaagent:c:\\software\\typesafe\\typesafe-console-developer-1.2.0\\lib\\weaver\\aspectjweaver.jar",
+      "-javaagent:/Users/valtechuk/software/typesafe-console/typesafe-console-developer-1.3.1/lib/weaver/aspectjweaver.jar",
       "-Dorg.aspectj.tracing.factory=default",
-      "-Djna.library.path=C:\\pract\\play\\mySlickApp\\lib",
-      "-Djava.library.path=c:\\software\\typesafe\\typesafe-console-developer-1.2.0\\lib\\sigar"),
+      "-Djava.library.path=/Users/valtechuk/software/typesafe-console/typesafe-console-developer-1.3.1/lib/sigar"),
     Keys.fork in run := true // Add your own project settings here      
 	    //connectInput in run := true
     )
@@ -70,9 +69,10 @@ object ApplicationBuild extends Build {
     }
 
     //val atmosTrace = "com.typesafe.atmos" % "trace-akka-2.2.0_2.11.0-M3" % "1.2.0-M6"
-    val atmosTrace = "com.typesafe.atmos" % "trace-akka-2.2.0_2.10" % "1.2.0"
+    //val atmosTrace = "com.typesafe.atmos" % "trace-akka-2.2.0_2.10" % "1.2.0"
     //val atmosTrace = "com.typesafe.atmos" % "trace-akka-2.2.0_2.10" % "1.2.0"	  
     //	 val atmosTrace ="com.typesafe.atmos" % "trace-akka-2.1.4" % "1.2.0"
+    val atmosTrace = "com.typesafe.atmos" %% "trace-akka-2.2.1" % "1.3.1"
 
     val logback = "ch.qos.logback" % "logback-classic" % V.Logback
 

@@ -4,13 +4,13 @@ import akka.actor.Actor
 import akka.actor.Props
 
 import com.whatamidoing.actors.red5.services.Xuggler
+import models.Messages._
 
 class VideoEncoder(streamName: String) extends Actor {
 
   def nameOfStream = streamName
   val xuggler = Xuggler(streamName)
   
-  import VideoEncoder._
    override def receive: Receive = {
  
       case EncodeFrame(frame) => {
@@ -47,8 +47,5 @@ class VideoEncoder(streamName: String) extends Actor {
 object VideoEncoder {
   
   def props(streamName: String) = Props(new VideoEncoder(streamName))
-  
-  case class EncodeFrame(frame: String)
-  case class EndTransmission()
   
 }

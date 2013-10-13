@@ -10,6 +10,8 @@ import akka.pattern.{ pipe }
 import controllers.WhatAmIDoingController
 import play.api.Logger
 
+import models.Messages._
+
 trait SetupNeo4jActorsStub extends BeforeAndAfterEach  { this: Suite =>
 
   val email = Option("testEmail@hotmail.com")

@@ -25,6 +25,8 @@ trait Neo4jTestDb {
   val testInvitedId = "test-invited-id"
   val testTokenToInvalidate = "test-token-to-invalidate"
   val testNewToken = "test-new-token"
+  val testStreamToClose = "test-stream-to-close"
+  
     
   val db: GraphDatabaseService =
     new TestGraphDatabaseFactory().newImpermanentDatabase()
@@ -40,11 +42,17 @@ trait Neo4jTestDb {
     engine.execute(CypherWriter.linkStreamToToken(testStream, testToken))
     engine.execute(CypherWriter.linkUserToToken(testUser, testToken))
     engine.execute(CypherWriter.associateStreamCloseToDay(testStream, testDayToClose, testTime))
+    
+    engine.execute(CypherWriter.createUser(testFirstName, testLastName, testInviteEmail, testPassword))
     engine.execute(CypherWriter.createInvite(testStream, testInviteEmail,testInvitedId))
+    
     engine.execute(CypherWriter.createToken(testTokenToInvalidate, "true"))
-    engine.execute(CypherWriter.createTokenForUser(testNewToken, testUser))
+   // engine.execute(CypherWriter.createTokenForUser(testNewToken, testUser))
     engine.execute(CypherWriter.associateDayWithInvite(testInvitedId, testDayDescription, testTime))
-    println("created the test data")
+    
+    engine.execute(CypherWriter.createStream(testStreamToClose))
+    engine.execute(CypherWriter.closeStream(testStreamToClose))
+
     engine
   }
 

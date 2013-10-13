@@ -4,9 +4,10 @@ import akka.actor.Actor
 import akka.actor.ActorLogging
 import akka.actor.Props
 
+import models.Messages._
+
 class Neo4JWriter  extends Actor with ActorLogging{
 	
-	import Neo4JWriter._
 	override def receive: Receive = {  
       case PerformOperation(operation) => {
           import models.Neo4jResult
@@ -18,13 +19,9 @@ class Neo4JWriter  extends Actor with ActorLogging{
 	}
   
 }
-
 object Neo4JWriter {
-  
-  import models.Neo4jResult
   
   def props() = Props(new Neo4JWriter())
 
-  case class PerformOperation(f: () => Neo4jResult)
-  case class WriteOperationResult(val result: Neo4jResult)
+
 }

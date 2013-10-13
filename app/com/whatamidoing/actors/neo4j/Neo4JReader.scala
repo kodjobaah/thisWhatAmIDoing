@@ -4,9 +4,10 @@ import akka.actor.Actor
 import akka.actor.ActorLogging
 import akka.actor.Props
 
+import models.Messages._
+
 class Neo4JReader  extends Actor with ActorLogging{
 	
-	import Neo4JReader._
 	override def receive: Receive = {  
       case PerformReadOperation(operation) => {
           import models.Neo4jResult
@@ -21,10 +22,6 @@ class Neo4JReader  extends Actor with ActorLogging{
 
 object Neo4JReader {
   
-  import models.Neo4jResult
-  
   def props() = Props(new Neo4JReader())
 
-  case class PerformReadOperation(f: () => Neo4jResult)
-  case class ReadOperationResult(val result: Neo4jResult)
 }

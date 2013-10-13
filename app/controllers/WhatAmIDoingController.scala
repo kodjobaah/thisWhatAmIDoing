@@ -12,13 +12,13 @@ import akka.actor.ActorSystem
 import akka.pattern.ask
 import akka.pattern.AskTimeoutException
 import akka.util.Timeout
-import org.anormcypher._
 import com.whatamidoing.actors.red5._
 import com.whatamidoing.actors.neo4j._
 import com.whatamidoing.utils.ActorUtils
 import com.whatamidoing.cypher.CypherReaderFunction
 import com.whatamidoing.cypher.CypherWriterFunction
 import com.whatamidoing.mail.EmailSenderService
+import models.Messages._
 
 object WhatAmIDoingController extends Controller {
 
@@ -28,9 +28,9 @@ object WhatAmIDoingController extends Controller {
   val system = ActorUtils.system
 
   //NOTE: Should we just be passing one database access service..or should each actor get a copy of their own
-  var frameSupervisor = system.actorOf(FrameSupervisor.props("hey"), "frameSupervisor")
-  var neo4jwriter = system.actorOf(Neo4JWriter.props(), "neo-4j-writer-supervisor")
-  var neo4jreader = system.actorOf(Neo4JReader.props(), "neo-4j-reader-supervisor")
+  var frameSupervisor = ActorUtils.frameSupervisor
+  var neo4jwriter = ActorUtils.neo4jwriter
+  var neo4jreader = ActorUtils.neo4jreader
   var emailSenderService = EmailSenderService()
 
    /**

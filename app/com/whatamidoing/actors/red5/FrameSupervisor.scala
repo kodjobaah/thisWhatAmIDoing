@@ -21,6 +21,8 @@ import akka.util.Timeout
 import controllers.WhatAmIDoingController
 import com.whatamidoing.cypher.CypherReaderFunction
 
+import models.Messages._
+
 class FrameSupervisor(username: String) extends Actor {
 
   //Used by ?(ask)
@@ -28,8 +30,7 @@ class FrameSupervisor(username: String) extends Actor {
   val videoEncoders = scala.collection.mutable.Map[String, ActorRef]()
 
   val system = ActorUtils.system
-  import FrameSupervisor._
-  import com.whatamidoing.actors.red5.VideoEncoder._
+  
   override def receive: Receive = {
     case RTMPMessage(message, token) => {
 
@@ -82,9 +83,6 @@ object FrameSupervisor {
 
   def props(username: String) = Props(new FrameSupervisor(username))
 
-  case class RTMPMessage(val message: JsValue, val token: String)
-
-  case class StopVideo(val token: String)
 
 }
 
