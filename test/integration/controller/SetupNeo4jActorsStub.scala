@@ -1,16 +1,14 @@
-package integration.util
+package integration.controller
 
 import akka.actor.Actor
 import org.scalatest.Suite
 import org.scalatest.BeforeAndAfterEach
 import org.mindrot.jbcrypt.BCrypt
-import org.scalamock.scalatest.MockFactory
 import models.Neo4jResult
-import akka.pattern.{ pipe }
-import controllers.WhatAmIDoingController
 import play.api.Logger
-
 import models.Messages._
+import akka.actor.actorRef2Scala
+import akka.testkit.TestActorRef
 
 trait SetupNeo4jActorsStub extends BeforeAndAfterEach  { this: Suite =>
 

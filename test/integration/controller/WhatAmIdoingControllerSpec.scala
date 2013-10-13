@@ -1,39 +1,20 @@
 package integration.controller
 
-import org.scalatest.matchers.ShouldMatchers
-import org.scalatest.BeforeAndAfterEach
-import org.scalatest.Suite
-import scala.concurrent.duration._
-import play.api.mvc.Cookie
-import play.api.mvc.HandlerRef
-import play.core.Router.HandlerDef
-import play.core.Router
-import play.api.mvc.AsyncResult
-import akka.util.Timeout
-import akka.actor.Actor
-import org.mindrot.jbcrypt.BCrypt
-import play.api.test._
-import play.api.test.Helpers._
+import org.mockito.Matchers.any
+import org.mockito.Mockito.never
+import org.mockito.Mockito.verify
 import org.scalatest.FlatSpec
-import org.eclipse.jetty.websocket.WebSocketClientFactory
-import play.api.Logger
-import play.api.mvc.SimpleResult
-import com.ning.http.client.Request
-import java.net.URI
-import oracle.net.aso.s
-import java.util.concurrent.TimeUnit
-import com.ning.http.client.AsyncHttpClient
-import com.ning.http.client.websocket.WebSocketUpgradeHandler
-import com.ning.http.client.websocket.WebSocketTextListener
-import org.eclipse.jetty.websocket.WebSocket.Connection
-import play.api.libs.json.JsValue
-import play.api.libs.json.Json
-import com.ning.http.client.websocket.WebSocket
-import integration.util.SetupNeo4jActorsStub
-import org.scalamock.scalatest.MockFactory
 import org.scalatest.Matchers
-import com.whatamidoing.mail.EmailSenderService
 import org.scalatest.mock.MockitoSugar
+
+import com.whatamidoing.mail.EmailSenderService
+
+import play.api.test.FakeRequest
+import play.api.test.Helpers
+import play.api.test.Helpers.contentAsString
+import play.api.test.Helpers.defaultAwaitTimeout
+import play.api.test.Helpers.running
+import play.api.test.TestServer
 
 //import org.java_websocket.WebSocket
 
