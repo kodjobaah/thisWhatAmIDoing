@@ -1,7 +1,7 @@
 import sbt._
 import Keys._
 import play.Project._
-import com.typesafe.sbt.SbtAtmos.{ atmosSettings, traceAkka }
+import com.typesafe.sbt.SbtAtmosPlay.atmosPlaySettings
 import de.johoop.jacoco4sbt._
 import JacocoPlugin._
 //import com.typesafe.sbt.SbtAtmos.atmosSettings
@@ -41,7 +41,6 @@ object ApplicationBuild extends Build {
     "org.eclipse.jetty" % "jetty-websocket" % "8.1.13.v20130916",
     "org.neo4j" % "neo4j-cypher" % "2.0.0-M05" % "test")
 
-  def traceSettings = atmosSettings ++ Seq(traceAkka("2.2.1"))
   val main = play.Project(appName, appVersion, appDependencies).settings(
     resolvers ++= Seq(
       "anormcypher" at "http://repo.anormcypher.org/"),
@@ -52,7 +51,7 @@ object ApplicationBuild extends Build {
     scalacOptions += "-language:postfixOps",
     Keys.fork in run := true // Add your own project settings here      
     //connectInput in run := true
-    ).settings(traceSettings: _*)
+    ).settings(atmosPlaySettings: _*)
 
   object Dependencies {
 
