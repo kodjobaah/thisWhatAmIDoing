@@ -39,7 +39,7 @@ object ActorUtils {
         if (results.results.size > 0) {
           val tok = results.results.head.asInstanceOf[(String, String)]
           Logger.info("-- this token:"+tok)
-          if (tok._2 == "true") {
+          if (tok._2.equalsIgnoreCase("true") ){
             tok._1
           } else {
             "-1"
