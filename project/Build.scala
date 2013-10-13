@@ -1,6 +1,7 @@
 import sbt._
 import Keys._
 import play.Project._
+import com.typesafe.sbt.SbtAtmos.{ atmosSettings, traceAkka }
 import de.johoop.jacoco4sbt._
 import JacocoPlugin._
 //import com.typesafe.sbt.SbtAtmos.atmosSettings
