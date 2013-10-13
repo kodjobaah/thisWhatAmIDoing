@@ -38,6 +38,7 @@ object ActorUtils {
         Logger.info("--results -siez:"+results.results.size)
         if (results.results.size > 0) {
           val tok = results.results.head.asInstanceOf[(String, String)]
+          Logger.info("-- this token:"+tok)
           if (tok._2 == "true") {
             tok._1
           } else {
