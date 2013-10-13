@@ -1,6 +1,5 @@
 package models
 
-import models.Neo4jResult
 import play.api.libs.json.JsValue
 
 object Messages {
