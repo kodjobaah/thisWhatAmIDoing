@@ -35,6 +35,7 @@ object ActorUtils {
     val getUserTokenResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getUserToken)).mapTo[Any]
     var res = Await.result(getUserTokenResponse, 10 seconds) match {
       case ReadOperationResult(results) => {
+        Logger.info("--results -siez:"+results.results.size)
         if (results.results.size > 0) {
           val tok = results.results.head.asInstanceOf[(String, String)]
           if (tok._2 == "true") {
