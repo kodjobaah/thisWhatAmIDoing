@@ -132,7 +132,9 @@ object WhatAmIDoingController extends Controller {
 
         if (decrypt) {
 
+          Logger.info("--getting token for user:"+em)
           var token = ActorUtils.getUserToken(em)
+          Logger.info("---returned:"+token)
 
           if (token.equalsIgnoreCase("-1")) {
             
