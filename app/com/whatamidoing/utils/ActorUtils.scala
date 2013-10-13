@@ -46,8 +46,9 @@ object ActorUtils {
           } else {
             "-1"
           }
+        } else {
+         "-1"
         }
-        "-1"
       }
     }
     res
