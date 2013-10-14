@@ -250,4 +250,19 @@ object ActorUtils {
     }
   }
 
+
+   def  findAllInvites(email: String): List[String] = {
+    
+    val findAllInvites = CypherReaderFunction.findAllInvites(email)
+    val findAllInvitesResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(findAllInvites)).mapTo[Any]
+
+    var results = Await.result(findAllInvitesResponse, 10 seconds) match {
+      case ReadOperationResult(readResults) => {
+    	  readResults.results.asInstanceOf[List[String]]
+      	}
+      }
+    results
+  }
+
+
 }

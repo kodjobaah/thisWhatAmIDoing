@@ -15,10 +15,11 @@ object ApplicationProps {
       * if it is set before ConfigFactory.load is called. 
       * eg System.setProperty("environment", "production") 
       */ 
-    val envConfig = ConfigFactory.load("application") 
+    val envConfig = ConfigFactory.load("application")
+  //val envConfig = ConfigFactory.load()
  
-    val environment = envConfig getString "thisIsWhatIAmDoing.environment" 
- 
+    val environment =   envConfig getString "thisIsWhatIAmDoing.environment" 
+  	
     /** ConfigFactory.load(String) can load other files. 
       * File extension must be conf, json, or properties. 
       * The extension can be omitted in the load argument. 
@@ -31,5 +32,9 @@ object ApplicationProps {
       */ 
  
     val neo4jServer = config getString "neo4jServer" 
+    
+    //Constants from message file
+    val noTokenProvided = play.api.i18n.Messages("no.token.provided")
+    val noEmailProvided = play.api.i18n.Messages("no.email.provided")
  
 }

@@ -6,15 +6,14 @@ import org.mockito.Mockito.verify
 import org.scalatest.FlatSpec
 import org.scalatest.Matchers
 import org.scalatest.mock.MockitoSugar
-
 import com.whatamidoing.mail.EmailSenderService
-
 import play.api.test.FakeRequest
 import play.api.test.Helpers
 import play.api.test.Helpers.contentAsString
 import play.api.test.Helpers.defaultAwaitTimeout
 import play.api.test.Helpers.running
 import play.api.test.TestServer
+import com.whatamidoing.utils.ApplicationProps
 
 //import org.java_websocket.WebSocket
 
@@ -22,6 +21,41 @@ import play.api.test.TestServer
 
 class WhatAmIdoingControllerSpec extends FlatSpec with MockitoSugar with SetupNeo4jActorsStub with Matchers {
 
+  "when getting all invited " should "return list of all invited" in {
+
+    running(TestServer(3333)) {
+      currentTest = "findAllInvited"
+      val fakeRequest = FakeRequest()
+      val someResult = controllers.WhatAmIDoingController.findAllInvites(Option("token"), email)(fakeRequest)
+
+      println("---------------------")
+      println(someResult)
+      contentAsString(someResult) should include("No token provided")
+
+    }
+  }
+
+  "when getting all invited if no token is provided" should "not return a list of invited" in {
+    running(TestServer(3333)) {
+      currentTest = "findAllInvitedNoToken"
+      val fakeRequest = FakeRequest()
+      val someResult = controllers.WhatAmIDoingController.findAllInvites(None, email)(fakeRequest)
+
+      contentAsString(someResult) should include("No token provided")
+
+    }
+  }
+  
+  	"when getting all invited if no email is provided" should "not return a list of invited" in {
+    running(TestServer(3333)) {
+      currentTest = "findAllInvitedNoEmail"
+      val fakeRequest = FakeRequest()
+      val someResult = controllers.WhatAmIDoingController.findAllInvites(Option("token"), None)(fakeRequest)
+
+      contentAsString(someResult) should include("No email provided")
+
+    }
+  }
   "when invited id is not supplied" should "send them to page with appropriate message" in {
     running(TestServer(3333)) {
       currentTest = "whatAmIdoingViewPageInvitedIdIsNotSupplied"

@@ -63,6 +63,26 @@ object CypherReader {
       return res
   }
   
+  def findAllInvites(email: String): String = {
+        val res=s"""
+    		match a:User
+    		where a.email = "$email"
+    		with a
+    		match a-[:HAS_TOKEN]->b
+    		with b
+    		match b-[:USING]-c
+    		with c
+    		match c-[:TO_WATCH]-d
+    		with d
+    		match d-[:INVITED]-e
+    		with distinct e
+    		return e.email as email
+      """
+      return res
+
+    
+  }
+  
   
 
 }

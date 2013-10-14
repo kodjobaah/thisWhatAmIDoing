@@ -124,5 +124,24 @@ class CypherReaderSpec extends FlatSpec with Neo4jTestDb with Matchers with Befo
       }
 	 res should equal("false")  
    }
+   
+   "given the user" should "return all the invited uses" in {
+       var result = getEngine.execute(CypherReader.findAllInvites(testUserFindAllInvites))
+       //import collection.JavaConversions._
+       //val res = List() ++ result.iterator()
+       
+       var res = new scala.collection.mutable.ListBuffer[String]
+       val it = result.iterator()
+       while(it.hasNext()) {
+        val resp = it.next()
+        res += resp.get("email").asInstanceOf[String]
+       
+      }
+       res.length should equal(3)
+       res should contain (testUserFindAllInvitesInvited1)
+       res should contain (testUserFindAllInvitesInvited2)
+       res should contain (testUserFindAllInvitesInvited3)
+        
+   }
 
 }

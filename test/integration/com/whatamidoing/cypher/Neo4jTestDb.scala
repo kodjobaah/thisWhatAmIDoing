@@ -29,6 +29,18 @@ trait Neo4jTestDb {
   val testStreamNonActive = "test-stream-non-active"
   val testUserWithInactiveToken = "test-user-with-inactive-token"
   val testUserWithInactiveTokenToken = "test-user-withn-inactive-token-token"
+  val testUserFindAllInvites = "test-user-find-all-invites"
+  val testUserFindAllInvitesToken = "test-user-find-all-invites-token"
+  val testStreamForFindAllInvites = "test-stream-for-find-all-invites"
+  val testUserFindAllInvitesInvited1 = "test-user-for-find-all-invites-one"
+  val testUserFindAllInvitesInvited2 = "test-user-for-find-all-invite-two"
+  val testUserFindAllInvitesInvited3 = "test-user-for-find-all-invite-three"
+  val testInvitedFindAllInvitesInvitedId1 = "test-invited-for-find-all-invited-InvitedId1"
+  val testInvitedFindAllInvitesInvitedId2 = "test-invited-for-find-all-invited-InvitedId2"
+  val testInvitedFindAllInvitesInvitedId3 = "test-invited-for-find-all-invited-InvitedId3"
+  val testInvitedFindAllInvitesInvitedId3Duplicate = "test-invited-find-all-invites-invited-3-duplicate"
+   
+    
   
     
   val db: GraphDatabaseService =
@@ -63,6 +75,22 @@ trait Neo4jTestDb {
 
      engine.execute(CypherWriter.createUser(testFirstName, testLastName, testUserWithInactiveToken, testPassword))
      engine.execute(CypherWriter.createToken(testUserWithInactiveTokenToken, "false"))
+     
+     //Data for find all invites
+     engine.execute(CypherWriter.createUser(testFirstName, testLastName, testUserFindAllInvites, testPassword))
+     engine.execute(CypherWriter.createToken(testUserFindAllInvitesToken, "true"))
+     engine.execute(CypherWriter.linkUserToToken(testUserFindAllInvites, testUserFindAllInvitesToken))
+     engine.execute(CypherWriter.createStream(testStreamForFindAllInvites))
+     engine.execute(CypherWriter.linkStreamToToken(testStreamForFindAllInvites, testUserFindAllInvitesToken))
+     engine.execute(CypherWriter.createUser(testFirstName, testLastName, testUserFindAllInvitesInvited1, testPassword))
+     engine.execute(CypherWriter.createInvite(testStreamForFindAllInvites, testUserFindAllInvitesInvited1,testInvitedFindAllInvitesInvitedId1))
+     engine.execute(CypherWriter.createUser(testFirstName, testLastName, testUserFindAllInvitesInvited2, testPassword))
+     engine.execute(CypherWriter.createInvite(testStreamForFindAllInvites, testUserFindAllInvitesInvited2,testInvitedFindAllInvitesInvitedId2))
+     engine.execute(CypherWriter.createUser(testFirstName, testLastName, testUserFindAllInvitesInvited3, testPassword))
+     engine.execute(CypherWriter.createInvite(testStreamForFindAllInvites, testUserFindAllInvitesInvited3,testInvitedFindAllInvitesInvitedId3))
+     
+     //Creating a duplicate
+      engine.execute(CypherWriter.createInvite(testStreamForFindAllInvites, testUserFindAllInvitesInvited3,testInvitedFindAllInvitesInvitedId3Duplicate))
     engine
   }
 

@@ -58,5 +58,15 @@ object CypherReaderFunction {
   	}
   	streamForInvitedId
   }
-
+  
+  def findAllInvites(email: String): () => Neo4jResult = {
+  	val findAllInvites: Function0[Neo4jResult] = () => {
+  	   val allInvites = Cypher(CypherReader.findAllInvites(email)).apply().map(row => (row[String]("email"))).toList  
+  	   val neo4jResult = new Neo4jResult(allInvites)
+  	   Logger("CypherBuilder.findAllInvites").info("all invites:"+allInvites)
+  	   neo4jResult
+  	}
+  	findAllInvites
+  }
+  
 }
