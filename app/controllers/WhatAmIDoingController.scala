@@ -200,7 +200,7 @@ object WhatAmIDoingController extends Controller {
     val token = tokenOption.getOrElse("no-token-supplied")
     Logger("WhatAmIDoingController.publishVideo").info(" token=" + token)
 
-    if (token.equalsIgnoreCase("no-token-supplied")) {
+    if (!token.equalsIgnoreCase("no-token-supplied")) {
       val res = ActorUtils.getValidToken(token)
       if (res.asInstanceOf[List[String]].size > 0) {
     
