@@ -26,7 +26,7 @@ class WhatAmIdoingControllerSpec extends FlatSpec with MockitoSugar with SetupNe
     running(TestServer(3333)) {
       currentTest = "findAllInvited"
       val fakeRequest = FakeRequest()
-      val someResult = controllers.WhatAmIDoingController.findAllInvites(Option("token"), email)(fakeRequest)
+      val someResult = controllers.WhatAmIDoingController.findAllInvites(Option("token"))(fakeRequest)
 
       println("---------------------")
       println(someResult)
@@ -39,7 +39,7 @@ class WhatAmIdoingControllerSpec extends FlatSpec with MockitoSugar with SetupNe
     running(TestServer(3333)) {
       currentTest = "findAllInvitedNoToken"
       val fakeRequest = FakeRequest()
-      val someResult = controllers.WhatAmIDoingController.findAllInvites(None, email)(fakeRequest)
+      val someResult = controllers.WhatAmIDoingController.findAllInvites(None)(fakeRequest)
 
       contentAsString(someResult) should include("No token provided")
 
@@ -50,7 +50,7 @@ class WhatAmIdoingControllerSpec extends FlatSpec with MockitoSugar with SetupNe
     running(TestServer(3333)) {
       currentTest = "findAllInvitedNoEmail"
       val fakeRequest = FakeRequest()
-      val someResult = controllers.WhatAmIDoingController.findAllInvites(Option("token"), None)(fakeRequest)
+      val someResult = controllers.WhatAmIDoingController.findAllInvites(Option("token"))(fakeRequest)
 
       contentAsString(someResult) should include("No email provided")
 
