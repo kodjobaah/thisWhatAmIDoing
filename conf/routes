@@ -6,7 +6,7 @@
 # Home page
 
 POST /invalidateToken				controllers.WhatAmIDoingController.invalidateToken(token: Option[String])
-GET  /publishVideo 					controllers.WhatAmIDoingController.publishVideo(tokenOption: Option[String])
+GET  /publishVideo 					controllers.WhatAmIDoingController.publishVideo(token: Option[String])
 GET  /whatamidoing					controllers.WhatAmIDoingController.whatAmIdoing(invitedId: Option[String])
 POST /invite 						controllers.WhatAmIDoingController.invite(token: Option[String], email: Option[String])
 GET  /webjars/*file                 controllers.WebJarAssets.at(file)
