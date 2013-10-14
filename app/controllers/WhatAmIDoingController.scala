@@ -28,18 +28,13 @@ object WhatAmIDoingController extends Controller {
 
   var emailSenderService = EmailSenderService()
 
-  def findAllInvites(tokenOption: Option[String], emailOption: Option[String]) = Action.async{implicit request =>
+  def findAllInvites(tokenOption: Option[String]) = Action.async{implicit request =>
     	val token = tokenOption.getOrElse("not-token-provided")
-    	val email = emailOption.getOrElse("no-email-provided")
-  
+    	
     	if (!token.equalsIgnoreCase("not-token-provided")) {
     	  
-    		if (!email.equalsIgnoreCase("no-email-provided")) {
-    		  val res = ActorUtils.findAllInvites(email)
-    		  future(Ok(res.mkString(",")))
-    		} else {
-    			future(Ok("No email provided"))
-    		}
+    		val res = ActorUtils.findAllInvites(token)
+    		 future(Ok(res.mkString(",")))
     	} else {
     		future(Ok("No token provided"))
     	}

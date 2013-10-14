@@ -63,11 +63,13 @@ object CypherReader {
       return res
   }
   
-  def findAllInvites(email: String): String = {
+  def findAllInvites(token: String): String = {
         val res=s"""
-    		match a:User
-    		where a.email = "$email"
-    		with a
+    		match tok:AuthenticationToken
+            where tok.token ="$token"
+            with tok
+            match a-[:HAS_TOKEN]-tok
+            with a
     		match a-[:HAS_TOKEN]->b
     		with b
     		match b-[:USING]-c
