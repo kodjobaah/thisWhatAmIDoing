@@ -76,7 +76,9 @@ class FrameSupervisor(username: String) extends Actor {
       }
 
     }
-  }
+    
+    case x => Logger("FrameSupervisor.receive").info("DEFAULT_MESSAGE:"+x.toString())
+    }
 }
 
 object FrameSupervisor {

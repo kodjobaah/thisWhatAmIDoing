@@ -203,14 +203,14 @@ object WhatAmIDoingController extends Controller {
     if (token.equalsIgnoreCase("no-token-supplied")) {
       val res = ActorUtils.getValidToken(token)
       if (res.asInstanceOf[List[String]].size > 0) {
-        import com.whatamidoing.actors.red5.FrameSupervisor._
+    
         val in = Iteratee.foreach[JsValue](s => {
 
           ActorUtils.frameSupervisor ! RTMPMessage(s, token)
 
         }).map { _ =>
           ActorUtils.frameSupervisor ! StopVideo(token)
-          Logger("WhatAmIDoingController.publishVide").info("Disconnected")
+          Logger("WhatAmIDoingController.publishVideo").info("Disconnected")
         }
 
         val json: JsValue = Json.parse("""
