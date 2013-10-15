@@ -210,7 +210,7 @@ object WhatAmIDoingController extends Controller {
   import play.api.libs.iteratee.Enumerator
   import scala.concurrent.Future
   var v = 0
-  def publishVideo(tokenOption: Option[String]) = WebSocket.async[JsValue] { implicit request =>
+  def publishVideo(tokenOption: Option[String]) = WebSocket.async[String] { implicit request =>
 
     val token = tokenOption.getOrElse("no-token-supplied")
     Logger("WhatAmIDoingController.publishVideo").info(" token=" + token)
@@ -219,7 +219,7 @@ object WhatAmIDoingController extends Controller {
       val res = ActorUtils.getValidToken(token)
       if (res.asInstanceOf[List[String]].size > 0) {
     
-        val in = Iteratee.foreach[JsValue](s => {
+        val in = Iteratee.foreach[String](s => {
 
           ActorUtils.frameSupervisor ! RTMPMessage(s, token)
 
@@ -228,42 +228,22 @@ object WhatAmIDoingController extends Controller {
           Logger("WhatAmIDoingController.publishVideo").info("Disconnected")
         }
 
-        val json: JsValue = Json.parse("""
-        		{ 
-        		"response": {
-        		"value" : "Connection Established"
-        		}
-        		} 
-        	""")
-        val out = Enumerator(json)
+        val resp = "Connection Established"
+        val out = Enumerator(resp)
         Future((in, out))
 
       } else {
         // Just consume and ignore the input
-        val in = Iteratee.ignore[JsValue]
-
-        val json: JsValue = Json.parse("""
-        		{ 
-        		"response": {
-        		"value" : "TOKEN NOT VALID"
-        		}
-        		} 
-        	""")
-        val out = Enumerator(json)
+        val in = Iteratee.ignore[String]
+        val resp = "TOKEN NOT VALID"
+        val out = Enumerator(resp)
         Future((in, out))
       }
 
     } else {
-      val in = Iteratee.ignore[JsValue]
-
-      val json: JsValue = Json.parse("""
-        		{ 
-        		"response": {
-        		"value" : "TOKEN NOT SUPPLIED"
-        		}
-        		} 
-        	""")
-      val out = Enumerator(json)
+      val in = Iteratee.ignore[String]
+      var resp = "TOKEN NOT SUPPLIED"
+      val out = Enumerator(resp)
       Future((in, out))
 
     }

@@ -10,7 +10,7 @@ object Messages {
     case class PerformOperation(f: () => Neo4jResult)
     case class WriteOperationResult(val result: Neo4jResult)
     
-    case class RTMPMessage(val message: JsValue, val token: String)
+    case class RTMPMessage(val message: String, val token: String)
     case class StopVideo(val token: String)
     
     case class EncodeFrame(frame: String)

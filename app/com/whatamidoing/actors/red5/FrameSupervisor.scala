@@ -48,7 +48,7 @@ class FrameSupervisor(username: String) extends Actor {
 
       }
       //Logger("FrameSupervisor.receive:").info("send message to be encoded");
-      videoEncoder ! EncodeFrame((message \ "frame").as[String])
+      videoEncoder ! EncodeFrame(message)
     }
 
     case StopVideo(token) => {
