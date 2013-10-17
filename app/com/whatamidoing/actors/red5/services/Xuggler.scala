@@ -30,18 +30,19 @@ class Xuggler(streamName: String) {
   mediaWriter.addVideoStream(0, 0, ICodec.ID.CODEC_ID_FLV1, 352, 288)
   //mediaWriter.addVideoStream(0, 0, ICodec.ID.CODEC_ID_FLV1,640, 480)
 
-  val startTime = System.nanoTime()
-
-  var count = 0
+var startTime: Long = _
+  
+  var count = 0  
   def transmitBufferedImage(image: BufferedImage) {
     import java.util.concurrent.TimeUnit
     import javax.imageio.ImageIO
     import java.io.File
     import play.api.Logger
     //Logger.info("ABOUT TO CREATE FILE");
-    if (count == 1) {
+    if (count == 0) {
 
-      Logger.info("CREATING FILE");
+    	startTime = System.nanoTime()
+    Logger.info("CREATING FILE");
       //          val outputfile = new File("/tmp/image.jpg")
       //ImageIO.write(image, "jpg", outputfile)
     }
