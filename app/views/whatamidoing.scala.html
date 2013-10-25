@@ -4,7 +4,9 @@
     <script type="text/javascript" src="@routes.Assets.at("javascripts/jwplayer/jwplayer.js")"></script>
 	<script type="text/javascript">jwplayer.key="DdoUgqs9Nb+GfdfINwAZCazIQbGLeW5d1nYtBg==";</script>
 }{
-     <div id="player">
+	<div class="span12">
+	 <div  class="span2">&nbsp;</div>
+     <div class="span8" id="player">
 	<script type="text/javascript">
 		jwplayer('player').setup({
 			 'flashplayer': '@routes.Assets.at("javascripts/jwplayer/jwplayer.flash.swf")',
@@ -16,5 +18,7 @@
 			    'controlbar' : 'bottom'
 	  });
 	</script>
+	  </div>
+	  <div class="span2">&nbsp;</div>
 	  </div>
 }
