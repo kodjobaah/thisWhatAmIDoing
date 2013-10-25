@@ -13,13 +13,15 @@ class EmailSenderService {
       from = ("kodjobaah@gmail.com", "What Am I doing!!"),
       to = email,
       subject = "What Am I Doing",
-      message = "Click on the link http://5.79.24.141:9000/whatamidoing?invitedId="+invitedId)
+      message = "Click on the link http://www.whatamidoing.info/whatamidoing?invitedId="+invitedId)
 
   }
 
   def sendRegistrationEmail(email:String, password: String) = {
 
           val inviteMessage = s"""
+             <html>
+              <body>
                <div>
       			An account has been create for you just download 
                 the iphone up and start sharing what you are doing:
@@ -35,7 +37,12 @@ class EmailSenderService {
                 password = $password
       			</td>
       	      </row>
+               <row>
+               Click here  <a href="http://www.whatamidoing.info">To get more information</a>
+               </row>
       	      </table>
+             </body>
+            </html>
       """
       
        send a new Mail(
