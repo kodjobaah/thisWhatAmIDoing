@@ -39,7 +39,11 @@ trait Neo4jTestDb {
   val testInvitedFindAllInvitesInvitedId2 = "test-invited-for-find-all-invited-InvitedId2"
   val testInvitedFindAllInvitesInvitedId3 = "test-invited-for-find-all-invited-InvitedId3"
   val testInvitedFindAllInvitesInvitedId3Duplicate = "test-invited-find-all-invites-invited-3-duplicate"
-   
+  val testTokenToInvalidateOne = "test-token-to-invalidate-one"
+  val testTokenToInvalidateTwo = "test-token-to-invalidate-two"
+  val testTokenToInvalidateThree = "test-token-to-invalidate-three"
+  val testUserForTokenToInvalidate = "test-user-for-token-to-invalidate"  
+    
     
   
     
@@ -90,8 +94,18 @@ trait Neo4jTestDb {
      engine.execute(CypherWriter.createInvite(testStreamForFindAllInvites, testUserFindAllInvitesInvited3,testInvitedFindAllInvitesInvitedId3))
      
      //Creating a duplicate
-      engine.execute(CypherWriter.createInvite(testStreamForFindAllInvites, testUserFindAllInvitesInvited3,testInvitedFindAllInvitesInvitedId3Duplicate))
-    engine
+     engine.execute(CypherWriter.createInvite(testStreamForFindAllInvites, testUserFindAllInvitesInvited3,testInvitedFindAllInvitesInvitedId3Duplicate))
+    
+      engine.execute(CypherWriter.createUser(testFirstName, testLastName, testUserForTokenToInvalidate, testPassword))
+      engine.execute(CypherWriter.createToken(testTokenToInvalidateOne, "false"))
+      engine.execute(CypherWriter.linkUserToToken(testUserForTokenToInvalidate, testTokenToInvalidateOne))
+      engine.execute(CypherWriter.createToken(testTokenToInvalidateTwo, "true"))
+       engine.execute(CypherWriter.linkUserToToken(testUserForTokenToInvalidate, testTokenToInvalidateTwo))
+      engine.execute(CypherWriter.createToken(testTokenToInvalidateThree, "true"))
+       engine.execute(CypherWriter.linkUserToToken(testUserForTokenToInvalidate, testTokenToInvalidateThree))
+    
+     
+     engine
   }
 
 }

@@ -36,6 +36,21 @@ object CypherWriter {
    
  }
  
+ def invalidateAuthenticationTokenForUser(token: String): String = {
+ 
+    val t = s"""
+    		match a:AuthenticationToken
+    		where a.token ="$token"
+    		with a
+    		match b-[:HAS_TOKEN]->a
+    		with b
+    		match b-[:HAS_TOKEN]->c
+    		SET c.valid = "false"
+    		return c as token;
+    """
+    return t
+}
+ 
  def linkStreamToDay(stream: String, day: String, time: String): String = {
     val t = s"""
     			match a:Stream, b:Day

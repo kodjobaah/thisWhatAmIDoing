@@ -1,1 +1,3 @@
 no.token.provided=No Token Provided
+login.submit.button = Login
+error.notFound = User name does not exists

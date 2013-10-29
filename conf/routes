@@ -16,6 +16,7 @@ GET  /webjars/*file                 controllers.WebJarAssets.at(file)
 POST /registerLogin				        controllers.WhatAmIDoingController.registerLogin(email: Option[String], password: Option[String], firstName: Option[String], lastName: Option[String])
 # Obtain require.js with built-in knowledge of how webjars resources can be
 
+POST /login							controllers.AdminController.login
 # resolved
 GET     /lib/require.js             controllers.WebJarAssets.requirejs()
 
