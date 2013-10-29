@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SBT: org.scalamock:scalamock-scalatest-support_2.10:3.0.1:test">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/software/play-2.2.0/repository/cache/org.scalamock/scalamock-scalatest-support_2.10/jars/scalamock-scalatest-support_2.10-3.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

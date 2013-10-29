@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SBT: org.neo4j:neo4j-graph-algo:2.0.0-M05:test">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/software/play-2.2.0/repository/cache/org.neo4j/neo4j-graph-algo/jars/neo4j-graph-algo-2.0.0-M05.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SBT: com.typesafe.akka:akka-remote_2.10:2.2.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/software/play-2.2.0/repository/cache/com.typesafe.akka/akka-remote_2.10/bundles/akka-remote_2.10-2.2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

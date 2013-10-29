@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SBT: net.java.dev.jna:jna:3.5.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/software/play-2.2.0/repository/cache/net.java.dev.jna/jna/jars/jna-3.5.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
