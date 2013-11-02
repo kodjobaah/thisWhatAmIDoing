@@ -1,96 +1,59 @@
-2013-11-02 21:00:51,659 - [INFO] - from play in pool-6-thread-2 
+2013-11-02 22:17:38,341 - [INFO] - from play in pool-4-thread-6 
 Listening for HTTP on /0.0.0.0:9000
 
-2013-11-02 21:01:00,923 - [INFO] - from play in play-internal-execution-context-1 
+2013-11-02 22:17:49,106 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6g68neog9 - Internal server error, for (GET) [/findAllStreams?email=kodjo_baah%40hotmail.com] ->
+
+play.PlayExceptions$CompilationException: Compilation error[value getOrElse is not a member of String]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-11-02 22:17:49,190 - [WARN] - from play in New I/O worker #1 
+No application found at invoker init
+
+2013-11-02 22:18:22,771 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2013-11-02 21:01:01,276 - [INFO] - from akka.event.slf4j.Slf4jLogger in play-akka.actor.default-dispatcher-3 
+2013-11-02 22:18:23,033 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-4 
 Slf4jLogger started
 
-2013-11-02 21:01:01,465 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-5 
-Slf4jLogger started
-
-2013-11-02 21:01:01,467 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-5 
+2013-11-02 22:18:23,034 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-4 
 [akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
 
-2013-11-02 21:01:01,468 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-5 
+2013-11-02 22:18:23,035 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-4 
 logger log1-Slf4jEventHandler started
 
-2013-11-02 21:01:01,468 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-5 
+2013-11-02 22:18:23,035 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-4 
 Default Loggers started
 
-2013-11-02 21:01:01,856 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-5 
-this is a valid token: List()
-
-2013-11-02 21:01:19,720 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-5 
-this is the token: List((073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b,true))
-
-2013-11-02 21:01:19,789 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-5 
+2013-11-02 22:18:23,821 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-3 
 this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
 
-2013-11-02 21:06:13,816 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2013-11-02 21:06:13,846 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-5 
-[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
-
-2013-11-02 21:06:13,847 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-5 
-Slf4jLogger started
-
-2013-11-02 21:06:13,848 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-5 
-logger log1-Slf4jEventHandler started
-
-2013-11-02 21:06:13,848 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-5 
-Default Loggers started
-
-2013-11-02 21:06:13,871 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-5 
-this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
-
-2013-11-02 21:07:29,862 - [INFO] - from play in play-internal-execution-context-2 
-Application started (Dev)
-
-2013-11-02 21:07:29,891 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-4 
-Slf4jLogger started
-
-2013-11-02 21:07:29,892 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-4 
-[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
-
-2013-11-02 21:07:29,892 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-4 
-logger log1-Slf4jEventHandler started
-
-2013-11-02 21:07:29,893 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-4 
-Default Loggers started
-
-2013-11-02 21:07:29,917 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-2 
-this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
-
-2013-11-02 21:08:11,990 - [INFO] - from play in play-internal-execution-context-3 
-Application started (Dev)
-
-2013-11-02 21:08:12,022 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-4 
-Slf4jLogger started
-
-2013-11-02 21:08:12,023 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-4 
-[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
-
-2013-11-02 21:08:12,023 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-4 
-logger log1-Slf4jEventHandler started
-
-2013-11-02 21:08:12,024 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-4 
-Default Loggers started
-
-2013-11-02 21:08:12,049 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-2 
-this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
-
-2013-11-02 21:09:04,627 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-5 
-this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
-
-2013-11-02 21:11:10,903 - [ERROR] - from application in play-akka.actor.default-dispatcher-31 
+2013-11-02 22:18:23,893 - [ERROR] - from application in play-akka.actor.default-dispatcher-4 
 
 
-! @6g68elc31 - Internal server error, for (GET) [/listInvites?sEcho=1&iColumns=5&sColumns=&iDisplayStart=0&iDisplayLength=10&mDataProp_0=0&mDataProp_1=1&mDataProp_2=2&mDataProp_3=3&mDataProp_4=4&iSortCol_0=0&sSortDir_0=asc&iSortingCols=1&bSortable_0=true&bSortable_1=true&bSortable_2=true&bSortable_3=true&bSortable_4=true&streamId=stream-id-0&token=78b6b97c-126d-415a-95e5-c3f74bb63e13&_=1383426545189] ->
+! @6g68ngo2g - Internal server error, for (GET) [/findAllStreams?email=kodjo_baah%40hotmail.com] ->
 
-play.api.Application$$anon$1: Execution exception[[TimeoutException: Futures timed out after [30 seconds]]]
+play.api.Application$$anon$1: Execution exception[[ClassCastException: scala.Some cannot be cast to java.lang.String]]
 	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.1]
 	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10.jar:2.2.1]
 	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$12$$anonfun$apply$1.applyOrElse(PlayDefaultUpstreamHandler.scala:165) [play_2.10.jar:2.2.1]
@@ -107,29 +70,6 @@ play.api.Application$$anon$1: Execution exception[[TimeoutException: Futures tim
 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) [scala-library.jar:na]
 	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
 	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$flatMap$1$$anonfun$apply$3.apply(Future.scala:278) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$flatMap$1$$anonfun$apply$3.apply(Future.scala:278) [scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
-	at scala.concurrent.Future$InternalCallbackExecutor$Batch$$anonfun$run$1.processBatch$1(Future.scala:731) [scala-library.jar:na]
-	at scala.concurrent.Future$InternalCallbackExecutor$Batch$$anonfun$run$1.apply$mcV$sp(Future.scala:746) [scala-library.jar:na]
-	at scala.concurrent.Future$InternalCallbackExecutor$Batch$$anonfun$run$1.apply(Future.scala:723) [scala-library.jar:na]
-	at scala.concurrent.Future$InternalCallbackExecutor$Batch$$anonfun$run$1.apply(Future.scala:723) [scala-library.jar:na]
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:72) [scala-library.jar:na]
-	at scala.concurrent.Future$InternalCallbackExecutor$Batch.run(Future.scala:722) [scala-library.jar:na]
-	at scala.concurrent.Future$InternalCallbackExecutor$.scala$concurrent$Future$InternalCallbackExecutor$$unbatchedExecute(Future.scala:782) [scala-library.jar:na]
-	at scala.concurrent.Future$InternalCallbackExecutor$.execute(Future.scala:773) [scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) [scala-library.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) [scala-library.jar:na]
-	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:274) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:274) [scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
-	at play.api.libs.iteratee.Execution$$anon$2.execute(Execution.scala:70) [play-iteratees_2.10.jar:2.2.1]
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) [scala-library.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) [scala-library.jar:na]
-	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) [scala-library.jar:na]
 	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library.jar:na]
 	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) [akka-actor_2.10.jar:2.2.0]
 	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) [akka-actor_2.10.jar:2.2.0]
@@ -137,274 +77,470 @@ play.api.Application$$anon$1: Execution exception[[TimeoutException: Futures tim
 	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
-Caused by: java.util.concurrent.TimeoutException: Futures timed out after [30 seconds]
-	at scala.concurrent.impl.Promise$DefaultPromise.ready(Promise.scala:96) [scala-library.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.result(Promise.scala:100) [scala-library.jar:na]
-	at scala.concurrent.Await$$anonfun$result$1.apply(package.scala:107) ~[scala-library.jar:na]
-	at akka.dispatch.MonitorableThreadFactory$AkkaForkJoinWorkerThread$$anon$3.block(ThreadPoolBuilder.scala:169) ~[akka-actor_2.10.jar:2.2.0]
-	at scala.concurrent.forkjoin.ForkJoinPool.managedBlock(ForkJoinPool.java:3640) [scala-library.jar:na]
-	at akka.dispatch.MonitorableThreadFactory$AkkaForkJoinWorkerThread.blockOn(ThreadPoolBuilder.scala:167) ~[akka-actor_2.10.jar:2.2.0]
-	at scala.concurrent.Await$.result(package.scala:107) ~[scala-library.jar:na]
-	at com.whatamidoing.utils.ActorUtils$.findAllInvitesForStream(ActorUtils.scala:285) ~[classes/:na]
-	at controllers.AdminController$$anonfun$listInvites$1$$anonfun$apply$1.apply(AdminController.scala:22) ~[classes/:na]
-	at controllers.AdminController$$anonfun$listInvites$1$$anonfun$apply$1.apply(AdminController.scala:20) ~[classes/:na]
-	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
-	at controllers.AdminController$$anonfun$listInvites$1.apply(AdminController.scala:19) ~[classes/:na]
-	at controllers.AdminController$$anonfun$listInvites$1.apply(AdminController.scala:17) ~[classes/:na]
-	at play.api.mvc.Action$.invokeBlock(Action.scala:357) ~[play_2.10.jar:2.2.1]
-	at play.api.mvc.ActionBuilder$$anon$1.apply(Action.scala:309) ~[play_2.10.jar:2.2.1]
-	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:109) ~[play_2.10.jar:2.2.1]
-	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:109) ~[play_2.10.jar:2.2.1]
-	at play.utils.Threads$.withContextClassLoader(Threads.scala:18) ~[play_2.10.jar:2.2.1]
-	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:108) ~[play_2.10.jar:2.2.1]
-	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:107) ~[play_2.10.jar:2.2.1]
-	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
-	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:107) ~[play_2.10.jar:2.2.1]
-	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:100) ~[play_2.10.jar:2.2.1]
-	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:481) ~[play-iteratees_2.10.jar:2.2.1]
-	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:481) ~[play-iteratees_2.10.jar:2.2.1]
-	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:517) ~[play-iteratees_2.10.jar:2.2.1]
-	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:517) ~[play-iteratees_2.10.jar:2.2.1]
-	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$13.apply(Iteratee.scala:493) ~[play-iteratees_2.10.jar:2.2.1]
-	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$13.apply(Iteratee.scala:493) ~[play-iteratees_2.10.jar:2.2.1]
+Caused by: java.lang.ClassCastException: scala.Some cannot be cast to java.lang.String
+	at views.html.activity$$anonfun$apply$2.apply(activity.template.scala:192) ~[na:na]
+	at views.html.activity$$anonfun$apply$2.apply(activity.template.scala:192) ~[na:na]
+	at scala.collection.TraversableLike$WithFilter$$anonfun$map$2.apply(TraversableLike.scala:722) ~[scala-library.jar:na]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library.jar:na]
+	at scala.collection.TraversableLike$WithFilter.map(TraversableLike.scala:721) ~[scala-library.jar:na]
+	at views.html.activity$.apply(activity.template.scala:192) ~[na:na]
+	at controllers.AdminController$$anonfun$findAllStreams$1$$anonfun$apply$11$$anonfun$apply$12.apply(AdminController.scala:106) ~[na:na]
+	at controllers.AdminController$$anonfun$findAllStreams$1$$anonfun$apply$11$$anonfun$apply$12.apply(AdminController.scala:106) ~[na:na]
 	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
 	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
 	... 6 common frames omitted
 
-2013-11-02 21:11:23,082 - [INFO] - from play in play-internal-execution-context-3 
+2013-11-02 22:22:01,658 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6g68o3865 - Internal server error, for (GET) [/findAllStreams?email=kodjo_baah%40hotmail.com] ->
+
+play.PlayExceptions$CompilationException: Compilation error[constructor cannot be instantiated to expected type;
+ found   : Some[A]
+ required: String]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-11-02 22:23:26,569 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6g68o83m0 - Internal server error, for (GET) [/findAllStreams?email=kodjo_baah%40hotmail.com] ->
+
+play.PlayExceptions$CompilationException: Compilation error[constructor cannot be instantiated to expected type;
+ found   : Some[A]
+ required: String]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-11-02 22:24:04,789 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6g68oa8a0 - Internal server error, for (GET) [/findAllStreams?email=kodjo_baah%40hotmail.com] ->
+
+play.PlayExceptions$CompilationException: Compilation error[pattern type is incompatible with expected type;
+ found   : None.type
+ required: Some[String]
+Note: if you intended to match against the class, try `case _: <none>`]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-11-02 22:25:23,748 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6g68oel4n - Internal server error, for (GET) [/findAllStreams?email=kodjo_baah%40hotmail.com] ->
+
+play.PlayExceptions$CompilationException: Compilation error[identifier expected but $XMLSTART$< found.]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-11-02 22:25:47,382 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6g68og43n - Internal server error, for (GET) [/findAllStreams?email=kodjo_baah%40hotmail.com] ->
+
+play.PlayExceptions$CompilationException: Compilation error[pattern type is incompatible with expected type;
+ found   : None.type
+ required: Some[String]
+Note: if you intended to match against the class, try `case _: <none>`]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-11-02 22:26:53,101 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6g68ojn9f - Internal server error, for (GET) [/findAllStreams?email=kodjo_baah%40hotmail.com] ->
+
+play.PlayExceptions$CompilationException: Compilation error[pattern type is incompatible with expected type;
+ found   : None.type
+ required: Some[String]
+Note: if you intended to match against the class, try `case _: <none>`]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-11-02 22:29:34,023 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6g68p31am - Internal server error, for (GET) [/findAllStreams?email=kodjo_baah%40hotmail.com] ->
+
+play.PlayExceptions$CompilationException: Compilation error[pattern type is incompatible with expected type;
+ found   : None.type
+ required: Some[String]
+Note: if you intended to match against the class, try `case _: <none>`]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-11-02 22:31:12,495 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6g68p8h26 - Internal server error, for (GET) [/findAllStreams?email=kodjo_baah%40hotmail.com] ->
+
+play.PlayExceptions$CompilationException: Compilation error[not found: value tok]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-11-02 22:31:37,102 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6g68pa1ch - Internal server error, for (GET) [/findAllStreams?email=kodjo_baah%40hotmail.com] ->
+
+play.PlayExceptions$CompilationException: Compilation error[illegal start of simple pattern]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-11-02 22:34:01,864 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6g68pi7gc - Internal server error, for (GET) [/findAllStreams?email=kodjo_baah%40hotmail.com] ->
+
+play.PlayExceptions$CompilationException: Compilation error[illegal start of simple pattern]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-11-02 22:35:03,948 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6g68pllc7 - Internal server error, for (GET) [/findAllStreams?email=kodjo_baah%40hotmail.com] ->
+
+play.PlayExceptions$CompilationException: Compilation error['case' expected but identifier found.]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-11-02 22:35:34,372 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6g68pnecb - Internal server error, for (GET) [/findAllStreams?email=kodjo_baah%40hotmail.com] ->
+
+play.PlayExceptions$CompilationException: Compilation error[illegal start of simple pattern]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-11-02 22:36:01,562 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6g68pp2f9 - Internal server error, for (GET) [/findAllStreams?email=kodjo_baah%40hotmail.com] ->
+
+play.PlayExceptions$CompilationException: Compilation error[illegal start of simple pattern]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-11-02 22:37:34,948 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6g6904am0 - Internal server error, for (GET) [/findAllStreams?email=kodjo_baah%40hotmail.com] ->
+
+play.PlayExceptions$CompilationException: Compilation error[illegal start of simple expression]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-11-02 22:45:28,559 - [ERROR] - from application in New I/O worker #5 
+
+
+! @6g69159bl - Internal server error, for (GET) [/findAllStreams?email=kodjo_baah%40hotmail.com] ->
+
+play.PlayExceptions$CompilationException: Compilation error[constructor cannot be instantiated to expected type;
+ found   : Some[A]
+ required: String]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-11-02 22:46:54,972 - [ERROR] - from application in New I/O worker #5 
+
+
+! @6g691a77a - Internal server error, for (GET) [/findAllStreams?email=kodjo_baah%40hotmail.com] ->
+
+play.PlayExceptions$CompilationException: Compilation error[constructor cannot be instantiated to expected type;
+ found   : Some[A]
+ required: String]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-11-02 22:47:36,470 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2013-11-02 21:11:23,672 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-3 
+2013-11-02 22:47:36,629 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-6 
 Slf4jLogger started
 
-2013-11-02 21:11:23,673 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-3 
+2013-11-02 22:47:36,630 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-6 
 [akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
 
-2013-11-02 21:11:23,674 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-3 
+2013-11-02 22:47:36,630 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-6 
 logger log1-Slf4jEventHandler started
 
-2013-11-02 21:11:23,674 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-3 
+2013-11-02 22:47:36,631 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-6 
 Default Loggers started
 
-2013-11-02 21:11:23,721 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-3 
-this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
-
-2013-11-02 21:13:20,646 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-5 
-this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
-
-2013-11-02 21:16:15,165 - [INFO] - from play in play-internal-execution-context-3 
-Application started (Dev)
-
-2013-11-02 21:16:15,194 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-4 
-Slf4jLogger started
-
-2013-11-02 21:16:15,197 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-4 
-[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
-
-2013-11-02 21:16:15,198 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-4 
-logger log1-Slf4jEventHandler started
-
-2013-11-02 21:16:15,199 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-4 
-Default Loggers started
-
-2013-11-02 21:16:15,254 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-5 
-this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
-
-2013-11-02 21:17:38,654 - [INFO] - from play in play-internal-execution-context-3 
-Application started (Dev)
-
-2013-11-02 21:17:38,710 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-5 
-Slf4jLogger started
-
-2013-11-02 21:17:38,713 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-5 
-[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
-
-2013-11-02 21:17:38,714 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-5 
-logger log1-Slf4jEventHandler started
-
-2013-11-02 21:17:38,714 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-5 
-Default Loggers started
-
-2013-11-02 21:17:38,846 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-5 
-this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
-
-2013-11-02 21:26:22,188 - [INFO] - from play in play-internal-execution-context-3 
-Application started (Dev)
-
-2013-11-02 21:26:22,228 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-6 
-Slf4jLogger started
-
-2013-11-02 21:26:22,230 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-6 
-[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
-
-2013-11-02 21:26:22,231 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-6 
-logger log1-Slf4jEventHandler started
-
-2013-11-02 21:26:22,232 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-6 
-Default Loggers started
-
-2013-11-02 21:26:23,206 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-5 
-this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
-
-2013-11-02 21:28:14,586 - [INFO] - from play in play-internal-execution-context-3 
-Application started (Dev)
-
-2013-11-02 21:28:14,634 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-6 
-Slf4jLogger started
-
-2013-11-02 21:28:14,635 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-6 
-[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
-
-2013-11-02 21:28:14,637 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-6 
-logger log1-Slf4jEventHandler started
-
-2013-11-02 21:28:14,638 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-6 
-Default Loggers started
-
-2013-11-02 21:28:14,728 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-4 
-this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
-
-2013-11-02 21:31:49,481 - [INFO] - from play in play-internal-execution-context-3 
-Application started (Dev)
-
-2013-11-02 21:31:49,503 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-5 
-Slf4jLogger started
-
-2013-11-02 21:31:49,504 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-5 
-[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
-
-2013-11-02 21:31:49,505 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-5 
-logger log1-Slf4jEventHandler started
-
-2013-11-02 21:31:49,505 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-5 
-Default Loggers started
-
-2013-11-02 21:31:49,600 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-2 
-this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
-
-2013-11-02 21:34:02,379 - [INFO] - from play in play-internal-execution-context-3 
-Application started (Dev)
-
-2013-11-02 21:34:02,405 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-3 
-Slf4jLogger started
-
-2013-11-02 21:34:02,405 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-3 
-[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
-
-2013-11-02 21:34:02,406 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-3 
-logger log1-Slf4jEventHandler started
-
-2013-11-02 21:34:02,406 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-3 
-Default Loggers started
-
-2013-11-02 21:34:02,433 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-2 
-this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
-
-2013-11-02 21:35:51,809 - [INFO] - from play in play-internal-execution-context-6 
-Application started (Dev)
-
-2013-11-02 21:35:51,832 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-5 
-Slf4jLogger started
-
-2013-11-02 21:35:51,833 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-5 
-[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
-
-2013-11-02 21:35:51,834 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-5 
-logger log1-Slf4jEventHandler started
-
-2013-11-02 21:35:51,834 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-5 
-Default Loggers started
-
-2013-11-02 21:35:51,866 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-4 
-this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
-
-2013-11-02 21:36:21,821 - [INFO] - from play in play-internal-execution-context-6 
-Application started (Dev)
-
-2013-11-02 21:36:21,848 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-5 
-Slf4jLogger started
-
-2013-11-02 21:36:21,849 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-5 
-[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
-
-2013-11-02 21:36:21,851 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-5 
-logger log1-Slf4jEventHandler started
-
-2013-11-02 21:36:21,851 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-5 
-Default Loggers started
-
-2013-11-02 21:36:21,871 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-4 
-this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
-
-2013-11-02 21:38:44,179 - [INFO] - from play in play-internal-execution-context-6 
-Application started (Dev)
-
-2013-11-02 21:38:44,204 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-2 
-Slf4jLogger started
-
-2013-11-02 21:38:44,205 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-2 
-[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
-
-2013-11-02 21:38:44,206 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-2 
-logger log1-Slf4jEventHandler started
-
-2013-11-02 21:38:44,206 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-2 
-Default Loggers started
-
-2013-11-02 21:38:44,363 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-2 
-this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
-
-2013-11-02 21:41:51,150 - [INFO] - from play in play-internal-execution-context-6 
-Application started (Dev)
-
-2013-11-02 21:41:51,175 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-7 
-Slf4jLogger started
-
-2013-11-02 21:41:51,176 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-7 
-[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
-
-2013-11-02 21:41:51,177 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-7 
-logger log1-Slf4jEventHandler started
-
-2013-11-02 21:41:51,177 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-7 
-Default Loggers started
-
-2013-11-02 21:41:51,215 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-2 
-this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
-
-2013-11-02 21:42:15,559 - [INFO] - from play in play-internal-execution-context-6 
-Application started (Dev)
-
-2013-11-02 21:42:15,612 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-3 
-Slf4jLogger started
-
-2013-11-02 21:42:15,612 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-3 
-[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
-
-2013-11-02 21:42:15,613 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-3 
-logger log1-Slf4jEventHandler started
-
-2013-11-02 21:42:15,613 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-3 
-Default Loggers started
-
-2013-11-02 21:42:15,677 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-4 
-this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
-
-2013-11-02 21:59:43,636 - [INFO] - from play in play-internal-execution-context-6 
-Application started (Dev)
-
-2013-11-02 21:59:43,796 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-4 
-Slf4jLogger started
-
-2013-11-02 21:59:43,797 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-4 
-[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
-
-2013-11-02 21:59:43,798 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-3 
-logger log1-Slf4jEventHandler started
-
-2013-11-02 21:59:43,799 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-3 
-Default Loggers started
-
-2013-11-02 21:59:44,092 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-4 
+2013-11-02 22:47:40,770 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-4 
 this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
 

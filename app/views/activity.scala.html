@@ -169,7 +169,7 @@
 <select id="sessions" class="selectpicker" data-style="btn-primary"  name="tokenType">
     <option value="Nothing" selected>Select a session....</option>
     @for((token,index) <- tokens.zipWithIndex){
-        <option value="@token">session - @index</option>
+        <option value='@token'>session - @index</option>
     }
 </select>
 </div>

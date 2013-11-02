@@ -102,7 +102,16 @@ object AdminController extends Controller {
         user =>
           var valid = ActorUtils.getValidToken(user)
           if (valid.asInstanceOf[List[String]].size > 0) {
-             var tokens = ActorUtils.findAllTokensForUser(email)
+             var toks = ActorUtils.findAllTokensForUser(email).asInstanceOf[List[Option[String]]]
+
+            var tokens: List[String] = List()
+            for(x <- toks) {
+                x match {
+                  case Some(tok) => tokens = tokens :+ tok.asInstanceOf[String]
+                  case None => tokens = tokens :+ "Nothing"
+                }
+
+            }
             future(Ok(views.html.activity(tokens)))
           }else {
             future(Unauthorized(views.html.welcome(Index.userForm)))
