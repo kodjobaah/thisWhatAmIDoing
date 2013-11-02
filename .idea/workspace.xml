@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="855357b2-4bff-4ebb-b46f-54398f4536f1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/main.scala.html" afterPath="$PROJECT_DIR$/app/views/main.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" />
     </list>
     <ignored path="thisWhatAmIDoing.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -19,7 +19,7 @@
     <file path="/CypherWriter.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383411860371" ignored="false" />
     <file path="/WhatAmIDoingController.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383238419732" ignored="false" />
     <file path="/main.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383237823711" ignored="false" />
-    <file path="/CypherReader.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383412236763" ignored="false" />
+    <file path="/CypherReader.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383415099116" ignored="false" />
     <file path="/Neo4jTestDb.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383250874121" ignored="false" />
     <file path="/CypherReaderSpec.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383398112568" ignored="false" />
     <file path="/Dummy.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383321653267" ignored="false" />
@@ -116,10 +116,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CypherReader.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="CypherReader.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="0" selection-start="3418" selection-end="3418" vertical-scroll-proportion="0.0">
+            <state line="143" column="64" selection-start="3223" selection-end="3223" vertical-scroll-proportion="0.070063695">
               <folding />
             </state>
           </provider>
@@ -134,10 +134,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity.scala.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="activity.scala.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/activity.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="198" selection-start="695" selection-end="695" vertical-scroll-proportion="0.32994923">
+            <state line="13" column="198" selection-start="695" selection-end="695" vertical-scroll-proportion="-8.125">
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#0;n#script#2;n#!!top" expanded="true" />
               </folding>
@@ -222,8 +222,8 @@
         <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala" />
         <option value="$PROJECT_DIR$/app/controllers/AdminController.scala" />
         <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriter.scala" />
-        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" />
         <option value="$PROJECT_DIR$/app/views/main.scala.html" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" />
       </list>
     </option>
   </component>
@@ -1173,13 +1173,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="0" selection-start="3418" selection-end="3418" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="87" selection-start="836" selection-end="836" vertical-scroll-proportion="0.0">
@@ -1203,10 +1196,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/activity.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="198" selection-start="695" selection-end="695" vertical-scroll-proportion="0.32994923">
+        <state line="13" column="198" selection-start="695" selection-end="695" vertical-scroll-proportion="-8.125">
           <folding>
             <element signature="n#style#0;n#p#0;n#div#0;n#script#2;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="143" column="64" selection-start="3223" selection-end="3223" vertical-scroll-proportion="0.070063695">
+          <folding />
         </state>
       </provider>
     </entry>

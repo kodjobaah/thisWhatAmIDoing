@@ -141,7 +141,7 @@ object CypherReader {
     match (d)-[a?:ACCEPTED_ON]-(invite)-[:TO_WATCH]-(stream)-[:USING]-(tok)
     where stream.name="$streamId"
     with d,a,tok,stream,invite
-    match (tok)-[:USING]-(stream)-[:TO_WATCH]-(invite)-[:RECEIVED]-(user)
+    match (tok)-[:USING]-(stream)-[:TO_WATCH]-(invite)-[:INVITED]-(user)
     return d.description as day , a.time as time , user.email as email, user.firstName as firstName, user.lastName as lastName
     $sort
     SKIP $skip
