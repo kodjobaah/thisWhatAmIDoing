@@ -8,7 +8,11 @@ import org.neo4j.cypher.javacompat.ExecutionEngine
 import org.neo4j.graphdb.Transaction
 import org.neo4j.tooling.GlobalGraphOperations
 import com.whatamidoing.cypher.CypherWriter
+import org.junit.runner.RunWith
+import org.specs2.runner.JUnitRunner
 
+
+@RunWith(classOf[JUnitRunner])
 class CypherReaderSpec extends FlatSpec with Neo4jTestDb with Matchers with BeforeAndAfter {
   
   "Given a valid user with no active token" should "return nothing" in {
@@ -126,10 +130,8 @@ class CypherReaderSpec extends FlatSpec with Neo4jTestDb with Matchers with Befo
    }
    
    "given the user" should "return all the invited uses" in {
-       var result = getEngine.execute(CypherReader.findAllInvites(testUserFindAllInvites))
-       //import collection.JavaConversions._
-       //val res = List() ++ result.iterator()
-       
+       var result = getEngine.execute(CypherReader.findAllInvites(testUserFindAllInvitesToken))
+
        var res = new scala.collection.mutable.ListBuffer[String]
        val it = result.iterator()
        while(it.hasNext()) {
@@ -143,5 +145,13 @@ class CypherReaderSpec extends FlatSpec with Neo4jTestDb with Matchers with Befo
        res should contain (testUserFindAllInvitesInvited3)
         
    }
+
+  "given the token " should "return all the streams" in {
+
+    var result = getEngine.execute(CypherReader.findAllStreamsForDay(testTokenForCollectingUserInfo,0,5,1,"asc"))
+
+    println(result.dumpToString())
+
+  }
 
 }

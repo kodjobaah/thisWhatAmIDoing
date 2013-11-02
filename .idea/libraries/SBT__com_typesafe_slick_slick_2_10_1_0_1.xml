@@ -1,9 +1,13 @@
 <component name="libraryTable">
   <library name="SBT: com.typesafe.slick:slick_2.10:1.0.1">
     <CLASSES>
-      <root url="jar://$USER_HOME$/software/play-2.2.0/repository/cache/com.typesafe.slick/slick_2.10/jars/slick_2.10-1.0.1.jar!/" />
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/com.typesafe.slick/slick_2.10/jars/slick_2.10-1.0.1.jar!/" />
     </CLASSES>
-    <JAVADOC />
-    <SOURCES />
+    <JAVADOC>
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/com.typesafe.slick/slick_2.10/docs/slick_2.10-1.0.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/com.typesafe.slick/slick_2.10/srcs/slick_2.10-1.0.1-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

@@ -11,8 +11,8 @@
 <div style="text-align: center;">
 	<br />
 	<p>
-	<div class="container">
-			<div class="span8">
+	<div class="row">
+			<div class="col-md-8 cold-md-offset-3">
 				<div class="hero-unit">
 					<p>Welcome to whatamidoing the app that allows you to share
 						moments at the time of experience.</p>
@@ -26,21 +26,21 @@
 				</div>
 			</div>
 
-			<div class="span4">
+			<div class="col-md-4">
 			
 				<div class="well">
 				<div class="page-header">
   					<h1> <small>Login to view activity</small></h1>
 				</div>
-				@helper.form(action = routes.AdminController.login) {
-				    @helper.inputText(myForm("User Name"),'id -> "userName")
+				@helper.form(action = routes.AdminController.login, 'class->"form-horizontal",'role -> "form") {
+				    @helper.inputText(myForm("Email"),'id -> "userName")
                     @helper.inputPassword(myForm("password"))
 
-					<input type="submit" class="btn primary" value='@play.api.i18n.Messages("login.submit.button")'>
+					<input type="submit" class="btn btn-lg" value='@play.api.i18n.Messages("login.submit.button")'>
 				}
 			
 				</div>
-				</div>
+			</div>
 
 		</div>
 

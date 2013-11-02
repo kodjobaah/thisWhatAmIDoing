@@ -4,24 +4,11 @@ import play.api.mvc.Controller
 import play.api.mvc.Action
 import play.api.Logger
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
-import play.api.libs.json._
 
-import play.data.validation.Constraints.EmailValidator
 
-import scala.concurrent._
 import scala.concurrent.future
-import scala.concurrent.duration.DurationInt
-import akka.actor.ActorSystem
-import akka.pattern.ask
-import akka.pattern.AskTimeoutException
-import akka.util.Timeout
-import com.whatamidoing.actors.red5._
-import com.whatamidoing.actors.neo4j._
 import com.whatamidoing.utils.ActorUtils
-import com.whatamidoing.cypher.CypherReaderFunction
-import com.whatamidoing.cypher.CypherWriterFunction
 import com.whatamidoing.mail.EmailSenderService
-import com.whatamidoing.utils.ApplicationProps
 import models.Messages._
 
 object WhatAmIDoingController extends Controller {
@@ -93,11 +80,6 @@ object WhatAmIDoingController extends Controller {
 
     if (!token.equalsIgnoreCase("no-token-provided")) {
       if (!email.equalsIgnoreCase("no-email-provided")) {
-        var emailValidator = new EmailValidator()
-
-        var isEmailValid = emailValidator.isValid(email)
-
-        if (isEmailValid) {
 
           var valid = ActorUtils.getValidToken(token)
 
@@ -128,10 +110,7 @@ object WhatAmIDoingController extends Controller {
           } else {
             future(Ok("Unable To Invite"))
           }
-        } else {
-          future(Ok("Invalid Email"))
-        }
-      } else {
+       } else {
         future(Ok("No email provided"))
       }
     } else {
@@ -139,7 +118,6 @@ object WhatAmIDoingController extends Controller {
     }
   }
 
-  import ExecutionContext.Implicits.global
   def registerLogin(email: Option[String], password: Option[String], firstName: Option[String], lastName: Option[String]) =
     Action.async { implicit request =>
 
@@ -149,11 +127,7 @@ object WhatAmIDoingController extends Controller {
       val ln = lastName.getOrElse("no-last-name-provided")
 
       if (!em.equalsIgnoreCase("no-email-address-provided")) {
-        val emailValidator = new EmailValidator()
-        val isEmailValid = emailValidator.isValid(email.get)
-
-        if (isEmailValid) {
-          var res = ActorUtils.searchForUser(em)
+             var res = ActorUtils.searchForUser(em)
 
           Logger.info("results from searching for a user:" + p + ":")
           //Creating the user
@@ -169,8 +143,9 @@ object WhatAmIDoingController extends Controller {
               var decrypt = true;
 
               try {
-                BCrypt.checkpw(p, dbhash)
-              } catch {
+                decrypt = BCrypt.checkpw(p, dbhash)
+              }
+              catch {
                 case e: java.lang.IllegalArgumentException => decrypt = false
               }
 
@@ -196,9 +171,7 @@ object WhatAmIDoingController extends Controller {
               future(Ok("Password not supplied"))
             }
           }
-        } else {
-          future(Ok("Email Not Valid"))
-        }
+
       } else {
         future(Ok("Email not supplied"))
       }

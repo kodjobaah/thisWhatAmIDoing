@@ -14,8 +14,8 @@ object Index extends Controller {
   import models.User
   val userForm = Form(
     mapping(
-     "User Name" -> nonEmptyText(),
-      "password" -> text
+     "Email" -> email,
+      "password" -> nonEmptyText()
      )(User.apply)(User.unapply))
 
   def index = Action.async { implicit request =>

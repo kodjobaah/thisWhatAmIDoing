@@ -264,5 +264,64 @@ object ActorUtils {
     results
   }
 
+  def  findAllStreamsForDay(token: String, displayStart: Int, displayLength: Int, sortColumn: Int, sortDirection: String): List[String] = {
+
+    val findAllInvites = CypherReaderFunction.findAllStreamsForDay(token,displayStart,displayLength,sortColumn,sortDirection)
+    val findAllInvitesResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(findAllInvites)).mapTo[Any]
+
+    var results = Await.result(findAllInvitesResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+        readResults.results.asInstanceOf[List[String]]
+      }
+    }
+    results
+  }
+
+  def  findAllInvitesForStream(token: String, displayStart: Int, displayLength: Int, sortColumn: Int, sortDirection: String, streamId: String): List[String] = {
+
+    val findAllInvitesForStream = CypherReaderFunction.findAllInvitesForStream(token,displayStart,displayLength,sortColumn,sortDirection,streamId)
+    val findAllInvitesForStreamResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(findAllInvitesForStream)).mapTo[Any]
+
+    var results = Await.result(findAllInvitesForStreamResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+        readResults.results.asInstanceOf[List[String]]
+      }
+    }
+    results
+  }
+
+
+
+  def  countNumberAllStreamsForDay(token: String): List[String] = {
+
+    val countNumberAllStreamsForDay = CypherReaderFunction.countNumberAllStreamsForDay(token)
+    val countNumberAllStreamsForDayResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(countNumberAllStreamsForDay)).mapTo[Any]
+
+    var results = Await.result(countNumberAllStreamsForDayResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+        readResults.results.asInstanceOf[List[String]]
+      }
+    }
+    results
+  }
+
+
+  def  countAllInvitesForToken(token: String): List[String] = {
+
+    val countAllInvitesForToken = CypherReaderFunction.countAllInvitesForToken(token)
+    val countAllInvitesForTokenResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(countAllInvitesForToken)).mapTo[Any]
+
+    var results = Await.result(countAllInvitesForTokenResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+        readResults.results.asInstanceOf[List[String]]
+      }
+    }
+    results
+  }
+
+
+
+
+
 
 }

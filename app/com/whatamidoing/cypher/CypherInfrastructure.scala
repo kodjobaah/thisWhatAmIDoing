@@ -34,7 +34,7 @@ object CypherInfrastructure {
   
  def linkTimeLineWithYear(year: Int): String = {
     val linkMonthWithYear = s"""
- 			  match a:TimeLine, b:Year
+ 			  match (a:TimeLine), (b:Year)
 			  where a.value="timeline" AND b.value = "$year"
 			  create a-[r:YEAR]->b
 			  return r
@@ -45,7 +45,7 @@ object CypherInfrastructure {
 
  def linkMonthWithYear(month: String, year: Int): String = {
     val linkMonthWithYear = s"""
- 			  match a:Year, b:Month
+ 			  match (a:Year), (b:Month)
 			  where a.value="$year" AND b.description = "$month"
 			  create a-[r:MONTH]->b
 			  return r
@@ -56,7 +56,7 @@ object CypherInfrastructure {
 
   def linkMonthToDay(month: String, day: String): String = {
     val linkToToken = s"""
- 			  match a:Month, b:Day
+ 			  match (a:Month), (b:Day)
 			  where a.description="$month" AND b.description = "$day"
 			  create a-[r:DAY]->b
 			  return r

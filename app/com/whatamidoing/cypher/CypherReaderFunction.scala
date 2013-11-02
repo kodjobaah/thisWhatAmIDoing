@@ -68,5 +68,48 @@ object CypherReaderFunction {
   	}
   	findAllInvites
   }
-  
+
+  def findAllStreamsForDay(token: String, displayStart: Int, displayLength: Int, sortColumn: Int, sortDirection: String): () => Neo4jResult = {
+    val findAllStreamsForDay: Function0[Neo4jResult] = () => {
+      val allStreams = Cypher(CypherReader.findAllStreamsForDay(token,displayStart, displayLength,sortColumn,sortDirection)).apply().map(row => (row[String]("stream"),row[String]("day"),row[String]("startTime"),row[Option[String]]("end"),row[Option[String]]("endTime"))).toList
+      val neo4jResult = new Neo4jResult(allStreams)
+     // Logger("CypherBuilder.findAllStreamsForDay").info("all streams:"+allStreams)
+      neo4jResult
+    }
+    findAllStreamsForDay
+  }
+
+  def findAllInvitesForStream(token: String, displayStart: Int, displayLength: Int, sortColumn: Int, sortDirection: String, streamId: String): () => Neo4jResult = {
+    val findAllInvitesForStream: Function0[Neo4jResult] = () => {
+      val allStreams = Cypher(CypherReader.findAllInvitesForStream(token,displayStart, displayLength,sortColumn,sortDirection,streamId)).apply().map(row => (row[Option[String]]("day"),row[Option[String]]("time"),row[String]("email"),row[Option[String]]("firstName"),row[Option[String]]("lastName"))).toList
+      val neo4jResult = new Neo4jResult(allStreams)
+      // Logger("CypherBuilder.findAllStreamsForDay").info("all streams:"+allStreams)
+      neo4jResult
+    }
+    findAllInvitesForStream
+  }
+
+
+
+  def countNumberAllStreamsForDay(token: String): () => Neo4jResult = {
+    val countNumberAllStreamsForDay: Function0[Neo4jResult] = () => {
+      val allStreams = Cypher(CypherReader.countNumberAllStreamsForDay(token)).apply().map(row => (row[Int]("count"))).toList
+      val neo4jResult = new Neo4jResult(List(allStreams.head.toString))
+     // Logger("CypherBuilder.countNumberAllStreamsForDay").info("numbers streams:"+allStreams)
+      neo4jResult
+    }
+    countNumberAllStreamsForDay
+  }
+
+  def countAllInvitesForToken(token: String): () => Neo4jResult = {
+    val countAllInvitesForToken: Function0[Neo4jResult] = () => {
+      val allStreams = Cypher(CypherReader.countAllInvitesForToken(token)).apply().map(row => (row[Int]("count"))).toList
+      val neo4jResult = new Neo4jResult(List(allStreams.head.toString))
+      // Logger("CypherBuilder.countNumberAllStreamsForDay").info("numbers streams:"+allStreams)
+      neo4jResult
+    }
+    countAllInvitesForToken
+  }
+
+
 }

@@ -1,9 +1,14 @@
 <component name="libraryTable">
   <library name="SBT: org.parboiled:parboiled-scala_2.10:1.1.6:test">
     <CLASSES>
-      <root url="jar://$USER_HOME$/software/play-2.2.0/repository/cache/org.parboiled/parboiled-scala_2.10/bundles/parboiled-scala_2.10-1.1.6.jar!/" />
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/org.parboiled/parboiled-scala_2.10/jars/parboiled-scala_2.10-1.1.6.jar!/" />
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/org.parboiled/parboiled-scala_2.10/bundles/parboiled-scala_2.10-1.1.6.jar!/" />
     </CLASSES>
-    <JAVADOC />
-    <SOURCES />
+    <JAVADOC>
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/org.parboiled/parboiled-scala_2.10/docs/parboiled-scala_2.10-1.1.6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/org.parboiled/parboiled-scala_2.10/srcs/parboiled-scala_2.10-1.1.6-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

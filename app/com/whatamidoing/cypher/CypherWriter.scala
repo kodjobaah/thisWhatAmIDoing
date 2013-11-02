@@ -4,7 +4,7 @@ object CypherWriter {
   
     def createUser(fn: String, ln: String, em: String, pw_hash: String): String = {
     val s = s"""
-              create ($fn:User {email:"$em",password:"$pw_hash",firstName:"$fn",lastName:"$ln"})
+              create (user:User {id:"$em", email:"$em", password:"$pw_hash",firstName:"$fn",lastName:"$ln"})
                """
 
     return s
@@ -12,14 +12,14 @@ object CypherWriter {
 
   def createToken(token: String, valid: String): String = {
     val t = s"""
-                 create (token:AuthenticationToken {token:"$token",valid:"$valid"})
+                 create (token:AuthenticationToken {id:"$token" ,token:"$token",valid:"$valid"})
                 """
     return t;
   }
 
  def createStream(stream: String): String = {
     val t = s"""
-                 create (stream:Stream {name:"$stream", state:"active"})
+                 create (stream:Stream {id:"$stream",name:"$stream", state:"active"})
                 """
     return t;
   }
@@ -27,7 +27,7 @@ object CypherWriter {
  def linkStreamToToken(stream: String, token: String): String = {
     val t = s"""
     
-    		match a:Stream, b:AuthenticationToken
+    		match (a:Stream), (b:AuthenticationToken)
     		where a.name="$stream" and b.token="$token"
     		create a-[r:USING]->b
     		return r
@@ -39,12 +39,12 @@ object CypherWriter {
  def invalidateAuthenticationTokenForUser(token: String): String = {
  
     val t = s"""
-    		match a:AuthenticationToken
+    		match (a:AuthenticationToken)
     		where a.token ="$token"
     		with a
-    		match b-[:HAS_TOKEN]->a
+    		match (b)-[:HAS_TOKEN]->(a)
     		with b
-    		match b-[:HAS_TOKEN]->c
+    		match (b)-[:HAS_TOKEN]->(c)
     		SET c.valid = "false"
     		return c as token;
     """
@@ -53,7 +53,7 @@ object CypherWriter {
  
  def linkStreamToDay(stream: String, day: String, time: String): String = {
     val t = s"""
-    			match a:Stream, b:Day
+    			match (a:Stream), (b:Day)
     			where a.name="$stream" AND b.description="$day"
     			create a-[r:BROADCAST_ON {time:"$time"}]->b
                 return r
@@ -63,7 +63,7 @@ object CypherWriter {
  
   def linkUserToToken(em: String, token: String): String = {
     val linkToToken = s"""
- 			  match a:User, b:AuthenticationToken
+ 			  match (a:User), (b:AuthenticationToken)
 			  where a.email="$em" AND b.token = "$token"
 			  create a-[r:HAS_TOKEN]->b
 			  return r
@@ -74,7 +74,7 @@ object CypherWriter {
   def associateStreamCloseToDay(stream: String, day: String, time: String): String  = {
      val linkCloseStreamToDay = s"""
      
- 			  match a:Stream, b:Day
+ 			  match (a:Stream), (b:Day)
 			  where a.name="$stream" AND b.description = "$day"
 			  create a-[r:BROADCAST_ENDED_ON {time:"$time"}]->b
 			  return r
@@ -86,7 +86,7 @@ object CypherWriter {
   def closeStream(stream: String): String = {
     
     val res=s"""
-    		match stream:Stream
+    		match (stream:Stream)
     		where stream.name="$stream"
     		SET stream.state ="inactive"
     		return stream.state as state
@@ -97,11 +97,11 @@ object CypherWriter {
   def createInvite(stream: String, email: String, id: String): String = {
     
     val res=s"""
-    		match stream:Stream, a:User
-    		where stream.name="$stream" and a.email="$email"
-    		create (invite:Invite {name:"${stream}-${email}", id:"$id"})
-    		create invite-[r:TO_WATCH]->stream
-    		create a-[s:INVITED]->invite
+    		match (stream:Stream), (user:User)
+    		where stream.name="$stream" and user.email="$email"
+    		create (invite:Invite {name:"${stream}-${email}", id:"$id"}),
+    		(invite)-[r:TO_WATCH]->(stream),
+    		(user)-[s:RECEIVED]->(invite)
     		return s,r
     """
     return res
@@ -110,7 +110,7 @@ object CypherWriter {
   
   def invalidateToken(token: String) : String = {
       val res=s"""
-    		match a:AuthenticationToken
+    		match (a:AuthenticationToken)
     		where a.token = "$token"
     		SET a.valid ="false"
     		return a.valid as valid
@@ -121,7 +121,7 @@ object CypherWriter {
   
   def createTokenForUser(token: String, email: String): String = {
       val res=s"""
-    		match a:User
+    		match (a:User)
     		where a.email = "$email"
     		with a
     		create (token:AuthenticationToken {token:"$token",valid:"true"})
@@ -133,7 +133,7 @@ object CypherWriter {
   
   def associateDayWithInvite(inviteId:String, day: String, time: String): String = {
       val res=s"""
-    		match a:Invite, b:Day
+    		match (a:Invite), (b:Day)
     		where a.id = "$inviteId" and b.description="$day"
     		with a,b
     		create a-[r:ACCEPTED_ON {time:"$time"}]->b

@@ -1,9 +1,13 @@
 <component name="libraryTable">
   <library name="SBT: com.fasterxml.jackson.core:jackson-databind:2.2.2">
     <CLASSES>
-      <root url="jar://$USER_HOME$/software/play-2.2.0/repository/local/com.fasterxml.jackson.core/jackson-databind/2.2.2/jars/jackson-databind.jar!/" />
+      <root url="jar:///opt/play/play-2.2.1/repository/local/com.fasterxml.jackson.core/jackson-databind/2.2.2/jars/jackson-databind.jar!/" />
     </CLASSES>
-    <JAVADOC />
-    <SOURCES />
+    <JAVADOC>
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/com.fasterxml.jackson.core/jackson-databind/docs/jackson-databind-2.2.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/com.fasterxml.jackson.core/jackson-databind/srcs/jackson-databind-2.2.2-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

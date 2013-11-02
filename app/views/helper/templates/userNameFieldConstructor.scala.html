@@ -1,12 +1,11 @@
 @(elements: helper.FieldElements)
 
-<div class="constrol-group @if(elements.hasErrors) {error}">
+<div class="form-group @if(elements.hasErrors) {has-error}">
     <label class="control-label" for="@elements.id">@elements.label</label>
     <div class="controls">
-        @elements.input
+        <input type="text" class="form-control" id="@elements.id" name="@elements.field.name" value="@elements.field.value"  placeholder="@elements.field.name">
         @if(elements.hasErrors){
         <p class="help-inline">@elements.errors.mkString(", ")</p>
         }
-
-    </div>
+     </div>
 </div>

@@ -1,9 +1,11 @@
 <component name="libraryTable">
   <library name="SBT: org.ostermiller:utils:1.07.00">
     <CLASSES>
-      <root url="jar://$USER_HOME$/software/play-2.2.0/repository/cache/org.ostermiller/utils/jars/utils-1.07.00.jar!/" />
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/org.ostermiller/utils/jars/utils-1.07.00.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/org.ostermiller/utils/srcs/utils-1.07.00-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

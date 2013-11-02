@@ -1,9 +1,13 @@
 <component name="libraryTable">
   <library name="SBT: org.uncommons.maths:uncommons-maths:1.2.2a">
     <CLASSES>
-      <root url="jar://$USER_HOME$/software/play-2.2.0/repository/cache/org.uncommons.maths/uncommons-maths/jars/uncommons-maths-1.2.2a.jar!/" />
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/org.uncommons.maths/uncommons-maths/jars/uncommons-maths-1.2.2a.jar!/" />
     </CLASSES>
-    <JAVADOC />
-    <SOURCES />
+    <JAVADOC>
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/org.uncommons.maths/uncommons-maths/docs/uncommons-maths-1.2.2a-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/org.uncommons.maths/uncommons-maths/srcs/uncommons-maths-1.2.2a-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

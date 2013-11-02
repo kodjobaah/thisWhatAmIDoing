@@ -1,9 +1,14 @@
 <component name="libraryTable">
   <library name="SBT: org.parboiled:parboiled-core:1.1.6:test">
     <CLASSES>
-      <root url="jar://$USER_HOME$/software/play-2.2.0/repository/cache/org.parboiled/parboiled-core/bundles/parboiled-core-1.1.6.jar!/" />
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/org.parboiled/parboiled-core/jars/parboiled-core-1.1.6.jar!/" />
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/org.parboiled/parboiled-core/bundles/parboiled-core-1.1.6.jar!/" />
     </CLASSES>
-    <JAVADOC />
-    <SOURCES />
+    <JAVADOC>
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/org.parboiled/parboiled-core/docs/parboiled-core-1.1.6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/org.parboiled/parboiled-core/srcs/parboiled-core-1.1.6-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

@@ -11,16 +11,19 @@ POST /invalidateToken				controllers.WhatAmIDoingController.invalidateToken(toke
 GET  /publishVideo 					controllers.WhatAmIDoingController.publishVideo(token: Option[String])
 GET  /whatamidoing					controllers.WhatAmIDoingController.whatAmIdoing(invitedId: Option[String])
 POST /invite 						controllers.WhatAmIDoingController.invite(token: Option[String], email: Option[String])
-GET  /webjars/*file                 controllers.WebJarAssets.at(file)
 
-POST /registerLogin				        controllers.WhatAmIDoingController.registerLogin(email: Option[String], password: Option[String], firstName: Option[String], lastName: Option[String])
-# Obtain require.js with built-in knowledge of how webjars resources can be
+GET /findAllStreams                 controllers.AdminController.findAllStreams
+
+
+POST /registerLogin				    controllers.WhatAmIDoingController.registerLogin(email: Option[String], password: Option[String], firstName: Option[String], lastName: Option[String])
 
 POST /login							controllers.AdminController.login
-# resolved
-GET     /lib/require.js             controllers.WebJarAssets.requirejs()
 
-# Enable webjar based resources to be returned
-GET     /webjars/*file              controllers.WebJarAssets.at(file)
+GET /list                           controllers.AdminController.list
+
+GET /listInvites                    controllers.AdminController.listInvites(sEcho:Int, iDisplayLength: Int, iDisplayStart: Int, iSortCol_0: Int, sSortDir_0: String, streamId: String )
+
+# resolved
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

@@ -2,3 +2,5 @@ bin/
 target/
 tmp/
 project/target
+.idea
+.idea_modules

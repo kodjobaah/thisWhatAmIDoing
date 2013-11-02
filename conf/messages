@@ -1,3 +1,5 @@
 no.token.provided=No Token Provided
 login.submit.button = Login
 error.notFound = User name does not exists
+error.authenticationFailure = Email or Password is not valid
+error.notRegistered = You Need to Register

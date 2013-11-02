@@ -1,3 +1,280 @@
-2013-10-29 11:24:47,457 - [INFO] - from play in pool-6-thread-3 
-Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+2013-11-02 16:51:36,591 - [INFO] - from play in pool-6-thread-1 
+Listening for HTTP on /0.0.0.0:9000
+
+2013-11-02 16:51:44,672 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2013-11-02 16:51:45,237 - [INFO] - from akka.event.slf4j.Slf4jLogger in play-akka.actor.default-dispatcher-2 
+Slf4jLogger started
+
+2013-11-02 16:51:45,510 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-4 
+Slf4jLogger started
+
+2013-11-02 16:51:45,511 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-4 
+[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
+
+2013-11-02 16:51:45,512 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-4 
+logger log1-Slf4jEventHandler started
+
+2013-11-02 16:51:45,513 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-4 
+Default Loggers started
+
+2013-11-02 16:51:45,931 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-3 
+this is a valid token: List()
+
+2013-11-02 16:51:59,144 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-3 
+this is the token: List((1ea8c516-1102-4220-ae49-f02f67271078,true))
+
+2013-11-02 16:51:59,169 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-3 
+this is a valid token: List(1ea8c516-1102-4220-ae49-f02f67271078)
+
+2013-11-02 16:56:14,130 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2013-11-02 16:56:14,194 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-3 
+Slf4jLogger started
+
+2013-11-02 16:56:14,195 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-3 
+[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
+
+2013-11-02 16:56:14,196 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-3 
+logger log1-Slf4jEventHandler started
+
+2013-11-02 16:56:14,196 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-3 
+Default Loggers started
+
+2013-11-02 16:56:14,256 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-5 
+this is a valid token: List(1ea8c516-1102-4220-ae49-f02f67271078)
+
+2013-11-02 16:56:19,274 - [ERROR] - from akka.actor.OneForOneStrategy in whatamidoing-system-akka.actor.default-dispatcher-2 
+{"message":"Invalid input '.': expected 'n/N' or 's/S' (line 10, column 54)\n\"    return distinct d.description as day , distinct a.time as time , distinct user.email as email, distinct user.firstName as firstName, distinct user.lastName as lastName\"\n                                                      ^","exception":"SyntaxException","fullname":"org.neo4j.cypher.SyntaxException","stacktrace":["org.neo4j.cypher.internal.parser.v2_0.CypherParserImpl$$anonfun$parse$2.apply(CypherParserImpl.scala:64)","org.neo4j.cypher.internal.parser.v2_0.CypherParserImpl$$anonfun$parse$2.apply(CypherParserImpl.scala:54)","scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)","scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)","scala.collection.immutable.List.foreach(List.scala:318)","scala.collection.TraversableLike$class.map(TraversableLike.scala:244)","scala.collection.AbstractTraversable.map(Traversable.scala:105)","org.neo4j.cypher.internal.parser.v2_0.CypherParserImpl.parse(CypherParserImpl.scala:54)","org.neo4j.cypher.internal.CypherParser$VersionProxy.parse(CypherParser.scala:43)","org.neo4j.cypher.ExecutionEngine$$anonfun$3.apply(ExecutionEngine.scala:96)","org.neo4j.cypher.ExecutionEngine$$anonfun$3.apply(ExecutionEngine.scala:95)","org.neo4j.cypher.internal.LRUCache.getOrElseUpdate(LRUCache.scala:34)","org.neo4j.cypher.ExecutionEngine.prepare(ExecutionEngine.scala:95)","org.neo4j.cypher.ExecutionEngine.execute(ExecutionEngine.scala:69)","org.neo4j.cypher.ExecutionEngine.execute(ExecutionEngine.scala:90)","org.neo4j.cypher.javacompat.ExecutionEngine.execute(ExecutionEngine.java:80)","org.neo4j.server.rest.web.CypherService.cypher(CypherService.java:100)","java.lang.reflect.Method.invoke(Method.java:606)","org.neo4j.server.rest.transactional.TransactionalRequestDispatcher.dispatch(TransactionalRequestDispatcher.java:132)","org.neo4j.server.rest.security.SecurityFilter.doFilter(SecurityFilter.java:112)","java.lang.Thread.run(Thread.java:744)"]}
+java.lang.RuntimeException: {"message":"Invalid input '.': expected 'n/N' or 's/S' (line 10, column 54)\n\"    return distinct d.description as day , distinct a.time as time , distinct user.email as email, distinct user.firstName as firstName, distinct user.lastName as lastName\"\n                                                      ^","exception":"SyntaxException","fullname":"org.neo4j.cypher.SyntaxException","stacktrace":["org.neo4j.cypher.internal.parser.v2_0.CypherParserImpl$$anonfun$parse$2.apply(CypherParserImpl.scala:64)","org.neo4j.cypher.internal.parser.v2_0.CypherParserImpl$$anonfun$parse$2.apply(CypherParserImpl.scala:54)","scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)","scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)","scala.collection.immutable.List.foreach(List.scala:318)","scala.collection.TraversableLike$class.map(TraversableLike.scala:244)","scala.collection.AbstractTraversable.map(Traversable.scala:105)","org.neo4j.cypher.internal.parser.v2_0.CypherParserImpl.parse(CypherParserImpl.scala:54)","org.neo4j.cypher.internal.CypherParser$VersionProxy.parse(CypherParser.scala:43)","org.neo4j.cypher.ExecutionEngine$$anonfun$3.apply(ExecutionEngine.scala:96)","org.neo4j.cypher.ExecutionEngine$$anonfun$3.apply(ExecutionEngine.scala:95)","org.neo4j.cypher.internal.LRUCache.getOrElseUpdate(LRUCache.scala:34)","org.neo4j.cypher.ExecutionEngine.prepare(ExecutionEngine.scala:95)","org.neo4j.cypher.ExecutionEngine.execute(ExecutionEngine.scala:69)","org.neo4j.cypher.ExecutionEngine.execute(ExecutionEngine.scala:90)","org.neo4j.cypher.javacompat.ExecutionEngine.execute(ExecutionEngine.java:80)","org.neo4j.server.rest.web.CypherService.cypher(CypherService.java:100)","java.lang.reflect.Method.invoke(Method.java:606)","org.neo4j.server.rest.transactional.TransactionalRequestDispatcher.dispatch(TransactionalRequestDispatcher.java:132)","org.neo4j.server.rest.security.SecurityFilter.doFilter(SecurityFilter.java:112)","java.lang.Thread.run(Thread.java:744)"]}
+	at org.anormcypher.Neo4jREST$.sendQuery(Neo4jREST.scala:132) ~[anormcypher_2.10-0.4.3.jar:0.4.3]
+	at org.anormcypher.CypherStatement.apply(AnormCypher.scala:342) ~[anormcypher_2.10-0.4.3.jar:0.4.3]
+	at com.whatamidoing.cypher.CypherReaderFunction$$anonfun$15.apply(CypherReaderFunction.scala:84) ~[classes/:na]
+	at com.whatamidoing.cypher.CypherReaderFunction$$anonfun$15.apply(CypherReaderFunction.scala:83) ~[classes/:na]
+	at com.whatamidoing.actors.neo4j.Neo4JReader$$anonfun$receive$1.applyOrElse(Neo4JReader.scala:15) ~[classes/:na]
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:498) [akka-actor_2.10.jar:2.2.0]
+	at akka.actor.ActorCell.invoke(ActorCell.scala:456) [akka-actor_2.10.jar:2.2.0]
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:237) [akka-actor_2.10.jar:2.2.0]
+	at akka.dispatch.Mailbox.run(Mailbox.scala:219) [akka-actor_2.10.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) [akka-actor_2.10.jar:2.2.0]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
+
+2013-11-02 16:56:48,288 - [ERROR] - from application in play-akka.actor.default-dispatcher-14 
+
+
+! @6g677b27o - Internal server error, for (GET) [/listInvites?sEcho=1&iColumns=5&sColumns=&iDisplayStart=0&iDisplayLength=10&mDataProp_0=0&mDataProp_1=1&mDataProp_2=2&mDataProp_3=3&mDataProp_4=4&iSortCol_0=0&sSortDir_0=asc&iSortingCols=1&bSortable_0=true&bSortable_1=true&bSortable_2=true&bSortable_3=true&bSortable_4=true&streamId=stream-id-0&_=1383411374631] ->
+
+play.api.Application$$anon$1: Execution exception[[TimeoutException: Futures timed out after [30 seconds]]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.1]
+	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10.jar:2.2.1]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$12$$anonfun$apply$1.applyOrElse(PlayDefaultUpstreamHandler.scala:165) [play_2.10.jar:2.2.1]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$12$$anonfun$apply$1.applyOrElse(PlayDefaultUpstreamHandler.scala:162) [play_2.10.jar:2.2.1]
+	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:33) [scala-library.jar:na]
+	at scala.util.Failure$$anonfun$recover$1.apply(Try.scala:185) [scala-library.jar:na]
+	at scala.util.Try$.apply(Try.scala:161) [scala-library.jar:na]
+	at scala.util.Failure.recover(Try.scala:185) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recover$1.apply(Future.scala:387) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recover$1.apply(Future.scala:387) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10.jar:2.2.1]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1$$anonfun$apply$3.apply(Future.scala:278) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1$$anonfun$apply$3.apply(Future.scala:278) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$Batch$$anonfun$run$1.processBatch$1(Future.scala:731) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$Batch$$anonfun$run$1.apply$mcV$sp(Future.scala:746) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$Batch$$anonfun$run$1.apply(Future.scala:723) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$Batch$$anonfun$run$1.apply(Future.scala:723) [scala-library.jar:na]
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:72) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$Batch.run(Future.scala:722) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$.scala$concurrent$Future$InternalCallbackExecutor$$unbatchedExecute(Future.scala:782) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$.execute(Future.scala:773) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:274) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:274) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$2.execute(Execution.scala:70) [play-iteratees_2.10.jar:2.2.1]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) [akka-actor_2.10.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) [akka-actor_2.10.jar:2.2.0]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
+Caused by: java.util.concurrent.TimeoutException: Futures timed out after [30 seconds]
+	at scala.concurrent.impl.Promise$DefaultPromise.ready(Promise.scala:96) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.result(Promise.scala:100) [scala-library.jar:na]
+	at scala.concurrent.Await$$anonfun$result$1.apply(package.scala:107) ~[scala-library.jar:na]
+	at akka.dispatch.MonitorableThreadFactory$AkkaForkJoinWorkerThread$$anon$3.block(ThreadPoolBuilder.scala:169) ~[akka-actor_2.10.jar:2.2.0]
+	at scala.concurrent.forkjoin.ForkJoinPool.managedBlock(ForkJoinPool.java:3640) [scala-library.jar:na]
+	at akka.dispatch.MonitorableThreadFactory$AkkaForkJoinWorkerThread.blockOn(ThreadPoolBuilder.scala:167) ~[akka-actor_2.10.jar:2.2.0]
+	at scala.concurrent.Await$.result(package.scala:107) ~[scala-library.jar:na]
+	at com.whatamidoing.utils.ActorUtils$.findAllInvitesForStream(ActorUtils.scala:285) ~[classes/:na]
+	at controllers.AdminController$$anonfun$listInvites$1$$anonfun$apply$1.apply(AdminController.scala:22) ~[classes/:na]
+	at controllers.AdminController$$anonfun$listInvites$1$$anonfun$apply$1.apply(AdminController.scala:20) ~[classes/:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at controllers.AdminController$$anonfun$listInvites$1.apply(AdminController.scala:19) ~[classes/:na]
+	at controllers.AdminController$$anonfun$listInvites$1.apply(AdminController.scala:17) ~[classes/:na]
+	at play.api.mvc.Action$.invokeBlock(Action.scala:357) ~[play_2.10.jar:2.2.1]
+	at play.api.mvc.ActionBuilder$$anon$1.apply(Action.scala:309) ~[play_2.10.jar:2.2.1]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:109) ~[play_2.10.jar:2.2.1]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:109) ~[play_2.10.jar:2.2.1]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:18) ~[play_2.10.jar:2.2.1]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:108) ~[play_2.10.jar:2.2.1]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:107) ~[play_2.10.jar:2.2.1]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:107) ~[play_2.10.jar:2.2.1]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:100) ~[play_2.10.jar:2.2.1]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:481) ~[play-iteratees_2.10.jar:2.2.1]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:481) ~[play-iteratees_2.10.jar:2.2.1]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:517) ~[play-iteratees_2.10.jar:2.2.1]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:517) ~[play-iteratees_2.10.jar:2.2.1]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$13.apply(Iteratee.scala:493) ~[play-iteratees_2.10.jar:2.2.1]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$13.apply(Iteratee.scala:493) ~[play-iteratees_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
+	... 6 common frames omitted
+
+2013-11-02 16:56:49,664 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2013-11-02 16:56:49,686 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-4 
+Slf4jLogger started
+
+2013-11-02 16:56:49,687 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-4 
+[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
+
+2013-11-02 16:56:49,688 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-4 
+logger log1-Slf4jEventHandler started
+
+2013-11-02 16:56:49,688 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-4 
+Default Loggers started
+
+2013-11-02 16:56:49,702 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-2 
+this is a valid token: List(1ea8c516-1102-4220-ae49-f02f67271078)
+
+2013-11-02 16:58:09,035 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-3 
+this is a valid token: List(1ea8c516-1102-4220-ae49-f02f67271078)
+
+2013-11-02 16:58:28,509 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-3 
+this is a valid token: List(1ea8c516-1102-4220-ae49-f02f67271078)
+
+2013-11-02 17:02:27,080 - [ERROR] - from application in play-akka.actor.default-dispatcher-30 
+
+
+! @6g67849cb - Internal server error, for (GET) [/listInvites?sEcho=1&iColumns=5&sColumns=&iDisplayStart=0&iDisplayLength=10&mDataProp_0=0&mDataProp_1=1&mDataProp_2=2&mDataProp_3=3&mDataProp_4=4&iSortCol_0=0&sSortDir_0=asc&iSortingCols=1&bSortable_0=true&bSortable_1=true&bSortable_2=true&bSortable_3=true&bSortable_4=true&streamId=stream-id-0&_=1383411508830] ->
+
+play.api.Application$$anon$1: Execution exception[[TimeoutException: Futures timed out after [30 seconds]]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.1]
+	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10.jar:2.2.1]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$12$$anonfun$apply$1.applyOrElse(PlayDefaultUpstreamHandler.scala:165) [play_2.10.jar:2.2.1]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$12$$anonfun$apply$1.applyOrElse(PlayDefaultUpstreamHandler.scala:162) [play_2.10.jar:2.2.1]
+	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:33) [scala-library.jar:na]
+	at scala.util.Failure$$anonfun$recover$1.apply(Try.scala:185) [scala-library.jar:na]
+	at scala.util.Try$.apply(Try.scala:161) [scala-library.jar:na]
+	at scala.util.Failure.recover(Try.scala:185) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recover$1.apply(Future.scala:387) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recover$1.apply(Future.scala:387) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10.jar:2.2.1]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1$$anonfun$apply$3.apply(Future.scala:278) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1$$anonfun$apply$3.apply(Future.scala:278) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$Batch$$anonfun$run$1.processBatch$1(Future.scala:731) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$Batch$$anonfun$run$1.apply$mcV$sp(Future.scala:746) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$Batch$$anonfun$run$1.apply(Future.scala:723) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$Batch$$anonfun$run$1.apply(Future.scala:723) [scala-library.jar:na]
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:72) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$Batch.run(Future.scala:722) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$.scala$concurrent$Future$InternalCallbackExecutor$$unbatchedExecute(Future.scala:782) [scala-library.jar:na]
+	at scala.concurrent.Future$InternalCallbackExecutor$.execute(Future.scala:773) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:274) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:274) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$2.execute(Execution.scala:70) [play-iteratees_2.10.jar:2.2.1]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) [akka-actor_2.10.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) [akka-actor_2.10.jar:2.2.0]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
+Caused by: java.util.concurrent.TimeoutException: Futures timed out after [30 seconds]
+	at scala.concurrent.impl.Promise$DefaultPromise.ready(Promise.scala:96) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.result(Promise.scala:100) [scala-library.jar:na]
+	at scala.concurrent.Await$$anonfun$result$1.apply(package.scala:107) ~[scala-library.jar:na]
+	at akka.dispatch.MonitorableThreadFactory$AkkaForkJoinWorkerThread$$anon$3.block(ThreadPoolBuilder.scala:169) ~[akka-actor_2.10.jar:2.2.0]
+	at scala.concurrent.forkjoin.ForkJoinPool.managedBlock(ForkJoinPool.java:3640) [scala-library.jar:na]
+	at akka.dispatch.MonitorableThreadFactory$AkkaForkJoinWorkerThread.blockOn(ThreadPoolBuilder.scala:167) ~[akka-actor_2.10.jar:2.2.0]
+	at scala.concurrent.Await$.result(package.scala:107) ~[scala-library.jar:na]
+	at com.whatamidoing.utils.ActorUtils$.findAllInvitesForStream(ActorUtils.scala:285) ~[classes/:na]
+	at controllers.AdminController$$anonfun$listInvites$1$$anonfun$apply$1.apply(AdminController.scala:22) ~[classes/:na]
+	at controllers.AdminController$$anonfun$listInvites$1$$anonfun$apply$1.apply(AdminController.scala:20) ~[classes/:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at controllers.AdminController$$anonfun$listInvites$1.apply(AdminController.scala:19) ~[classes/:na]
+	at controllers.AdminController$$anonfun$listInvites$1.apply(AdminController.scala:17) ~[classes/:na]
+	at play.api.mvc.Action$.invokeBlock(Action.scala:357) ~[play_2.10.jar:2.2.1]
+	at play.api.mvc.ActionBuilder$$anon$1.apply(Action.scala:309) ~[play_2.10.jar:2.2.1]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:109) ~[play_2.10.jar:2.2.1]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:109) ~[play_2.10.jar:2.2.1]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:18) ~[play_2.10.jar:2.2.1]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:108) ~[play_2.10.jar:2.2.1]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:107) ~[play_2.10.jar:2.2.1]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:107) ~[play_2.10.jar:2.2.1]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:100) ~[play_2.10.jar:2.2.1]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:481) ~[play-iteratees_2.10.jar:2.2.1]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:481) ~[play-iteratees_2.10.jar:2.2.1]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:517) ~[play-iteratees_2.10.jar:2.2.1]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:517) ~[play-iteratees_2.10.jar:2.2.1]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$13.apply(Iteratee.scala:493) ~[play-iteratees_2.10.jar:2.2.1]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$13.apply(Iteratee.scala:493) ~[play-iteratees_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
+	... 6 common frames omitted
+
+2013-11-02 17:10:43,244 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2013-11-02 17:10:43,266 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-2 
+Slf4jLogger started
+
+2013-11-02 17:10:43,267 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-2 
+[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
+
+2013-11-02 17:10:43,268 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-2 
+logger log1-Slf4jEventHandler started
+
+2013-11-02 17:10:43,268 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-2 
+Default Loggers started
+
+2013-11-02 17:10:43,305 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-4 
+this is a valid token: List(1ea8c516-1102-4220-ae49-f02f67271078)
 

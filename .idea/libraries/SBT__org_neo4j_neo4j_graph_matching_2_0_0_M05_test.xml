@@ -1,9 +1,13 @@
 <component name="libraryTable">
   <library name="SBT: org.neo4j:neo4j-graph-matching:2.0.0-M05:test">
     <CLASSES>
-      <root url="jar://$USER_HOME$/software/play-2.2.0/repository/cache/org.neo4j/neo4j-graph-matching/jars/neo4j-graph-matching-2.0.0-M05.jar!/" />
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/org.neo4j/neo4j-graph-matching/jars/neo4j-graph-matching-2.0.0-M05.jar!/" />
     </CLASSES>
-    <JAVADOC />
-    <SOURCES />
+    <JAVADOC>
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/org.neo4j/neo4j-graph-matching/docs/neo4j-graph-matching-2.0.0-M05-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar:///opt/play/play-2.2.1/repository/cache/org.neo4j/neo4j-graph-matching/srcs/neo4j-graph-matching-2.0.0-M05-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

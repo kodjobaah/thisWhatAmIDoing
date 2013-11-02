@@ -80,6 +80,7 @@ object CypherWriterFunction {
   def createInvite(stream: String, email: String, id: String): () => Neo4jResult = {
 
     val createInvite: Function0[Neo4jResult] = () => {
+
       val createInvite = Cypher(CypherWriter.createInvite(stream, email, id)).execute()
       Logger("CypherWriterFunction.createUser").info("this is createinvite: " + createInvite)
 
