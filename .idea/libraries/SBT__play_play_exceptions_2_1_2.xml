@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="SBT: play:play-exceptions:2.1.2">
-    <CLASSES>
-      <root url="jar://$USER_HOME$/software/play-2.2.0/repository/cache/play/play-exceptions/jars/play-exceptions-2.1.2.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
