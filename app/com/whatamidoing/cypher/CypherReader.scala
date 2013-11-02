@@ -73,7 +73,7 @@ object CypherReader {
         with s
         match (s)-[w:TO_WATCH]-(i)
         with i
-        match (i)-[inv:RECEIVED]-(u)
+        match (i)-[inv:INVITED]-(u)
         return distinct u, u.email as email;
       """
       return res
@@ -185,6 +185,18 @@ object CypherReader {
     $sort
     SKIP $skip
     LIMIT $displayLength
+
+    """
+    return res
+  }
+
+  def findAllTokensForUser(email: String) : String = {
+    val res =s"""
+    match (u:User)
+    where u.email="$email"
+    with u
+    match (u)-[HAS_TOKEN]-(tok)
+    return tok.token as token;
 
     """
     return res

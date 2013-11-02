@@ -112,4 +112,16 @@ object CypherReaderFunction {
   }
 
 
+  def findAllTokensForUser(email: String): () => Neo4jResult = {
+    val findAllTokensForUser: Function0[Neo4jResult] = () => {
+      val allStreams = Cypher(CypherReader.findAllTokensForUser(email)).apply().map(row => (row[String]("token"))).toList
+      val neo4jResult = new Neo4jResult(allStreams)
+      // Logger("CypherBuilder.findAllStreamsForDay").info("all streams:"+allStreams)
+      neo4jResult
+    }
+    findAllTokensForUser
+  }
+
+
+
 }

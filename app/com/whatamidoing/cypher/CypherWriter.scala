@@ -107,6 +107,20 @@ object CypherWriter {
     return res
     
   }
+
+  def invalidateAllTokensForUser(email: String): String = {
+    val res=s"""
+        match (u:User)
+        where u.email="$email"
+        with u
+        match (u)-[HAS_TOKEN]-(tok)
+        set tok.valid = "false"
+        return tok.valid as valid
+      """
+    return res
+
+
+  }
   
   def invalidateToken(token: String) : String = {
       val res=s"""

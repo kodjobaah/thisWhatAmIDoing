@@ -13,11 +13,11 @@ import play.api.libs.json.{JsObject, Json}
 object AdminController extends Controller {
 
 
-  def listInvites(sEcho:Int, iDisplayLength: Int, iDisplayStart: Int, iSortCol_0: Int, sSortDir_0: String, streamId: String ) = Action.async {
+  def listInvites(sEcho:Int, iDisplayLength: Int, iDisplayStart: Int, iSortCol_0: Int, sSortDir_0: String, streamId: String, token: String ) = Action.async {
     implicit request =>
 
       session.get("whatAmIdoing-authenticationToken").map {
-        token =>
+        tokenAuth =>
 
           val resInstance = ActorUtils.findAllInvitesForStream(token,iDisplayStart,iDisplayLength,iSortCol_0,sSortDir_0,streamId)
 
@@ -54,14 +54,14 @@ object AdminController extends Controller {
     implicit request =>
 
       session.get("whatAmIdoing-authenticationToken").map {
-        token =>
+        tokenAuth =>
 
           var sEcho =  request.queryString.get("sEcho").get.head.toInt
           var numberOfItems = request.queryString.get("iDisplayLength").get.head.toInt
           var displayStart =  request.queryString.get("iDisplayStart").get.head.toInt
           var sortColumn =  request.queryString.get("iSortCol_0").get.head.toInt
           var sortDirection =  request.queryString.get("sSortDir_0").get.head
-
+          var token = request.queryString.get("token").get.head
 
 
           val resInstance = ActorUtils.findAllStreamsForDay(token,displayStart,numberOfItems,sortColumn,sortDirection)
@@ -95,14 +95,15 @@ object AdminController extends Controller {
 
   }
 
-  def findAllStreams = Action.async {
+  def findAllStreams(email: String) = Action.async {
     implicit request =>
 
       session.get("whatAmIdoing-authenticationToken").map {
         user =>
           var valid = ActorUtils.getValidToken(user)
           if (valid.asInstanceOf[List[String]].size > 0) {
-            future(Ok(views.html.activity()))
+             var tokens = ActorUtils.findAllTokensForUser(email)
+            future(Ok(views.html.activity(tokens)))
           }else {
             future(Unauthorized(views.html.welcome(Index.userForm)))
           }
@@ -131,8 +132,9 @@ object AdminController extends Controller {
 
               val token = ActorUtils.getUserToken(userData.userName)
 
+
               println(token)
-              future(Redirect(routes.AdminController.findAllStreams).withSession(
+              future(Redirect(routes.AdminController.findAllStreams(userData.userName)).withSession(
                 "whatAmIdoing-authenticationToken" -> token))
 
             })

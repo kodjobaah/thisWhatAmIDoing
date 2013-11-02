@@ -319,6 +319,20 @@ object ActorUtils {
     results
   }
 
+  def  findAllTokensForUser(email: String): List[String] = {
+
+    val findAllTokensForUser = CypherReaderFunction.findAllTokensForUser(email)
+    val findAllTokensForUserResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(findAllTokensForUser)).mapTo[Any]
+
+    var results = Await.result(findAllTokensForUserResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+        readResults.results.asInstanceOf[List[String]]
+      }
+    }
+    results
+  }
+
+
 
 
 

@@ -12,7 +12,7 @@ GET  /publishVideo 					controllers.WhatAmIDoingController.publishVideo(token: O
 GET  /whatamidoing					controllers.WhatAmIDoingController.whatAmIdoing(invitedId: Option[String])
 POST /invite 						controllers.WhatAmIDoingController.invite(token: Option[String], email: Option[String])
 
-GET /findAllStreams                 controllers.AdminController.findAllStreams
+GET /findAllStreams                 controllers.AdminController.findAllStreams(email: String)
 
 
 POST /registerLogin				    controllers.WhatAmIDoingController.registerLogin(email: Option[String], password: Option[String], firstName: Option[String], lastName: Option[String])
@@ -21,7 +21,7 @@ POST /login							controllers.AdminController.login
 
 GET /list                           controllers.AdminController.list
 
-GET /listInvites                    controllers.AdminController.listInvites(sEcho:Int, iDisplayLength: Int, iDisplayStart: Int, iSortCol_0: Int, sSortDir_0: String, streamId: String )
+GET /listInvites                    controllers.AdminController.listInvites(sEcho:Int, iDisplayLength: Int, iDisplayStart: Int, iSortCol_0: Int, sSortDir_0: String, streamId: String, token: String)
 
 # resolved
 

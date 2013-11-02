@@ -40,13 +40,12 @@ object TestData extends App {
   val inviteId4 = "inviteId4"
 
 
-
   /*
   val invalid = invalidateToken("236096a5-1395-4ffc-a57a-77101f526360")
 
   val step = invalid()
   println(step)*/
-  val res = createUser(firstName, lastname,email,password)
+  val res = createUser(firstName, lastname, email, password)
   val result = res()
   val token = getUserToken(email)
   val tokenResult = token()
@@ -55,57 +54,123 @@ object TestData extends App {
 
   val stream = "stream-id-0"
 
-  val userStream1 = createStream(stream,userToken)
+  val userStream1 = createStream(stream, userToken)
   val userStreamResult = userStream1()
   println(userStreamResult)
 
-  for(x <- 1 until 200) {
-    val userStream1 = createStream("stream-id-"+x,userToken)
+  for (x <- 1 until 200) {
+    val userStream1 = createStream("stream-id-" + x, userToken)
     val userStreamResult = userStream1()
     println(userStreamResult.results)
 
   }
 
 
-  var  r = createUser(firstName, lastname,emailInvite,password)
+  var r = createUser(firstName, lastname, emailInvite, password)
   var s = r()
-  r = createInvite(stream,emailInvite, inviteId)
+  r = createInvite(stream, emailInvite, inviteId)
   s = r()
   r = associateDayWithInvite(inviteId)
-  s=r()
-  
-
-  r = createUser(firstName, lastname,emailInvite1,password)
   s = r()
-  r = createInvite(stream,emailInvite1, inviteId1)
+
+
+  r = createUser(firstName, lastname, emailInvite1, password)
+  s = r()
+  r = createInvite(stream, emailInvite1, inviteId1)
   s = r()
   r = associateDayWithInvite(inviteId1)
-  s=r()
-
-
-  r = createUser(firstName, lastname,emailInvite2,password)
   s = r()
-  r = createInvite(stream,emailInvite2, inviteId2)
+
+
+  r = createUser(firstName, lastname, emailInvite2, password)
+  s = r()
+  r = createInvite(stream, emailInvite2, inviteId2)
   s = r()
   r = associateDayWithInvite(inviteId2)
-  s=r()
-
-
-  r = createUser(firstName, lastname,emailInvite3,password)
   s = r()
-  r = createInvite(stream,emailInvite3, inviteId3)
+
+
+  r = createUser(firstName, lastname, emailInvite3, password)
+  s = r()
+  r = createInvite(stream, emailInvite3, inviteId3)
   s = r()
   r = associateDayWithInvite(inviteId3)
-  s=r()
-
-
-  r =  createUser(firstName, lastname,emailInvite4,password)
   s = r()
-  r = createInvite(stream,emailInvite4, inviteId4)
+
+
+  r = createUser(firstName, lastname, emailInvite4, password)
+  s = r()
+  r = createInvite(stream, emailInvite4, inviteId4)
   s = r()
 
 
   r = closeStream(stream)
   s = r()
   println("ended")
+
+
+
+  for (i <- 0 until 3) {
+    val userToken = java.util.UUID.randomUUID().toString()
+    val res = createTokenForUser(userToken, email)
+    val j = res()
+
+    val stream = "stream-id-"+i
+
+
+    val userStream1 = createStream(stream, userToken)
+    val userStreamResult = userStream1()
+    println(userStreamResult)
+
+    for (x <- 1 until 4) {
+      val userStream1 = createStream("stream-id-"+i+"-"+ x, userToken)
+      val userStreamResult = userStream1()
+      println(userStreamResult.results)
+
+    }
+
+
+    var r = createUser(firstName, lastname, emailInvite, password)
+    var k = r()
+    r = createInvite(stream, emailInvite, inviteId)
+    var s = r()
+    r = associateDayWithInvite(inviteId)
+    s = r()
+
+
+    r = createUser(firstName, lastname, emailInvite1, password)
+    s = r()
+    r = createInvite(stream, emailInvite1, inviteId1)
+    s = r()
+    r = associateDayWithInvite(inviteId1)
+    s = r()
+
+
+    r = createUser(firstName, lastname, emailInvite2, password)
+    s = r()
+    r = createInvite(stream, emailInvite2, inviteId2)
+    s = r()
+    r = associateDayWithInvite(inviteId2)
+    s = r()
+
+
+    r = createUser(firstName, lastname, emailInvite3, password)
+    s = r()
+    r = createInvite(stream, emailInvite3, inviteId3)
+    s = r()
+    r = associateDayWithInvite(inviteId3)
+    s = r()
+
+
+    r = createUser(firstName, lastname, emailInvite4, password)
+    s = r()
+    r = createInvite(stream, emailInvite4, inviteId4)
+    s = r()
+
+    val rus = invalidateToken(userToken)
+    val results = rus()
+  }
+
+  println("done")
+
 }
