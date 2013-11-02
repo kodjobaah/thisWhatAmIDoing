@@ -390,3 +390,21 @@ Default Loggers started
 2013-11-02 21:42:15,677 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-4 
 this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
 
+2013-11-02 21:59:43,636 - [INFO] - from play in play-internal-execution-context-6 
+Application started (Dev)
+
+2013-11-02 21:59:43,796 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-4 
+Slf4jLogger started
+
+2013-11-02 21:59:43,797 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-4 
+[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
+
+2013-11-02 21:59:43,798 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-3 
+logger log1-Slf4jEventHandler started
+
+2013-11-02 21:59:43,799 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-3 
+Default Loggers started
+
+2013-11-02 21:59:44,092 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-4 
+this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
+
