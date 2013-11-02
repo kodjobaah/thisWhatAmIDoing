@@ -544,3 +544,112 @@ Default Loggers started
 2013-11-02 22:47:40,770 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-4 
 this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
 
+2013-11-02 22:56:04,597 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-5 
+this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
+
+2013-11-02 23:05:51,312 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2013-11-02 23:05:51,363 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-5 
+Slf4jLogger started
+
+2013-11-02 23:05:51,364 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-5 
+[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
+
+2013-11-02 23:05:51,364 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-5 
+logger log1-Slf4jEventHandler started
+
+2013-11-02 23:05:51,365 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-5 
+Default Loggers started
+
+2013-11-02 23:05:51,449 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-2 
+this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
+
+2013-11-02 23:06:32,510 - [INFO] - from play in play-internal-execution-context-2 
+Application started (Dev)
+
+2013-11-02 23:06:32,532 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-6 
+Slf4jLogger started
+
+2013-11-02 23:06:32,533 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-6 
+[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
+
+2013-11-02 23:06:32,533 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-6 
+logger log1-Slf4jEventHandler started
+
+2013-11-02 23:06:32,533 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-6 
+Default Loggers started
+
+2013-11-02 23:06:32,556 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-3 
+this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
+
+2013-11-02 23:10:57,992 - [ERROR] - from application in New I/O worker #6 
+
+
+! @6g694e9o4 - Internal server error, for (GET) [/findAllStreams?email=kodjo_baah%40hotmail.com] ->
+
+play.PlayExceptions$CompilationException: Compilation error[value findStreamForInvitedId is not a member of object com.whatamidoing.cypher.CypherReader]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-11-02 23:11:36,852 - [ERROR] - from application in New I/O worker #6 
+
+
+! @6g694gfak - Internal server error, for (GET) [/findAllStreams?email=kodjo_baah%40hotmail.com] ->
+
+play.PlayExceptions$CompilationException: Compilation error[value findStreamForInvitedId is not a member of object com.whatamidoing.cypher.CypherReader]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-11-02 23:12:18,677 - [INFO] - from play in play-internal-execution-context-2 
+Application started (Dev)
+
+2013-11-02 23:12:18,734 - [INFO] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-3 
+Slf4jLogger started
+
+2013-11-02 23:12:18,735 - [WARN] - from akka.event.slf4j.Slf4jEventHandler in whatamidoing-system-akka.actor.default-dispatcher-3 
+[akka.event.slf4j.Slf4jEventHandler] is depreceated, use [akka.event.slf4j.Slf4jLogger] instead
+
+2013-11-02 23:12:18,735 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-3 
+logger log1-Slf4jEventHandler started
+
+2013-11-02 23:12:18,736 - [DEBUG] - from akka.event.EventStream in whatamidoing-system-akka.actor.default-dispatcher-3 
+Default Loggers started
+
+2013-11-02 23:12:18,847 - [INFO] - from CypherBuilder.getUserToken in whatamidoing-system-akka.actor.default-dispatcher-2 
+this is a valid token: List(073e5c0b-07b1-4dc3-b5b8-6f6b4bb8964b)
+

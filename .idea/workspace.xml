@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="855357b2-4bff-4ebb-b46f-54398f4536f1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/AdminController.scala" afterPath="$PROJECT_DIR$/app/controllers/AdminController.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/activity.scala.html" afterPath="$PROJECT_DIR$/app/views/activity.scala.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/application.log" afterPath="$PROJECT_DIR$/logs/application.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="thisWhatAmIDoing.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,10 +28,11 @@
     <file path="/CypherReaderFunction.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383430120466" ignored="false" />
     <file path="/ActorUtils.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383415976425" ignored="false" />
     <file path="/routes" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383426321985" ignored="false" />
-    <file path="/activity.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383432312995" ignored="false" />
+    <file path="/activity.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383433580410" ignored="false" />
     <file path="/MoreTestData.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383325286470" ignored="false" />
     <file path="/CypherWriterFunction.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383397493692" ignored="false" />
     <file path="/Scala Console" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383420459621" ignored="false" />
+    <file path="/a.dummy" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383433787808" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,10 +111,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CypherReader.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="CypherReader.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="129" column="91" selection-start="2829" selection-end="2829" vertical-scroll-proportion="23.846153">
+            <state line="75" column="31" selection-start="1674" selection-end="1674" vertical-scroll-proportion="-1.2741195">
               <folding />
             </state>
           </provider>
@@ -122,7 +123,7 @@
       <file leaf-file-name="CypherReaderFunction.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="116" column="111" selection-start="5228" selection-end="5228" vertical-scroll-proportion="0.0">
+            <state line="100" column="197" selection-start="4500" selection-end="4500" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -131,7 +132,7 @@
       <file leaf-file-name="activity.scala.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/activity.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="171" column="29" selection-start="5602" selection-end="5602" vertical-scroll-proportion="-13.75">
+            <state line="119" column="20" selection-start="4364" selection-end="4364" vertical-scroll-proportion="-4.375">
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#0;n#script#3;n#!!top" expanded="true" />
               </folding>
@@ -184,10 +185,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminController.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AdminController.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="114" column="196" selection-start="4075" selection-end="4075" vertical-scroll-proportion="0.83598727">
+            <state line="114" column="196" selection-start="4075" selection-end="4075" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -223,10 +224,10 @@
         <option value="$PROJECT_DIR$/app/TestData.scala" />
         <option value="$PROJECT_DIR$/conf/routes" />
         <option value="$PROJECT_DIR$/public/javascripts/activity.js" />
-        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" />
-        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala" />
-        <option value="$PROJECT_DIR$/app/views/activity.scala.html" />
         <option value="$PROJECT_DIR$/app/controllers/AdminController.scala" />
+        <option value="$PROJECT_DIR$/app/views/activity.scala.html" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" />
       </list>
     </option>
   </component>
@@ -924,9 +925,10 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32891247" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39964634" sideWeight="0.5158192" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39964634" sideWeight="0.48418078" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39964634" sideWeight="0.5158192" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32891247" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19805482" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -934,12 +936,11 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24971752" sideWeight="0.5998233" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18531074" sideWeight="0.60035366" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18531074" sideWeight="0.6710875" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TF Uploader" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891247" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295053" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1076,20 +1077,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="91" selection-start="2829" selection-end="2829" vertical-scroll-proportion="23.846153">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="111" selection-start="5228" selection-end="5228" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="281" column="69" selection-start="9394" selection-end="9394" vertical-scroll-proportion="0.0">
@@ -1101,15 +1088,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="160" column="76" selection-start="5099" selection-end="5221" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/activity.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="171" column="29" selection-start="5602" selection-end="5602" vertical-scroll-proportion="-13.75">
-          <folding>
-            <element signature="n#style#0;n#p#0;n#div#0;n#script#3;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1125,7 +1103,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="196" selection-start="4075" selection-end="4075" vertical-scroll-proportion="0.83598727">
+        <state line="114" column="196" selection-start="4075" selection-end="4075" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/activity.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="119" column="20" selection-start="4364" selection-end="4364" vertical-scroll-proportion="-4.375">
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#0;n#script#3;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="197" selection-start="4500" selection-end="4500" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="31" selection-start="1674" selection-end="1674" vertical-scroll-proportion="-1.2741195">
           <folding />
         </state>
       </provider>

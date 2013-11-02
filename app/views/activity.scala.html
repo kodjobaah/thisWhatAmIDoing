@@ -15,6 +15,7 @@
     var anOpen = []; // <- Add this line
     var streamId ="";
     var token = "nothing"
+    var innerTable;
 
     var oTable =  $('#contacts_table').dataTable( {
             "bProcessing": true,
@@ -23,6 +24,7 @@
             "sPaginationType": "bs_full",
             "sAjaxSource": "@routes.AdminController.list()",
             "bFilter": false,
+            "bDestroy": true,
             "fnServerParams": function ( aoData ) {
             aoData.push( {"name":"token", "value":token});
             },
@@ -61,10 +63,11 @@
             $(this).closest("img").attr( 'src', "@routes.Assets.at("datatables/images/details_close.png")" );
         //     var tableId = $(this).closest("tr").index();
             oTable.fnOpen( nTr, fnFormatDetails(tableId), 'details' );
-            var innerTable =  $("#invites_"+tableId).dataTable( {
+           innerTable =  $("#invites_"+tableId).dataTable( {
                                 "bProcessing": true,
                                 "bServerSide": true,
                                 "bFilter": false,
+                                "bDestroy": true,
                                 "sPaginationType": "bs_full",
                                 "sAjaxSource": "/listInvites",
                                 "fnServerParams": function ( aoData ) {
@@ -103,13 +106,20 @@
 
     $( "#sessions" ).change(function() {
 
-    // Some time later....
+    /*
     $('#contacts_table').dataTable( {
     "bFilter": false,
     "bDestroy": true
     } );
 
+    */
+
+
     oTable.fnDestroy();
+
+    if (innerTable != null) {
+    innerTable.fnDestroy();
+    }
 
     token = $("#sessions option:selected" ).val();
 
@@ -123,6 +133,7 @@
     "sPaginationType": "bs_full",
     "sAjaxSource": "@routes.AdminController.list()",
     "bFilter": false,
+    "bDestroy": true,
     "fnServerParams": function ( aoData ) {
     aoData.push( {"name":"token", "value":token});
     },
