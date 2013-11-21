@@ -11,6 +11,9 @@ import com.whatamidoing.utils.ActorUtils
 import com.whatamidoing.mail.EmailSenderService
 import models.Messages._
 
+import org.jboss.netty.handler.codec.http.websocketx.WebSocket08FrameDecoder
+
+
 object WhatAmIDoingController extends Controller {
 
   var emailSenderService = EmailSenderService()
@@ -151,15 +154,19 @@ object WhatAmIDoingController extends Controller {
 
               if (decrypt) {
 
+                var invalidateResults = ActorUtils.invalidateAllTokensForUser(em);
+                Logger.info("-- results from invalidating user:"+invalidateResults);
                 Logger.info("--getting token for user:" + em)
                 var token = ActorUtils.getUserToken(em)
                 Logger.info("---returned:" + token)
 
-                if (token.equalsIgnoreCase("-1")) {
+
+               // if (token.equalsIgnoreCase("-1")) {
 
                   token = java.util.UUID.randomUUID().toString()
                   val res = ActorUtils.createTokenForUser(token, email.get)
-                }
+               // }
+                Logger.info("---Token Created:" + token)
                 future(Ok("ADDED AUTHENTICATION TOKEN TO SESSISON").withSession(
                   "whatAmIdoing-authenticationToken" -> token))
 
@@ -196,7 +203,8 @@ object WhatAmIDoingController extends Controller {
 
           ActorUtils.frameSupervisor ! RTMPMessage(s, token)
 
-        }).map { _ =>
+        }).map{ x =>
+          println(x);
           ActorUtils.frameSupervisor ! StopVideo(token)
           Logger("WhatAmIDoingController.publishVideo").info("Disconnected")
         }

@@ -171,6 +171,23 @@ object ActorUtils {
     res
   }
 
+  def invalidateAllTokensForUser(email: String) = {
+
+    val invalidateToken = CypherWriterFunction.invalidateAllTokensForUser(email)
+    val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(invalidateToken)).mapTo[Any]
+
+    var res = Await.result(writerResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        if (results.results.size > 0) {
+          results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
+      }
+    }
+    res
+  }
+
   def createTokenForUser(token: String, email: String) = {
 
     Logger("ActorUtils.createTokenForUser").info("token["+token+"] email["+email+"]")

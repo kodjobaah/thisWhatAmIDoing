@@ -105,6 +105,22 @@ object CypherWriterFunction {
 
     invalidate
   }
+
+
+  def invalidateAllTokensForUser(email: String): () => Neo4jResult = {
+
+    val invalidate: Function0[Neo4jResult] = () => {
+      val invalidate = Cypher(CypherWriter.invalidateAllTokensForUser(email)).execute()
+      Logger("CypherWriterFunction.invalidateAllTokensForUser").info("this is invalidateToken: " + invalidate)
+
+      val results: List[String] = List(invalidate.toString())
+      val neo4jResult = new Neo4jResult(results)
+      neo4jResult
+    }
+
+    invalidate
+  }
+
   
   def createTokenForUser(token: String, email: String): () => Neo4jResult = {
     val createTokenForUser: Function0[Neo4jResult] = () => {

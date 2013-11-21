@@ -110,6 +110,9 @@ object TestData extends App {
 
 
 
+ val hmm = createTokenForUser(userToken, email)
+  val j = hmm()
+
   for (i <- 0 until 3) {
     val userToken = java.util.UUID.randomUUID().toString()
     val res = createTokenForUser(userToken, email)

@@ -5,6 +5,7 @@ import akka.actor.Props
 
 import com.whatamidoing.actors.red5.services.Xuggler
 import models.Messages._
+import play.api.Logger
 
 class VideoEncoder(streamName: String) extends Actor {
 
@@ -15,6 +16,7 @@ class VideoEncoder(streamName: String) extends Actor {
  
       case EncodeFrame(frame) => {
       import sun.misc.BASE64Decoder
+        Logger("VideoEncoder.recieve").info("size of frame:"+frame.length)
       val base64: BASE64Decoder = new BASE64Decoder();
       val bytes64: Array[Byte] = base64.decodeBuffer(frame);
       import java.io.ByteArrayInputStream

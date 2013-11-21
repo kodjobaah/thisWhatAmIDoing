@@ -65,17 +65,20 @@ object CypherReader {
   
   def findAllInvites(token: String): String = {
         val res=s"""
-
-        match (tok:AuthenticationToken)
-        where tok.token="$token"
-        with tok
-        match (tok)-[u:USING]-(s)
-        with s
-        match (s)-[w:TO_WATCH]-(i)
-        with i
-        match (i)-[inv:INVITED]-(u)
-        return distinct u, u.email as email;
-      """
+          match (tok:AuthenticationToken)
+          where tok.token="$token"
+          with tok
+          match (tok)-[:HAS_TOKEN]-(user)
+          with user
+          match (user)-[:HAS_TOKEN]-(allTokens)
+          with allTokens
+          match (d)-[a?:ACCEPTED_ON]-(invite)-[:TO_WATCH]-(stream)-[:USING]-(allTokens)
+          with d,a,allTokens,stream,invite
+          match (allTokens)-[:USING]-(stream)
+          with stream
+          match (stream)-[:TO_WATCH]-(invite)-[:RECEIVED]-(user)
+          return distinct user, user.email+":"+user.firstName+":"+user.lastName as email ;
+     """
       return res
 
     
@@ -141,7 +144,7 @@ object CypherReader {
     match (d)-[a?:ACCEPTED_ON]-(invite)-[:TO_WATCH]-(stream)-[:USING]-(tok)
     where stream.name="$streamId"
     with d,a,tok,stream,invite
-    match (tok)-[:USING]-(stream)-[:TO_WATCH]-(invite)-[:INVITED]-(user)
+    match (tok)-[:USING]-(stream)-[:TO_WATCH]-(invite)-[:RECEIVED]-(user)
     return d.description as day , a.time as time , user.email as email, user.firstName as firstName, user.lastName as lastName
     $sort
     SKIP $skip
@@ -195,8 +198,8 @@ object CypherReader {
     match (u:User)
     where u.email="$email"
     with u
-    match (u)-[HAS_TOKEN]-(tok)
-    return tok.token as token;
+    match (u)-[HAS_TOKEN]-(tok)-[USING]-(stream)
+    return distinct tok.token as token;
 
     """
     return res
