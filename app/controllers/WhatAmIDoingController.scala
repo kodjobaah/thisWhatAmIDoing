@@ -78,11 +78,11 @@ object WhatAmIDoingController extends Controller {
    */
   def invite(tokenOption: Option[String], emailOption: Option[String]) = Action.async { implicit request =>
 
-    val email = emailOption.getOrElse("no-email-provided")
+    val emails = emailOption.getOrElse("no-email-provided")
     val token = tokenOption.getOrElse("no-token-provided")
 
     if (!token.equalsIgnoreCase("no-token-provided")) {
-      if (!email.equalsIgnoreCase("no-email-provided")) {
+      if (!emails.equalsIgnoreCase("no-email-provided")) {
 
           var valid = ActorUtils.getValidToken(token)
 
@@ -93,17 +93,28 @@ object WhatAmIDoingController extends Controller {
               /*
          * Checking to see if invite is already in the system
          */
-              val res = ActorUtils.searchForUser(email)
 
-              if (res.isEmpty()) {
-                val password = "test"
-                val res = ActorUtils.createUser("", "", email, password)
-                emailSenderService.sendRegistrationEmail(email, password)
+
+              Logger.info("")
+              val listOfEmails = emails.split(",");
+
+
+              for(email <- listOfEmails) {
+
+                val res = ActorUtils.searchForUser(email)
+
+                if (res.isEmpty()) {
+                  val password = "test"
+                  val res = ActorUtils.createUser("", "", email, password)
+                  emailSenderService.sendRegistrationEmail(email, password)
+                }
+
+                val invitedId = java.util.UUID.randomUUID().toString()
+                ActorUtils.createInvite(streamName, email, invitedId)
+                emailSenderService.sendInviteEmail(email, invitedId)
+
               }
 
-              val invitedId = java.util.UUID.randomUUID().toString()
-              ActorUtils.createInvite(streamName, email, invitedId)
-              emailSenderService.sendInviteEmail(email, invitedId)
 
               future(Ok("Done"))
 

@@ -110,6 +110,7 @@ object ActorUtils {
     import com.whatamidoing.actors.neo4j.Neo4JReader._
     val getValidTokenResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getValidToken)).mapTo[Any]
 
+
     var res = Await.result(getValidTokenResponse, 10 seconds) match {
       case ReadOperationResult(readResults) => {
         readResults.results

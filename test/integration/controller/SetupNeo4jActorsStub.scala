@@ -50,17 +50,22 @@ trait SetupNeo4jActorsStub extends BeforeAndAfterEach  { this: Suite =>
 
           var res: Neo4jResult = Neo4jResult(List(""))
           Logger("SetupNeo4jActorsStub").info("------------operation received:"+operation)
-          
-          
-          if (currentTest.equalsIgnoreCase("findAllInvited")) {
+
+          if (currentTest.equalsIgnoreCase("invitedToViewInvalidEmail")) {
+            if (numberOfTimesCalled == 0) {
+              var result = List()
+              res = Neo4jResult(result)
+              numberOfTimesCalled = numberOfTimesCalled + 1
+            }
+          } else if (currentTest.equalsIgnoreCase("findAllInvited")) {
              if (numberOfTimesCalled == 0) {
-              var result = List("authentionid")
+              var result = List("authenticationid")
               res = Neo4jResult(result)
               numberOfTimesCalled = numberOfTimesCalled + 1
             }
           } else if (currentTest.equalsIgnoreCase("registeredLoginWithOutSupplyingPassword")) {
              if (numberOfTimesCalled == 0) {
-              var result = List("invite1","invite2")
+              var result = List("invite,invite2")
               res = Neo4jResult(result)
               numberOfTimesCalled = numberOfTimesCalled + 1
             }

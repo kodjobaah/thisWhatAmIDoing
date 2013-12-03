@@ -3,17 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="855357b2-4bff-4ebb-b46f-54398f4536f1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriterFunction.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriterFunction.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/TestData.scala" afterPath="$PROJECT_DIR$/app/TestData.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/actors/red5/VideoEncoder.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/actors/red5/VideoEncoder.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/integration/controller/SetupNeo4jActorsStub.scala" afterPath="$PROJECT_DIR$/test/integration/controller/SetupNeo4jActorsStub.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala" afterPath="$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/integration/controller/WhatAmIdoingControllerSpec.scala" afterPath="$PROJECT_DIR$/test/integration/controller/WhatAmIdoingControllerSpec.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/application.log" afterPath="$PROJECT_DIR$/logs/application.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="thisWhatAmIDoing.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1384950580240" ignored="false" />
+    <file path="/Dummy.txt" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386034679111" ignored="false" />
     <file path="/welcome.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383235110310" ignored="false" />
     <file path="/MyHelper.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1382917291960" ignored="false" />
     <file path="/userNameFieldConstructor.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383232185789" ignored="false" />
@@ -24,7 +23,7 @@
     <file path="/messages" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383225252156" ignored="false" />
     <file path="/TestData.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383502463099" ignored="false" />
     <file path="/CypherWriter.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383421479356" ignored="false" />
-    <file path="/WhatAmIDoingController.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1384892033383" ignored="false" />
+    <file path="/WhatAmIDoingController.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386037793779" ignored="false" />
     <file path="/main.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383237823711" ignored="false" />
     <file path="/CypherReader.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1384637305232" ignored="false" />
     <file path="/Neo4jTestDb.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383250874121" ignored="false" />
@@ -39,6 +38,10 @@
     <file path="/Scala Console" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383420459621" ignored="false" />
     <file path="/a.dummy" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383433787808" ignored="false" />
     <file path="/VideoEncoder.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1384034124649" ignored="false" />
+    <file path="/fragment.java" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1385166552870" ignored="false" />
+    <file path="/WhatAmIdoingControllerSpec.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386036556634" ignored="false" />
+    <file path="/SetupNeo4jActorsStub.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386036013657" ignored="false" />
+    <file path="/Mail.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386037523828" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +61,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -95,7 +99,6 @@
       </breakpoint>
     </breakpoint_any>
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -105,37 +108,54 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TestData.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/TestData.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="132" column="22" selection-start="3161" selection-end="3161" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MoreTestData.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/MoreTestData.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="7" selection-start="274" selection-end="274" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CypherReader.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="32" selection-start="1980" selection-end="1980" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WhatAmIDoingController.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="WhatAmIDoingController.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="198" column="37" selection-start="6439" selection-end="6439" vertical-scroll-proportion="0.0">
+            <state line="97" column="27" selection-start="2927" selection-end="2927" vertical-scroll-proportion="0.42372882">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EmailSenderService.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/EmailSenderService.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="24" selection-start="136" selection-end="136" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#32#72#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mail.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="48" column="95" selection-start="1659" selection-end="1659" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WhatAmIdoingControllerSpec.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/integration/controller/WhatAmIdoingControllerSpec.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="267" column="4" selection-start="11052" selection-end="11052" vertical-scroll-proportion="-79.69231">
+              <folding>
+                <element signature="e#4678#4706#0" expanded="true" />
+                <element signature="e#5660#5688#0" expanded="true" />
+                <element signature="e#6654#6682#0" expanded="true" />
+                <element signature="e#7626#7654#0" expanded="true" />
+                <element signature="e#8591#8619#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SetupNeo4jActorsStub.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/integration/controller/SetupNeo4jActorsStub.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="55" column="32" selection-start="1652" selection-end="1652" vertical-scroll-proportion="1.4615384">
               <folding />
             </state>
           </provider>
@@ -144,46 +164,34 @@
       <file leaf-file-name="WebSocket08FrameDecoder.java" pinned="false" current="false" current-in-tab="false">
         <entry file="jar:///opt/play/play-2.2.1/repository/cache/io.netty/netty/srcs/netty-3.7.0.Final-sources.jar!/org/jboss/netty/handler/codec/http/websocketx/WebSocket08FrameDecoder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="431" column="58" selection-start="18332" selection-end="18332" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#19048#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conf/routes">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="5" selection-start="538" selection-end="546" vertical-scroll-proportion="0.0">
+            <state line="409" column="49" selection-start="17598" selection-end="17598" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActorUtils.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="UTF8Output.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar:///opt/play/play-2.2.1/repository/cache/io.netty/netty/srcs/netty-3.7.0.Final-sources.jar!/org/jboss/netty/handler/codec/http/websocketx/UTF8Output.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="101" column="60" selection-start="4531" selection-end="4531" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActorUtils.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="6" selection-start="3531" selection-end="3531" vertical-scroll-proportion="0.33239436">
+            <state line="97" column="0" selection-start="3394" selection-end="3394" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CypherReaderFunction.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala">
+      <file leaf-file-name="FrameSupervisor.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/red5/FrameSupervisor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="53" selection-start="2357" selection-end="2357" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VideoEncoder.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/red5/VideoEncoder.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="190" selection-start="1138" selection-end="1138" vertical-scroll-proportion="0.0">
+            <state line="83" column="7" selection-start="2565" selection-end="2565" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -216,9 +224,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/activitymain.scala.html" />
-        <option value="$PROJECT_DIR$/app/MoreTestData.scala" />
-        <option value="$PROJECT_DIR$/test/integration/com/whatamidoing/cypher/CypherReaderSpec.scala" />
         <option value="$PROJECT_DIR$/app/views/main.scala.html" />
         <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriter.scala" />
         <option value="$PROJECT_DIR$/conf/routes" />
@@ -228,9 +233,12 @@
         <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala" />
         <option value="$PROJECT_DIR$/app/TestData.scala" />
         <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriterFunction.scala" />
-        <option value="$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala" />
         <option value="$PROJECT_DIR$/app/com/whatamidoing/actors/red5/VideoEncoder.scala" />
         <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala" />
+        <option value="$PROJECT_DIR$/test/integration/controller/SetupNeo4jActorsStub.scala" />
+        <option value="$PROJECT_DIR$/test/integration/controller/WhatAmIdoingControllerSpec.scala" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala" />
         <option value="$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala" />
       </list>
     </option>
@@ -241,8 +249,8 @@
     </ignored-facets>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="103" />
-    <option name="y" value="104" />
+    <option name="x" value="477" />
+    <option name="y" value="22" />
     <option name="width" value="1816" />
     <option name="height" value="1250" />
   </component>
@@ -277,59 +285,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisIsWhatIAmDoing-build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisIsWhatIAmDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisIsWhatIAmDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="unit.com.whatamidoing.utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisIsWhatIAmDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -359,6 +314,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -399,6 +358,34 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -484,8 +471,91 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cypher" />
+              <option name="myItemId" value="mail" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mail.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whatamidoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mail" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EmailSenderService.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisIsWhatIAmDoing-build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisIsWhatIAmDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisIsWhatIAmDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unit.com.whatamidoing.utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisIsWhatIAmDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -505,19 +575,19 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/views/helper/templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TestData">
+  <component name="RunManager" selected="ScalaTest.WhatAmIdoingControllerSpec">
     <configuration default="false" name="BuildInfrastructureData" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="BuildInfrastructureData" />
       <option name="VM_PARAMETERS" />
@@ -556,27 +626,6 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="CypherReaderSpec" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
-      <module name="thisIsWhatIAmDoing" />
-      <setting name="path" value="integration.com.whatamidoing.cypher.CypherReaderSpec" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="$PROJECT_DIR$" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="" />
-      <setting name="testKind" value="Class" />
-      <setting name="showProgressMessages" value="true" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
     <configuration default="false" name="MoreTestData" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="MoreTestData" />
       <option name="VM_PARAMETERS" />
@@ -602,6 +651,21 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
+    <configuration default="false" name="WhatAmIdoingControllerSpec" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <module name="thisIsWhatIAmDoing" />
+      <setting name="path" value="integration.controller.WhatAmIdoingControllerSpec" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
@@ -615,14 +679,6 @@
       <setting name="workingDirectory" value="$PROJECT_DIR$" />
       <method />
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-      <method />
-    </configuration>
     <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
       <module name="" />
       <setting name="path" value="" />
@@ -634,6 +690,27 @@
       <setting name="testName" value="" />
       <setting name="testKind" value="Class" />
       <setting name="showProgressMessages" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -661,19 +738,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -751,17 +815,17 @@
       <item index="1" class="java.lang.String" itemvalue="Remote." />
       <item index="2" class="java.lang.String" itemvalue="Application.BuildInfrastructureData" />
       <item index="3" class="java.lang.String" itemvalue="Application.TestData" />
-      <item index="4" class="java.lang.String" itemvalue="ScalaTest.CypherReaderSpec" />
-      <item index="5" class="java.lang.String" itemvalue="Application.MoreTestData" />
-      <item index="6" class="java.lang.String" itemvalue="Scala Console.Scala Console" />
+      <item index="4" class="java.lang.String" itemvalue="Application.MoreTestData" />
+      <item index="5" class="java.lang.String" itemvalue="Scala Console.Scala Console" />
+      <item index="6" class="java.lang.String" itemvalue="ScalaTest.WhatAmIdoingControllerSpec" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.TestData" />
-        <item index="1" class="java.lang.String" itemvalue="Application.BuildInfrastructureData" />
-        <item index="2" class="java.lang.String" itemvalue="Scala Console.Scala Console" />
-        <item index="3" class="java.lang.String" itemvalue="Application.MoreTestData" />
-        <item index="4" class="java.lang.String" itemvalue="ScalaTest.CypherReaderSpec" />
+        <item index="0" class="java.lang.String" itemvalue="ScalaTest.WhatAmIdoingControllerSpec" />
+        <item index="1" class="java.lang.String" itemvalue="Application.TestData" />
+        <item index="2" class="java.lang.String" itemvalue="Application.BuildInfrastructureData" />
+        <item index="3" class="java.lang.String" itemvalue="Scala Console.Scala Console" />
+        <item index="4" class="java.lang.String" itemvalue="Application.MoreTestData" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -796,29 +860,30 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="103" y="104" width="1816" height="1250" extended-state="0" />
+    <frame x="477" y="22" width="1816" height="1250" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="IntelliGuard" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283186" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24971752" sideWeight="0.6722615" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39964634" sideWeight="0.5158192" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32773852" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5158192" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3283186" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19734514" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24971752" sideWeight="0.5998233" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18531074" sideWeight="0.6722615" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18531074" sideWeight="0.6716814" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TF Uploader" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283186" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920355" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19805482" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295053" sideWeight="0.5632768" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -892,45 +957,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="196" selection-start="4075" selection-end="4075" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Messages.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="43" selection-start="420" selection-end="421" vertical-scroll-proportion="0.2746479" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/activity.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="20" selection-start="4364" selection-end="4364" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/neo4j/Neo4JReader.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="6" selection-start="151" selection-end="151" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/red5/FrameSupervisor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="7" selection-start="2565" selection-end="2565" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriter.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="32" selection-start="2813" selection-end="2839" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/red5/VideoEncoder.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="190" selection-start="1138" selection-end="1138" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="63" column="53" selection-start="2357" selection-end="2357" vertical-scroll-proportion="0.0">
@@ -959,13 +985,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/conf/routes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="5" selection-start="538" selection-end="546" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="jar:///opt/play/play-2.2.1/repository/cache/io.netty/netty/srcs/netty-3.7.0.Final-sources.jar!/org/jboss/netty/channel/Channel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="108" column="21" selection-start="5371" selection-end="5378" vertical-scroll-proportion="0.3762811" />
+      </provider>
+    </entry>
     <entry file="jar:///opt/play/play-2.2.1/repository/cache/io.netty/netty/srcs/netty-3.7.0.Final-sources.jar!/org/jboss/netty/handler/codec/http/websocketx/WebSocket08FrameDecoder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="431" column="58" selection-start="18332" selection-end="18332" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#19048#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
+        <state line="409" column="49" selection-start="17598" selection-end="17598" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///opt/play/play-2.2.1/repository/cache/io.netty/netty/srcs/netty-3.7.0.Final-sources.jar!/org/jboss/netty/handler/codec/http/websocketx/UTF8Output.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="60" selection-start="4531" selection-end="4531" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -976,23 +1016,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/routes">
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/red5/FrameSupervisor.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="5" selection-start="538" selection-end="546" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="198" column="37" selection-start="6439" selection-end="6439" vertical-scroll-proportion="0.0">
+        <state line="83" column="7" selection-start="2565" selection-end="2565" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="6" selection-start="3531" selection-end="3531" vertical-scroll-proportion="0.33239436">
+        <state line="97" column="0" selection-start="3394" selection-end="3394" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/integration/controller/SetupNeo4jActorsStub.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="32" selection-start="1652" selection-end="1652" vertical-scroll-proportion="1.4615384">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/integration/controller/WhatAmIdoingControllerSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="267" column="4" selection-start="11052" selection-end="11052" vertical-scroll-proportion="-79.69231">
+          <folding>
+            <element signature="e#4678#4706#0" expanded="true" />
+            <element signature="e#5660#5688#0" expanded="true" />
+            <element signature="e#6654#6682#0" expanded="true" />
+            <element signature="e#7626#7654#0" expanded="true" />
+            <element signature="e#8591#8619#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/EmailSenderService.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="24" selection-start="136" selection-end="136" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#32#72#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="95" selection-start="1659" selection-end="1659" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="27" selection-start="2927" selection-end="2927" vertical-scroll-proportion="0.42372882">
           <folding />
         </state>
       </provider>
