@@ -1,13 +1,9 @@
 <component name="libraryTable">
   <library name="SBT: org.scalatest:scalatest_2.10:2.0.RC1:test">
     <CLASSES>
-      <root url="jar:///opt/play/play-2.2.1/repository/cache/org.scalatest/scalatest_2.10/jars/scalatest_2.10-2.0.RC1.jar!/" />
+      <root url="jar://C:/play-2.2.1/repository/cache/org.scalatest/scalatest_2.10/jars/scalatest_2.10-2.0.RC1.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar:///opt/play/play-2.2.1/repository/cache/org.scalatest/scalatest_2.10/docs/scalatest_2.10-2.0.RC1-javadoc.jar!/" />
-    </JAVADOC>
-    <SOURCES>
-      <root url="jar:///opt/play/play-2.2.1/repository/cache/org.scalatest/scalatest_2.10/srcs/scalatest_2.10-2.0.RC1-sources.jar!/" />
-    </SOURCES>
+    <JAVADOC />
+    <SOURCES />
   </library>
 </component>

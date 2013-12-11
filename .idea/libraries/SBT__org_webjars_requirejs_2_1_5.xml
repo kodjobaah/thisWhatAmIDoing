@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="SBT: org.webjars:requirejs:2.1.5">
-    <CLASSES>
-      <root url="jar:///opt/play/play-2.2.1/repository/cache/org.webjars/requirejs/jars/requirejs-2.1.5.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

@@ -1,47 +1,604 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="855357b2-4bff-4ebb-b46f-54398f4536f1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/integration/controller/SetupNeo4jActorsStub.scala" afterPath="$PROJECT_DIR$/test/integration/controller/SetupNeo4jActorsStub.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala" afterPath="$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/integration/controller/WhatAmIdoingControllerSpec.scala" afterPath="$PROJECT_DIR$/test/integration/controller/WhatAmIdoingControllerSpec.scala" />
+    <list default="true" id="855357b2-4bff-4ebb-b46f-54398f4536f1" name="Default" comment="added a calendar instead of a table for viewing past streams">
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__ch_qos_logback_logback_access_1_0_13.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__ch_qos_logback_logback_classic_1_0_13.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__ch_qos_logback_logback_core_1_0_13.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_fasterxml_jackson_core_jackson_annotations_2_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_fasterxml_jackson_core_jackson_core_2_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_fasterxml_jackson_core_jackson_databind_2_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_github_scala_incubator_io_scala_io_core_2_10_0_4_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_github_scala_incubator_io_scala_io_file_2_10_0_4_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_google_code_findbugs_jsr305_2_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_google_guava_guava_13_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_google_guava_guava_14_0_1_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_google_protobuf_protobuf_java_2_4_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_googlecode_concurrentlinkedhashmap_concurrentlinkedhashmap_lru_1_3_1_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_h2database_h2_1_3_168.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_jolbox_bonecp_0_7_1_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_jsuereth_scala_arm_2_10_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_ning_async_http_client_1_7_18.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_novocode_junit_interface_0_10_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_akka_akka_actor_2_10_2_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_akka_akka_remote_2_10_2_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_akka_akka_slf4j_2_10_2_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_akka_akka_testkit_2_10_2_2_0_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_atmos_atmos_event_2_10_1_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_atmos_atmos_trace_2_10_1_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_atmos_trace_akka_2_2_1_2_10_1_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_atmos_trace_scala_2_10_2_1_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_config_1_0_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_netty_netty_http_pipelining_1_1_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_play_play_slick_2_10_0_4_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_slick_slick_2_10_1_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_slick_slick_extensions_2_10_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__commons_cli_commons_cli_1_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__commons_codec_commons_codec_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__commons_codec_commons_codec_1_6_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__commons_collections_commons_collections_3_2_1_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__commons_io_commons_io_2_2_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__commons_logging_commons_logging_1_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__dom4j_dom4j_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__io_netty_netty_3_7_0_Final.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__javax_activation_activation_1_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__javax_mail_mail_1_4_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__javax_servlet_javax_servlet_api_3_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__javax_transaction_jta_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__javax_validation_validation_api_1_0_0_GA.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__joda_time_joda_time_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__junit_junit_4_11_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__log4j_log4j_1_2_15.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__net_databinder_dispatch_dispatch_core_2_10_0_9_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__net_java_dev_jna_jna_3_5_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__net_java_dev_jna_platform_3_4_0_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__net_sf_ehcache_ehcache_core_2_6_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__net_sourceforge_cssparser_cssparser_0_9_9_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__net_sourceforge_htmlunit_htmlunit_2_12_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__net_sourceforge_htmlunit_htmlunit_core_js_2_12_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__net_sourceforge_nekohtml_nekohtml_1_9_18_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__oauth_signpost_signpost_commonshttp4_1_2_1_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__oauth_signpost_signpost_core_1_2_1_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_anormcypher_anormcypher_2_10_0_4_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_apache_commons_commons_email_1_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_apache_commons_commons_exec_1_1_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_apache_commons_commons_lang3_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_apache_geronimo_specs_geronimo_jta_1_1_spec_1_1_1_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_apache_httpcomponents_httpclient_4_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_apache_httpcomponents_httpclient_4_2_1_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_apache_httpcomponents_httpcore_4_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_apache_httpcomponents_httpcore_4_2_1_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_apache_httpcomponents_httpmime_4_2_3_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_apache_lucene_lucene_core_3_6_2_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_aspectj_aspectjrt_1_7_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_codehaus_jackson_jackson_core_asl_1_9_10.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_codehaus_jackson_jackson_mapper_asl_1_9_10.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_easytesting_fest_assert_1_4_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_easytesting_fest_util_1_1_6_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_eclipse_jetty_jetty_http_8_1_13_v20130916.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_eclipse_jetty_jetty_io_8_1_13_v20130916.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_eclipse_jetty_jetty_util_8_1_13_v20130916.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_eclipse_jetty_jetty_websocket_8_1_13_v20130916.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_fluentlenium_fluentlenium_core_0_8_0_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_fluentlenium_fluentlenium_festassert_0_8_0_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_fusesource_sigar_1_6_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_hamcrest_hamcrest_core_1_3_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_hibernate_hibernate_validator_4_3_0_Final.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_javassist_javassist_3_18_0_GA.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_jboss_logging_jboss_logging_3_1_0_CR2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_joda_joda_convert_1_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_json_json_20080701_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_mindrot_jbcrypt_0_3m.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_mockito_mockito_all_1_9_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_neo4j_neo4j_cypher_2_0_0_M05_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_neo4j_neo4j_graph_algo_2_0_0_M05_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_neo4j_neo4j_graph_matching_2_0_0_M05_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_neo4j_neo4j_kernel_2_0_0_M05_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_neo4j_neo4j_lucene_index_2_0_0_M05_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_ostermiller_utils_1_07_00.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_parboiled_parboiled_core_1_1_6_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_parboiled_parboiled_scala_2_10_1_1_6_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_reflections_reflections_0_9_8.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_scala_lang_scala_library_2_10_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_scala_lang_scala_reflect_2_10_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_scala_stm_scala_stm_2_10_0_7.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_scala_tools_testing_test_interface_0_5_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_scalamock_scalamock_core_2_10_3_0_1_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_scalamock_scalamock_scalatest_support_2_10_3_0_1_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_scalatest_scalatest_2_10_2_0_RC1_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_android_driver_2_32_0_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_api_2_32_0_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_chrome_driver_2_32_0_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_firefox_driver_2_32_0_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_htmlunit_driver_2_32_0_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_ie_driver_2_32_0_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_iphone_driver_2_32_0_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_java_2_32_0_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_remote_driver_2_32_0_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_safari_driver_2_32_0_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_support_2_32_0_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_slf4j_jcl_over_slf4j_1_7_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_slf4j_jul_to_slf4j_1_7_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_slf4j_slf4j_api_1_7_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_springframework_spring_beans_3_1_2_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_springframework_spring_context_3_1_2_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_springframework_spring_core_3_1_2_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_uncommons_maths_uncommons_maths_1_2_2a.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_w3c_css_sac_1_3_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_webbitserver_webbit_0_4_14_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_webjars_bootstrap_2_3_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_webjars_jquery_1_9_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_webjars_requirejs_2_1_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_webjars_webjars_locator_0_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_webjars_webjars_play_2_10_2_1_0_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_yaml_snakeyaml_1_10.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__scala_2_10_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__tyrex_tyrex_1_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__xalan_serializer_2_7_1_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__xalan_xalan_2_7_1_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__xerces_xercesImpl_2_11_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__xml_apis_xml_apis_1_4_01.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\xuggle_xuggler_5_4_jar.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\gst-inspect-0.10.exe" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\gst-inspect.exe" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\gst-launch-0.10.exe" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\gst-launch.exe" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgio-2.0-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libglib-2.0-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgmodule-2.0-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgobject-2.0-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstapp-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstaudio-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstbase-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstbasevideo-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstcdda-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstcontroller-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstdataprotocol-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstfft-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstinterfaces-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstnet-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstnetbuffer-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstpbutils-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstphotography-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstreamer-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstriff-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstrtp-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstrtsp-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstsdp-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstsignalprocessor-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgsttag-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstvideo-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgthread-2.0-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libiconv-2.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libintl-8.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libjpeg-8.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libmp3lame-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libogg-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\liborc-0.4-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\liborc-test-0.4-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libpng14-14.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libtheora-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libtheoradec-1.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libtheoraenc-1.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libvorbis-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libvorbisenc-2.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libvorbisfile-3.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libwavpack-1.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libxml2-2.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstadder.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstadpcmdec.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstadpcmenc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstaiff.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstalaw.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstalpha.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstalphacolor.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstannodex.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstapetag.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstapp.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstasf.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstasfmux.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstaudioconvert.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstaudiofx.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstaudioparsers.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstaudiorate.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstaudioresample.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstaudiotestsrc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstauparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstautoconvert.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstautodetect.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstavi.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstbayer.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstcamerabin.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstcdxaparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstcog.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstcoloreffects.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstcolorspace.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstcoreelements.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstcoreindexers.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstcutter.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdataurisrc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdebug.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdebugutilsbad.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdecodebin.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdecodebin2.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdeinterlace.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdirectdrawsink.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdirectsoundsink.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdirectsoundsrc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdtmf.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdvbsuboverlay.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdvdlpcmdec.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdvdspu.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdvdsub.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgsteffectv.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstencodebin.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstequalizer.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstfestival.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstffmpeg.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstffmpegcolorspace.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstffmpegscale.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstfieldanalysis.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstflv.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstflxdec.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstfragmented.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstfreeze.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstfrei0r.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstgaudieffects.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstgdp.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstgeometrictransform.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstgio.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstgoom.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstgoom2k1.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstgsettingselements.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgsth264parse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgsthdvparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgsticydemux.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstid3demux.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstid3tag.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstiec958.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstimagefreeze.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstinterlace.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstinterleave.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstinvtelecine.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstisomp4.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstivfparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstjp2kdecimator.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstjpeg.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstjpegformat.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstlame.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstlegacyresample.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstlevel.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstliveadder.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmatroska.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmpeg4videoparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmpegaudioparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmpegdemux.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmpegpsmux.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmpegstream.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmpegtsdemux.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmpegtsmux.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmpegvideoparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmulaw.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmultifile.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmultipart.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmve.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmxf.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstnavigationtest.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstnsf.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstnuvdemux.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstogg.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstpatchdetect.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstpcapparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstplaybin.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstpng.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstpnm.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstpostproc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstrawparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstreal.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstreplaygain.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstrfbsrc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstrmdemux.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstrtp.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstrtpmanager.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstrtpmux.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstrtpvp8.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstrtsp.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstscaletempoplugin.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstsdi.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstsdpelem.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstsegmentclip.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstshapewipe.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstsiren.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstsmpte.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstspectrum.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstspeed.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgststereo.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstsubenc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstsubparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgsttheora.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgsttta.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgsttypefindfunctions.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstudp.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideobox.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideocrop.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideofilter.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideofiltersbad.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideomaxrate.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideomeasure.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideomixer.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideoparsersbad.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideorate.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideoscale.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideosignal.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideotestsrc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvmnc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvolume.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvorbis.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstwavenc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstwavpack.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstwavparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstwinks.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgsty4mdec.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgsty4menc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\zlib1.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\gst-inspect-0.10.exe" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\gst-inspect.exe" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\gst-launch-0.10.exe" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\gst-launch.exe" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgio-2.0-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libglib-2.0-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgmodule-2.0-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgobject-2.0-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstapp-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstaudio-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstbase-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstbasevideo-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstcdda-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstcontroller-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstdataprotocol-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstfft-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstinterfaces-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstnet-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstnetbuffer-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstpbutils-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstphotography-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstreamer-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstriff-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstrtp-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstrtsp-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstsdp-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstsignalprocessor-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgsttag-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstvideo-0.10-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgthread-2.0-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libiconv-2.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libintl-8.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libjpeg-8.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libmp3lame-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libogg-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\liborc-0.4-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\liborc-test-0.4-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libpng14-14.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libtheora-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libtheoradec-1.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libtheoraenc-1.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libvorbis-0.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libvorbisenc-2.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libvorbisfile-3.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libwavpack-1.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libxml2-2.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstadder.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstadpcmdec.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstadpcmenc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstaiff.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstalaw.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstalpha.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstalphacolor.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstannodex.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstapetag.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstapp.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstasf.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstasfmux.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstaudioconvert.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstaudiofx.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstaudioparsers.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstaudiorate.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstaudioresample.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstaudiotestsrc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstauparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstautoconvert.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstautodetect.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstavi.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstbayer.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstcamerabin.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstcdxaparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstcog.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstcoloreffects.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstcolorspace.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstcoreelements.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstcoreindexers.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstcutter.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdataurisrc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdebug.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdebugutilsbad.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdecodebin.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdecodebin2.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdeinterlace.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdirectdrawsink.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdirectsoundsink.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdirectsoundsrc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdtmf.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdvbsuboverlay.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdvdlpcmdec.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdvdspu.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdvdsub.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgsteffectv.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstencodebin.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstequalizer.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstfestival.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstffmpeg.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstffmpegcolorspace.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstffmpegscale.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstfieldanalysis.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstflv.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstflxdec.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstfragmented.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstfreeze.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstfrei0r.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstgaudieffects.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstgdp.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstgeometrictransform.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstgio.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstgoom.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstgoom2k1.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstgsettingselements.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgsth264parse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgsthdvparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgsticydemux.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstid3demux.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstid3tag.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstiec958.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstimagefreeze.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstinterlace.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstinterleave.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstinvtelecine.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstisomp4.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstivfparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstjp2kdecimator.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstjpeg.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstjpegformat.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstlame.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstlegacyresample.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstlevel.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstliveadder.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmatroska.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmpeg4videoparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmpegaudioparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmpegdemux.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmpegpsmux.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmpegstream.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmpegtsdemux.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmpegtsmux.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmpegvideoparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmulaw.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmultifile.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmultipart.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmve.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmxf.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstnavigationtest.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstnsf.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstnuvdemux.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstogg.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstpatchdetect.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstpcapparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstplaybin.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstpng.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstpnm.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstpostproc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstrawparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstreal.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstreplaygain.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstrfbsrc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstrmdemux.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstrtp.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstrtpmanager.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstrtpmux.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstrtpvp8.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstrtsp.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstscaletempoplugin.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstsdi.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstsdpelem.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstsegmentclip.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstshapewipe.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstsiren.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstsmpte.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstspectrum.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstspeed.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgststereo.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstsubenc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstsubparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgsttheora.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgsttta.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgsttypefindfunctions.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstudp.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideobox.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideocrop.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideofilter.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideofiltersbad.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideomaxrate.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideomeasure.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideomixer.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideoparsersbad.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideorate.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideoscale.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideosignal.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideotestsrc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvmnc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvolume.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvorbis.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstwavenc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstwavpack.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstwavparse.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstwinks.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgsty4mdec.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgsty4menc.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\zlib1.dll" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/GSVideo_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/GSVideo_jar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/IdeaProject.iml" afterPath="$PROJECT_DIR$/.idea/IdeaProject.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/jwplayer/README.html" afterPath="$PROJECT_DIR$/public/javascripts/jwplayer/README.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__cglib_cglib_nodep_2_1_3_test.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__cglib_cglib_nodep_2_1_3_test.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/application.log" afterPath="$PROJECT_DIR$/logs/application.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/javacpp_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/javacpp_jar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/javacv_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/javacv_jar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/javacv_linux_x86_64_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/javacv_linux_x86_64_jar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/jwplayer/jwplayer.html5.js" afterPath="$PROJECT_DIR$/public/javascripts/jwplayer/jwplayer.html5.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/jwplayer/jwplayer.js" afterPath="$PROJECT_DIR$/public/javascripts/jwplayer/jwplayer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/ojdbc6_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/ojdbc6_jar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea_modules/thisIsWhatIAmDoing-build.iml" afterPath="$PROJECT_DIR$/.idea_modules/thisIsWhatIAmDoing-build.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea_modules/thisIsWhatIAmDoing.iml" afterPath="$PROJECT_DIR$/.idea_modules/thisIsWhatIAmDoing.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="thisWhatAmIDoing.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386034679111" ignored="false" />
+    <file path="/Dummy.txt" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386773217483" ignored="false" />
     <file path="/welcome.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383235110310" ignored="false" />
     <file path="/MyHelper.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1382917291960" ignored="false" />
     <file path="/userNameFieldConstructor.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383232185789" ignored="false" />
     <file path="/carersInputTel.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1382919547963" ignored="false" />
     <file path="$PROJECT_DIR$/../../ClaimCapture/c3/app/views/helper/base/carersInputTel.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1382919548975" ignored="false" />
     <file path="/Index.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383233727207" ignored="false" />
-    <file path="/AdminController.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383432438889" ignored="false" />
+    <file path="/AdminController.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386771153895" ignored="false" />
     <file path="/messages" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383225252156" ignored="false" />
-    <file path="/TestData.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383502463099" ignored="false" />
-    <file path="/CypherWriter.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383421479356" ignored="false" />
-    <file path="/WhatAmIDoingController.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386037793779" ignored="false" />
-    <file path="/main.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383237823711" ignored="false" />
-    <file path="/CypherReader.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1384637305232" ignored="false" />
-    <file path="/Neo4jTestDb.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383250874121" ignored="false" />
-    <file path="/CypherReaderSpec.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383398112568" ignored="false" />
+    <file path="/TestData.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386763274229" ignored="false" />
+    <file path="/CypherWriter.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386155912041" ignored="false" />
+    <file path="/WhatAmIDoingController.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386770156165" ignored="false" />
+    <file path="/main.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386769349357" ignored="false" />
+    <file path="/CypherReader.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386766459992" ignored="false" />
+    <file path="/Neo4jTestDb.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386129380906" ignored="false" />
+    <file path="/CypherReaderSpec.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386129260482" ignored="false" />
     <file path="/Dummy.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383321653267" ignored="false" />
-    <file path="/CypherReaderFunction.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383430120466" ignored="false" />
-    <file path="/ActorUtils.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383774081108" ignored="false" />
-    <file path="/routes" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383426321985" ignored="false" />
+    <file path="/CypherReaderFunction.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386764191727" ignored="false" />
+    <file path="/ActorUtils.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386764463369" ignored="false" />
+    <file path="/routes" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386770226336" ignored="false" />
     <file path="/activity.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383433580410" ignored="false" />
     <file path="/MoreTestData.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383325286470" ignored="false" />
-    <file path="/CypherWriterFunction.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383774031589" ignored="false" />
+    <file path="/CypherWriterFunction.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386705119276" ignored="false" />
     <file path="/Scala Console" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383420459621" ignored="false" />
     <file path="/a.dummy" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383433787808" ignored="false" />
     <file path="/VideoEncoder.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1384034124649" ignored="false" />
-    <file path="/fragment.java" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1385166552870" ignored="false" />
+    <file path="/fragment.java" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386694727429" ignored="false" />
     <file path="/WhatAmIdoingControllerSpec.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386036556634" ignored="false" />
     <file path="/SetupNeo4jActorsStub.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386036013657" ignored="false" />
-    <file path="/Mail.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386037523828" ignored="false" />
+    <file path="/Mail.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386612825922" ignored="false" />
+    <file path="/BuildInfrastructureData.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386050060389" ignored="false" />
+    <file path="/DataForTestInvites.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386152856118" ignored="false" />
+    <file path="/whatamidoing.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386615574459" ignored="false" />
+    <file path="/json.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386667106707" ignored="false" />
+    <file path="/invite.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386771816660" ignored="false" />
+    <file path="/TestData2012.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386763342043" ignored="false" />
+    <file path="/streamInvites.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386767661967" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +655,128 @@
         <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
     </breakpoint_any>
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="file://$PROJECT_DIR$/app/DataForTestInvites.scala" line="15" class="DataForTestInvites$" package="">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherInfrastructure.scala" line="12" class="com.whatamidoing.cypher.CypherInfrastructure$" package="com.whatamidoing.cypher">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/app/BuildInfrastructureData.scala" line="11" class="BuildInfrastructureData$" package="">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="&#13;&#13;Scala" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;Scala" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/app/BuildInfrastructureData.scala" line="15" class="BuildInfrastructureData$" package="">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherInfrastructure.scala" line="35" class="com.whatamidoing.cypher.CypherInfrastructure$" package="com.whatamidoing.cypher">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherInfrastructure.scala" line="41" class="com.whatamidoing.cypher.CypherInfrastructure$" package="com.whatamidoing.cypher">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/app/BuildInfrastructureData.scala" line="17" class="BuildInfrastructureData$" package="">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriterFunction.scala" line="64" class="com.whatamidoing.cypher.CypherWriterFunction$" package="com.whatamidoing.cypher">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -108,99 +786,97 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="WhatAmIDoingController.scala" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="27" selection-start="2927" selection-end="2927" vertical-scroll-proportion="0.42372882">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EmailSenderService.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/EmailSenderService.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="24" selection-start="136" selection-end="136" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#32#72#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Mail.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="95" selection-start="1659" selection-end="1659" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WhatAmIdoingControllerSpec.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/integration/controller/WhatAmIdoingControllerSpec.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="267" column="4" selection-start="11052" selection-end="11052" vertical-scroll-proportion="-79.69231">
-              <folding>
-                <element signature="e#4678#4706#0" expanded="true" />
-                <element signature="e#5660#5688#0" expanded="true" />
-                <element signature="e#6654#6682#0" expanded="true" />
-                <element signature="e#7626#7654#0" expanded="true" />
-                <element signature="e#8591#8619#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SetupNeo4jActorsStub.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/integration/controller/SetupNeo4jActorsStub.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="32" selection-start="1652" selection-end="1652" vertical-scroll-proportion="1.4615384">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebSocket08FrameDecoder.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar:///opt/play/play-2.2.1/repository/cache/io.netty/netty/srcs/netty-3.7.0.Final-sources.jar!/org/jboss/netty/handler/codec/http/websocketx/WebSocket08FrameDecoder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="409" column="49" selection-start="17598" selection-end="17598" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UTF8Output.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar:///opt/play/play-2.2.1/repository/cache/io.netty/netty/srcs/netty-3.7.0.Final-sources.jar!/org/jboss/netty/handler/codec/http/websocketx/UTF8Output.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="60" selection-start="4531" selection-end="4531" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ActorUtils.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="0" selection-start="3394" selection-end="3394" vertical-scroll-proportion="0.0">
+            <state line="31" column="49" selection-start="1206" selection-end="1206" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#32#61#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="invite.scala.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/invite.scala.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="165" column="95" selection-start="4298" selection-end="4298" vertical-scroll-proportion="-3.0769231">
+              <folding>
+                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mail.scala" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="6" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.609319">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FrameSupervisor.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/red5/FrameSupervisor.scala">
+      <file leaf-file-name="WhatAmIDoingController.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="7" selection-start="2565" selection-end="2565" vertical-scroll-proportion="0.0">
+            <state line="249" column="0" selection-start="7889" selection-end="8026" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CypherWriterFunction.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriterFunction.scala">
+      <file leaf-file-name="streamInvites.scala.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/streamInvites.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="109" column="32" selection-start="4220" selection-end="4246" vertical-scroll-proportion="0.0">
+            <state line="2" column="28" selection-start="123" selection-end="123" vertical-scroll-proportion="-1.3076923">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conf/routes">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="70" selection-start="1413" selection-end="1413" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.scala.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/main.scala.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="0" selection-start="568" selection-end="568" vertical-scroll-proportion="-9.269231">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CypherReaderFunction.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="48" selection-start="642" selection-end="642" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminController.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="273" column="61" selection-start="9526" selection-end="9526" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CypherReader.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="27" selection-start="346" selection-end="398" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -224,22 +900,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/main.scala.html" />
-        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriter.scala" />
-        <option value="$PROJECT_DIR$/conf/routes" />
-        <option value="$PROJECT_DIR$/public/javascripts/activity.js" />
-        <option value="$PROJECT_DIR$/app/controllers/AdminController.scala" />
-        <option value="$PROJECT_DIR$/app/views/activity.scala.html" />
-        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala" />
-        <option value="$PROJECT_DIR$/app/TestData.scala" />
+        <option value="$PROJECT_DIR$/app/views/json.scala.html" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherInfrastructure.scala" />
+        <option value="$PROJECT_DIR$/app/MoreTestData.scala" />
         <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriterFunction.scala" />
-        <option value="$PROJECT_DIR$/app/com/whatamidoing/actors/red5/VideoEncoder.scala" />
-        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" />
+        <option value="$PROJECT_DIR$/app/TestData.scala" />
+        <option value="$PROJECT_DIR$/app/TestData2012.scala" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala" />
         <option value="$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala" />
-        <option value="$PROJECT_DIR$/test/integration/controller/SetupNeo4jActorsStub.scala" />
-        <option value="$PROJECT_DIR$/test/integration/controller/WhatAmIdoingControllerSpec.scala" />
-        <option value="$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" />
+        <option value="$PROJECT_DIR$/app/views/streamInvites.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/main.scala.html" />
         <option value="$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala" />
+        <option value="$PROJECT_DIR$/conf/routes" />
+        <option value="$PROJECT_DIR$/app/controllers/AdminController.scala" />
+        <option value="$PROJECT_DIR$/app/views/invite.scala.html" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala" />
       </list>
     </option>
   </component>
@@ -249,10 +925,10 @@
     </ignored-facets>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="477" />
-    <option name="y" value="22" />
-    <option name="width" value="1816" />
-    <option name="height" value="1250" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -313,51 +989,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="integration" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="integration" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
+              <option name="myItemId" value="project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -374,6 +1006,10 @@
               <option name="myItemId" value="project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Build.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -385,7 +1021,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="logs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -431,6 +1067,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -450,6 +1104,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="whatamidoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -500,14 +1158,49 @@
               <option name="myItemId" value="mail" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="EmailSenderService.scala" />
-              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whatamidoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cypher" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whatamidoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -560,6 +1253,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -570,7 +1264,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="project.propCompiler" />
+    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -583,11 +1277,14 @@
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/views/helper/templates" />
     </key>
   </component>
-  <component name="RunManager" selected="ScalaTest.WhatAmIdoingControllerSpec">
+  <component name="RunManager" selected="Application.TestData">
     <configuration default="false" name="BuildInfrastructureData" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="BuildInfrastructureData" />
       <option name="VM_PARAMETERS" />
@@ -600,7 +1297,13 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="thisIsWhatIAmDoing" />
       <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -642,26 +1345,40 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="Scala Console" type="ScalaScriptConsoleRunConfiguration" factoryName="Scala Console" temporary="true">
+    <configuration default="false" name="DataForTestInvites" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="DataForTestInvites" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
       <module name="thisIsWhatIAmDoing" />
-      <setting name="vmparams4" value="-Djline.terminal=NONE" />
-      <setting name="consoleArgs" value="-usejavacp" />
-      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="WhatAmIdoingControllerSpec" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+    <configuration default="false" name="TestData2012" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="TestData2012" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
       <module name="thisIsWhatIAmDoing" />
-      <setting name="path" value="integration.controller.WhatAmIdoingControllerSpec" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="$PROJECT_DIR$" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="" />
-      <setting name="testKind" value="Class" />
-      <setting name="showProgressMessages" value="true" />
+      <envs />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
@@ -679,6 +1396,14 @@
       <setting name="workingDirectory" value="$PROJECT_DIR$" />
       <method />
     </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
     <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
       <module name="" />
       <setting name="path" value="" />
@@ -690,14 +1415,6 @@
       <setting name="testName" value="" />
       <setting name="testKind" value="Class" />
       <setting name="showProgressMessages" value="true" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -816,16 +1533,16 @@
       <item index="2" class="java.lang.String" itemvalue="Application.BuildInfrastructureData" />
       <item index="3" class="java.lang.String" itemvalue="Application.TestData" />
       <item index="4" class="java.lang.String" itemvalue="Application.MoreTestData" />
-      <item index="5" class="java.lang.String" itemvalue="Scala Console.Scala Console" />
-      <item index="6" class="java.lang.String" itemvalue="ScalaTest.WhatAmIdoingControllerSpec" />
+      <item index="5" class="java.lang.String" itemvalue="Application.DataForTestInvites" />
+      <item index="6" class="java.lang.String" itemvalue="Application.TestData2012" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="ScalaTest.WhatAmIdoingControllerSpec" />
-        <item index="1" class="java.lang.String" itemvalue="Application.TestData" />
-        <item index="2" class="java.lang.String" itemvalue="Application.BuildInfrastructureData" />
-        <item index="3" class="java.lang.String" itemvalue="Scala Console.Scala Console" />
-        <item index="4" class="java.lang.String" itemvalue="Application.MoreTestData" />
+        <item index="0" class="java.lang.String" itemvalue="Application.TestData" />
+        <item index="1" class="java.lang.String" itemvalue="Application.BuildInfrastructureData" />
+        <item index="2" class="java.lang.String" itemvalue="Application.DataForTestInvites" />
+        <item index="3" class="java.lang.String" itemvalue="Application.MoreTestData" />
+        <item index="4" class="java.lang.String" itemvalue="Application.TestData2012" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -857,33 +1574,71 @@
       <created>1382914983230</created>
       <updated>1382914983230</updated>
     </task>
+    <task id="LOCAL-00001" summary="added test data for searching for users who are watching a stream">
+      <created>1386180113290</created>
+      <updated>1386180113290</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added a calendar instead of a table for viewing past streams">
+      <created>1386772179442</created>
+      <updated>1386772179442</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added a calendar instead of a table for viewing past streams">
+      <created>1386773005035</created>
+      <updated>1386773005035</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added a calendar instead of a table for viewing past streams">
+      <created>1386773226139</created>
+      <updated>1386773226139</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="477" y="22" width="1816" height="1250" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="IntelliGuard" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283186" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282313" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24971752" sideWeight="0.6722615" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5158192" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3283186" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3993174" sideWeight="0.5151515" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4778157" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19734514" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24971752" sideWeight="0.5998233" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.443686" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24924242" sideWeight="0.6996587" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18531074" sideWeight="0.6716814" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TF Uploader" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283186" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22045454" sideWeight="0.556314" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4778157" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="IntelliGuard" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295053" sideWeight="0.5632768" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TF Uploader" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295053" sideWeight="0.5632768" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -930,7 +1685,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a calendar instead of a table for viewing past streams" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -944,6 +1699,8 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="added test data for searching for users who are watching a stream" />
+    <MESSAGE value="added a calendar instead of a table for viewing past streams" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -957,118 +1714,120 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala">
+    <entry file="file://$PROJECT_DIR$/app/views/activitymain.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="53" selection-start="2357" selection-end="2357" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/MoreTestData.scala">
+    <entry file="file://$PROJECT_DIR$/app/views/welcome.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="7" selection-start="274" selection-end="274" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/TestData.scala">
+    <entry file="file://$PROJECT_DIR$/app/views/whatamidoingnoinviteId.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="22" selection-start="3161" selection-end="3161" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala">
+    <entry file="file://$PROJECT_DIR$/app/views/whatamidoing.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="32" selection-start="1980" selection-end="1980" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/timeout.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/activity.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="27.461538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/streamInvites.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="28" selection-start="123" selection-end="123" vertical-scroll-proportion="-1.3076923">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/main.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="568" selection-end="568" vertical-scroll-proportion="-9.269231">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/routes">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="5" selection-start="538" selection-end="546" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="jar:///opt/play/play-2.2.1/repository/cache/io.netty/netty/srcs/netty-3.7.0.Final-sources.jar!/org/jboss/netty/channel/Channel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="21" selection-start="5371" selection-end="5378" vertical-scroll-proportion="0.3762811" />
-      </provider>
-    </entry>
-    <entry file="jar:///opt/play/play-2.2.1/repository/cache/io.netty/netty/srcs/netty-3.7.0.Final-sources.jar!/org/jboss/netty/handler/codec/http/websocketx/WebSocket08FrameDecoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="409" column="49" selection-start="17598" selection-end="17598" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/play/play-2.2.1/repository/cache/io.netty/netty/srcs/netty-3.7.0.Final-sources.jar!/org/jboss/netty/handler/codec/http/websocketx/UTF8Output.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="60" selection-start="4531" selection-end="4531" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriterFunction.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="32" selection-start="4220" selection-end="4246" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/red5/FrameSupervisor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="7" selection-start="2565" selection-end="2565" vertical-scroll-proportion="0.0">
+        <state line="24" column="70" selection-start="1413" selection-end="1413" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="0" selection-start="3394" selection-end="3394" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/integration/controller/SetupNeo4jActorsStub.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="32" selection-start="1652" selection-end="1652" vertical-scroll-proportion="1.4615384">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/integration/controller/WhatAmIdoingControllerSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="267" column="4" selection-start="11052" selection-end="11052" vertical-scroll-proportion="-79.69231">
+        <state line="31" column="49" selection-start="1206" selection-end="1206" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#4678#4706#0" expanded="true" />
-            <element signature="e#5660#5688#0" expanded="true" />
-            <element signature="e#6654#6682#0" expanded="true" />
-            <element signature="e#7626#7654#0" expanded="true" />
-            <element signature="e#8591#8619#0" expanded="true" />
+            <element signature="e#32#61#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/EmailSenderService.scala">
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="24" selection-start="136" selection-end="136" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#32#72#0" expanded="true" />
-          </folding>
+        <state line="22" column="48" selection-start="642" selection-end="642" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala">
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="95" selection-start="1659" selection-end="1659" vertical-scroll-proportion="0.0">
+        <state line="19" column="27" selection-start="346" selection-end="398" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="27" selection-start="2927" selection-end="2927" vertical-scroll-proportion="0.42372882">
+        <state line="249" column="0" selection-start="7889" selection-end="8026" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="273" column="61" selection-start="9526" selection-end="9526" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/invite.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="165" column="95" selection-start="4298" selection-end="4298" vertical-scroll-proportion="-3.0769231">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="6" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.609319">
           <folding />
         </state>
       </provider>
@@ -1137,7 +1896,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>SBT: play:sbt-link:2.1.2</last-edited>
+          <last-edited>SBT: cglib:cglib-nodep:2.1_3:test</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
