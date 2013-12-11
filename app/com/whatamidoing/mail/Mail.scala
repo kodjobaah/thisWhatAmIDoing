@@ -42,7 +42,8 @@ package com.whatamidoing.mail
           new MultiPartEmail().attach(attachment).setMsg(mail.message)
         }
       }
- 
+
+
       // TODO Set authentication from your configuration, sys properties or w/e
       commonsMail.setHostName("smtp.googlemail.com")
       commonsMail.setSmtpPort(465)
