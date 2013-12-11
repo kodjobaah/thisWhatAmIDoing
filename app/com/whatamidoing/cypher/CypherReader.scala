@@ -1,5 +1,7 @@
 package com.whatamidoing.cypher
 
+import play.Logger
+
 object CypherReader {
 
   def searchForUser(user: String): String = {
@@ -204,7 +206,116 @@ object CypherReader {
     """
     return res
   }
-  
-  
+
+  def getUsersWhoHaveAcceptedToWatchStream(token: String): String = {
+    val res=s"""
+          match (a:AuthenticationToken) where a.token="$token" and a.valid = "true"
+          with a
+          match (a)-[r:USING]-(s)
+          with s
+          match (s)-[TO_WATCH]-(i)-[ACCEPTED_ON]->(d)
+          with i
+          match (i)<-[RECIEVED]-(u)
+          return u.email as email, u.firstName as firstName, u.lastName as lastName
+    """
+    return res
+  }
+
+  def getUsersWhoHaveBeenInvitedToWatchStream(token: String): String = {
+    val res=s"""
+
+    match (a:AuthenticationToken) where a.token="$token" and a.valid = "true"
+    with a
+    match a-[r:USING]-s
+    with s
+    match s-[t:TO_WATCH]-i
+    with i
+    match i-[RECEIVED]-u
+    where u.email is not null
+    return u.email as email, u.firstName as firstName, u.lastName as lastName
+    """
+    return res
+  }
+
+  def getUsersWhoHaveAcceptedToWatchStreamUsingStreamId(streamId: String): String = {
+    val res=s"""
+          match (s)-[TO_WATCH]-(i)-[ACCEPTED_ON]->(d)
+          where s.id = "$streamId"
+          with i
+          match (i)<-[RECIEVED]-(u)
+          return u.email as email, u.firstName as firstName, u.lastName as lastName
+    """
+
+    Logger.info(res);
+    return res
+  }
+
+  def getUsersWhoHaveBeenInvitedToWatchStreamUsingStreamId(streamId: String): String = {
+    val res=s"""
+     match s-[t:TO_WATCH]-i
+     where s.id = "$streamId"
+     with i
+     match i-[RECEIVED]-u
+     where u.email is not null
+    return u.email as email, u.firstName as firstName, u.lastName as lastName
+    """
+    Logger.info(res)
+    return res
+  }
+
+
+  def getStreamsForCalendar(email: String,
+                            startYear: Int, endYear: Int,
+                            startMonth: Int, endMonth: Int,
+                            startDay: Int, endDay: Int): String = {
+    var res=""
+
+
+    if (startYear == endYear) {
+       if (startMonth == endMonth) {
+         res = s"""
+
+         match y-[MONTH]-m-[DAY]-d-[broadcast:BROADCAST_ON]-s-[USING]-t-[HAS_TOKEN]-u
+         where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
+         and (m.value >= $startMonth and m.value <= $endMonth)  and (d.value >= $startDay  and d.value <= $endDay)
+         return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
+
+       """
+
+       } else {
+         res = s"""
+      match y-[MONTH]-m-[DAY]-d-[broadcast:BROADCAST_ON]-s-[USING]-t-[HAS_TOKEN]-u
+      where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
+      and (m.value >= $startMonth and m.value <= $endMonth)
+      return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
+
+       """
+
+       }
+    } else {
+      res = s"""
+       match y-[MONTH]-m-[DAY]-d-[broadcast:BROADCAST_ON]-s-[USING]-t-[HAS_TOKEN]-u
+       where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
+       return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
+
+       """
+      }
+    Logger.info(res)
+    return res
+  }
+
+  def getEmailUsingToken(token: String): String = {
+
+    val res=s"""
+
+    match u-[HAS_TOKEN]-t
+        where t.token="$token"
+        return u.email as email
+    """
+    return res
+
+  }
+
+
 
 }

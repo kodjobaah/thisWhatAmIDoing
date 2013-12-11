@@ -79,6 +79,7 @@ object CypherReaderFunction {
     findAllStreamsForDay
   }
 
+
   def findAllInvitesForStream(token: String, displayStart: Int, displayLength: Int, sortColumn: Int, sortDirection: String, streamId: String): () => Neo4jResult = {
     val findAllInvitesForStream: Function0[Neo4jResult] = () => {
       val allStreams = Cypher(CypherReader.findAllInvitesForStream(token,displayStart, displayLength,sortColumn,sortDirection,streamId)).apply().map(row => (row[Option[String]]("day"),row[Option[String]]("time"),row[String]("email"),row[Option[String]]("firstName"),row[Option[String]]("lastName"))).toList
@@ -89,7 +90,41 @@ object CypherReaderFunction {
     findAllInvitesForStream
   }
 
+  def getUsersWhoHaveAcceptedToWatchStream(token: String): () => Neo4jResult = {
+    val getUsersWhoHaveAcceptedToWatchStream: Function0[Neo4jResult] = () => {
+      val allStreams = Cypher(CypherReader.getUsersWhoHaveAcceptedToWatchStream(token)).apply().map(row => (row[Option[String]]("email"),row[Option[String]]("firstName"),row[Option[String]]("lastName"))).toList
+      val neo4jResult = new Neo4jResult(allStreams)
+      neo4jResult
+    }
+    getUsersWhoHaveAcceptedToWatchStream
+  }
 
+  def getUsersWhoHaveBeenInvitedToWatchStream(token: String): () => Neo4jResult = {
+    val getUsersWhoHaveBeenInvitedToWatchStream: Function0[Neo4jResult] = () => {
+      val allStreams = Cypher(CypherReader.getUsersWhoHaveBeenInvitedToWatchStream(token)).apply().map(row => (row[Option[String]]("email"),row[Option[String]]("firstName"),row[Option[String]]("lastName"))).toList
+      val neo4jResult = new Neo4jResult(allStreams)
+      neo4jResult
+    }
+    getUsersWhoHaveBeenInvitedToWatchStream
+  }
+
+  def getUsersWhoHaveAcceptedToWatchStreamUsingStreamId(streamId: String): () => Neo4jResult = {
+    val getUsersWhoHaveAcceptedToWatchStreamUsingStreamId: Function0[Neo4jResult] = () => {
+      val allStreams = Cypher(CypherReader.getUsersWhoHaveAcceptedToWatchStreamUsingStreamId(streamId)).apply().map(row => (row[Option[String]]("email"),row[Option[String]]("firstName"),row[Option[String]]("lastName"))).toList
+      val neo4jResult = new Neo4jResult(allStreams)
+      neo4jResult
+    }
+    getUsersWhoHaveAcceptedToWatchStreamUsingStreamId
+  }
+
+  def getUsersWhoHaveBeenInvitedToWatchStreamUsingStreamId(streamId: String): () => Neo4jResult = {
+    val getUsersWhoHaveBeenInvitedToWatchStreamUsingStreamId: Function0[Neo4jResult] = () => {
+      val allStreams = Cypher(CypherReader.getUsersWhoHaveBeenInvitedToWatchStreamUsingStreamId(streamId)).apply().map(row => (row[Option[String]]("email"),row[Option[String]]("firstName"),row[Option[String]]("lastName"))).toList
+      val neo4jResult = new Neo4jResult(allStreams)
+      neo4jResult
+    }
+    getUsersWhoHaveBeenInvitedToWatchStreamUsingStreamId
+  }
 
   def countNumberAllStreamsForDay(token: String): () => Neo4jResult = {
     val countNumberAllStreamsForDay: Function0[Neo4jResult] = () => {
@@ -122,6 +157,29 @@ object CypherReaderFunction {
     findAllTokensForUser
   }
 
+
+  def getStreamsForCalendar(email: String,
+                            startYear: Int, endYear: Int,
+                            startMonth: Int, endMonth: Int,
+                            startDay: Int, endDay: Int) : () => Neo4jResult = {
+
+      val getStreamsForCalendar: Function0[Neo4jResult] = () => {
+      val allStreams = Cypher(CypherReader.getStreamsForCalendar(email,startYear,endYear, startMonth,endMonth,startDay,endDay)).apply().map(row => (row[Option[BigDecimal]]("year"),row[Option[BigDecimal]]("month"),row[Option[BigDecimal]]("day"),row[Option[String]]("time"),row[Option[String]]("streamId"))).toList
+      val neo4jResult = new Neo4jResult(allStreams)
+      neo4jResult
+    }
+    getStreamsForCalendar
+  }
+
+  def getEmailUsingToken(token: String): () => Neo4jResult = {
+
+    val getEmailUsingToken: Function0[Neo4jResult] = () => {
+      val allStreams = Cypher(CypherReader.getEmailUsingToken(token)).apply().map(row => (row[Option[String]]("email"))).toList
+      val neo4jResult = new Neo4jResult(allStreams)
+      neo4jResult
+    }
+    getEmailUsingToken
+ }
 
 
 }

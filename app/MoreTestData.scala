@@ -14,6 +14,6 @@ object MoreTestData extends App {
   val stream = "stream-id-0"
   val r = closeStream(stream)
   val s = r()
-
+  println("done")
 
 }

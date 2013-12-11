@@ -15,7 +15,7 @@ object CypherWriterFunction {
 
       val dt = new DateTime();
       val day = dt.getDayOfMonth();
-      val time = dt.getHourOfDay() + ":" + dt.getMinuteOfDay() + ":" + dt.getSecondOfDay() + ":" + dt.getMillisOfDay()
+      val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
       val dayDescription = "day " + day + " - month " + dt.getMonthOfYear() + "- year " + dt.getYear()
       val endStream = Cypher(CypherWriter.associateStreamCloseToDay(stream, dayDescription, time)).execute()
 
@@ -27,6 +27,32 @@ object CypherWriterFunction {
     closeStream
   }
 
+  def createTestStream2012(stream: String, token: String): () => Neo4jResult = {
+    val createStream: Function0[Neo4jResult] = () => {
+      val createStream = Cypher(CypherWriter.createStream(stream)).execute()
+
+      val dt = new DateTime();
+      val day = dt.getDayOfMonth();
+      val dayDescription = "day " + day + " - month " + dt.getMonthOfYear() + "- year " + 2012
+      val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
+
+      val linkStreamToDay = Cypher(CypherWriter.linkStreamToDay(stream, dayDescription, time)).execute()
+
+      val linkSteamToToken = Cypher(CypherWriter.linkStreamToToken(stream, token)).execute()
+
+      Logger("CypherWriterFunction.createStream").info("this is createStream: " + createStream)
+      Logger("CypherWriterFunction.createStream").info("this is linkStream: " + linkStreamToDay)
+      Logger("CypherWriterFunction.createUser").info("this is three: " + linkSteamToToken)
+
+      val results: List[String] = List(createStream.toString(), linkStreamToDay.toString(), linkSteamToToken.toString())
+      val neo4jResult = new Neo4jResult(results)
+      neo4jResult
+
+    }
+    createStream
+
+  }
+
   def createStream(stream: String, token: String): () => Neo4jResult = {
     val createStream: Function0[Neo4jResult] = () => {
       val createStream = Cypher(CypherWriter.createStream(stream)).execute()
@@ -34,7 +60,7 @@ object CypherWriterFunction {
       val dt = new DateTime();
       val day = dt.getDayOfMonth();
       val dayDescription = "day " + day + " - month " + dt.getMonthOfYear() + "- year " + dt.getYear()
-      val time = dt.getHourOfDay() + ":" + dt.getMinuteOfDay() + ":" + dt.getSecondOfDay() + ":" + dt.getMillisOfDay()
+      val time = dt.getHourOfDay + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
 
       val linkStreamToDay = Cypher(CypherWriter.linkStreamToDay(stream, dayDescription, time)).execute()
 
@@ -141,7 +167,7 @@ object CypherWriterFunction {
       val dt = new DateTime();
       val day = dt.getDayOfMonth();
       val dayDescription = "day " + day + " - month " + dt.getMonthOfYear() + "- year " + dt.getYear()
-      val time = dt.getHourOfDay() + ":" + dt.getMinuteOfDay() + ":" + dt.getSecondOfDay() + ":" + dt.getMillisOfDay()
+      val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
 
       val assocaiteDayWithInvited = Cypher(CypherWriter.associateDayWithInvite(inviteId, dayDescription, time)).execute()
       Logger("CypherWriterFunction.assocaiteDayWithInvited").info("this is associateDayWithInvited: " + assocaiteDayWithInvited)

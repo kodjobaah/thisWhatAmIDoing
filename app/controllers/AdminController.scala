@@ -7,11 +7,134 @@ import play.api.data.{FormError, Form}
 import models.User
 import com.whatamidoing.utils.ActorUtils
 import java.util.UUID
-import play.api.libs.json.{JsObject, Json}
+import play.api.libs.json.{JsBoolean, JsObject, Json}
+import play.Logger
+import org.joda.time.DateTime
+import java.text.DecimalFormat
 
 
 object AdminController extends Controller {
 
+
+  def logout = Action.async { implicit request =>
+
+    session.get("whatAmIdoing-authenticationToken").map {
+      token =>
+        var invalidateResults = ActorUtils.invalidateToken(token);
+     }
+      future(Ok(views.html.welcome(Index.userForm)).withNewSession)
+  }
+
+  def getStreamInvites(streamId: String) = Action.async{ implicit request =>
+
+    session.get("whatAmIdoing-authenticationToken").map {
+      token =>
+
+        val acceptedUsers = ActorUtils.getUsersWhoHaveAcceptedToWatchStreamUsingStreamId(streamId)
+        val acceptedUsersResponse = acceptedUsers.asInstanceOf[List[Tuple3[Option[String],Option[String],Option[String]]]]
+
+        var acceptedUsersResults: Seq[Tuple3[String,String,String]] = Seq()
+
+        acceptedUsersResponse.foreach {
+          case (email, firstName, lastName) => {
+            val value = (email.getOrElse("noeamil@noeamil.com"),firstName.getOrElse("nofirstname") ,lastName.getOrElse("nolastname"))
+            acceptedUsersResults = acceptedUsersResults :+ value
+          }
+        }
+
+
+        val resInstance = ActorUtils.getUsersWhoHaveBeenInvitedToWatchStreamUsingStreamId(streamId)
+        val res = resInstance.asInstanceOf[List[Tuple3[Option[String], Option[String], Option[String]]]]
+
+        var response: Seq[Tuple3[String,String,String]] = Seq()
+
+        res.foreach {
+          case (email, firstName, lastName) => {
+            if (!checkIfAccepted(acceptedUsersResponse,email.get)) {
+              val value = (email.getOrElse("noeamil@noeamil.com"),firstName.getOrElse("nofirstname") ,lastName.getOrElse("nolastname"))
+              response = response :+ value
+            }
+          }
+        }
+
+
+        future(Ok(views.html.streamInvites(acceptedUsersResults,response)))
+    }.getOrElse {
+      future(Unauthorized(views.html.welcome(Index.userForm)))
+    }
+  }
+
+  def checkIfAccepted(all:List[Tuple3[Option[String], Option[String], Option[String]]], checkEmail: String): Boolean = {
+
+    var found = false
+    val s = all.foreach {
+      case (email, firstName, lastName) => {
+        if (checkEmail.equalsIgnoreCase(email.get) ) {
+          found = true
+        }
+      }
+    }
+    return found
+  }
+
+  def getStreams(start: String, end: String) = Action.async{ implicit request =>
+
+    session.get("whatAmIdoing-authenticationToken").map {
+      token =>
+        Logger.info("start["+start+"] end ["+end+"]")
+
+        val startTime : DateTime =  new org.joda.time.DateTime( java.lang.Long.valueOf(start.trim())*1000)
+        val endTime: DateTime =     new org.joda.time.DateTime(java.lang.Long.valueOf(end.trim())*1000)
+        Logger.info("start["+startTime+"] end ["+endTime+"]")
+
+
+        val y = startTime.getYear()
+        val m = startTime.getMonthOfYear()
+        val d = startTime.getDayOfMonth()
+
+        val yend = endTime.getYear()
+        val mend = endTime.getMonthOfYear()
+        val dend = endTime.getDayOfMonth()
+
+        var email = ActorUtils.getEmailUsingToken(token)
+        Logger.info("THIS IS THE EMAIL:"+email)
+
+        val resInstance = ActorUtils.getStreamsForCalendar(email,y,yend,m,mend,d,dend)
+        val res = resInstance.asInstanceOf[List[Tuple5[Option[BigDecimal],Option[BigDecimal],Option[BigDecimal],Option[String], Option[String]]]]
+
+        var response: Seq[JsObject] = Seq()
+
+        res.foreach {
+          case (year,month,day,time, streamId) => {
+
+            val myFormatter: DecimalFormat = new DecimalFormat("00");
+            val output: String = myFormatter.format(d)
+            val dateString = year.getOrElse("0000") +"-"+month.getOrElse("00")  +"-"+day.getOrElse("00")+"T"+time.getOrElse("00:00:00")
+
+            val json = Json.obj("id"->streamId, "title" -> streamId, "start" -> dateString,"allDay"->JsBoolean(false))
+            response = response :+ json
+          }
+        }
+        future(Ok(Json.toJson(response)))
+    }.getOrElse {
+      future(Unauthorized(views.html.welcome(Index.userForm)))
+    }
+
+
+  }
+
+
+
+  def getInvites = Action.async{ implicit request =>
+
+    session.get("whatAmIdoing-authenticationToken").map {
+      token =>
+      future(Ok(views.html.invite()))
+    }.getOrElse {
+      future(Unauthorized(views.html.welcome(Index.userForm)))
+    }
+
+  }
 
   def listInvites(sEcho:Int, iDisplayLength: Int, iDisplayStart: Int, iSortCol_0: Int, sSortDir_0: String, streamId: String, token: String ) = Action.async {
     implicit request =>
@@ -70,7 +193,7 @@ object AdminController extends Controller {
 
           var response: Seq[JsObject] = Seq()
 
-        var totalDisplay = 0
+          var totalDisplay = 0
           res.foreach {
             case (stream, day,startTime,end,endTime) => {
               val json = Json.obj("stream" -> stream, "day" -> day,"startTime"->startTime,"end"->end,"endTime"->endTime)
@@ -80,8 +203,8 @@ object AdminController extends Controller {
           }
 
 
-         val numberOfRecords = ActorUtils.countNumberAllStreamsForDay(token)
-        val h = numberOfRecords.head.toInt - totalDisplay
+          val numberOfRecords = ActorUtils.countNumberAllStreamsForDay(token)
+          val h = numberOfRecords.head.toInt - totalDisplay
           var sendBack = Json.obj(
             "sEcho" -> sEcho,
             "iTotalRecords" -> numberOfRecords,
@@ -102,14 +225,14 @@ object AdminController extends Controller {
         user =>
           var valid = ActorUtils.getValidToken(user)
           if (valid.asInstanceOf[List[String]].size > 0) {
-             var toks = ActorUtils.findAllTokensForUser(email).asInstanceOf[List[Option[String]]]
+            var toks = ActorUtils.findAllTokensForUser(email).asInstanceOf[List[Option[String]]]
 
             var tokens: List[String] = List()
             for(x <- toks) {
-                x match {
-                  case Some(tok) => tokens = tokens :+ tok.asInstanceOf[String]
-                  case None => tokens = tokens :+ "Nothing"
-                }
+              x match {
+                case Some(tok) => tokens = tokens :+ tok.asInstanceOf[String]
+                case None => tokens = tokens :+ "Nothing"
+              }
 
             }
             future(Ok(views.html.activity(tokens)))
@@ -139,11 +262,17 @@ object AdminController extends Controller {
             formWithErrors => future(BadRequest(views.html.welcome(formWithErrors))),
             msg => {
 
-              val token = ActorUtils.getUserToken(userData.userName)
 
+              var token = ActorUtils.getUserToken(userData.userName)
+              Logger.info("active token associated with user["+token+"]")
 
-              println(token)
-              future(Redirect(routes.AdminController.findAllStreams(userData.userName)).withSession(
+              if (token.isEmpty || token.equalsIgnoreCase("-1")) {
+                token = java.util.UUID.randomUUID().toString()
+                val res = ActorUtils.createTokenForUser(token, userData.userName)
+              }
+
+              Logger.info("active token associated with user["+token+"]")
+              future(Redirect(routes.AdminController.getInvites).withSession(
                 "whatAmIdoing-authenticationToken" -> token))
 
             })

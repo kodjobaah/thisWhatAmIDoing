@@ -8,7 +8,7 @@ import scala.util.Random
  * Time: 10:23
  * To change this template use File | Settings | File Templates.
  */
-object TestData extends App {
+object TestData2012 extends App {
 
 
   import com.whatamidoing.cypher.CypherWriterFunction._
@@ -20,23 +20,23 @@ object TestData extends App {
   val password = "password"
 
 
-  val emailInvite = "kodjo_invite@hotmail.com"
+  val emailInvite = "kodjo_invite2012@hotmail.com"
   val firstNameInvite = "first-name"
   val lastnameInvite = "last-name"
   val passwordInvite = "password"
   val inviteId = "inviteId"
 
 
-  val emailInvite1 = "kodjo_invite1@hotmail.com"
+  val emailInvite1 = "kodjo_invite20121@hotmail.com"
   val inviteId1 = "inviteId1"
 
-  val emailInvite2 = "kodjo_invite2@hotmail.com"
+  val emailInvite2 = "kodjo_invite20122@hotmail.com"
   val inviteId2 = "inviteId2"
 
-  val emailInvite3 = "kodjo_invite3@hotmail.com"
+  val emailInvite3 = "kodjo_invite20123@hotmail.com"
   val inviteId3 = "inviteId3"
 
-  val emailInvite4 = "kodjo_invite4@hotmail.com"
+  val emailInvite4 = "kodjo_invite20124@hotmail.com"
   val inviteId4 = "inviteId4"
 
 
@@ -45,21 +45,21 @@ object TestData extends App {
 
   val step = invalid()
   println(step)*/
-  val res = createUser(firstName, lastname, email, password)
-  val result = res()
+ // val res = createUser(firstName, lastname, email, password)
+ // val result = res()
   val token = getUserToken(email)
   val tokenResult = token()
 
   val userToken = tokenResult.results.head.asInstanceOf[(String, String)]._1
 
-  val stream = "stream-id-0"
+  val stream = "stream-id-2012-0"
 
-  val userStream1 = createStream(stream, userToken)
+  val userStream1 = createTestStream2012(stream, userToken)
   val userStreamResult = userStream1()
   println(userStreamResult)
 
   for (x <- 1 until 200) {
-    val userStream1 = createStream("stream-id-" + x, userToken)
+    val userStream1 = createTestStream2012("stream-id-2012-" + x, userToken)
     val userStreamResult = userStream1()
     println(userStreamResult.results)
 
@@ -118,15 +118,15 @@ object TestData extends App {
     val res = createTokenForUser(userToken, email)
     val j = res()
 
-    val stream = "stream-id-other"+i
+    val stream = "stream-id-2012-other-"+i
 
 
-    val userStream1 = createStream(stream, userToken)
+    val userStream1 = createTestStream2012(stream, userToken)
     val userStreamResult = userStream1()
     println(userStreamResult)
 
     for (x <- 1 until 4) {
-      val userStream1 = createStream("stream-id-other"+i+"-"+ x, userToken)
+      val userStream1 = createTestStream2012("stream-id-2012-other"+i+"-"+ x, userToken)
       val userStreamResult = userStream1()
       println(userStreamResult.results)
 

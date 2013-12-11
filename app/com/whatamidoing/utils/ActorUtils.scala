@@ -309,6 +309,57 @@ object ActorUtils {
   }
 
 
+  def  getUsersWhoHaveAcceptedToWatchStream(token: String): List[String] = {
+
+    val getUsersWhoHaveAcceptedToWatchStream = CypherReaderFunction.getUsersWhoHaveAcceptedToWatchStream(token)
+    val getUsersWhoHaveAcceptedToWatchStreamResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getUsersWhoHaveAcceptedToWatchStream)).mapTo[Any]
+
+    var results = Await.result(getUsersWhoHaveAcceptedToWatchStreamResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+        readResults.results.asInstanceOf[List[String]]
+      }
+    }
+    results
+  }
+
+  def  getUsersWhoHaveBeenInvitedToWatchStream(token: String): List[String] = {
+
+    val getUsersWhoHaveBeenInvitedToWatchStream = CypherReaderFunction.getUsersWhoHaveBeenInvitedToWatchStream(token)
+    val getUsersWhoHaveBeenInvitedToWatchStreamResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getUsersWhoHaveBeenInvitedToWatchStream)).mapTo[Any]
+
+    var results = Await.result(getUsersWhoHaveBeenInvitedToWatchStreamResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+        readResults.results.asInstanceOf[List[String]]
+      }
+    }
+    results
+  }
+
+  def  getUsersWhoHaveAcceptedToWatchStreamUsingStreamId(streamId: String): List[String] = {
+
+    val getUsersWhoHaveAcceptedToWatchStreamUsingStreamId = CypherReaderFunction.getUsersWhoHaveAcceptedToWatchStreamUsingStreamId(streamId)
+    val getUsersWhoHaveAcceptedToWatchStreamUsingStreamIdResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getUsersWhoHaveAcceptedToWatchStreamUsingStreamId)).mapTo[Any]
+
+    var results = Await.result(getUsersWhoHaveAcceptedToWatchStreamUsingStreamIdResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+        readResults.results.asInstanceOf[List[String]]
+      }
+    }
+    results
+  }
+
+  def  getUsersWhoHaveBeenInvitedToWatchStreamUsingStreamId(streamId: String): List[String] = {
+
+    val getUsersWhoHaveBeenInvitedToWatchStreamUsingStreamId = CypherReaderFunction.getUsersWhoHaveBeenInvitedToWatchStreamUsingStreamId(streamId)
+    val getUsersWhoHaveBeenInvitedToWatchStreamUsingStreamIdResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getUsersWhoHaveBeenInvitedToWatchStreamUsingStreamId)).mapTo[Any]
+
+    var results = Await.result(getUsersWhoHaveBeenInvitedToWatchStreamUsingStreamIdResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+        readResults.results.asInstanceOf[List[String]]
+      }
+    }
+    results
+  }
 
   def  countNumberAllStreamsForDay(token: String): List[String] = {
 
@@ -349,6 +400,49 @@ object ActorUtils {
     }
     results
   }
+
+  def  getStreamsForCalendar(email: String, startYear: Int, endYear: Int,
+                             startMonth: Int, endMonth : Int,
+                             startDay: Int, endDay: Int): List[String] = {
+
+    val getStreamsForCalendar = CypherReaderFunction.getStreamsForCalendar(email,startYear,endYear,startMonth,endMonth,startDay, endDay)
+    val getStreamsForCalendarResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getStreamsForCalendar)).mapTo[Any]
+
+    var results = Await.result(getStreamsForCalendarResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+        readResults.results.asInstanceOf[List[String]]
+      }
+    }
+    results
+  }
+
+  def getEmailUsingToken(token: String):String = {
+
+    val getEmailUsingToken = CypherReaderFunction.getEmailUsingToken(token)
+    val getEmailUsingTokenResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getEmailUsingToken)).mapTo[Any]
+
+    val results = Await.result(getEmailUsingTokenResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+
+             var result =""
+             for(res <- readResults.results){
+
+               var x: String = res match {
+                  case Some(s:String) => s
+                  case None => "?"
+                }
+
+               if (!x.equals("?")) {
+                 result = x
+               }
+             }
+
+            Logger.info("results "+result)
+            result
+      }
+    }
+   results
+}
 
 
 

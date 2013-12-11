@@ -154,4 +154,12 @@ class CypherReaderSpec extends FlatSpec with Neo4jTestDb with Matchers with Befo
 
   }
 
+  "given a token that is associated with an active stream" should "return all users that accepted the invitation" in {
+
+  }
+
+  "given a token that is associated with an active stream" should "return all users that have been inivted but have not acc" in {
+
+  }
+
 }

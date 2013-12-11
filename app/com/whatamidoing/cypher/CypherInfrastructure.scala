@@ -11,21 +11,21 @@ object CypherInfrastructure {
   
   def createYear(year: Int): String = {
     val t = s"""
-                 create (year:Year {value:"$year"})
+                 create (year:Year {value:$year})
                 """
     return t;
   }
   
   def createMonth(month: Int, description: String): String = {
     val t = s"""
-                 create (month:Month {value:"$month", description: "$description"})
+                 create (month:Month {value:$month, description: "$description"})
                 """
     return t;
   }
   
    def createDay(day: Int, description: String): String = {
     val t = s"""
-                 create (day:Day {value:"$day", description: "$description"})
+                 create (day:Day {value:$day, description: "$description"})
                 """
     return t;
   }
@@ -35,7 +35,7 @@ object CypherInfrastructure {
  def linkTimeLineWithYear(year: Int): String = {
     val linkMonthWithYear = s"""
  			  match (a:TimeLine), (b:Year)
-			  where a.value="timeline" AND b.value = "$year"
+			  where a.value="timeline" AND b.value = $year
 			  create a-[r:YEAR]->b
 			  return r
 			  """
@@ -46,7 +46,7 @@ object CypherInfrastructure {
  def linkMonthWithYear(month: String, year: Int): String = {
     val linkMonthWithYear = s"""
  			  match (a:Year), (b:Month)
-			  where a.value="$year" AND b.description = "$month"
+			  where a.value=$year AND b.description = "$month"
 			  create a-[r:MONTH]->b
 			  return r
 			  """

@@ -50,6 +50,9 @@ trait Neo4jTestDb {
   val testStreamsForColectingUserInfo4 = "test-streams-for-collecting-user-info-4"
   val testStreamsForColectingUserInfo5 = "test-streams-for-collecting-user-info-5"
 
+  val testTokenForGettingAcceptedUsers = "test-token-for-getting-accepted-users"
+
+
 
   val db: GraphDatabaseService =
     new TestGraphDatabaseFactory().newImpermanentDatabase()
