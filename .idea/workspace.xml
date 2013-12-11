@@ -2,563 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="855357b2-4bff-4ebb-b46f-54398f4536f1" name="Default" comment="added a calendar instead of a table for viewing past streams">
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__ch_qos_logback_logback_access_1_0_13.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__ch_qos_logback_logback_classic_1_0_13.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__ch_qos_logback_logback_core_1_0_13.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_fasterxml_jackson_core_jackson_annotations_2_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_fasterxml_jackson_core_jackson_core_2_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_fasterxml_jackson_core_jackson_databind_2_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_github_scala_incubator_io_scala_io_core_2_10_0_4_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_github_scala_incubator_io_scala_io_file_2_10_0_4_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_google_code_findbugs_jsr305_2_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_google_guava_guava_13_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_google_guava_guava_14_0_1_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_google_protobuf_protobuf_java_2_4_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_googlecode_concurrentlinkedhashmap_concurrentlinkedhashmap_lru_1_3_1_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_h2database_h2_1_3_168.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_jolbox_bonecp_0_7_1_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_jsuereth_scala_arm_2_10_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_ning_async_http_client_1_7_18.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_novocode_junit_interface_0_10_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_akka_akka_actor_2_10_2_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_akka_akka_remote_2_10_2_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_akka_akka_slf4j_2_10_2_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_akka_akka_testkit_2_10_2_2_0_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_atmos_atmos_event_2_10_1_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_atmos_atmos_trace_2_10_1_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_atmos_trace_akka_2_2_1_2_10_1_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_atmos_trace_scala_2_10_2_1_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_config_1_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_netty_netty_http_pipelining_1_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_play_play_slick_2_10_0_4_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_slick_slick_2_10_1_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__com_typesafe_slick_slick_extensions_2_10_1_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__commons_cli_commons_cli_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__commons_codec_commons_codec_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__commons_codec_commons_codec_1_6_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__commons_collections_commons_collections_3_2_1_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__commons_io_commons_io_2_2_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__commons_logging_commons_logging_1_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__dom4j_dom4j_1_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__io_netty_netty_3_7_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__javax_activation_activation_1_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__javax_mail_mail_1_4_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__javax_servlet_javax_servlet_api_3_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__javax_transaction_jta_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__javax_validation_validation_api_1_0_0_GA.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__joda_time_joda_time_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__junit_junit_4_11_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__log4j_log4j_1_2_15.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__net_databinder_dispatch_dispatch_core_2_10_0_9_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__net_java_dev_jna_jna_3_5_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__net_java_dev_jna_platform_3_4_0_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__net_sf_ehcache_ehcache_core_2_6_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__net_sourceforge_cssparser_cssparser_0_9_9_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__net_sourceforge_htmlunit_htmlunit_2_12_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__net_sourceforge_htmlunit_htmlunit_core_js_2_12_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__net_sourceforge_nekohtml_nekohtml_1_9_18_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__oauth_signpost_signpost_commonshttp4_1_2_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__oauth_signpost_signpost_core_1_2_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_anormcypher_anormcypher_2_10_0_4_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_apache_commons_commons_email_1_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_apache_commons_commons_exec_1_1_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_apache_commons_commons_lang3_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_apache_geronimo_specs_geronimo_jta_1_1_spec_1_1_1_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_apache_httpcomponents_httpclient_4_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_apache_httpcomponents_httpclient_4_2_1_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_apache_httpcomponents_httpcore_4_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_apache_httpcomponents_httpcore_4_2_1_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_apache_httpcomponents_httpmime_4_2_3_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_apache_lucene_lucene_core_3_6_2_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_aspectj_aspectjrt_1_7_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_codehaus_jackson_jackson_core_asl_1_9_10.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_codehaus_jackson_jackson_mapper_asl_1_9_10.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_easytesting_fest_assert_1_4_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_easytesting_fest_util_1_1_6_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_eclipse_jetty_jetty_http_8_1_13_v20130916.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_eclipse_jetty_jetty_io_8_1_13_v20130916.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_eclipse_jetty_jetty_util_8_1_13_v20130916.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_eclipse_jetty_jetty_websocket_8_1_13_v20130916.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_fluentlenium_fluentlenium_core_0_8_0_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_fluentlenium_fluentlenium_festassert_0_8_0_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_fusesource_sigar_1_6_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_hamcrest_hamcrest_core_1_3_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_hibernate_hibernate_validator_4_3_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_javassist_javassist_3_18_0_GA.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_jboss_logging_jboss_logging_3_1_0_CR2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_joda_joda_convert_1_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_json_json_20080701_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_mindrot_jbcrypt_0_3m.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_mockito_mockito_all_1_9_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_neo4j_neo4j_cypher_2_0_0_M05_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_neo4j_neo4j_graph_algo_2_0_0_M05_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_neo4j_neo4j_graph_matching_2_0_0_M05_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_neo4j_neo4j_kernel_2_0_0_M05_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_neo4j_neo4j_lucene_index_2_0_0_M05_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_ostermiller_utils_1_07_00.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_parboiled_parboiled_core_1_1_6_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_parboiled_parboiled_scala_2_10_1_1_6_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_reflections_reflections_0_9_8.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_scala_lang_scala_library_2_10_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_scala_lang_scala_reflect_2_10_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_scala_stm_scala_stm_2_10_0_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_scala_tools_testing_test_interface_0_5_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_scalamock_scalamock_core_2_10_3_0_1_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_scalamock_scalamock_scalatest_support_2_10_3_0_1_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_scalatest_scalatest_2_10_2_0_RC1_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_android_driver_2_32_0_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_api_2_32_0_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_chrome_driver_2_32_0_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_firefox_driver_2_32_0_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_htmlunit_driver_2_32_0_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_ie_driver_2_32_0_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_iphone_driver_2_32_0_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_java_2_32_0_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_remote_driver_2_32_0_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_safari_driver_2_32_0_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_seleniumhq_selenium_selenium_support_2_32_0_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_slf4j_jcl_over_slf4j_1_7_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_slf4j_jul_to_slf4j_1_7_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_slf4j_slf4j_api_1_7_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_springframework_spring_beans_3_1_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_springframework_spring_context_3_1_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_springframework_spring_core_3_1_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_uncommons_maths_uncommons_maths_1_2_2a.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_w3c_css_sac_1_3_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_webbitserver_webbit_0_4_14_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_webjars_bootstrap_2_3_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_webjars_jquery_1_9_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_webjars_requirejs_2_1_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_webjars_webjars_locator_0_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_webjars_webjars_play_2_10_2_1_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__org_yaml_snakeyaml_1_10.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__scala_2_10_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__tyrex_tyrex_1_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__xalan_serializer_2_7_1_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__xalan_xalan_2_7_1_test.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__xerces_xercesImpl_2_11_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\SBT__xml_apis_xml_apis_1_4_01.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\.idea\libraries\xuggle_xuggler_5_4_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\gst-inspect-0.10.exe" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\gst-inspect.exe" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\gst-launch-0.10.exe" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\gst-launch.exe" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgio-2.0-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libglib-2.0-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgmodule-2.0-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgobject-2.0-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstapp-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstaudio-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstbase-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstbasevideo-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstcdda-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstcontroller-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstdataprotocol-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstfft-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstinterfaces-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstnet-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstnetbuffer-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstpbutils-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstphotography-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstreamer-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstriff-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstrtp-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstrtsp-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstsdp-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstsignalprocessor-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgsttag-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgstvideo-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libgthread-2.0-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libiconv-2.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libintl-8.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libjpeg-8.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libmp3lame-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libogg-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\liborc-0.4-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\liborc-test-0.4-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libpng14-14.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libtheora-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libtheoradec-1.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libtheoraenc-1.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libvorbis-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libvorbisenc-2.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libvorbisfile-3.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libwavpack-1.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\libxml2-2.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstadder.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstadpcmdec.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstadpcmenc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstaiff.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstalaw.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstalpha.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstalphacolor.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstannodex.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstapetag.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstapp.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstasf.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstasfmux.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstaudioconvert.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstaudiofx.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstaudioparsers.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstaudiorate.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstaudioresample.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstaudiotestsrc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstauparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstautoconvert.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstautodetect.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstavi.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstbayer.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstcamerabin.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstcdxaparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstcog.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstcoloreffects.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstcolorspace.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstcoreelements.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstcoreindexers.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstcutter.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdataurisrc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdebug.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdebugutilsbad.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdecodebin.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdecodebin2.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdeinterlace.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdirectdrawsink.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdirectsoundsink.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdirectsoundsrc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdtmf.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdvbsuboverlay.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdvdlpcmdec.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdvdspu.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstdvdsub.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgsteffectv.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstencodebin.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstequalizer.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstfestival.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstffmpeg.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstffmpegcolorspace.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstffmpegscale.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstfieldanalysis.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstflv.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstflxdec.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstfragmented.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstfreeze.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstfrei0r.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstgaudieffects.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstgdp.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstgeometrictransform.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstgio.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstgoom.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstgoom2k1.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstgsettingselements.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgsth264parse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgsthdvparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgsticydemux.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstid3demux.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstid3tag.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstiec958.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstimagefreeze.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstinterlace.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstinterleave.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstinvtelecine.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstisomp4.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstivfparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstjp2kdecimator.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstjpeg.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstjpegformat.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstlame.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstlegacyresample.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstlevel.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstliveadder.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmatroska.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmpeg4videoparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmpegaudioparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmpegdemux.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmpegpsmux.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmpegstream.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmpegtsdemux.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmpegtsmux.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmpegvideoparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmulaw.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmultifile.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmultipart.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmve.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstmxf.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstnavigationtest.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstnsf.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstnuvdemux.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstogg.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstpatchdetect.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstpcapparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstplaybin.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstpng.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstpnm.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstpostproc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstrawparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstreal.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstreplaygain.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstrfbsrc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstrmdemux.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstrtp.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstrtpmanager.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstrtpmux.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstrtpvp8.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstrtsp.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstscaletempoplugin.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstsdi.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstsdpelem.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstsegmentclip.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstshapewipe.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstsiren.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstsmpte.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstspectrum.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstspeed.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgststereo.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstsubenc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstsubparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgsttheora.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgsttta.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgsttypefindfunctions.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstudp.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideobox.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideocrop.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideofilter.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideofiltersbad.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideomaxrate.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideomeasure.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideomixer.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideoparsersbad.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideorate.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideoscale.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideosignal.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvideotestsrc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvmnc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvolume.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstvorbis.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstwavenc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstwavpack.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstwavparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgstwinks.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgsty4mdec.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\plugins\libgsty4menc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows32\zlib1.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\gst-inspect-0.10.exe" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\gst-inspect.exe" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\gst-launch-0.10.exe" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\gst-launch.exe" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgio-2.0-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libglib-2.0-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgmodule-2.0-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgobject-2.0-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstapp-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstaudio-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstbase-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstbasevideo-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstcdda-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstcontroller-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstdataprotocol-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstfft-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstinterfaces-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstnet-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstnetbuffer-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstpbutils-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstphotography-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstreamer-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstriff-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstrtp-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstrtsp-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstsdp-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstsignalprocessor-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgsttag-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgstvideo-0.10-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libgthread-2.0-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libiconv-2.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libintl-8.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libjpeg-8.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libmp3lame-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libogg-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\liborc-0.4-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\liborc-test-0.4-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libpng14-14.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libtheora-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libtheoradec-1.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libtheoraenc-1.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libvorbis-0.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libvorbisenc-2.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libvorbisfile-3.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libwavpack-1.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\libxml2-2.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstadder.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstadpcmdec.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstadpcmenc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstaiff.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstalaw.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstalpha.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstalphacolor.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstannodex.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstapetag.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstapp.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstasf.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstasfmux.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstaudioconvert.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstaudiofx.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstaudioparsers.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstaudiorate.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstaudioresample.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstaudiotestsrc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstauparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstautoconvert.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstautodetect.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstavi.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstbayer.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstcamerabin.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstcdxaparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstcog.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstcoloreffects.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstcolorspace.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstcoreelements.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstcoreindexers.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstcutter.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdataurisrc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdebug.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdebugutilsbad.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdecodebin.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdecodebin2.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdeinterlace.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdirectdrawsink.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdirectsoundsink.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdirectsoundsrc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdtmf.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdvbsuboverlay.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdvdlpcmdec.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdvdspu.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstdvdsub.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgsteffectv.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstencodebin.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstequalizer.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstfestival.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstffmpeg.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstffmpegcolorspace.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstffmpegscale.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstfieldanalysis.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstflv.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstflxdec.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstfragmented.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstfreeze.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstfrei0r.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstgaudieffects.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstgdp.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstgeometrictransform.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstgio.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstgoom.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstgoom2k1.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstgsettingselements.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgsth264parse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgsthdvparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgsticydemux.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstid3demux.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstid3tag.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstiec958.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstimagefreeze.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstinterlace.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstinterleave.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstinvtelecine.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstisomp4.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstivfparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstjp2kdecimator.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstjpeg.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstjpegformat.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstlame.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstlegacyresample.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstlevel.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstliveadder.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmatroska.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmpeg4videoparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmpegaudioparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmpegdemux.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmpegpsmux.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmpegstream.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmpegtsdemux.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmpegtsmux.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmpegvideoparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmulaw.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmultifile.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmultipart.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmve.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstmxf.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstnavigationtest.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstnsf.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstnuvdemux.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstogg.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstpatchdetect.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstpcapparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstplaybin.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstpng.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstpnm.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstpostproc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstrawparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstreal.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstreplaygain.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstrfbsrc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstrmdemux.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstrtp.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstrtpmanager.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstrtpmux.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstrtpvp8.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstrtsp.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstscaletempoplugin.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstsdi.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstsdpelem.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstsegmentclip.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstshapewipe.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstsiren.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstsmpte.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstspectrum.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstspeed.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgststereo.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstsubenc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstsubparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgsttheora.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgsttta.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgsttypefindfunctions.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstudp.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideobox.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideocrop.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideofilter.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideofiltersbad.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideomaxrate.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideomeasure.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideomixer.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideoparsersbad.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideorate.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideoscale.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideosignal.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvideotestsrc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvmnc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvolume.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstvorbis.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstwavenc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstwavpack.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstwavparse.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgstwinks.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgsty4mdec.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\plugins\libgsty4menc.dll" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\whatamidoing\thisWhatAmIDoing\lib\gstreamer-0.10\windows64\zlib1.dll" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/GSVideo_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/GSVideo_jar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/IdeaProject.iml" afterPath="$PROJECT_DIR$/.idea/IdeaProject.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/jwplayer/README.html" afterPath="$PROJECT_DIR$/public/javascripts/jwplayer/README.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__cglib_cglib_nodep_2_1_3_test.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__cglib_cglib_nodep_2_1_3_test.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/application.log" afterPath="$PROJECT_DIR$/logs/application.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/javacpp_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/javacpp_jar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/javacv_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/javacv_jar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/javacv_linux_x86_64_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/javacv_linux_x86_64_jar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/jwplayer/jwplayer.html5.js" afterPath="$PROJECT_DIR$/public/javascripts/jwplayer/jwplayer.html5.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/jwplayer/jwplayer.js" afterPath="$PROJECT_DIR$/public/javascripts/jwplayer/jwplayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/ojdbc6_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/ojdbc6_jar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea_modules/thisIsWhatIAmDoing-build.iml" afterPath="$PROJECT_DIR$/.idea_modules/thisIsWhatIAmDoing-build.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea_modules/thisIsWhatIAmDoing.iml" afterPath="$PROJECT_DIR$/.idea_modules/thisIsWhatIAmDoing.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/whatamidoing.scala.html" afterPath="$PROJECT_DIR$/app/views/whatamidoing.scala.html" />
     </list>
     <ignored path="thisWhatAmIDoing.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -594,7 +38,7 @@
     <file path="/Mail.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386612825922" ignored="false" />
     <file path="/BuildInfrastructureData.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386050060389" ignored="false" />
     <file path="/DataForTestInvites.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386152856118" ignored="false" />
-    <file path="/whatamidoing.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386615574459" ignored="false" />
+    <file path="/whatamidoing.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386774216995" ignored="false" />
     <file path="/json.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386667106707" ignored="false" />
     <file path="/invite.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386771816660" ignored="false" />
     <file path="/TestData2012.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386763342043" ignored="false" />
@@ -808,10 +252,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Mail.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="whatamidoingnoinviteId.scala.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/whatamidoingnoinviteId.scala.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="whatamidoing.scala.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/whatamidoing.scala.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="57" selection-start="749" selection-end="749" vertical-scroll-proportion="0.67193675">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mail.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="6" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.609319">
+            <state line="45" column="6" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -826,30 +288,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="streamInvites.scala.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/streamInvites.scala.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="28" selection-start="123" selection-end="123" vertical-scroll-proportion="-1.3076923">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="routes" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conf/routes">
           <provider selected="true" editor-type-id="text-editor">
             <state line="24" column="70" selection-start="1413" selection-end="1413" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.scala.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/main.scala.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="568" selection-end="568" vertical-scroll-proportion="-9.269231">
               <folding />
             </state>
           </provider>
@@ -900,7 +342,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/json.scala.html" />
         <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherInfrastructure.scala" />
         <option value="$PROJECT_DIR$/app/MoreTestData.scala" />
         <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriterFunction.scala" />
@@ -916,6 +357,7 @@
         <option value="$PROJECT_DIR$/app/controllers/AdminController.scala" />
         <option value="$PROJECT_DIR$/app/views/invite.scala.html" />
         <option value="$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala" />
+        <option value="$PROJECT_DIR$/app/views/whatamidoing.scala.html" />
       </list>
     </option>
   </component>
@@ -1728,20 +1170,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/whatamidoingnoinviteId.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/whatamidoing.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/timeout.scala.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -1816,6 +1244,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="6" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/invite.scala.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="165" column="95" selection-start="4298" selection-end="4298" vertical-scroll-proportion="-3.0769231">
@@ -1825,9 +1260,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala">
+    <entry file="file://$PROJECT_DIR$/app/views/whatamidoingnoinviteId.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="6" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.609319">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/whatamidoing.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="57" selection-start="749" selection-end="749" vertical-scroll-proportion="0.67193675">
           <folding />
         </state>
       </provider>
