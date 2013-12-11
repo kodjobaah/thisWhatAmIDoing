@@ -44,6 +44,7 @@ package com.whatamidoing.mail
       }
 
 
+
       // TODO Set authentication from your configuration, sys properties or w/e
       commonsMail.setHostName("smtp.googlemail.com")
       commonsMail.setSmtpPort(465)
