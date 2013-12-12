@@ -264,6 +264,47 @@ object CypherReader {
   }
 
 
+
+  def getStreamsForCalendarThatHaveEnded(email: String,
+                            startYear: Int, endYear: Int,
+                            startMonth: Int, endMonth: Int,
+                            startDay: Int, endDay: Int): String = {
+    var res=""
+
+
+    if (startYear == endYear) {
+      if (startMonth == endMonth) {
+        res = s"""
+
+         match (y:Year)-[MONTH]-(m:Month)-[DAY]-(d:Day)-[broadcast:BROADCAST_ENDED_ON]-(s:Stream)-[USING]-(t:AuthenticationToken)-[HAS_TOKEN]-(u:User)
+         where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
+         and (m.value >= $startMonth and m.value <= $endMonth)  and (d.value >= $startDay  and d.value <= $endDay)
+         return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
+
+       """
+
+      } else {
+        res = s"""
+      match (y:Year)-[MONTH]-(m:Month)-[DAY]-(d:Day)-[broadcast:BROADCAST_ENDED_ON]-(s:Stream)-[USING]-(t:AuthenticationToken)-[HAS_TOKEN]-(u:User)
+      where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
+      and (m.value >= $startMonth and m.value <= $endMonth)
+      return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
+
+       """
+
+      }
+    } else {
+      res = s"""
+       match (y:Year)-[MONTH]-(m:Month)-[DAY]-(d:Day)-[broadcast:BROADCAST_ENDED_ON]-(s:Stream)-[USING]-(t:AuthenticationToken)-[HAS_TOKEN]-(u:User)
+       where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
+       return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
+
+       """
+    }
+    Logger.info(res)
+    return res
+  }
+
   def getStreamsForCalendar(email: String,
                             startYear: Int, endYear: Int,
                             startMonth: Int, endMonth: Int,
@@ -272,34 +313,34 @@ object CypherReader {
 
 
     if (startYear == endYear) {
-       if (startMonth == endMonth) {
-         res = s"""
+      if (startMonth == endMonth) {
+        res = s"""
 
-         match y-[MONTH]-m-[DAY]-d-[broadcast:BROADCAST_ON]-s-[USING]-t-[HAS_TOKEN]-u
+         match (y:Year)-[MONTH]-(m:Month)-[DAY]-(d:Day)-[broadcast:BROADCAST_ON]-(s:Stream)-[USING]-(t:AuthenticationToken)-[HAS_TOKEN]-(u:User)
          where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
          and (m.value >= $startMonth and m.value <= $endMonth)  and (d.value >= $startDay  and d.value <= $endDay)
          return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
 
        """
 
-       } else {
-         res = s"""
-      match y-[MONTH]-m-[DAY]-d-[broadcast:BROADCAST_ON]-s-[USING]-t-[HAS_TOKEN]-u
+      } else {
+        res = s"""
+      match (y:Year)-[MONTH]-(m:Month)-[DAY]-(d:Day)-[broadcast:BROADCAST_ON]-(s:Stream)-[USING]-(t:AuthenticationToken)-[HAS_TOKEN]-(u:User)
       where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
       and (m.value >= $startMonth and m.value <= $endMonth)
       return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
 
        """
 
-       }
+      }
     } else {
       res = s"""
-       match y-[MONTH]-m-[DAY]-d-[broadcast:BROADCAST_ON]-s-[USING]-t-[HAS_TOKEN]-u
+       match (y:Year)-[MONTH]-(m:Month)-[DAY]-(d:Day)-[broadcast:BROADCAST_ON]-(s:Stream)-[USING]-(t:AuthenticationToken)-[HAS_TOKEN]-(u:User)
        where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
        return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
 
        """
-      }
+    }
     Logger.info(res)
     return res
   }

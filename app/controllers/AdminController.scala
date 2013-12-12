@@ -77,6 +77,8 @@ object AdminController extends Controller {
     return found
   }
 
+  case class StreamDetails(result: Tuple5[Option[BigDecimal],Option[BigDecimal],Option[BigDecimal],Option[String], Option[String]])
+
   def getStreams(start: String, end: String) = Action.async{ implicit request =>
 
     session.get("whatAmIdoing-authenticationToken").map {
@@ -99,6 +101,9 @@ object AdminController extends Controller {
         var email = ActorUtils.getEmailUsingToken(token)
         Logger.info("THIS IS THE EMAIL:"+email)
 
+        val resInstanceEnded = ActorUtils.getStreamsForCalendarThatHaveEnded(email,y,yend,m,mend,d,dend)
+        val resEnded = resInstanceEnded.asInstanceOf[List[Tuple5[Option[BigDecimal],Option[BigDecimal],Option[BigDecimal],Option[String], Option[String]]]]
+
         val resInstance = ActorUtils.getStreamsForCalendar(email,y,yend,m,mend,d,dend)
         val res = resInstance.asInstanceOf[List[Tuple5[Option[BigDecimal],Option[BigDecimal],Option[BigDecimal],Option[String], Option[String]]]]
 
@@ -109,10 +114,21 @@ object AdminController extends Controller {
 
             val myFormatter: DecimalFormat = new DecimalFormat("00");
             val output: String = myFormatter.format(d)
-            val dateString = year.getOrElse("0000") +"-"+month.getOrElse("00")  +"-"+day.getOrElse("00")+"T"+time.getOrElse("00:00:00")
+            var dateString = year.getOrElse("0000") +"-"+month.getOrElse("00")  +"-"+day.getOrElse("00")+"T"+time.getOrElse("00:00:00")
+            var json = Json.obj("id"->streamId, "title"->streamId, "start"->dateString,"allDay"->JsBoolean(false))
 
-            val json = Json.obj("id"->streamId, "title" -> streamId, "start" -> dateString,"allDay"->JsBoolean(false))
+            checkIfStreamHasEnded(resEnded,streamId.get) match {
+              case (Some(y),Some(m),Some(d),Some(t), Some(sId)) => {
+               var endDateString = y +"-"+m +"-"+d+"T"+t
+               json = Json.obj("id"->streamId, "title"->streamId, "start"->dateString, "end"-> endDateString ,"allDay"->JsBoolean(false))
+
+              }
+              case _ => {
+
+              }
+            }
             response = response :+ json
+
           }
         }
         future(Ok(Json.toJson(response)))
@@ -123,6 +139,20 @@ object AdminController extends Controller {
 
   }
 
+  def checkIfStreamHasEnded(all:List[Tuple5[Option[BigDecimal],Option[BigDecimal],Option[BigDecimal],Option[String], Option[String]]], streamIdToCheck: String):
+  Tuple5[Option[BigDecimal],Option[BigDecimal],Option[BigDecimal],Option[String], Option[String]] = {
+
+    var found = false
+    val s = all.foreach {
+      case (year,month,day,time, streamId) => {
+        if (streamIdToCheck.equalsIgnoreCase(streamId.getOrElse("")) ) {
+          found = true
+          return (year,month,day,time,streamId)
+        }
+      }
+    }
+    return (None,None,None,None,None)
+  }
 
 
   def getInvites = Action.async{ implicit request =>

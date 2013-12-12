@@ -171,6 +171,19 @@ object CypherReaderFunction {
     getStreamsForCalendar
   }
 
+  def getStreamsForCalendarThatHaveEnded(email: String,
+                            startYear: Int, endYear: Int,
+                            startMonth: Int, endMonth: Int,
+                            startDay: Int, endDay: Int) : () => Neo4jResult = {
+
+    val getStreamsForCalendarThatHaveEnded: Function0[Neo4jResult] = () => {
+      val allStreams = Cypher(CypherReader.getStreamsForCalendarThatHaveEnded(email,startYear,endYear, startMonth,endMonth,startDay,endDay)).apply().map(row => (row[Option[BigDecimal]]("year"),row[Option[BigDecimal]]("month"),row[Option[BigDecimal]]("day"),row[Option[String]]("time"),row[Option[String]]("streamId"))).toList
+      val neo4jResult = new Neo4jResult(allStreams)
+      neo4jResult
+    }
+    getStreamsForCalendarThatHaveEnded
+  }
+
   def getEmailUsingToken(token: String): () => Neo4jResult = {
 
     val getEmailUsingToken: Function0[Neo4jResult] = () => {

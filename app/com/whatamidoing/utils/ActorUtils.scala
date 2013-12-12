@@ -416,6 +416,21 @@ object ActorUtils {
     results
   }
 
+  def  getStreamsForCalendarThatHaveEnded(email: String, startYear: Int, endYear: Int,
+                             startMonth: Int, endMonth : Int,
+                             startDay: Int, endDay: Int): List[String] = {
+
+    val getStreamsForCalendarThatHaveEnded = CypherReaderFunction.getStreamsForCalendarThatHaveEnded(email,startYear,endYear,startMonth,endMonth,startDay, endDay)
+    val getStreamsForCalendarThatHaveEndedResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getStreamsForCalendarThatHaveEnded)).mapTo[Any]
+
+    var results = Await.result(getStreamsForCalendarThatHaveEndedResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+        readResults.results.asInstanceOf[List[String]]
+      }
+    }
+    results
+  }
+
   def getEmailUsingToken(token: String):String = {
 
     val getEmailUsingToken = CypherReaderFunction.getEmailUsingToken(token)
