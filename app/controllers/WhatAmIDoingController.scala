@@ -24,20 +24,9 @@ object WhatAmIDoingController extends Controller {
     	val token = tokenOption.getOrElse("not-token-provided")
 
     	if (!token.equalsIgnoreCase("not-token-provided")) {
-
-        val resInstance = ActorUtils.getUsersWhoHaveBeenInvitedToWatchStream(token)
-        val res = resInstance.asInstanceOf[List[Tuple3[Option[String], Option[String], Option[String]]]]
-
-        var response: Seq[String] = Seq()
-
-        res.foreach {
-          case (email, firstName, lastName) => {
-              val value  = email.get+":"+firstName.get+":"+lastName.get
-              response = response :+ value
-            }
-        }
-         future(Ok(response.mkString(",")))
-    	} else {
+          val res = ActorUtils.findAllInvites(token)
+          future(Ok(res.mkString(",")))
+       } else {
     		future(Ok("No token provided"))
     	}
 

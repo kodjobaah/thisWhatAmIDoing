@@ -114,12 +114,13 @@ object AdminController extends Controller {
 
             val myFormatter: DecimalFormat = new DecimalFormat("00");
             val output: String = myFormatter.format(d)
-            var dateString = year.getOrElse("0000") +"-"+month.getOrElse("00")  +"-"+day.getOrElse("00")+"T"+time.getOrElse("00:00:00")
+
+            var dateString = formatDate(year.getOrElse(0000),month.getOrElse(00),day.getOrElse(00),time.getOrElse("00:00:00"))
             var json = Json.obj("id"->streamId, "title"->streamId, "start"->dateString,"allDay"->JsBoolean(false))
 
             checkIfStreamHasEnded(resEnded,streamId.get) match {
               case (Some(y),Some(m),Some(d),Some(t), Some(sId)) => {
-               var endDateString = y +"-"+m +"-"+d+"T"+t
+               var endDateString = formatDate(y,m,d,t)
                json = Json.obj("id"->streamId, "title"->streamId, "start"->dateString, "end"-> endDateString ,"allDay"->JsBoolean(false))
 
               }
@@ -131,6 +132,7 @@ object AdminController extends Controller {
 
           }
         }
+        Logger.info("events:"+response)
         future(Ok(Json.toJson(response)))
     }.getOrElse {
       future(Unauthorized(views.html.welcome(Index.userForm)))
@@ -138,6 +140,36 @@ object AdminController extends Controller {
 
 
   }
+
+
+  def formatDate(year: BigDecimal, month: BigDecimal, day: BigDecimal, time: String): String =  {
+    val yearFormatter: DecimalFormat = new DecimalFormat("0000");
+    val monthFormatter: DecimalFormat = new DecimalFormat("00");
+
+    val y = yearFormatter.format(year)
+    val m = monthFormatter.format(month)
+    val d = monthFormatter.format(day)
+
+    var timeElements = time split ":"
+
+    var newValue =""
+
+    var count = 1;
+    for(v  <- timeElements) {
+        if (v.length() < 2) {
+          newValue = newValue +"0"+v
+        } else {
+          newValue = newValue +v
+        }
+
+      if (count != timeElements.length) {
+         newValue = newValue + ":"
+      }
+      count = count + 1
+    }
+    var endDateString = y +"-"+m +"-"+d+"T"+newValue
+    return endDateString
+ }
 
   def checkIfStreamHasEnded(all:List[Tuple5[Option[BigDecimal],Option[BigDecimal],Option[BigDecimal],Option[String], Option[String]]], streamIdToCheck: String):
   Tuple5[Option[BigDecimal],Option[BigDecimal],Option[BigDecimal],Option[String], Option[String]] = {

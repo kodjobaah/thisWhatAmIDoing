@@ -70,15 +70,9 @@ object CypherReader {
           match (tok:AuthenticationToken)
           where tok.token="$token"
           with tok
-          match (tok)-[:HAS_TOKEN]-(user)
-          with user
-          match (user)-[:HAS_TOKEN]-(allTokens)
-          with allTokens
-          match (d)-[a?:ACCEPTED_ON]-(invite)-[:TO_WATCH]-(stream)-[:USING]-(allTokens)
-          with d,a,allTokens,stream,invite
-          match (allTokens)-[:USING]-(stream)
-          with stream
-          match (stream)-[:TO_WATCH]-(invite)-[:RECEIVED]-(user)
+          match (tok)-[:HAS_TOKEN]-(theUser)
+          with theUser
+          match (theUser)-[:HAS_TOKEN]-(allTokens)-[:USING]-(stream)-[TO_WATCH]-(invite)-[:RECEIVED]-(user)
           return distinct user, user.email+":"+user.firstName+":"+user.lastName as email ;
      """
       return res
@@ -353,6 +347,7 @@ object CypherReader {
         where t.token="$token"
         return u.email as email
     """
+    Logger.info("getEmailUsingToken["+res+"]")
     return res
 
   }

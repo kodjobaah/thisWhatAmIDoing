@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="855357b2-4bff-4ebb-b46f-54398f4536f1" name="Default" comment="added a calendar instead of a table for viewing past streams">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/activitymain.scala.html" afterPath="$PROJECT_DIR$/app/views/activitymain.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/main.scala.html" afterPath="$PROJECT_DIR$/app/views/main.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/AdminController.scala" afterPath="$PROJECT_DIR$/app/controllers/AdminController.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala" afterPath="$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/invite.scala.html" afterPath="$PROJECT_DIR$/app/views/invite.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="thisWhatAmIDoing.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -14,13 +17,13 @@
     <file path="/carersInputTel.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1382919547963" ignored="false" />
     <file path="$PROJECT_DIR$/../../ClaimCapture/c3/app/views/helper/base/carersInputTel.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1382919548975" ignored="false" />
     <file path="/Index.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383233727207" ignored="false" />
-    <file path="/AdminController.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386845481693" ignored="false" />
+    <file path="/AdminController.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386944147973" ignored="false" />
     <file path="/messages" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383225252156" ignored="false" />
     <file path="/TestData.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386763274229" ignored="false" />
     <file path="/CypherWriter.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386155912041" ignored="false" />
-    <file path="/WhatAmIDoingController.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386770156165" ignored="false" />
+    <file path="/WhatAmIDoingController.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386920984378" ignored="false" />
     <file path="/main.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386850442749" ignored="false" />
-    <file path="/CypherReader.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386843157723" ignored="false" />
+    <file path="/CypherReader.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386925628014" ignored="false" />
     <file path="/Neo4jTestDb.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386129380906" ignored="false" />
     <file path="/CypherReaderSpec.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386129260482" ignored="false" />
     <file path="/Dummy.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383321653267" ignored="false" />
@@ -36,12 +39,12 @@
     <file path="/fragment.java" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386694727429" ignored="false" />
     <file path="/WhatAmIdoingControllerSpec.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386036556634" ignored="false" />
     <file path="/SetupNeo4jActorsStub.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386036013657" ignored="false" />
-    <file path="/Mail.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386612825922" ignored="false" />
+    <file path="/Mail.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386921700002" ignored="false" />
     <file path="/BuildInfrastructureData.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386050060389" ignored="false" />
     <file path="/DataForTestInvites.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386152856118" ignored="false" />
     <file path="/whatamidoing.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386774216995" ignored="false" />
     <file path="/json.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386667106707" ignored="false" />
-    <file path="/invite.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386834033358" ignored="false" />
+    <file path="/invite.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386932143112" ignored="false" />
     <file path="/TestData2012.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386763342043" ignored="false" />
     <file path="/streamInvites.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386767661967" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -221,6 +224,21 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala" line="55" class="com.whatamidoing.utils.ActorUtils$" package="com.whatamidoing.utils">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
     </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
@@ -234,7 +252,7 @@
       <file leaf-file-name="ActorUtils.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="445" column="65" selection-start="16360" selection-end="16360" vertical-scroll-proportion="0.0">
+            <state line="435" column="59" selection-start="15933" selection-end="15933" vertical-scroll-proportion="-6.68">
               <folding>
                 <element signature="e#32#61#0" expanded="true" />
               </folding>
@@ -242,10 +260,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="invite.scala.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="WhatAmIDoingController.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="35" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="invite.scala.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/invite.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="143" column="8" selection-start="3873" selection-end="4033" vertical-scroll-proportion="-65.38461">
+            <state line="137" column="0" selection-start="3893" selection-end="3893" vertical-scroll-proportion="0.944">
               <folding>
                 <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
               </folding>
@@ -253,39 +280,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activitymain.scala.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/activitymain.scala.html">
+      <file leaf-file-name="AdminController.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="32" selection-end="32" vertical-scroll-proportion="-0.65384614">
+            <state line="167" column="23" selection-start="5926" selection-end="5926" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.scala.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/main.scala.html">
+      <file leaf-file-name="StringAdd.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://C:/play-2.2.1/repository/cache/org.scala-lang/scala-library/srcs/scala-library-2.10.2-sources.jar!/scala/runtime/StringAdd.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="9" selection-start="713" selection-end="713" vertical-scroll-proportion="0.58674467">
+            <state line="12" column="6" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="streamInvites.scala.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/streamInvites.scala.html">
+      <file leaf-file-name="JsValue.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://C:/play-2.2.1/repository/cache/com.typesafe.play/play-json_2.10/srcs/play-json_2.10-2.2.1-sources.jar!/play/api/libs/json/JsValue.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="14" selection-start="192" selection-end="192" vertical-scroll-proportion="-3.2692308">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="whatamidoing.scala.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/whatamidoing.scala.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="4" selection-start="396" selection-end="396" vertical-scroll-proportion="-5.3461537">
+            <state line="60" column="47" selection-start="2098" selection-end="2098" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -294,7 +310,25 @@
       <file leaf-file-name="CypherReader.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="334" column="66" selection-start="9603" selection-end="9603" vertical-scroll-proportion="0.0">
+            <state line="349" column="46" selection-start="10031" selection-end="10031" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BuildInfrastructureData.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/BuildInfrastructureData.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="47" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CypherInfrastructure.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherInfrastructure.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="6" selection-start="72" selection-end="72" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -303,25 +337,7 @@
       <file leaf-file-name="CypherReaderFunction.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="152" column="63" selection-start="7409" selection-end="7409" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminController.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="126" column="15" selection-start="4969" selection-end="4969" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Messages.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Messages.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="7" selection-start="58" selection-end="58" vertical-scroll-proportion="0.0">
+            <state line="189" column="56" selection-start="9238" selection-end="9238" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -350,17 +366,17 @@
         <option value="$PROJECT_DIR$/app/TestData.scala" />
         <option value="$PROJECT_DIR$/app/TestData2012.scala" />
         <option value="$PROJECT_DIR$/app/views/streamInvites.scala.html" />
-        <option value="$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala" />
         <option value="$PROJECT_DIR$/conf/routes" />
-        <option value="$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala" />
         <option value="$PROJECT_DIR$/app/views/whatamidoing.scala.html" />
-        <option value="$PROJECT_DIR$/app/views/invite.scala.html" />
         <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala" />
         <option value="$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala" />
-        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" />
-        <option value="$PROJECT_DIR$/app/controllers/AdminController.scala" />
         <option value="$PROJECT_DIR$/app/views/activitymain.scala.html" />
         <option value="$PROJECT_DIR$/app/views/main.scala.html" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala" />
+        <option value="$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" />
+        <option value="$PROJECT_DIR$/app/controllers/AdminController.scala" />
+        <option value="$PROJECT_DIR$/app/views/invite.scala.html" />
       </list>
     </option>
   </component>
@@ -733,7 +749,7 @@
       <recent name="$PROJECT_DIR$/app/views/helper/templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TestData">
+  <component name="RunManager" selected="Remote.What Am I doing">
     <configuration default="false" name="BuildInfrastructureData" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="BuildInfrastructureData" />
       <option name="VM_PARAMETERS" />
@@ -987,8 +1003,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.TestData" />
-        <item index="1" class="java.lang.String" itemvalue="Application.BuildInfrastructureData" />
+        <item index="0" class="java.lang.String" itemvalue="Application.BuildInfrastructureData" />
+        <item index="1" class="java.lang.String" itemvalue="Application.TestData" />
         <item index="2" class="java.lang.String" itemvalue="Application.DataForTestInvites" />
         <item index="3" class="java.lang.String" itemvalue="Application.MoreTestData" />
         <item index="4" class="java.lang.String" itemvalue="Application.TestData2012" />
@@ -1064,7 +1080,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1081,7 +1097,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24924242" sideWeight="0.6996587" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22045454" sideWeight="0.556314" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22045454" sideWeight="0.6006826" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4778157" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="IntelliGuard" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1163,85 +1179,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/conf/routes">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="70" selection-start="1413" selection-end="1413" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="249" column="0" selection-start="7889" selection-end="8026" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="6" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/whatamidoingnoinviteId.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/BuildInfrastructureData.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="66" selection-start="752" selection-end="752" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriter.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="20" selection-start="2079" selection-end="2097" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="445" column="65" selection-start="16360" selection-end="16360" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#32#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Messages.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="7" selection-start="58" selection-end="58" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="63" selection-start="7409" selection-end="7409" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="334" column="66" selection-start="9603" selection-end="9603" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="15" selection-start="4969" selection-end="4969" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/whatamidoing.scala.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="4" selection-start="396" selection-end="396" vertical-scroll-proportion="-5.3461537">
@@ -1260,24 +1197,103 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="14" selection-start="192" selection-end="192" vertical-scroll-proportion="-3.2692308">
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/invite.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="8" selection-start="3873" selection-end="4033" vertical-scroll-proportion="-65.38461">
-          <folding>
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/main.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="9" selection-start="713" selection-end="713" vertical-scroll-proportion="0.58674467">
+        <state line="34" column="9" selection-start="713" selection-end="713" vertical-scroll-proportion="-4.6923075">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="95" selection-start="1660" selection-end="1660" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/routes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="21" selection-start="420" selection-end="435" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="35" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="435" column="59" selection-start="15933" selection-end="15933" vertical-scroll-proportion="-6.68">
+          <folding>
+            <element signature="e#32#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="189" column="56" selection-start="9238" selection-end="9238" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/play-2.2.1/repository/cache/com.typesafe.play/play-json_2.10/srcs/play-json_2.10-2.2.1-sources.jar!/play/api/libs/json/JsValue.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="47" selection-start="2098" selection-end="2098" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/play-2.2.1/repository/cache/org.scala-lang/scala-library/srcs/scala-library-2.10.2-sources.jar!/scala/runtime/StringAdd.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="6" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="349" column="46" selection-start="10031" selection-end="10031" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/BuildInfrastructureData.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="47" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherInfrastructure.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="6" selection-start="72" selection-end="72" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="167" column="23" selection-start="5926" selection-end="5926" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/invite.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="0" selection-start="3893" selection-end="3893" vertical-scroll-proportion="0.944">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
