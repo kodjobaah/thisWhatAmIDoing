@@ -87,6 +87,7 @@ object CypherReaderFunction {
       // Logger("CypherBuilder.findAllStreamsForDay").info("all streams:"+allStreams)
       neo4jResult
     }
+
     findAllInvitesForStream
   }
 

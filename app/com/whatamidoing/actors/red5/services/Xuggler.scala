@@ -26,7 +26,10 @@ class Xuggler(streamName: String) {
   import Xuggler._
 
   val mediaWriter: IMediaWriter =
-    ToolFactory.makeWriter("rtmp://localhost:1935/oflaDemo/"+streamName)
+ //   ToolFactory.makeWriter("rtmp://192.168.1.110:1935/oflaDemo/"+streamName)
+    ToolFactory.makeWriter("rtmp://192.168.0.100:1935/oflaDemo/"+streamName)
+
+   //ToolFactory.makeWriter("rtmp://192.168.0.101:1935/HTTP@FLV/"+streamName)
   mediaWriter.addVideoStream(0, 0, ICodec.ID.CODEC_ID_FLV1, 352, 288)
   //mediaWriter.addVideoStream(0, 0, ICodec.ID.CODEC_ID_FLV1,640, 480)
 
@@ -46,7 +49,7 @@ var startTime: Long = _
       //          val outputfile = new File("/tmp/image.jpg")
       //ImageIO.write(image, "jpg", outputfile)
     }
-    count = count + 1
+    count = 1
     mediaWriter.encodeVideo(0, image, System.nanoTime() - startTime, TimeUnit.NANOSECONDS);
 
   }

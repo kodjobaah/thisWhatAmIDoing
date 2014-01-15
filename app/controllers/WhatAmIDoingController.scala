@@ -161,6 +161,7 @@ object WhatAmIDoingController extends Controller {
               val listOfEmails = emails.split(",");
 
 
+              Logger.info("LIST OF EMAILS ["+listOfEmails+"]")
               for (email <- listOfEmails) {
 
                 val res = ActorUtils.searchForUser(email)
@@ -172,6 +173,7 @@ object WhatAmIDoingController extends Controller {
                 }
 
                 val invitedId = java.util.UUID.randomUUID().toString()
+                Logger.info("INIVITED ID:"+invitedId)
                 ActorUtils.createInvite(streamName, email, invitedId)
                 emailSenderService.sendInviteEmail(email, invitedId)
 

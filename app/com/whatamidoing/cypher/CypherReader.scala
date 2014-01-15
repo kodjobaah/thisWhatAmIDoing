@@ -2,6 +2,7 @@ package com.whatamidoing.cypher
 
 import play.Logger
 
+
 object CypherReader {
 
   def searchForUser(user: String): String = {
@@ -77,7 +78,6 @@ object CypherReader {
      """
       return res
 
-    
   }
 
 
@@ -102,7 +102,7 @@ object CypherReader {
     match (tok:AuthenticationToken)
     where tok.token="$token"
     with tok
-    match  (tok)-[:USING]-(stream1)-[:TO_WATCH]-(invite)
+    match  (tok:AuthenticationToken)-[:USING]-(stream1:Stream)-[:TO_WATCH]-(invite:Invite)
     return count(invite) as count;
 
 
@@ -179,7 +179,7 @@ object CypherReader {
     with tok
     match (tok)-[u:USING]-(s)
     with s
-    match (a)<-[si:BROADCAST_ON]-(s)-[se?:BROADCAST_ENDED_ON]->(d)
+    match (a:AuthenticationToken)<-[si:BROADCAST_ON]-(s)-[se?:BROADCAST_ENDED_ON]->(d)
     return s.name as stream ,a.description as day,si.time as startTime, d.description as end, se.time as endTime
     $sort
     SKIP $skip
@@ -194,7 +194,7 @@ object CypherReader {
     match (u:User)
     where u.email="$email"
     with u
-    match (u)-[HAS_TOKEN]-(tok)-[USING]-(stream)
+    match (u:User)-[HAS_TOKEN]-(tok:AuthenticationToken)-[:USING]-(stream:Stream)
     return distinct tok.token as token;
 
     """
@@ -205,13 +205,14 @@ object CypherReader {
     val res=s"""
           match (a:AuthenticationToken) where a.token="$token" and a.valid = "true"
           with a
-          match (a)-[r:USING]-(s)
+          match (a:AuthenticationToken)-[r:USING]-(s:Stream)
           with s
-          match (s)-[TO_WATCH]-(i)-[ACCEPTED_ON]->(d)
+          match (s:Stream)-[TO_WATCH]-(i:Invite)-[:ACCEPTED_ON]->(d:Day)
           with i
-          match (i)<-[RECIEVED]-(u)
+          match (i:Invite)<-[:RECIEVED]-(u:User)
           return u.email as email, u.firstName as firstName, u.lastName as lastName
     """
+    Logger.info("accepted to watch ["+res+"]")
     return res
   }
 
@@ -220,23 +221,24 @@ object CypherReader {
 
     match (a:AuthenticationToken) where a.token="$token" and a.valid = "true"
     with a
-    match a-[r:USING]-s
+    match (a:AuthenticationToken)-[r:USING]-(s:Stream)
     with s
-    match s-[t:TO_WATCH]-i
+    match (s:Stream)-[t:TO_WATCH]-(i:Invite)
     with i
-    match i-[RECEIVED]-u
+    match (i:Invite)-[:RECEIVED]-(u:User)
     where u.email is not null
     return u.email as email, u.firstName as firstName, u.lastName as lastName
     """
+    Logger.info("invited to watch ["+res+"]")
     return res
   }
 
   def getUsersWhoHaveAcceptedToWatchStreamUsingStreamId(streamId: String): String = {
     val res=s"""
-          match (s)-[TO_WATCH]-(i)-[ACCEPTED_ON]->(d)
+          match (s:Stream)-[:TO_WATCH]-(i:Invite)-[ACCEPTED_ON]->(d:Day)
           where s.id = "$streamId"
           with i
-          match (i)<-[RECIEVED]-(u)
+          match (i:Invite)<-[:RECIEVED]-(u:User)
           return u.email as email, u.firstName as firstName, u.lastName as lastName
     """
 
@@ -249,7 +251,7 @@ object CypherReader {
      match s-[t:TO_WATCH]-i
      where s.id = "$streamId"
      with i
-     match i-[RECEIVED]-u
+     match i-[:RECEIVED]-u
      where u.email is not null
     return u.email as email, u.firstName as firstName, u.lastName as lastName
     """
@@ -270,7 +272,7 @@ object CypherReader {
       if (startMonth == endMonth) {
         res = s"""
 
-         match (y:Year)-[MONTH]-(m:Month)-[DAY]-(d:Day)-[broadcast:BROADCAST_ENDED_ON]-(s:Stream)-[USING]-(t:AuthenticationToken)-[HAS_TOKEN]-(u:User)
+         match (y:Year)-[:MONTH]-(m:Month)-[:DAY]-(d:Day)-[broadcast:BROADCAST_ENDED_ON]-(s:Stream)-[:USING]-(t:AuthenticationToken)-[:HAS_TOKEN]-(u:User)
          where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
          and (m.value >= $startMonth and m.value <= $endMonth)  and (d.value >= $startDay  and d.value <= $endDay)
          return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
@@ -279,7 +281,7 @@ object CypherReader {
 
       } else {
         res = s"""
-      match (y:Year)-[MONTH]-(m:Month)-[DAY]-(d:Day)-[broadcast:BROADCAST_ENDED_ON]-(s:Stream)-[USING]-(t:AuthenticationToken)-[HAS_TOKEN]-(u:User)
+      match (y:Year)-[:MONTH]-(m:Month)-[:DAY]-(d:Day)-[broadcast:BROADCAST_ENDED_ON]-(s:Stream)-[:USING]-(t:AuthenticationToken)-[:HAS_TOKEN]-(u:User)
       where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
       and (m.value >= $startMonth and m.value <= $endMonth)
       return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
@@ -289,7 +291,7 @@ object CypherReader {
       }
     } else {
       res = s"""
-       match (y:Year)-[MONTH]-(m:Month)-[DAY]-(d:Day)-[broadcast:BROADCAST_ENDED_ON]-(s:Stream)-[USING]-(t:AuthenticationToken)-[HAS_TOKEN]-(u:User)
+       match (y:Year)-[:MONTH]-(m:Month)-[:DAY]-(d:Day)-[broadcast:BROADCAST_ENDED_ON]-(s:Stream)-[:USING]-(t:AuthenticationToken)-[:HAS_TOKEN]-(u:User)
        where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
        return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
 
@@ -310,7 +312,7 @@ object CypherReader {
       if (startMonth == endMonth) {
         res = s"""
 
-         match (y:Year)-[MONTH]-(m:Month)-[DAY]-(d:Day)-[broadcast:BROADCAST_ON]-(s:Stream)-[USING]-(t:AuthenticationToken)-[HAS_TOKEN]-(u:User)
+         match (y:Year)-[:MONTH]-(m:Month)-[:DAY]-(d:Day)-[broadcast:BROADCAST_ON]-(s:Stream)-[:USING]-(t:AuthenticationToken)-[:HAS_TOKEN]-(u:User)
          where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
          and (m.value >= $startMonth and m.value <= $endMonth)  and (d.value >= $startDay  and d.value <= $endDay)
          return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
@@ -319,7 +321,7 @@ object CypherReader {
 
       } else {
         res = s"""
-      match (y:Year)-[MONTH]-(m:Month)-[DAY]-(d:Day)-[broadcast:BROADCAST_ON]-(s:Stream)-[USING]-(t:AuthenticationToken)-[HAS_TOKEN]-(u:User)
+      match (y:Year)-[:MONTH]-(m:Month)-[:DAY]-(d:Day)-[broadcast:BROADCAST_ON]-(s:Stream)-[:USING]-(t:AuthenticationToken)-[:HAS_TOKEN]-(u:User)
       where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
       and (m.value >= $startMonth and m.value <= $endMonth)
       return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
@@ -329,7 +331,7 @@ object CypherReader {
       }
     } else {
       res = s"""
-       match (y:Year)-[MONTH]-(m:Month)-[DAY]-(d:Day)-[broadcast:BROADCAST_ON]-(s:Stream)-[USING]-(t:AuthenticationToken)-[HAS_TOKEN]-(u:User)
+       match (y:Year)-[:MONTH]-(m:Month)-[:DAY]-(d:Day)-[broadcast:BROADCAST_ON]-(s:Stream)-[:USING]-(t:AuthenticationToken)-[:HAS_TOKEN]-(u:User)
        where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
        return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
 
