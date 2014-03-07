@@ -2,15 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="855357b2-4bff-4ebb-b46f-54398f4536f1" name="Default" comment="added a calendar instead of a table for viewing past streams">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/AdminController.scala" afterPath="$PROJECT_DIR$/app/controllers/AdminController.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/jwplayer/jwplayer.flash.swf" afterPath="$PROJECT_DIR$/public/javascripts/jwplayer/jwplayer.flash.swf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala" afterPath="$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/invite.scala.html" afterPath="$PROJECT_DIR$/app/views/invite.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/actors/red5/services/Xuggler.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/actors/red5/services/Xuggler.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/jwplayer/jwplayer.html5.js" afterPath="$PROJECT_DIR$/public/javascripts/jwplayer/jwplayer.html5.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/jwplayer/jwplayer.js" afterPath="$PROJECT_DIR$/public/javascripts/jwplayer/jwplayer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/streamInvites.scala.html" afterPath="$PROJECT_DIR$/app/views/streamInvites.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/whatamidoing.scala.html.3" afterPath="$PROJECT_DIR$/app/views/whatamidoing.scala.html.3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/whatamidoingnoinviteId.scala.html" afterPath="$PROJECT_DIR$/app/views/whatamidoingnoinviteId.scala.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="thisWhatAmIDoing.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386773217483" ignored="false" />
+    <file path="/Dummy.txt" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1389166707925" ignored="false" />
     <file path="/welcome.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383235110310" ignored="false" />
     <file path="/MyHelper.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1382917291960" ignored="false" />
     <file path="/userNameFieldConstructor.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383232185789" ignored="false" />
@@ -21,13 +28,13 @@
     <file path="/messages" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383225252156" ignored="false" />
     <file path="/TestData.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386763274229" ignored="false" />
     <file path="/CypherWriter.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386155912041" ignored="false" />
-    <file path="/WhatAmIDoingController.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386920984378" ignored="false" />
+    <file path="/WhatAmIDoingController.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1388909894290" ignored="false" />
     <file path="/main.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386850442749" ignored="false" />
-    <file path="/CypherReader.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386925628014" ignored="false" />
+    <file path="/CypherReader.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1387037148020" ignored="false" />
     <file path="/Neo4jTestDb.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386129380906" ignored="false" />
     <file path="/CypherReaderSpec.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386129260482" ignored="false" />
     <file path="/Dummy.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383321653267" ignored="false" />
-    <file path="/CypherReaderFunction.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386843219770" ignored="false" />
+    <file path="/CypherReaderFunction.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1387037097389" ignored="false" />
     <file path="/ActorUtils.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386764463369" ignored="false" />
     <file path="/routes" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386770226336" ignored="false" />
     <file path="/activity.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1383433580410" ignored="false" />
@@ -39,14 +46,16 @@
     <file path="/fragment.java" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386694727429" ignored="false" />
     <file path="/WhatAmIdoingControllerSpec.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386036556634" ignored="false" />
     <file path="/SetupNeo4jActorsStub.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386036013657" ignored="false" />
-    <file path="/Mail.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386921700002" ignored="false" />
+    <file path="/Mail.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1388317699519" ignored="false" />
     <file path="/BuildInfrastructureData.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386050060389" ignored="false" />
     <file path="/DataForTestInvites.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386152856118" ignored="false" />
-    <file path="/whatamidoing.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386774216995" ignored="false" />
+    <file path="/whatamidoing.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1389170378213" ignored="false" />
     <file path="/json.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386667106707" ignored="false" />
     <file path="/invite.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386932143112" ignored="false" />
     <file path="/TestData2012.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386763342043" ignored="false" />
-    <file path="/streamInvites.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386767661967" ignored="false" />
+    <file path="/streamInvites.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1386945286838" ignored="false" />
+    <file path="/whatamidoingnoinviteId.scala.html" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1387051697669" ignored="false" />
+    <file path="/Xuggler.scala" changelist="855357b2-4bff-4ebb-b46f-54398f4536f1" time="1388317560286" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,33 +258,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ActorUtils.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala">
+      <file leaf-file-name="welcome.scala.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/welcome.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="435" column="59" selection-start="15933" selection-end="15933" vertical-scroll-proportion="-6.68">
-              <folding>
-                <element signature="e#32#61#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WhatAmIDoingController.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="35" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="invite.scala.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/invite.scala.html">
+      <file leaf-file-name="CypherReader.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="137" column="0" selection-start="3893" selection-end="3893" vertical-scroll-proportion="0.944">
+            <state line="214" column="8" selection-start="5340" selection-end="5340" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="whatamidoing.scala.html.3" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/whatamidoing.scala.html.3">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="98" selection-start="1052" selection-end="1129" vertical-scroll-proportion="-6.576923">
               <folding>
-                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+                <marker date="1389170139842" expanded="true" signature="225:313" placeholder="..." />
+                <marker date="1389170139842" expanded="true" signature="536:1254" placeholder="..." />
+                <marker date="1389170139842" expanded="true" signature="597:1211" placeholder="..." />
+                <marker date="1389170139842" expanded="true" signature="722:1200" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="whatamidoing.scala.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/whatamidoing.scala.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="45" selection-start="1029" selection-end="1029" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Xuggler.scala" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/red5/services/Xuggler.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="48" selection-start="915" selection-end="915" vertical-scroll-proportion="0.10759494">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -289,55 +317,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StringAdd.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/play-2.2.1/repository/cache/org.scala-lang/scala-library/srcs/scala-library-2.10.2-sources.jar!/scala/runtime/StringAdd.scala">
+      <file leaf-file-name="WhatAmIDoingController.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="6" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0">
+            <state line="176" column="35" selection-start="5528" selection-end="5528" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JsValue.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/play-2.2.1/repository/cache/com.typesafe.play/play-json_2.10/srcs/play-json_2.10-2.2.1-sources.jar!/play/api/libs/json/JsValue.scala">
+      <file leaf-file-name="ActorUtils.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="47" selection-start="2098" selection-end="2098" vertical-scroll-proportion="0.0">
+            <state line="122" column="6" selection-start="3978" selection-end="3978" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CypherReader.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala">
+      <file leaf-file-name="Mail.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="349" column="46" selection-start="10031" selection-end="10031" vertical-scroll-proportion="0.0">
+            <state line="65" column="0" selection-start="2046" selection-end="2046" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BuildInfrastructureData.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/BuildInfrastructureData.scala">
+      <file leaf-file-name="whatamidoing.scala.html.2" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/whatamidoing.scala.html.2">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="47" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CypherInfrastructure.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherInfrastructure.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="6" selection-start="72" selection-end="72" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CypherReaderFunction.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="189" column="56" selection-start="9238" selection-end="9238" vertical-scroll-proportion="0.0">
+            <state line="20" column="46" selection-start="783" selection-end="783" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -361,22 +371,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/MoreTestData.scala" />
-        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriterFunction.scala" />
-        <option value="$PROJECT_DIR$/app/TestData.scala" />
-        <option value="$PROJECT_DIR$/app/TestData2012.scala" />
-        <option value="$PROJECT_DIR$/app/views/streamInvites.scala.html" />
         <option value="$PROJECT_DIR$/conf/routes" />
-        <option value="$PROJECT_DIR$/app/views/whatamidoing.scala.html" />
-        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala" />
         <option value="$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala" />
         <option value="$PROJECT_DIR$/app/views/activitymain.scala.html" />
         <option value="$PROJECT_DIR$/app/views/main.scala.html" />
-        <option value="$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala" />
-        <option value="$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala" />
-        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" />
         <option value="$PROJECT_DIR$/app/controllers/AdminController.scala" />
         <option value="$PROJECT_DIR$/app/views/invite.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/streamInvites.scala.html" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" />
+        <option value="$PROJECT_DIR$/app/views/whatamidoingnoinviteId.scala.html" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala" />
+        <option value="$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala" />
+        <option value="$PROJECT_DIR$/app/views/whatamidoing.scala.htm.bakl" />
+        <option value="$PROJECT_DIR$/app/views/whatamidoing.scala.html.2" />
+        <option value="$PROJECT_DIR$/app/views/whatamidoing.scala.html" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/actors/red5/services/Xuggler.scala" />
       </list>
     </option>
   </component>
@@ -386,10 +396,9 @@
     </ignored-facets>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="y" value="84" />
+    <option name="width" value="1024" />
+    <option name="height" value="553" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -422,250 +431,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Build.scala" />
-              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="conf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whatamidoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whatamidoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mail" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mail.scala" />
-              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whatamidoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mail" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whatamidoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cypher" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whatamidoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -719,6 +484,58 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -734,16 +551,19 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\whatamidoing\thisWhatAmIDoing\app\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/views/helper/templates" />
@@ -861,14 +681,6 @@
       <setting name="workingDirectory" value="$PROJECT_DIR$" />
       <method />
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-      <method />
-    </configuration>
     <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
       <module name="" />
       <setting name="path" value="" />
@@ -882,17 +694,12 @@
       <setting name="showProgressMessages" value="true" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -920,6 +727,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1079,31 +899,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="0" y="84" width="1024" height="553" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282313" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3274559" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24971752" sideWeight="0.6722615" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3993174" sideWeight="0.5151515" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4778157" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.443686" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24924242" sideWeight="0.6996587" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24844074" sideWeight="0.6996587" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22045454" sideWeight="0.6006826" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3024948" sideWeight="0.67254406" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4778157" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="IntelliGuard" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="TF Uploader" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.443686" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295053" sideWeight="0.5632768" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="TF Uploader" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1179,104 +999,54 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/whatamidoing.scala.html">
+    <entry file="file://$PROJECT_DIR$/app/views/invite.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="4" selection-start="396" selection-end="396" vertical-scroll-proportion="-5.3461537">
+        <state line="137" column="0" selection-start="3893" selection-end="3893" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/activitymain.scala.html">
+    <entry file="jar://$PROJECT_DIR$/lib/xuggle-xuggler-5.4.jar!/com/xuggle/mediatool/ToolFactory.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="32" selection-end="32" vertical-scroll-proportion="-0.65384614">
+        <state line="6" column="13" selection-start="163" selection-end="163" vertical-scroll-proportion="-3.4" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="60" selection-start="4229" selection-end="4229" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/whatamidoingnoinviteId.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="69" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/streamInvites.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="14" selection-start="192" selection-end="192" vertical-scroll-proportion="-3.2692308">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
+        <state line="10" column="44" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/main.scala.html">
+    <entry file="file://$PROJECT_DIR$/app/views/timeout.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="9" selection-start="713" selection-end="713" vertical-scroll-proportion="-4.6923075">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/welcome.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="95" selection-start="1660" selection-end="1660" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/routes">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="21" selection-start="420" selection-end="435" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="35" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="435" column="59" selection-start="15933" selection-end="15933" vertical-scroll-proportion="-6.68">
-          <folding>
-            <element signature="e#32#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="189" column="56" selection-start="9238" selection-end="9238" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/play-2.2.1/repository/cache/com.typesafe.play/play-json_2.10/srcs/play-json_2.10-2.2.1-sources.jar!/play/api/libs/json/JsValue.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="47" selection-start="2098" selection-end="2098" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/play-2.2.1/repository/cache/org.scala-lang/scala-library/srcs/scala-library-2.10.2-sources.jar!/scala/runtime/StringAdd.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="6" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="349" column="46" selection-start="10031" selection-end="10031" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/BuildInfrastructureData.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="47" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherInfrastructure.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="6" selection-start="72" selection-end="72" vertical-scroll-proportion="0.0">
+        <state line="65" column="0" selection-start="2046" selection-end="2046" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1288,12 +1058,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/invite.scala.html">
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="0" selection-start="3893" selection-end="3893" vertical-scroll-proportion="0.944">
+        <state line="214" column="8" selection-start="5340" selection-end="5340" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="122" column="6" selection-start="3978" selection-end="3978" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="176" column="35" selection-start="5528" selection-end="5528" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/whatamidoing.scala.html.2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="46" selection-start="783" selection-end="783" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/whatamidoing.scala.html.3">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="98" selection-start="1052" selection-end="1129" vertical-scroll-proportion="-6.576923">
           <folding>
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+            <marker date="1389170139842" expanded="true" signature="225:313" placeholder="..." />
+            <marker date="1389170139842" expanded="true" signature="536:1254" placeholder="..." />
+            <marker date="1389170139842" expanded="true" signature="597:1211" placeholder="..." />
+            <marker date="1389170139842" expanded="true" signature="722:1200" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/whatamidoing.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="45" selection-start="1029" selection-end="1029" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/red5/services/Xuggler.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="48" selection-start="915" selection-end="915" vertical-scroll-proportion="0.10759494">
+          <folding />
         </state>
       </provider>
     </entry>
