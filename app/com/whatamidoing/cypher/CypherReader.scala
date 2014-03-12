@@ -205,12 +205,12 @@ object CypherReader {
     val res=s"""
           match (a:AuthenticationToken) where a.token="$token" and a.valid = "true"
           with a
-          match (a:AuthenticationToken)-[r:USING]-(s:Stream)
+          match (a:AuthenticationToken)-[r:USING]-(s:Stream) where s.state = "active"
           with s
           match (s:Stream)-[TO_WATCH]-(i:Invite)-[:ACCEPTED_ON]->(d:Day)
           with i
-          match (i:Invite)<-[:RECIEVED]-(u:User)
-          return u.email as email, u.firstName as firstName, u.lastName as lastName
+          match (i:Invite)<-[:RECEIVED]-(u:User)
+          return distinct u.email as email, u.firstName as firstName, u.lastName as lastName
     """
     Logger.info("accepted to watch ["+res+"]")
     return res
@@ -227,7 +227,7 @@ object CypherReader {
     with i
     match (i:Invite)-[:RECEIVED]-(u:User)
     where u.email is not null
-    return u.email as email, u.firstName as firstName, u.lastName as lastName
+    return distinct u.email as email, u.firstName as firstName, u.lastName as lastName
     """
     Logger.info("invited to watch ["+res+"]")
     return res
@@ -238,8 +238,8 @@ object CypherReader {
           match (s:Stream)-[:TO_WATCH]-(i:Invite)-[ACCEPTED_ON]->(d:Day)
           where s.id = "$streamId"
           with i
-          match (i:Invite)<-[:RECIEVED]-(u:User)
-          return u.email as email, u.firstName as firstName, u.lastName as lastName
+          match (i:Invite)<-[:RECEIVED]-(u:User)
+          return distinct u.email as email, u.firstName as firstName, u.lastName as lastName
     """
 
     Logger.info(res);
@@ -253,7 +253,7 @@ object CypherReader {
      with i
      match i-[:RECEIVED]-u
      where u.email is not null
-    return u.email as email, u.firstName as firstName, u.lastName as lastName
+    return distinct u.email as email, u.firstName as firstName, u.lastName as lastName
     """
     Logger.info(res)
     return res

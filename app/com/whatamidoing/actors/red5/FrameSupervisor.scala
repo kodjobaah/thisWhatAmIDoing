@@ -37,6 +37,7 @@ class FrameSupervisor(username: String) extends Actor {
       var videoEncoder: ActorRef = videoEncoders get token match {
         case None => {
           var streamName = token + "--" + java.util.UUID.randomUUID.toString + ".flv"
+          //var streamName = token + "--" + java.util.UUID.randomUUID.toString
           var res = ActorUtils.createStream(token, streamName)
           
           Logger("FrameSupervisor.receive").info("results from creating stream:" + res)

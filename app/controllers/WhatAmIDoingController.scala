@@ -66,6 +66,9 @@ object WhatAmIDoingController extends Controller {
           }
         }
 
+       Logger.info("---accepted:"+acceptedUsersResults)
+       Logger.info("---not accepted:"+response)
+
         var sendBack = Json.obj(
           "accepted" -> acceptedUsersResults,
           "notAccepted" -> response
@@ -125,8 +128,11 @@ object WhatAmIDoingController extends Controller {
         if (streamId.isEmpty()) {
           future(Ok(views.html.whatamidoingnoinviteId()))
         } else {
+
           ActorUtils.associatedInviteWithDayOfAcceptance(invitedId)
-          future(Ok(views.html.whatamidoing(streamId)))
+
+	  val newStreamId = streamId.dropRight(3)+"m3u8"
+          future(Ok(views.html.whatamidoing(newStreamId)))
         }
       } else {
         future(Ok(views.html.whatamidoingnoinviteId()))
