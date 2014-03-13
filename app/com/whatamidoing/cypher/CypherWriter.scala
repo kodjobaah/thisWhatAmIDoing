@@ -214,7 +214,7 @@ object CypherWriter {
   def updateUserDetails(token: String, firstName: String, lastName: String): String = {
       val res = s"""
       match a-[HAS_TOKEN]-t where t.token = "$token"
-      set a.firstName = "firstName", a.lastName="$lastName"
+      set a.firstName = "$firstName", a.lastName="$lastName"
       return a;
       """
       Logger.info("--updateuserdetails["+res+"]");
