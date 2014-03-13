@@ -357,11 +357,10 @@ object CypherReader {
   def checkToSeeIfCheckPasswordIdIsValid(cpId: String): String = {
 
     val res = s"""
-    	match (a:User) 
-       	where a.email="kodjo_baah@hotmail.com"
-       	match (a)-[cp:CHANGE_PASSWORD_REQUEST]-(c)
-       	where c.state="active" and c.id="$cpId"
-     	return c.state as state;
+
+        match (cp:ChangePassword) 
+        where cp.id = "$cpId" and cp.state="active"
+    	return c.state as state;
     """
      Logger.info("--checkToSeeIfCheckPasswordIdIsValid["+res+"]")
      return res
