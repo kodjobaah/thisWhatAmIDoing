@@ -527,6 +527,47 @@ object ActorUtils {
    results
   }
 
+  import models.UserDetails
+  def fetchUserDetails(token: String): UserDetails = {
+
+    val fetchUserDetails = CypherReaderFunction.fetchUserDetails(token)
+    val fetchUserDetailsResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(fetchUserDetails)).mapTo[Any]
+
+    val results = Await.result(fetchUserDetailsResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+
+             var result = UserDetails()
+             for(res <- readResults.results){
+
+	       System.out.println("----fetch--resuls"+res)
+               var x: UserDetails = res match {
+                  case (Some(email),Some(firstName),Some(lastName)) => UserDetails(Option(email.asInstanceOf[String]),firstName.asInstanceOf[String],lastName.asInstanceOf[String])
+                  case _ => UserDetails()
+                }
+		result = x
+
+             }
+
+            Logger.info("results "+result)
+            result
+      }
+    }
+   results
+  }
+
+ def updateUserDetails(token:String, firstName: String, lastName: String): String = {
+
+    var updateUserDetails = CypherWriterFunction.updateUserDetails(token,firstName,lastName)
+    val updateUserDetailsResponse: Future[Any] = ask(neo4jwriter, PerformOperation(updateUserDetails)).mapTo[Any]
+
+    var res = Await.result(updateUserDetailsResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        results.results.mkString
+      }
+    }
+    res
+  }
+
 
 
 }

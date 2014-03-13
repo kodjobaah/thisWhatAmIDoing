@@ -211,18 +211,16 @@ object CypherWriter {
     return res
   }
 
-  def checkToSeeIfCheckPasswordIdIsValid(cpId: String): String = {
+  def updateUserDetails(token: String, firstName: String, lastName: String): String = {
+      val res = s"""
+      match a-[HAS_TOKEN]-t where t.token = "$token"
+      set a.firstName = "firstName", a.lastName="$lastName"
+      return a;
+      """
+      Logger.info("--updateuserdetails["+res+"]");
+      return res;
 
-    val res = s"""
-    	match (a:User) 
-       	where a.email="kodjo_baah@hotmail.com"
-       	match (a)-[cp:CHANGE_PASSWORD_REQUEST]-(c)
-       	where c.state="active" and c.id="$cpId"
-     	return c;
-    """
-     Logger.info("--checkToSeeIfCheckPasswordIdIsValid["+res+"]")
-     return res
+ }
 
-  }
   
 }

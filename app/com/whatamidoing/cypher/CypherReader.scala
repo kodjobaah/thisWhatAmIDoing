@@ -367,6 +367,18 @@ object CypherReader {
 
   }
 
+ def fetchUserDetails(token: String): String = {
+
+     val res= s"""
+
+     match (a)-[HAS_TOKEN]-(b)
+     where b.valid="true" and b.token="$token"
+     return a.email as email, a.firstName as firstName , a.lastName as lastName
+     """
+     Logger.info("--fecthUserDetails["+res+"]")
+     return res;
+  }
+
 
 
 

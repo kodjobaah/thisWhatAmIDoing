@@ -27,10 +27,12 @@ GET /listInvites                    controllers.AdminController.listInvites(sEch
 GET /logout                         controllers.AdminController.logout
 GET /forgottenPassword              controllers.AdminController.forgottenPassword
 GET /changePassword	            controllers.AdminController.changePassword(changePasswordId: String)
+GET /userDetails		    controllers.AdminController.fetchUserDetails
 
 POST /login			    controllers.AdminController.login
 POST /changePasswordRequest	    controllers.AdminController.changePasswordRequest
 POST /performPasswordChange 	    controllers.AdminController.performPasswordChange
+POST /updateUserDetails		    controllers.AdminController.updateUserDetails
 
 # resolved
 # Map static resources from the /public folder to the /assets URL path

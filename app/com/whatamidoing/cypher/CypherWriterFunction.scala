@@ -230,18 +230,15 @@ object CypherWriterFunction {
     deactivatePreviousChangePasswordRequest
   }
 
-  def checkToSeeIfCheckPasswordIdIsValid(cpId: String) : () => Neo4jResult = {
-    
-    val checkToSeeIfCheckPasswordIdIsValid: Function0[Neo4jResult] = () => {
-      
-      val checkToSeeIfCheckPasswordIdIsValid = Cypher(CypherWriter.checkToSeeIfCheckPasswordIdIsValid(cpId)).execute()
-      Logger("CypherWriterFunction.deactivatePreviousChangePasswordRequest").info("this is checkToSeeIfCheckPasswordIdIsValid: " + checkToSeeIfCheckPasswordIdIsValid)
+  def updateUserDetails(token:String, firstName: String, lastName: String) : () => Neo4jResult = {
 
-      val neo4jResult = new Neo4jResult(List(checkToSeeIfCheckPasswordIdIsValid.toString()))
+    val updateUserDetails: Function0[Neo4jResult] = () => {
+      val updateUserDetails = Cypher(CypherWriter.updateUserDetails(token,firstName,lastName)).execute()
+      Logger("CypherWriterFunction.updateuserdetails").info("this is checkToSeeIfCheckPasswordIdIsValid: " + updateUserDetails)
+      val neo4jResult = new Neo4jResult(List(updateUserDetails.toString()))
       neo4jResult
     }
-    checkToSeeIfCheckPasswordIdIsValid
+    updateUserDetails
   }
-
 
 }

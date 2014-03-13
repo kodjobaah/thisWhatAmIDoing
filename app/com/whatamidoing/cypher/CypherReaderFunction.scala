@@ -206,4 +206,16 @@ object CypherReaderFunction {
  }
 
 
+ def fetchUserDetails(cpId: String): () => Neo4jResult = {
+
+    val fetchUserDetails: Function0[Neo4jResult] = () => {
+      val fetchUserDetails = Cypher(CypherReader.fetchUserDetails(cpId)).apply().map(row => (row[Option[String]]("email"),row[Option[String]]("firstName"),row[Option[String]]("lastName"))).toList
+      val neo4jResult = new Neo4jResult(fetchUserDetails)
+      neo4jResult
+    }
+    fetchUserDetails
+ }
+
+
+
 }

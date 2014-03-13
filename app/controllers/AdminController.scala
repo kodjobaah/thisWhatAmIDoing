@@ -22,6 +22,7 @@ import play.api.mvc._
 import models.User
 import models.ForgottenPassword
 import models.ChangePassword
+import models.UserDetails
 
 import com.whatamidoing.mail.EmailSenderService
 
@@ -42,6 +43,55 @@ object AdminController extends Controller {
      "changePasswordId" ->  nonEmptyText()
      )(ChangePassword.apply)(ChangePassword.unapply))
 
+
+  val userDetailsForm = Form(
+    mapping(
+     "email" -> optional(text),
+     "firstName" -> nonEmptyText(),
+     "lastName" -> nonEmptyText()
+     )(UserDetails.apply)(UserDetails.unapply))
+
+   def updateUserDetails = Action.async { implicit request =>
+
+    session.get("whatAmIdoing-authenticationToken").map {
+      token =>
+
+          var bindForm = userDetailsForm.bindFromRequest
+
+	  bindForm.fold(
+	    formWithErrors => {
+               future(BadRequest(views.html.userdetails(formWithErrors)))
+	    },
+	    userData => {
+      	     var r = ActorUtils.updateUserDetails(token,userData.firstName,userData.lastName)
+      	     var res =  ActorUtils.fetchUserDetails(token)
+	     val filledForm = userDetailsForm.fill(res)
+             future(Ok(views.html.userdetails(filledForm)))
+	    }
+	  )
+      }.getOrElse {
+         future(Unauthorized(views.html.welcome(Index.userForm)))
+      }
+
+
+
+
+   }
+
+   def fetchUserDetails = Action.async { implicit request =>
+
+    session.get("whatAmIdoing-authenticationToken").map {
+      token =>
+      	  var res =  ActorUtils.fetchUserDetails(token)
+
+	  val filledForm = userDetailsForm.fill(res)
+	  System.out.println(res)
+          future(Ok(views.html.userdetails(filledForm)))
+      }.getOrElse {
+         future(Unauthorized(views.html.welcome(Index.userForm)))
+      }
+
+   }
 
    def performPasswordChange = Action.async { implicit request =>
      

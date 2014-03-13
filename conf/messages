@@ -6,3 +6,4 @@ error.notRegistered = You Need to Register
 error.passwordnotmatch = Both Passwords Have to be the Same
 forgottenpassword.submit.button = Request Change Password
 changepassword.submit.button = Change Password
+updateuserdetails.submit.button = Update Details
