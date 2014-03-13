@@ -360,7 +360,7 @@ object CypherReader {
 
         match (cp:ChangePassword) 
         where cp.id = "$cpId" and cp.state="active"
-    	return c.state as state;
+    	return cp.state as state;
     """
      Logger.info("--checkToSeeIfCheckPasswordIdIsValid["+res+"]")
      return res
