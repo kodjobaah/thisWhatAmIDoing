@@ -195,5 +195,15 @@ object CypherReaderFunction {
     getEmailUsingToken
  }
 
+ def checkToSeeIfCheckPasswordIdIsValid(cpId: String): () => Neo4jResult = {
+
+    val checkToSeeIfCheckPasswordIdIsValid: Function0[Neo4jResult] = () => {
+      val checkToSeeIfCheckPasswordIdIsValid = Cypher(CypherReader.checkToSeeIfCheckPasswordIdIsValid(cpId)).apply().map(row => (row[Option[String]]("state"))).toList
+      val neo4jResult = new Neo4jResult(checkToSeeIfCheckPasswordIdIsValid)
+      neo4jResult
+    }
+    checkToSeeIfCheckPasswordIdIsValid
+ }
+
 
 }

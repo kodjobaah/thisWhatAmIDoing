@@ -1,5 +1,7 @@
 package com.whatamidoing.cypher
 
+import play.Logger
+
 object CypherWriter {
   
     def createUser(fn: String, ln: String, em: String, pw_hash: String): String = {
@@ -14,14 +16,14 @@ object CypherWriter {
     val t = s"""
                  create (token:AuthenticationToken {id:"$token" ,token:"$token",valid:"$valid"})
                 """
-    return t;
+    return t
   }
 
  def createStream(stream: String): String = {
     val t = s"""
                  create (stream:Stream {id:"$stream",name:"$stream", state:"active"})
                 """
-    return t;
+    return t
   }
  
  def linkStreamToToken(stream: String, token: String): String = {
@@ -156,6 +158,71 @@ object CypherWriter {
       return res
   }
 
+
+  def createChangePassword(id: String) : String = {
+      val t = s"""
+	   create (changePassword:ChangePassword {id:"$id",state:"active"})
+	   """
+     return t
+  }
+
+  def changePasswordRequest(email:String, day: String, time: String, changePasswordId: String): String = {
+
+     val res=s"""
+     	 match (u:User), (d:Day)
+	 where u.email = "$email" and d.description="$day"
+	 with u,d
+	 create (cp:ChangePassword {id:"$changePasswordId", state:"active"})
+	 with  u,d,cp
+	 create u-[r:CHANGE_PASSWORD_REQUEST]->cp-[m:MADE_ONE {time:"$time"}]->d
+	 return u,d,cp
+     """
+     Logger.info("--change password["+res+"]")
+     return res
+  }
+
+  def updatePassword(cpId: String, day:String, newPassword: String, time:String): String = {
+
+    val res = s"""
+      match (cp:ChangePassword), (day:Day)
+      where cp.id = "$cpId" and day.description="$day"
+      with cp, day
+      match a-[s:CHANGE_PASSWORD_REQUEST]-cp
+      SET cp.state = "inactive", a.password="$newPassword"
+      with cp, day,a
+      create cp-[c:CHANGED_ON {time:"$time"}]->day
+      return a, cp,day
+    """
+     Logger.info("--update password["+res+"]")
+    return res
+  }
   
+
+  def deactivatePreviousChangePasswordRequest(email: String): String = {
+
+    val res = s"""
+       match (a:User) 
+       where a.email="$email"
+       match (a)-[cp:CHANGE_PASSWORD_REQUEST]-(c)
+       set c.state = "inactive"
+       return a,c
+    """
+     Logger.info("--deactivePreviousChangePasswordRequest["+res+"]")
+    return res
+  }
+
+  def checkToSeeIfCheckPasswordIdIsValid(cpId: String): String = {
+
+    val res = s"""
+    	match (a:User) 
+       	where a.email="kodjo_baah@hotmail.com"
+       	match (a)-[cp:CHANGE_PASSWORD_REQUEST]-(c)
+       	where c.state="active" and c.id="$cpId"
+     	return c;
+    """
+     Logger.info("--checkToSeeIfCheckPasswordIdIsValid["+res+"]")
+     return res
+
+  }
   
 }

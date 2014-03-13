@@ -26,14 +26,18 @@ package com.whatamidoing.mail
     def a(mail: Mail) {
       import org.apache.commons.mail._
  
+
       val format =
         if (mail.attachment.isDefined) MultiPart
         else if (mail.richMessage.isDefined) Rich
         else Plain
+
+
+
  
       val commonsMail: Email = format match {
         case Plain => new SimpleEmail().setMsg(mail.message)
-        case Rich => new HtmlEmail().setHtmlMsg(mail.richMessage.get).setTextMsg(mail.message)
+        case Rich => new HtmlEmail().setHtmlMsg(mail.message)
         case MultiPart => {
           val attachment = new EmailAttachment()
           attachment.setPath(mail.attachment.get.getAbsolutePath)

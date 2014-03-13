@@ -460,8 +460,72 @@ object ActorUtils {
 }
 
 
+  def changePasswordRequest(email: String, changePasswordId: String): String = {
 
+    var stream = CypherWriterFunction.changePasswordRequest(email, changePasswordId)
+    val writeResponse: Future[Any] = ask(neo4jwriter, PerformOperation(stream)).mapTo[Any]
 
+    var res = Await.result(writeResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        results.results.mkString
+      }
+    }
+    res
+  }
+
+  def updatePassword(cpId: String, newPassword: String): String = {
+
+    var stream = CypherWriterFunction.updatePassword(cpId, newPassword)
+    val writeResponse: Future[Any] = ask(neo4jwriter, PerformOperation(stream)).mapTo[Any]
+
+    var res = Await.result(writeResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        results.results.mkString
+      }
+    }
+    res
+  }
+
+ def deactivatePreviousChangePasswordRequest(email: String): String = {
+
+    var stream = CypherWriterFunction.deactivatePreviousChangePasswordRequest(email)
+    val writeResponse: Future[Any] = ask(neo4jwriter, PerformOperation(stream)).mapTo[Any]
+
+    var res = Await.result(writeResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        results.results.mkString
+      }
+    }
+    res
+  }
+
+  def checkToSeeIfCheckPasswordIdIsValid(cpId: String):String = {
+
+    val checkToSeeIfCheckPasswordIdIsValid = CypherReaderFunction.checkToSeeIfCheckPasswordIdIsValid(cpId)
+    val checkToSeeIfCheckPasswordIdIsValidResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(checkToSeeIfCheckPasswordIdIsValid)).mapTo[Any]
+
+    val results = Await.result(checkToSeeIfCheckPasswordIdIsValidResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+
+             var result =""
+             for(res <- readResults.results){
+
+               var x: String = res match {
+                  case Some(s:String) => s
+                  case None => "?"
+                }
+
+               if (!x.equals("?")) {
+                 result = x
+               }
+             }
+
+            Logger.info("results "+result)
+            result
+      }
+    }
+   results
+  }
 
 
 

@@ -8,23 +8,60 @@ class EmailSenderService {
 
   
   def sendInviteEmail(email:String, invitedId: String) = {
- 
+
+    val inviteMessage = """
+    <html>
+    <body>
+    <div>
+      <p>Hi,</p>
+      <p>WAID is an application that allows you to share live video strems</p>
+      <p>Someone wants to share what they are doing with you</p>
+      <p>Click here to <a href="http://www.whatamidoing.info/whatamidoing?invitedId=$invitedId">View The Live Stream</></p>
+    </div>
+    </body>
+    </html>
+    """ 
     send a new Mail(
       from = ("kodjobaah@gmail.com", "What Am I doing!!"),
       to = email,
       subject = "What Am I Doing",
-      message = "Click on the link http://www.whatamidoing.info/whatamidoing?invitedId="+invitedId)
-
+       message = inviteMessage,
+      richMessage = Some("YES"))
+  
   }
 
+  def sendLinkToChangePassword(email:String, changePasswordId: String) = {
+
+      val forgottenPassword = s"""
+       	  <html>
+	    <body>
+	      <div>
+	        <p>You have requested to change your password at WAID (What Am I Doing)</p>
+		<p>Click here <a href="http://www.whatamidoing.info/changePassword?changePasswordId=$changePasswordId">To Change Password</a></p>
+	        
+	      </div>
+            </body>
+	  </html>
+      """
+       send a new Mail(
+      from = ("kodjobaah@gmail.com", "WAID (What Am I doing!!)"),
+      
+      to = email,
+      subject = "WAID (What Am I Doing) - Change Password",
+      message = forgottenPassword,
+      richMessage = Some("YES")
+      )
+
+
+  }
   def sendRegistrationEmail(email:String, password: String) = {
 
           val inviteMessage = s"""
              <html>
               <body>
                <div>
-      			An account has been create for you just download 
-                the iphone up and start sharing what you are doing:
+     	       <p>An account has been create for you just download the Android up and start sharing what you are doing: </p>
+		<p><a href="https://play.google.com/store/apps/details?id=com.waid">Download WAID</a></p>
               <div>
                <table>
                <row>
@@ -46,9 +83,10 @@ class EmailSenderService {
       """
       
        send a new Mail(
-      from = ("kodjobaah@gmail.com", "What Am I doing!!"),
+      from = ("kodjobaah@gmail.com", "WAID (What Am I doing!!)"),
       to = email,
-      subject = "What Am I Doing - Invite mail",
+      subject = "WAID (What Am I Doing) - Invite mail",
+      richMessage = Some("YES"),
       message = inviteMessage)
      
   }

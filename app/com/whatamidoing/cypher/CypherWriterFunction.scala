@@ -178,4 +178,70 @@ object CypherWriterFunction {
 
     associatedDayWithInvite
   }
+
+  def changePasswordRequest(email:String,changePasswordId: String): () => Neo4jResult = {
+    
+    val changePasswordRequest: Function0[Neo4jResult] = () => {
+      
+      val dt = new DateTime();
+      val day = dt.getDayOfMonth();
+      val dayDescription = "day " + day + " - month " + dt.getMonthOfYear() + "- year " + dt.getYear()
+      val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
+
+      val changePasswordRequest = Cypher(CypherWriter.changePasswordRequest(email, dayDescription, time,changePasswordId)).execute()
+      Logger("CypherWriterFunction.changePasswordRequest").info("this is changedPasswordRequest: " + changePasswordRequest)
+
+      val neo4jResult = new Neo4jResult(List(changePasswordRequest.toString()))
+      neo4jResult
+    }
+    changePasswordRequest
+  }
+
+
+  def updatePassword(cpId: String,newPassword: String): () => Neo4jResult = {
+    
+    val updatePassword: Function0[Neo4jResult] = () => {
+      
+      val dt = new DateTime();
+      val day = dt.getDayOfMonth();
+      val dayDescription = "day " + day + " - month " + dt.getMonthOfYear() + "- year " + dt.getYear()
+      val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
+
+      val updatePassword = Cypher(CypherWriter.updatePassword(cpId, dayDescription, newPassword,time)).execute()
+      Logger("CypherWriterFunction.updatePassword").info("this is updatedPassword: " + updatePassword)
+
+      val neo4jResult = new Neo4jResult(List(updatePassword.toString()))
+      neo4jResult
+    }
+    updatePassword
+  }
+
+
+  def deactivatePreviousChangePasswordRequest(email: String) : () => Neo4jResult = {
+    
+    val deactivatePreviousChangePasswordRequest: Function0[Neo4jResult] = () => {
+      
+      val deactivatePreviousChangePasswordRequest = Cypher(CypherWriter.deactivatePreviousChangePasswordRequest(email)).execute()
+      Logger("CypherWriterFunction.deactivatePreviousChangePasswordRequest").info("this is deactivatePreviousChangePasswordRequest: " + deactivatePreviousChangePasswordRequest)
+
+      val neo4jResult = new Neo4jResult(List(deactivatePreviousChangePasswordRequest.toString()))
+      neo4jResult
+    }
+    deactivatePreviousChangePasswordRequest
+  }
+
+  def checkToSeeIfCheckPasswordIdIsValid(cpId: String) : () => Neo4jResult = {
+    
+    val checkToSeeIfCheckPasswordIdIsValid: Function0[Neo4jResult] = () => {
+      
+      val checkToSeeIfCheckPasswordIdIsValid = Cypher(CypherWriter.checkToSeeIfCheckPasswordIdIsValid(cpId)).execute()
+      Logger("CypherWriterFunction.deactivatePreviousChangePasswordRequest").info("this is checkToSeeIfCheckPasswordIdIsValid: " + checkToSeeIfCheckPasswordIdIsValid)
+
+      val neo4jResult = new Neo4jResult(List(checkToSeeIfCheckPasswordIdIsValid.toString()))
+      neo4jResult
+    }
+    checkToSeeIfCheckPasswordIdIsValid
+  }
+
+
 }

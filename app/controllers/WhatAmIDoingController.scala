@@ -4,16 +4,13 @@ import play.api.mvc.Controller
 import play.api.mvc.Action
 import play.api.Logger
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
-
+import play.api.libs.json.{Json, JsObject}
 
 import scala.concurrent.future
+
 import com.whatamidoing.utils.ActorUtils
 import com.whatamidoing.mail.EmailSenderService
 import models.Messages._
-
-import org.jboss.netty.handler.codec.http.websocketx.WebSocket08FrameDecoder
-import play.api.libs.json.{Json, JsObject}
-
 
 object WhatAmIDoingController extends Controller {
 
@@ -157,15 +154,12 @@ object WhatAmIDoingController extends Controller {
           if (valid.asInstanceOf[List[String]].size > 0) {
             var streamName = ActorUtils.streamNameForToken(token)
             if ((streamName != null) && (!streamName.isEmpty())) {
-
               /*
-         * Checking to see if invite is already in the system
-         */
-
+               * Checking to see if invite is already in the system
+              */
 
               Logger.info("")
               val listOfEmails = emails.split(",");
-
 
               Logger.info("LIST OF EMAILS ["+listOfEmails+"]")
               for (email <- listOfEmails) {

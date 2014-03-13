@@ -1,21 +1,178 @@
 package controllers
 
 import play.api.mvc.{Action, Controller}
-import scala.concurrent.future
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import play.api.data.{FormError, Form}
-import models.User
-import com.whatamidoing.utils.ActorUtils
-import java.util.UUID
 import play.api.libs.json.{JsBoolean, JsObject, Json}
 import play.Logger
-import org.joda.time.DateTime
+
+import scala.concurrent.future
+
+import java.util.UUID
 import java.text.DecimalFormat
 
+import org.joda.time.DateTime
+
+import com.whatamidoing.utils.ActorUtils
+
+import play.api.data._
+import play.api.data.Forms._
+import play.api.mvc._
+
+import models.User
+import models.ForgottenPassword
+import models.ChangePassword
+
+import com.whatamidoing.mail.EmailSenderService
 
 object AdminController extends Controller {
 
 
+  var emailSenderService = EmailSenderService()
+
+  val forgottenPasswordForm = Form(
+    mapping(
+     "email" -> nonEmptyText() 
+     )(ForgottenPassword.apply)(ForgottenPassword.unapply))
+
+  val changePasswordForm = Form(
+    mapping(
+     "password" -> nonEmptyText(),
+     "confirmPassword" -> nonEmptyText(),
+     "changePasswordId" ->  nonEmptyText()
+     )(ChangePassword.apply)(ChangePassword.unapply))
+
+
+   def performPasswordChange = Action.async { implicit request =>
+     
+     val body: AnyContent = request.body
+     System.out.println("--:"+body.asFormUrlEncoded.get)
+     var found = false
+     var changePasswordId = ""     
+     for((k,v) <- body.asFormUrlEncoded.get) {
+         if (k == "changePasswordId") {
+	    if (v.size > 0) {
+	      changePasswordId = v.head
+	      found = true;
+	    }
+	 }
+     }
+
+
+     if (!found) {
+        future(Ok(views.html.welcome(Index.userForm)))
+     } else {
+
+       var change= ActorUtils.checkToSeeIfCheckPasswordIdIsValid(changePasswordId)     
+       if (change.size == 0) {
+          future(Ok(views.html.invalidchangepasswordid()))
+       } else {
+       var bindForm = changePasswordForm.bindFromRequest
+      
+	bindForm.fold(
+        formWithErrors => {
+	  // binding failure, retrieving the form containing errors
+	  future(BadRequest(views.html.changePassword(formWithErrors,changePasswordId)))
+         },
+	 userData => {
+	   System.out.println("just before")
+	    changePasswordForUser(bindForm,userData).fold(
+		formWithErrors =>  future(BadRequest(views.html.changePassword(formWithErrors,changePasswordId))),
+		msg => {
+                 future(Ok(views.html.passwordchangeconfirmation()))
+		})
+         })
+       }
+    }
+  }
+
+  private def changePasswordForUser(form: Form[ChangePassword], userData: ChangePassword): Either[Form[ChangePassword], String] = {
+  	  val either = userData match  {
+	      	         case ChangePassword(password,confirmPassword,changePasswordId) if (password == confirmPassword) => updateUserPassword(password,changePasswordId)
+			 case _=> Left(Seq(FormError("password","error.passwordnotmatch")))
+	               }
+
+          either.fold(
+	     error => {
+	     	   Logger.info("Password","passwordm athcet erro")
+	     	   val formWithErrors = Form(form.mapping, data = form.data,
+		   errors = error, value = form.value)
+		   Left(formWithErrors)
+              },
+	      msg => Right("")
+           )
+  
+  }
+ 
+  private def updateUserPassword(password: String, changePasswordId: String): Either[Seq[FormError], String] = {
+     Logger.info("------","updating passowrd")
+      import org.mindrot.jbcrypt.BCrypt
+      val pw_hash = BCrypt.hashpw(password, BCrypt.gensalt())
+      var res = ActorUtils.updatePassword(changePasswordId, pw_hash)
+      Right("")
+  }
+  def changePassword(changePasswordId: String) = Action.async { implicit request =>
+
+
+       var change= ActorUtils.checkToSeeIfCheckPasswordIdIsValid(changePasswordId)     
+       if (change.size == 0) {
+        future(Ok(views.html.invalidchangepasswordid()))
+       } else {
+        future(Ok(views.html.changePassword(changePasswordForm,changePasswordId)))
+      }
+
+  }
+  def changePasswordRequest = Action.async {implicit request =>
+
+      var bindForm = forgottenPasswordForm.bindFromRequest
+      
+      bindForm.fold(
+        formWithErrors => {
+	  // binding failure, retrieving the form containing errors
+	  future(BadRequest(views.html.forgottenPassword(formWithErrors)))
+
+         },
+	 userData => {
+	   findUserForForgottenPassword(bindForm, userData).fold(
+	     formWithErrors => future(BadRequest(views.html.forgottenPassword(formWithErrors))),
+	     msg => {
+	         future(Ok(views.html.passwordsent()))
+              })
+         })
+  }
+
+  private def findUserForForgottenPassword(form: Form[ForgottenPassword], userData: ForgottenPassword): Either[Form[ForgottenPassword], String] = {
+  	  var res = ActorUtils.searchForUser(userData.email)
+ 	  val either = userData match {
+    	      case ForgottenPassword(email) if !res.isEmpty => sendForgottenPasswordEmail(email)
+    	      case _=> Left(Seq(FormError("email","error.notRegistered")))
+  	      }
+
+  	  either.fold(
+		error => {
+       		      val formWithErrors = Form(form.mapping, data = form.data,
+          	      errors = error, value = form.value)
+	  	      Left(formWithErrors)
+      		 },
+      		 msg => Right("")
+          )
+  }
+
+  private def sendForgottenPasswordEmail(email: String): Either[Seq[FormError], String] = {
+
+  	  //Deactivating all previous request
+          val r = ActorUtils.deactivatePreviousChangePasswordRequest(email)
+          val changePasswordId = java.util.UUID.randomUUID().toString()
+  	  val res = ActorUtils.changePasswordRequest(email,changePasswordId)
+  	  emailSenderService.sendLinkToChangePassword(email,changePasswordId)
+	  Right("")
+  }
+
+  def forgottenPassword = Action.async { implicit request =>
+      future(Ok(views.html.forgottenPassword(forgottenPasswordForm)))
+
+
+  }
   def logout = Action.async { implicit request =>
 
     session.get("whatAmIdoing-authenticationToken").map {
@@ -308,8 +465,6 @@ object AdminController extends Controller {
 
   def login = Action.async {
     implicit request =>
-
-
 
       var userForm = controllers.Index.userForm
 

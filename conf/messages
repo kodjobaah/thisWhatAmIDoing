@@ -3,3 +3,6 @@ login.submit.button = Login
 error.notFound = User name does not exists
 error.authenticationFailure = Email or Password is not valid
 error.notRegistered = You Need to Register
+error.passwordnotmatch = Both Passwords Have to be the Same
+forgottenpassword.submit.button = Request Change Password
+changepassword.submit.button = Change Password

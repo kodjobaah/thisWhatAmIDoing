@@ -6,45 +6,45 @@
 
 @main("(WAID) What Am I Doing ?") {
 
-}{
+ }{
 
-<div style="text-align: center;">
-	<br />
-	<p>
-	<div class="row">
-			<div class="col-md-8 cold-md-offset-3">
-				<div class="hero-unit">
-					<p>Welcome to whatamidoing the app that allows you to share
-						moments at the time of experience.</p>
+ <div style="text-align: center;">
+   <br />
+   <p>
+     <div class="row">
+       <div class="col-md-8 col-md-offset-2">
+	 <div class="hero-unit">
+	   <p>Welcome to whatamidoing the app that allows you to share
+	     moments at the time of experience.</p>
 
-					<p>After downloading the Android <a href="https://play.google.com/store/apps/details?id=com.waid"> (WAID) What Am I Doing ?</a> application Enter an email
-						address, a password, firstname, lastname and you can start sharing
-						moments.
-					<p>
-					<p>Once you start recording, you can then send emails to
-						friends and foe and then they can see what you are seeing.</p>
-				</div>
-			</div>
+	   <p>After downloading the Android <a href="https://play.google.com/store/apps/details?id=com.waid"> (WAID) What Am I Doing ?</a> application Enter an email
+	     address, a password, firstname, lastname and you can start sharing
+	     moments.
+	   <p>
+	   <p>Once you start recording, you can then send emails to
+	     friends and foe and then they can see what you are seeing.</p>
+	 </div>
+       </div>
 
-			<div class="col-md-4">
-			
-				<div class="well">
-				<div class="page-header">
-  					<h1> <small>Login to view activity</small></h1>
-				</div>
-				@helper.form(action = routes.AdminController.login, 'class->"form-horizontal",'role -> "form") {
-				    @helper.inputText(myForm("Email"),'id -> "userName")
-                    @helper.inputPassword(myForm("password"))
+       <div class="col-md-4 col-md-offset-4">
 
-					<input type="submit" class="btn btn-lg" value='@play.api.i18n.Messages("login.submit.button")'>
-				}
-			
-				</div>
-			</div>
+	 <div class="well">
+	   <div class="page-header">
+	     <h1> <small>Login to view activity</small></h1>
+	   </div>
+	   @helper.form(action = routes.AdminController.login, 'class->"form-horizontal",'role -> "form") {
+	   @helper.inputText(myForm("Email"),'id -> "userName")
+	   @helper.inputPassword(myForm("password"))
 
-		</div>
+	   <input type="submit" class="btn btn-lg" value='@play.api.i18n.Messages("login.submit.button")'> <a href="@routes.AdminController.forgottenPassword">Forgotten password</a>
+	   }
+
+	 </div>
+       </div>
+
+     </div>
 
 
 
-</div>
-}
+ </div>
+ }
