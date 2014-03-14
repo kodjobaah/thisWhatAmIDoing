@@ -52,7 +52,7 @@ package com.whatamidoing.mail
       // TODO Set authentication from your configuration, sys properties or w/e
       commonsMail.setHostName("smtp.googlemail.com")
       commonsMail.setSmtpPort(465)
-      commonsMail.setAuthenticator(new DefaultAuthenticator("kodjobaah@gmail.com","123kafriyie"))
+      commonsMail.setAuthenticator(new DefaultAuthenticator("kodjobaah@gmail.com","xxxxx"))
       commonsMail.setSSLOnConnect(true)
       // Can't add these via fluent API because it produces exceptions
       mail.to foreach (commonsMail.addTo(_))
