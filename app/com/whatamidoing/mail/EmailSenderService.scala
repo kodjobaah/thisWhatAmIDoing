@@ -7,22 +7,23 @@ import com.whatamidoing.mail.mailer._
 class EmailSenderService {
 
   
-  def sendInviteEmail(email:String, invitedId: String) = {
+  def sendInviteEmail(email:String, invId: String) = {
 
-    val inviteMessage = """
+    val inviteMessage = s"""
     <html>
     <body>
     <div>
       <p>Hi,</p>
       <p>WAID is an application that allows you to share live video strems</p>
       <p>Someone wants to share what they are doing with you</p>
-      <p>Click here to <a href="http://www.whatamidoing.info/whatamidoing?invitedId=$invitedId">View The Live Stream</></p>
+      <p>Click here to <a href="http://www.whatamidoing.info/whatamidoing?invitedId=$invId">View The Live Stream</></p>
     </div>
     </body>
     </html>
     """ 
+    
     send a new Mail(
-      from = ("kodjobaah@gmail.com", "What Am I doing!!"),
+      from = ("kodjobaah@gmail.com", "WAID (What Am I doing!!)"),
       to = email,
       subject = "What Am I Doing",
        message = inviteMessage,
