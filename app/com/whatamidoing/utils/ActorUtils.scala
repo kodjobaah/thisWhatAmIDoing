@@ -542,9 +542,11 @@ object ActorUtils {
 	       System.out.println("----fetch--resuls"+res)
                var x: UserDetails = res match {
                   case (Some(email),Some(firstName),Some(lastName)) => UserDetails(Option(email.asInstanceOf[String]),firstName.asInstanceOf[String],lastName.asInstanceOf[String])
-                  case _ => UserDetails()
+                  case _ => null
                 }
-		result = x
+		if (x != null) {
+		   result = x
+                }
 
              }
 
@@ -567,6 +569,51 @@ object ActorUtils {
     }
     res
   }
+
+  def createLocationForStream(token: String, latitude: Double, longitude: Double): String = {
+    var createLocationForStream = CypherWriterFunction.createLocationForStream(token,latitude,longitude)
+    val createLocationForStreamResponse: Future[Any] = ask(neo4jwriter, PerformOperation(createLocationForStream)).mapTo[Any]
+
+    var res = Await.result(createLocationForStreamResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        results.results.mkString
+      }
+    }
+    res
+  }
+
+
+  import models.Location
+  def fetchLocationForActiveStream(inviteId: String): List[Location] = {
+
+    val fetchLocationForActiveStream = CypherReaderFunction.fetchLocationForActiveStream(inviteId)
+    val fetchLocationForActiveStreamResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(fetchLocationForActiveStream)).mapTo[Any]
+
+    val results = Await.result(fetchLocationForActiveStreamResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+
+             var result = List[Location]()
+             for(res <- readResults.results){
+	       System.out.println("----fetch-location--resuls"+res)
+               var x: Location = res match {
+                  case (Some(latitude),Some(longitude)) => 
+		       				Location(latitude.asInstanceOf[Double],longitude.asInstanceOf[Double])
+                  case _ => null
+                }
+		if (result != null) {
+		   result = result :+ x
+		}
+
+             }
+
+            Logger.info("results "+result)
+            result
+      }
+    }
+   results
+  }
+
+
 
 
 

@@ -376,8 +376,23 @@ object CypherReader {
      return a.email as email, a.firstName as firstName , a.lastName as lastName
      """
      Logger.info("--fecthUserDetails["+res+"]")
-     return res;
+     return res
   }
+
+def fetchLocationForActiveStream(inviteId: String): String = {
+
+        val res=s"""
+	    match (i:Invite) where i.id="$inviteId"
+	    with i
+	    match (i)-[to:TO_WATCH]-(s)
+	    with s
+	    match (s)-[l:LOCATED_AT]-(loc)
+            return loc.latitude as latitude, loc.longitude as longitude
+       """
+       Logger.info("--fetchLocationForActiveStream["+res+"]")
+       return res
+
+}
 
 
 

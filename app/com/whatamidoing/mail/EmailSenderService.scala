@@ -6,16 +6,20 @@ import com.whatamidoing.mail.mailer._
 
 class EmailSenderService {
 
-  
-  def sendInviteEmail(email:String, invId: String) = {
 
+  import models.UserDetails
+  
+  def sendInviteEmail(email:String, invId: String, userDetail: UserDetails) = {
+    val inviteeEmail = userDetail.email.getOrElse("no-email-supplied")
+    val firstname = userDetail.firstName
     val inviteMessage = s"""
     <html>
     <body>
     <div>
       <p>Hi,</p>
-      <p>WAID is an application that allows you to share live video strems</p>
-      <p>Someone wants to share what they are doing with you</p>
+      <p>WAID (What Am I Doing ?) is an application that allows you to share live video strems</p>
+      <br/>
+      <p><bold><u>$firstname</u></bold> using this email:$inviteeEmail  wants to share what they are doing with you</p>
       <p>Click here to <a href="http://www.whatamidoing.info/whatamidoing?invitedId=$invId">View The Live Stream</></p>
     </div>
     </body>

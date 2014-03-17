@@ -1,23 +1,66 @@
 @* whatamidoing Template File *@
-@(stream: String)
+@(stream: String,locations:List[Location])
+
+@import models.Location
+
 @main("(WAID) What Am I Doing ?") {
 
-
+<!--
 <script src="@routes.Assets.at("javascripts/jwplayer/HLSprovider/test/jwplayer6/jwplayer.js")"></script>
+-->
+<script src="http://www.whatamidoing.info/hlsapp/jwplayer/HLSprovider/test/jwplayer6/jwplayer.js"></script>
+<script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHizctBV5_2T9EgbtZQAFHIjGiFrG3i1s&sensor=true">
+    </script>
 
 }{
-	<div class="span12">
-	 <div  class="span3">&nbsp;</div>
-     <div class="span6">
-      &nbsp;
-      &nbsp;
 
-
-<div id="message"></div>
-<div id="player">Loading video</div>
+<br/>
+<br/>
+<div class="row">
+  <div class="col-md-5">
+    <div id="player">Loading video</div>
+  </div>
+  <div class="col-md-6 col-md-offset-1" id="map"  style="width: 500px; height: 400px;"> Location Was Not Supplied </div>
+</div>
 
 <script>
+   @if(!locations.isEmpty) {
+        var locations = [
+            @for((loc,index) <- locations.zipWithIndex) {
+              @if((index.asInstanceOf[Int] +1) == locations.size) {				   
+                 [@loc.latitude, @loc.longitude, @index+1]
+	       } else {
+                 [@loc.latitude, @loc.longitude, @index+1],
+	       }
+             }
+          ];
 
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 18,
+      center: new google.maps.LatLng(@locations.head.latitude, @locations.head.longitude),
+      mapTypeId: google.maps.MapTypeId.HYBRID
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent("don't know");
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+
+   }
 
 if( /Android/i.test(navigator.userAgent) ) {
     $("#player").empty();
@@ -34,17 +77,10 @@ if( /webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.user
        provider: 'http://www.whatamidoing.info/hlsapp/jwplayer/HLSprovider/test/jwplayer6/HLSProvider6.swf',
        type:'hls'
       }],
-      width: 640,
-      height: 480,
+      width: 500,
+      height: 400,
       primary: "flash"
     });
 }
 </script>
-
-     <div id="video-desktop">
-	 </div>
-
-	  </div>
-	  <div class="span3">&nbsp;</div>
-    </div>
 }

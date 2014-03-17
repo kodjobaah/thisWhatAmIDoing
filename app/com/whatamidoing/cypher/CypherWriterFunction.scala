@@ -241,4 +241,16 @@ object CypherWriterFunction {
     updateUserDetails
   }
 
+  def createLocationForStream(token: String, latitude: Double, longitude: Double): () => Neo4jResult = {
+
+    val createLocationForStream: Function0[Neo4jResult] = () => {
+      val createLocationForStream = Cypher(CypherWriter.createLocationForStream(token,latitude,longitude)).execute()
+      Logger("CypherWriterFunction.createLocationForStream").info("this is createLocationForStream: " + createLocationForStream)
+      val neo4jResult = new Neo4jResult(List(createLocationForStream.toString()))
+      neo4jResult
+    }
+    createLocationForStream
+  }
+
+
 }

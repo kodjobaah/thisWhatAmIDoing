@@ -217,10 +217,23 @@ object CypherWriter {
       set a.firstName = "$firstName", a.lastName="$lastName"
       return a;
       """
-      Logger.info("--updateuserdetails["+res+"]");
+      Logger.info("--updateuserdetails["+res+"]")
       return res;
 
  }
 
-  
+  def createLocationForStream(token: String, latitude: Double, longitude: Double): String = {
+
+      val res = s"""
+      match (a:AuthenticationToken) where a.token = "$token"
+      with a
+      match s-[u:USING]->a
+      where s.state="active"
+      with s
+      create (s)-[l:LOCATED_AT]->(ul:Location {latitude:$latitude,longitude:$longitude})
+      return ul,l,s
+      """
+      Logger.info("---createLocationForStream["+res+"]")
+      return res;
+  }  
 }

@@ -16,7 +16,7 @@ POST /registerLogin		    controllers.WhatAmIDoingController.registerLogin(email:
 GET  /publishVideo 		    controllers.WhatAmIDoingController.publishVideo(token: Option[String])
 GET  /whatamidoing		    controllers.WhatAmIDoingController.whatAmIdoing(invitedId: Option[String])
 POST /invite 			    controllers.WhatAmIDoingController.invite(token: Option[String], email: Option[String])
-
+GET /shareLocation                 controllers.WhatAmIDoingController.createLocationForStream(token:String, latitude: Double, longitude: Double)
 
 GET  /calendar                      controllers.AdminController.getInvites
 GET /streamInvites                  controllers.AdminController.getStreamInvites(streamId: String)
@@ -33,6 +33,7 @@ POST /login			    controllers.AdminController.login
 POST /changePasswordRequest	    controllers.AdminController.changePasswordRequest
 POST /performPasswordChange 	    controllers.AdminController.performPasswordChange
 POST /updateUserDetails		    controllers.AdminController.updateUserDetails
+
 
 # resolved
 # Map static resources from the /public folder to the /assets URL path

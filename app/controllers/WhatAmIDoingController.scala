@@ -127,15 +127,27 @@ object WhatAmIDoingController extends Controller {
         } else {
 
           ActorUtils.associatedInviteWithDayOfAcceptance(invitedId)
-
+	  var locations = ActorUtils.fetchLocationForActiveStream(invitedId)
+	  Logger.info("--Locations["+locations+"]")
 	  val newStreamId = streamId.dropRight(3)+"m3u8"
-          future(Ok(views.html.whatamidoing(newStreamId)))
+          future(Ok(views.html.whatamidoing(newStreamId,locations)))
         }
       } else {
         future(Ok(views.html.whatamidoingnoinviteId()))
       }
   }
 
+
+ def createLocationForStream(token:String, latitude: Double, longitude: Double) = Action.async {
+     implicit request =>
+          var valid = ActorUtils.getValidToken(token)
+          if (valid.asInstanceOf[List[String]].size > 0) {
+	     val res = ActorUtils.createLocationForStream(token,latitude,longitude)
+	     future(Ok("Location added"))
+ 	  } else {
+	   future(Ok("Unable to add Location"))
+	  }
+ }
   /**
    * *
    * Used to send an invite to some one to come and view the stream
@@ -158,10 +170,10 @@ object WhatAmIDoingController extends Controller {
                * Checking to see if invite is already in the system
               */
 
-              Logger.info("")
+              Logger.info("emails["+emails+"]")
               val listOfEmails = emails.split(",");
 
-              Logger.info("LIST OF EMAILS ["+listOfEmails+"]")
+              Logger.info("LIST OF EMAILS ["+listOfEmails+"] size = ["+listOfEmails.size+"]")
               for (email <- listOfEmails) {
 
                 val res = ActorUtils.searchForUser(email)
@@ -175,7 +187,9 @@ object WhatAmIDoingController extends Controller {
                 val invitedId = java.util.UUID.randomUUID().toString()
                 Logger.info("INIVITED ID:"+invitedId)
                 ActorUtils.createInvite(streamName, email, invitedId)
-                emailSenderService.sendInviteEmail(email, invitedId)
+		var userDetails = ActorUtils.fetchUserDetails(token)
+		Logger.info("----userdeteails:"+userDetails)
+                emailSenderService.sendInviteEmail(email, invitedId,userDetails)
 
               }
 
