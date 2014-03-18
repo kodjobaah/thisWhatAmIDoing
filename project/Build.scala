@@ -11,6 +11,7 @@ object ApplicationBuild extends Build {
   jacoco.settings
   val appDependencies = Seq(
     // Add your project dependencies here,
+    "com.jhlabs" % "filters" % "2.0.235-1",
     "com.typesafe.akka" %% "akka-actor" % "2.2.0",
     "com.typesafe.akka" %% "akka-actor-tests" % "2.2.0" % "test",
     "org.scalatest" %% "scalatest" % "2.0.RC1" % "test",

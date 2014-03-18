@@ -1,5 +1,5 @@
 @* whatamidoing Template File *@
-@(stream: String,locations:List[Location])
+@(stream: String,locations:List[Location],inviteId: String)
 
 @import models.Location
 
@@ -27,6 +27,7 @@
 
 
 <script>
+  var map;
    @if(!locations.isEmpty) {
         var locations = [
             @for((loc,index) <- locations.zipWithIndex) {
@@ -39,7 +40,7 @@
           ];
 
 
-    var map = new google.maps.Map(document.getElementById('map'), {
+      map = new google.maps.Map(document.getElementById('map'), {
       zoom: 18,
       center: new google.maps.LatLng(@locations.head.latitude, @locations.head.longitude),
       mapTypeId: google.maps.MapTypeId.HYBRID
@@ -73,6 +74,7 @@ if( /webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.user
     $("#player").append('<video  src="http://www.whatamidoing.info/hlsapp/@stream" height="300" width="400"></video>');
 } else {
     jwplayer("player").setup({
+
      playlist: [{
        // file is the url to m3u8 file
        file:'http://www.whatamidoing.info/hlsapp/@stream',
@@ -86,9 +88,56 @@ if( /webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.user
 }
 </script>
 <script>
-( document ).ready(function() {
- $("#player-wrapper").addClass("jumbotron");
-});
 
+var newMarkerArray = [];
+var markerArray  = [];                              
+
+$(window).load(function() {
+ $("#player_wrapper").addClass("well well-lg");
+
+     var refreshId = setInterval( function() {
+             newMarkerArray = [];
+             var jqxhr = $.getJSON( "@routes.WhatAmIDoingController.whatAreTheLocations(inviteId)", function(data) {
+                     $(data).each(function(index,dataArray) {
+
+                            console.log(dataArray.length,"dataArray.lenght");
+                            console.log(markerArray.length,"markerArray.length");
+                           if (dataArray.length != markerArray.length) {
+                                removeMarkers(markerArray);
+                                markerArray = newMarkerArray;
+                                $(dataArray).each(function(inx,d) {
+
+                                  var latLng = new google.maps.LatLng(d.lat, d.long);
+                                  if (typeof map == 'undefined') {
+                                     map = new google.maps.Map(document.getElementById('map'), {
+                                     zoom: 18,
+                                     center: latLng,
+                                     mapTypeId: google.maps.MapTypeId.HYBRID
+                                     });
+                                  }
+                                  var marker = new google.maps.Marker({
+                                                    map:map,
+                                                    animation: google.maps.Animation.DROP,
+                                                    position: latLng
+                                                 });
+                                 newMarkerArray.push(marker);
+                        
+                               });
+                        }
+
+                   });
+
+              });
+
+     }, 3000);
+
+
+
+});
+function removeMarkers(array) {
+  for (var i=0; i < array.length; i++) {
+      array[i].setMap(null);
+  }
+}
 </script>
 }

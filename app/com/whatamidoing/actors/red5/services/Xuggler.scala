@@ -64,7 +64,12 @@ var startTime: Long = _
     val in: InputStream = new ByteArrayInputStream(frame);
 
     //          Logger("HMM").info("inputstream:"+in);
-    val bImageFromConvert: BufferedImage = ImageIO.read(in);
+ 
+    import com.jhlabs.image.UnsharpFilter
+    val filter: UnsharpFilter = new UnsharpFilter()
+    val bImageFromConvert: BufferedImage = filter.filter(ImageIO.read(in),null);
+
+
     //         Logger("MyApp").info("just before sending %s".format(bImageFromConvert))
 
     if (bImageFromConvert != null)

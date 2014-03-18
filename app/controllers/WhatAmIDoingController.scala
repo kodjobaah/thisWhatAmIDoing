@@ -111,6 +111,27 @@ object WhatAmIDoingController extends Controller {
       }
   }
 
+ /**
+  * Used to return the  locations for the inviteId
+  */
+  def whatAreTheLocations(inviteId: String) = Action.async {
+      implicit request =>
+
+
+        var streamId = ActorUtils.findStreamForInvitedId(inviteId)
+      	var locations = ActorUtils.fetchLocationForActiveStream(inviteId)
+	var listOfLocations = Seq[JsObject]()
+	var result = Json.arr(listOfLocations)
+        if (!streamId.isEmpty()) {
+	  for(loc <- locations) {
+	  	  var l = Json.obj("lat" -> loc.latitude, "long" -> loc.longitude)
+		  listOfLocations = listOfLocations :+ l
+	  }
+	  result = Json.arr(listOfLocations)
+        }
+        System.out.println(result)
+	future(Ok(result))
+  }
   /**
    * Used to return the page for the user to view the stream
    */
@@ -130,7 +151,7 @@ object WhatAmIDoingController extends Controller {
 	  var locations = ActorUtils.fetchLocationForActiveStream(invitedId)
 	  Logger.info("--Locations["+locations+"]")
 	  val newStreamId = streamId.dropRight(3)+"m3u8"
-          future(Ok(views.html.whatamidoing(newStreamId,locations)))
+          future(Ok(views.html.whatamidoing(newStreamId,locations,invitedId)))
         }
       } else {
         future(Ok(views.html.whatamidoingnoinviteId()))
