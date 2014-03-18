@@ -174,7 +174,7 @@ object CypherWriter {
 	 with u,d
 	 create (cp:ChangePassword {id:"$changePasswordId", state:"active"})
 	 with  u,d,cp
-	 create u-[r:CHANGE_PASSWORD_REQUEST]->cp-[m:MADE_ONE {time:"$time"}]->d
+	 create u-[r:CHANGE_PASSWORD_REQUEST]->cp-[m:MADE_ON {time:"$time"}]->d
 	 return u,d,cp
      """
      Logger.info("--change password["+res+"]")

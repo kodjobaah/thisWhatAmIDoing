@@ -17,12 +17,14 @@
 
 <br/>
 <br/>
-<div class="row">
-  <div class="col-md-5">
+<div class="row center-block">
+
+  <div class="col-md-5 col-mod-offset-1">
     <div id="player">Loading video</div>
   </div>
-  <div class="col-md-6 col-md-offset-1" id="map"  style="width: 500px; height: 400px;"> Location Was Not Supplied </div>
+  <div class="jumbotron col-md-6 col-md-offset-1" id="map"  style="width: 500px; height: 400px;"> Location Was Not Supplied </div>
 </div>
+
 
 <script>
    @if(!locations.isEmpty) {
@@ -82,5 +84,11 @@ if( /webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.user
       primary: "flash"
     });
 }
+</script>
+<script>
+( document ).ready(function() {
+ $("#player-wrapper").addClass("jumbotron");
+});
+
 </script>
 }

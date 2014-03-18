@@ -65,7 +65,8 @@ class EmailSenderService {
              <html>
               <body>
                <div>
-     	       <p>An account has been create for you just download the Android up and start sharing what you are doing: </p>
+               <p>Welcome to <strong>WAID (What Am I Doing?)</strong></p>
+     	       <p>An account has been created for you. Just download the Android up and start sharing what you are doing: </p>
 		<p><a href="https://play.google.com/store/apps/details?id=com.waid">Download WAID</a></p>
               <div>
                <table>
@@ -79,10 +80,9 @@ class EmailSenderService {
                 password = $password
       			</td>
       	      </row>
-               <row>
-               Click here  <a href="http://www.whatamidoing.info">To get more information</a>
-               </row>
       	      </table>
+	      </div>
+	      <p>Click here  <a href="http://www.whatamidoing.info">To get more information</a></p>
              </body>
             </html>
       """
