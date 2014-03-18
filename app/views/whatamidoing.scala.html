@@ -100,8 +100,10 @@ $(window).load(function() {
              var jqxhr = $.getJSON( "@routes.WhatAmIDoingController.whatAreTheLocations(inviteId)", function(data) {
                      $(data).each(function(index,dataArray) {
 
-                            console.log(dataArray.length,"dataArray.lenght");
-                            console.log(markerArray.length,"markerArray.length");
+                           //checking to see if stream has ended
+                           if ((dataArray.length < 1) && (markerArray.length > 0)) {
+			       clearInterval(refreshId);
+                            }
                            if (dataArray.length != markerArray.length) {
                                 removeMarkers(markerArray);
                                 markerArray = newMarkerArray;
