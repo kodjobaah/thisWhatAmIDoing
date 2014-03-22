@@ -16,6 +16,8 @@ POST /registerLogin		    controllers.WhatAmIDoingController.registerLogin(email:
 GET  /publishVideo 		    controllers.WhatAmIDoingController.publishVideo(token: Option[String])
 GET  /whatamidoing		    controllers.WhatAmIDoingController.whatAmIdoing(invitedId: Option[String])
 POST /invite 			    controllers.WhatAmIDoingController.invite(token: Option[String], email: Option[String])
+POST /inviteTwitter		    controllers.WhatAmIDoingController.inviteTwitter(token: String)
+POST /inviteFacebook		    controllers.WhatAmIDoingController.inviteFacebook(token: String)
 GET /shareLocation                  controllers.WhatAmIDoingController.createLocationForStream(token:String, latitude: Double, longitude: Double)
 GET /getLocations                   controllers.WhatAmIDoingController.whatAreTheLocations(inviteId: String)
 

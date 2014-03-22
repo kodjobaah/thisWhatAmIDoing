@@ -65,6 +65,45 @@ object CypherReader {
       """
       return res
   }
+
+  def findStreamForInviteTwitter(invitedId: String) : String = {
+    val res=s"""
+    		match (a:InviteTwitter)
+    		where a.id = "$invitedId"
+    		with a
+    		match (a)-[:TO_WATCH]->(r)
+    		where r.state = "active"
+    		return r.name as name
+      """
+      return res
+  }
+
+  def findStreamForInviteFacebook(invitedId: String) : String = {
+    val res=s"""
+    		match (a:InviteFacebook)
+    		where a.id = "$invitedId"
+    		with a
+    		match (a)-[:TO_WATCH]->(r)
+    		where r.state = "active"
+    		return r.name as name
+      """
+      return res
+  }
+
+
+  def checkToSeeIfTwitterInviteAcceptedAlreadyByReferer(inviteId: String, referer: String) : String  = {
+     val res=s"""
+    		match (a:InviteTwitter), (b:Referer)
+    		where a.id = "$inviteId", b.id = "$referer"
+    		with a,b
+                match (a)-[r:USING_REFERAL]-(b)
+    		return b.id as id
+      """
+      return res
+ 
+
+  }
+
   
   def findAllInvites(token: String): String = {
         val res=s"""
@@ -383,6 +422,36 @@ def fetchLocationForActiveStream(inviteId: String): String = {
 
         val res=s"""
 	    match (i:Invite) where i.id="$inviteId"
+	    with i
+	    match (i)-[to:TO_WATCH]-(s)
+	    with s
+	    match (s)-[l:LOCATED_AT]-(loc)
+            return loc.latitude as latitude, loc.longitude as longitude
+       """
+       Logger.info("--fetchLocationForActiveStream["+res+"]")
+       return res
+
+}
+
+def fetchLocationForActiveStreamTwitter(inviteId: String): String = {
+
+        val res=s"""
+	    match (i:InviteTwitter) where i.id="$inviteId"
+	    with i
+	    match (i)-[to:TO_WATCH]-(s)
+	    with s
+	    match (s)-[l:LOCATED_AT]-(loc)
+            return loc.latitude as latitude, loc.longitude as longitude
+       """
+       Logger.info("--fetchLocationForActiveStream["+res+"]")
+       return res
+
+}
+
+def fetchLocationForActiveStreamFacebook(inviteId: String): String = {
+
+        val res=s"""
+	    match (i:InviteFacebook) where i.id="$inviteId"
 	    with i
 	    match (i)-[to:TO_WATCH]-(s)
 	    with s

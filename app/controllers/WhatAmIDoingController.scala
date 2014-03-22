@@ -14,6 +14,9 @@ import models.Messages._
 
 object WhatAmIDoingController extends Controller {
 
+  val Twitter: String = "TWITTER"
+  val Facebook: String = "FACEBOOK"
+
   var emailSenderService = EmailSenderService()
 
   def findAllInvites(tokenOption: Option[String]) = Action.async{implicit request =>
@@ -117,9 +120,25 @@ object WhatAmIDoingController extends Controller {
   def whatAreTheLocations(inviteId: String) = Action.async {
       implicit request =>
 
+        var streamId = ""
+	import models.Location
+      	var locations = List(Location())
 
-        var streamId = ActorUtils.findStreamForInvitedId(inviteId)
-      	var locations = ActorUtils.fetchLocationForActiveStream(inviteId)
+        if (inviteId.endsWith(Twitter)) {
+	      streamId = ActorUtils.findStreamForInviteTwitter(inviteId)
+	      locations = ActorUtils.fetchLocationForActiveStreamTwitter(inviteId)
+	   
+        } else if (inviteId.endsWith(Facebook)) {
+	     streamId = ActorUtils.findStreamForInviteFacebook(inviteId)
+	     locations = ActorUtils.fetchLocationForActiveStreamFacebook(inviteId)
+
+        } else {
+          streamId = ActorUtils.findStreamForInvitedId(inviteId)
+          if(!streamId.isEmpty()){
+	     locations = ActorUtils.fetchLocationForActiveStream(inviteId)
+          }
+        }
+       
 	var listOfLocations = Seq[JsObject]()
 	var result = Json.arr(listOfLocations)
         if (!streamId.isEmpty()) {
@@ -134,24 +153,45 @@ object WhatAmIDoingController extends Controller {
   }
   /**
    * Used to return the page for the user to view the stream
+   
    */
   def whatAmIdoing(invitedIdOption: Option[String]) = Action.async {
     implicit request =>
 
+      import models.Location
       val invitedId = invitedIdOption.getOrElse("no-invited-id")
+      var locations = List(Location())
 
       if (!invitedId.equalsIgnoreCase("no-invited-id")) {
-        var streamId = ActorUtils.findStreamForInvitedId(invitedId)
+        var streamId = ""
+        if (invitedId.endsWith(Twitter)) {
+	      val referer = request.headers("Host")
+	      ActorUtils.associatedInviteTwitterWithReferal(invitedId,referer)
+	      streamId = ActorUtils.findStreamForInviteTwitter(invitedId)
+	      locations = ActorUtils.fetchLocationForActiveStreamTwitter(invitedId)
+	   
+        } else if (invitedId.endsWith(Facebook)) {
+	      val referer = request.headers("Host")
+	      ActorUtils.associatedInviteFacebookWithReferal(invitedId,referer)
+	      streamId = ActorUtils.findStreamForInviteFacebook(invitedId)
+	     locations = ActorUtils.fetchLocationForActiveStreamFacebook(invitedId)
+
+        } else {
+          streamId = ActorUtils.findStreamForInvitedId(invitedId)
+          if(!streamId.isEmpty()){
+             ActorUtils.associatedInviteWithDayOfAcceptance(invitedId)
+	     locations = ActorUtils.fetchLocationForActiveStream(invitedId)
+
+          }
+        }
 
         if (streamId.isEmpty()) {
           future(Ok(views.html.whatamidoingnoinviteId()))
         } else {
 
-          ActorUtils.associatedInviteWithDayOfAcceptance(invitedId)
-	  var locations = ActorUtils.fetchLocationForActiveStream(invitedId)
 	  Logger.info("--Locations["+locations+"]")
-	  val newStreamId = streamId.dropRight(3)+"m3u8"
-          future(Ok(views.html.whatamidoing(newStreamId,locations,invitedId)))
+	  streamId = streamId.dropRight(3)+"m3u8"
+          future(Ok(views.html.whatamidoing(streamId,locations,invitedId)))
         }
       } else {
         future(Ok(views.html.whatamidoingnoinviteId()))
@@ -169,6 +209,67 @@ object WhatAmIDoingController extends Controller {
 	   future(Ok("Unable to add Location"))
 	  }
  }
+
+  /**
+   * *
+   * Used to send an invite to some one to come and view the stream
+   */
+  def inviteTwitter(token: String) = Action.async {
+    implicit request =>
+
+
+          var valid = ActorUtils.getValidToken(token)
+          if (valid.asInstanceOf[List[String]].size > 0) {
+            var streamName = ActorUtils.streamNameForToken(token)
+            if ((streamName != null) && (!streamName.isEmpty())) {
+              /*
+               * Checking to see if invite is already in the system
+              */
+
+                val invitedId = java.util.UUID.randomUUID().toString()+Twitter
+                Logger.info("INIVITED ID:"+invitedId)
+                val results = ActorUtils.createInviteTwitter(streamName,Twitter, invitedId)
+                future(Ok(invitedId))
+
+            } else {
+              future(Ok("Unable to Invite No Stream"))
+            }
+          } else {
+            future(Ok("Unable To Invite"))
+          }
+
+  }
+
+  /**
+   * *
+   * Used to send an invite to some one to come and view the stream
+   */
+  def inviteFacebook(token: String) = Action.async {
+    implicit request =>
+
+
+          var valid = ActorUtils.getValidToken(token)
+          if (valid.asInstanceOf[List[String]].size > 0) {
+            var streamName = ActorUtils.streamNameForToken(token)
+            if ((streamName != null) && (!streamName.isEmpty())) {
+              /*
+               * Checking to see if invite is already in the system
+              */
+
+                val invitedId = java.util.UUID.randomUUID().toString()+Facebook
+                Logger.info("INIVITED ID:"+invitedId)
+                val results = ActorUtils.createInviteFacebook(streamName,Facebook, invitedId)
+                future(Ok(invitedId))
+
+            } else {
+              future(Ok("Unable to Invite No Stream"))
+            }
+          } else {
+            future(Ok("Unable To Invite"))
+          }
+
+  }
+
   /**
    * *
    * Used to send an invite to some one to come and view the stream
@@ -292,7 +393,7 @@ object WhatAmIDoingController extends Controller {
 
         } else {
           future(Ok("Email not supplied"))
-        }
+       }
 
     }
 

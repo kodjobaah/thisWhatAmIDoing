@@ -120,6 +120,7 @@ object ActorUtils {
     res
   }
 
+
   def createInvite(stream: String, email: String, id: String) = {
     val createInvite = CypherWriterFunction.createInvite(stream, email, id)
     val writeResponse: Future[Any] = ask(neo4jwriter, PerformOperation(createInvite)).mapTo[Any]
@@ -135,6 +136,42 @@ object ActorUtils {
       }
     }
     streamName
+  }
+
+  def createInviteTwitter(stream: String, twitter: String, id: String) = {
+    val createInviteTwitter= CypherWriterFunction.createInviteTwitter(stream, twitter, id)
+    val writeResponse: Future[Any] = ask(neo4jwriter, PerformOperation(createInviteTwitter)).mapTo[Any]
+
+    var inviteId = Await.result(writeResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        if (results.results.size > 0) {
+         Logger("ActorUtils.createInviteTwitter").info("resuls["+results.results.head+"]");
+
+        } else {
+          ""
+
+        }
+      }
+    }
+    inviteId
+  }
+
+  def createInviteFacebook(stream: String, facebook: String, id: String) = {
+    val createInviteFacebook= CypherWriterFunction.createInviteFacebook(stream, facebook, id)
+    val writeResponse: Future[Any] = ask(neo4jwriter, PerformOperation(createInviteFacebook)).mapTo[Any]
+
+    var inviteId = Await.result(writeResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        if (results.results.size > 0) {
+         Logger("ActorUtils.createInviteTwitter").info("resuls["+results.results.head+"]");
+
+        } else {
+          ""
+
+        }
+      }
+    }
+    inviteId
   }
 
   def findStreamForInvitedId(invitedId: String) = {
@@ -154,6 +191,62 @@ object ActorUtils {
     streamName
 
   }
+
+  def findStreamForInviteTwitter(invitedId: String) = {
+    val inviteTwitter = CypherReaderFunction.findStreamForInviteTwitter(invitedId)
+    val readerResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(inviteTwitter)).mapTo[Any]
+
+    var streamName = Await.result(readerResponse, 10 seconds) match {
+      case ReadOperationResult(results) => {
+
+        if (results.results.size > 0) {
+          results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
+      }
+    }
+    streamName
+
+  }
+
+  def findStreamForInviteFacebook(invitedId: String) = {
+    val inviteFacebook = CypherReaderFunction.findStreamForInviteFacebook(invitedId)
+    val readerResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(inviteFacebook)).mapTo[Any]
+
+    var streamName = Await.result(readerResponse, 10 seconds) match {
+      case ReadOperationResult(results) => {
+
+        if (results.results.size > 0) {
+          results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
+      }
+    }
+    streamName
+
+  }
+
+  def checkToSeeIfTwitterInviteAcceptedAlreadyByReferer(inviteId: String, referer: String) = {
+    val checkToSeeIfTwitterInviteAcceptedAlreadyByReferer = CypherReaderFunction.checkToSeeIfTwitterInviteAcceptedAlreadyByReferer(inviteId,referer)
+    val readerResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(checkToSeeIfTwitterInviteAcceptedAlreadyByReferer)).mapTo[Any]
+
+    var id = Await.result(readerResponse, 10 seconds) match {
+      case ReadOperationResult(results) => {
+
+        if (results.results.size > 0) {
+          results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
+      }
+    }
+   id
+
+  }
+
+
 
   def invalidateToken(token: String) = {
 
@@ -223,6 +316,42 @@ object ActorUtils {
     res
 
   }
+
+  def associatedInviteTwitterWithReferal(inviteId: String, referal: String) = {
+    val associateInviteTwitterWithReferal = CypherWriterFunction.associateInviteTwitterWithReferal(inviteId,referal)
+    val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(associateInviteTwitterWithReferal)).mapTo[Any]
+
+    var res = Await.result(writerResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        if (results.results.size > 0) {
+        results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
+      }
+    }
+    res
+
+  }
+
+  def associatedInviteFacebookWithReferal(inviteId: String, referal: String) = {
+    val associateInviteFacebookWithReferal = CypherWriterFunction.associateInviteFacebookWithReferal(inviteId,referal)
+    val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(associateInviteFacebookWithReferal)).mapTo[Any]
+
+    var res = Await.result(writerResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        if (results.results.size > 0) {
+        results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
+      }
+    }
+    res
+
+  }
+
+
   
   def createStream(token: String, streamName: String): String = {
     // Logger("FrameSupervisor-receive").info("creating actor for token:"+streamName)
@@ -612,6 +741,68 @@ object ActorUtils {
     }
    results
   }
+
+  import models.Location
+  def fetchLocationForActiveStreamTwitter(inviteId: String): List[Location] = {
+
+    val fetchLocationForActiveStreamTwitter = CypherReaderFunction.fetchLocationForActiveStreamTwitter(inviteId)
+    val fetchLocationForActiveStreamResponseTwitter: Future[Any] = ask(neo4jreader, PerformReadOperation(fetchLocationForActiveStreamTwitter)).mapTo[Any]
+
+    val results = Await.result(fetchLocationForActiveStreamResponseTwitter, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+
+             var result = List[Location]()
+             for(res <- readResults.results){
+	       System.out.println("----fetch-location--resuls"+res)
+               var x: Location = res match {
+                  case (Some(latitude),Some(longitude)) => 
+		       				Location(latitude.asInstanceOf[Double],longitude.asInstanceOf[Double])
+                  case _ => null
+                }
+		if (result != null) {
+		   result = result :+ x
+		}
+
+             }
+
+            Logger.info("results "+result)
+            result
+      }
+    }
+   results
+  }
+
+  import models.Location
+  def fetchLocationForActiveStreamFacebook(inviteId: String): List[Location] = {
+
+    val fetchLocationForActiveStreamFacebook = CypherReaderFunction.fetchLocationForActiveStreamFacebook(inviteId)
+    val fetchLocationForActiveStreamResponseFacebook: Future[Any] = ask(neo4jreader, PerformReadOperation(fetchLocationForActiveStreamFacebook)).mapTo[Any]
+
+    val results = Await.result(fetchLocationForActiveStreamResponseFacebook, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+
+             var result = List[Location]()
+             for(res <- readResults.results){
+	       System.out.println("----fetch-location--resuls"+res)
+               var x: Location = res match {
+                  case (Some(latitude),Some(longitude)) => 
+		       				Location(latitude.asInstanceOf[Double],longitude.asInstanceOf[Double])
+                  case _ => null
+                }
+		if (result != null) {
+		   result = result :+ x
+		}
+
+             }
+
+            Logger.info("results "+result)
+            result
+      }
+    }
+   results
+  }
+
+
 
 
 

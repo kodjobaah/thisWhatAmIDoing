@@ -58,8 +58,40 @@ object CypherReaderFunction {
   	}
   	streamForInvitedId
   }
+
+
+  def findStreamForInviteTwitter(invitedId: String): () => Neo4jResult = {
+  	val streamForInviteTwitter: Function0[Neo4jResult] = () => {
+  	   val name = Cypher(CypherReader.findStreamForInviteTwitter(invitedId)).apply().map(row => (row[String]("name"))).toList  
+  	   val neo4jResult = new Neo4jResult(name)
+  	   Logger("CypherBuilder.findStreamForInviteTwitter").info("name of active stream:"+name)
+  	   neo4jResult
+  	}
+  	streamForInviteTwitter
+  }
+
+  def findStreamForInviteFacebook(invitedId: String): () => Neo4jResult = {
+  	val streamForInviteFacebook: Function0[Neo4jResult] = () => {
+  	   val name = Cypher(CypherReader.findStreamForInviteFacebook(invitedId)).apply().map(row => (row[String]("name"))).toList  
+  	   val neo4jResult = new Neo4jResult(name)
+  	   Logger("CypherBuilder.findStreamForInviteFacebook").info("name of active stream:"+name)
+  	   neo4jResult
+  	}
+  	streamForInviteFacebook
+  }
+
+
+  def checkToSeeIfTwitterInviteAcceptedAlreadyByReferer(invitedId: String, referer: String): () => Neo4jResult = {
+  	val checkToSeeIfTwitterInviteAcceptedAlreadyByReferer: Function0[Neo4jResult] = () => {
+  	   val id = Cypher(CypherReader.checkToSeeIfTwitterInviteAcceptedAlreadyByReferer(invitedId,referer)).apply().map(row => (row[String]("id"))).toList  
+  	   val neo4jResult = new Neo4jResult(id)
+  	   Logger("CypherBuilder.streamForInviteTwitter").info("referer id is:"+id)
+  	   neo4jResult
+  	}
+  	checkToSeeIfTwitterInviteAcceptedAlreadyByReferer
+ }
   
-  def findAllInvites(email: String): () => Neo4jResult = {
+   def findAllInvites(email: String): () => Neo4jResult = {
   	val findAllInvites: Function0[Neo4jResult] = () => {
   	   val allInvites = Cypher(CypherReader.findAllInvites(email)).apply().map(row => (row[String]("email"))).toList  
   	   val neo4jResult = new Neo4jResult(allInvites)
@@ -223,6 +255,24 @@ object CypherReaderFunction {
       neo4jResult
     }
     fetchLocationForActiveStream
+ }
+
+ def fetchLocationForActiveStreamTwitter(inviteId: String): () => Neo4jResult = {
+    val fetchLocationForActiveStreamTwitter: Function0[Neo4jResult] = () => {
+      val fetchLocationForActiveStreamTwitter = Cypher(CypherReader.fetchLocationForActiveStreamTwitter(inviteId)).apply().map(row => (row[Option[Double]]("latitude"),row[Option[Double]]("longitude"))).toList
+      val neo4jResult = new Neo4jResult(fetchLocationForActiveStreamTwitter)
+      neo4jResult
+    }
+    fetchLocationForActiveStreamTwitter
+ }
+
+ def fetchLocationForActiveStreamFacebook(inviteId: String): () => Neo4jResult = {
+    val fetchLocationForActiveStreamFacebook: Function0[Neo4jResult] = () => {
+      val fetchLocationForActiveStreamFacebook = Cypher(CypherReader.fetchLocationForActiveStreamFacebook(inviteId)).apply().map(row => (row[Option[Double]]("latitude"),row[Option[Double]]("longitude"))).toList
+      val neo4jResult = new Neo4jResult(fetchLocationForActiveStreamFacebook)
+      neo4jResult
+    }
+    fetchLocationForActiveStreamFacebook
  }
 
 

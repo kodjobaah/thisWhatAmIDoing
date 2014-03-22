@@ -110,6 +110,36 @@ object CypherWriter {
     
   }
 
+  def createInviteTwitter(stream: String, twitter: String, id: String): String = {
+    
+    val res=s"""
+    		match (stream:Stream), (user:User)
+    		where stream.name="$stream" 
+    		create (invite:InviteTwitter {name:"${stream}-${twitter}", id:"$id"}),
+    		(invite)-[r:TO_WATCH]->(stream)
+    		return distinct invite.id as inviteId
+    """
+    return res
+    
+  }
+
+  def createInviteFacebook(stream: String, facebook: String, id: String): String = {
+    
+    val res=s"""
+    		match (stream:Stream), (user:User)
+    		where stream.name="$stream" 
+    		create (invite:InviteFacebook {name:"${stream}-${facebook}", id:"$id"}),
+    		(invite)-[r:TO_WATCH]->(stream)
+    		return distinct invite.id as inviteId
+    """
+    return res
+    
+  }
+
+
+
+
+
   def invalidateAllTokensForUser(email: String): String = {
     val res=s"""
         match (u:User)
@@ -157,6 +187,30 @@ object CypherWriter {
       """
       return res
   }
+
+  def associateInviteTwitterWithReferal(inviteId:String, day: String, time: String,referal: String): String = {
+      val res=s"""
+    		match (inviteTwitter:InviteTwitter), (day:Day)
+    		where inviteTwitter.id = "$inviteId" and day.description="$day"
+    		with inviteTwitter,day
+                create (inviteTwitter)-[r:USING_REFERAL]-(referal:Referal)-[a:ACCEPTED_ON {time:"$time"}]->(day)
+    		return r,referal
+      """
+      return res
+  }
+
+  def associateInviteFacebookWithReferal(inviteId:String, day: String, time: String,referal: String): String = {
+      val res=s"""
+    		match (inviteFacebook:InviteFacebook), (day:Day)
+    		where inviteFacebook.id = "$inviteId" and day.description="$day"
+    		with inviteFacebook,day
+                create (inviteFacebook)-[r:USING_REFERAL]-(referal:Referal)-[a:ACCEPTED_ON {time:"$time"}]->(day)
+    		return r,referal
+      """
+      return res
+  }
+
+
 
 
   def createChangePassword(id: String) : String = {
