@@ -145,6 +145,7 @@ object ActorUtils {
     var inviteId = Await.result(writeResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
         if (results.results.size > 0) {
+         Logger("ActorUtils.createInviteTwitter").info("results size["+results.results.size+"]");
          Logger("ActorUtils.createInviteTwitter").info("resuls["+results.results.head+"]");
 
         } else {
@@ -317,9 +318,9 @@ object ActorUtils {
 
   }
 
-  def associatedInviteTwitterWithReferal(inviteId: String, referal: String) = {
-    val associateInviteTwitterWithReferal = CypherWriterFunction.associateInviteTwitterWithReferal(inviteId,referal)
-    val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(associateInviteTwitterWithReferal)).mapTo[Any]
+  def associatedInviteTwitterWithReferer(inviteId: String, referal: String) = {
+    val associateInviteTwitterWithReferer = CypherWriterFunction.associateInviteTwitterWithReferer(inviteId,referal)
+    val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(associateInviteTwitterWithReferer)).mapTo[Any]
 
     var res = Await.result(writerResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
@@ -334,9 +335,9 @@ object ActorUtils {
 
   }
 
-  def associatedInviteFacebookWithReferal(inviteId: String, referal: String) = {
-    val associateInviteFacebookWithReferal = CypherWriterFunction.associateInviteFacebookWithReferal(inviteId,referal)
-    val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(associateInviteFacebookWithReferal)).mapTo[Any]
+  def associatedInviteFacebookWithReferer(inviteId: String, referal: String) = {
+    val associateInviteFacebookWithReferer = CypherWriterFunction.associateInviteFacebookWithReferer(inviteId,referal)
+    val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(associateInviteFacebookWithReferer)).mapTo[Any]
 
     var res = Await.result(writerResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
@@ -803,9 +804,75 @@ object ActorUtils {
   }
 
 
+  def invalidateAllStreams(token: String) = {
+
+    val invalidateAllStreams = CypherWriterFunction.invalidateAllStreams(token)
+    val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(invalidateAllStreams)).mapTo[Any]
+
+    var res = Await.result(writerResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        if (results.results.size > 0) {
+          results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
+      }
+    }
+    res
+  }
 
 
 
+  def  countAllTwitterInvites(token: String): List[String] = {
 
+    val countAllTwitterInvites = CypherReaderFunction.countAllTwitterInvites(token)
+    val countAllTwitterInvitesResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(countAllTwitterInvites)).mapTo[Any]
+
+    var results = Await.result(countAllTwitterInvitesResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+        readResults.results.asInstanceOf[List[String]]
+      }
+    }
+    results
+  }
+
+  def  countAllFacebookInvites(token: String): List[String] = {
+
+    val countAllFacebookInvites = CypherReaderFunction.countAllFacebookInvites(token)
+    val countAllFacebookInvitesResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(countAllFacebookInvites)).mapTo[Any]
+
+    var results = Await.result(countAllFacebookInvitesResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+        readResults.results.asInstanceOf[List[String]]
+      }
+    }
+    results
+  }
+
+  def getFacebookAcceptanceCount(token: String): List[String] = {
+
+    val getFacebookAcceptanceCount = CypherReaderFunction.getFacebookAcceptanceCount(token)
+    val getFacebookAcceptanceCountResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getFacebookAcceptanceCount)).mapTo[Any]
+
+    var results = Await.result(getFacebookAcceptanceCountResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+        readResults.results.asInstanceOf[List[String]]
+      }
+    }
+    results
+  }
+
+  def getTwitterAcceptanceCount(token: String): List[String] = {
+
+    val getTwitterAcceptanceCount = CypherReaderFunction.getTwitterAcceptanceCount(token)
+    val getTwitterAcceptanceCountResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getTwitterAcceptanceCount)).mapTo[Any]
+
+    var results = Await.result(getTwitterAcceptanceCountResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+        readResults.results.asInstanceOf[List[String]]
+      }
+    }
+    results
+  }
 
 }

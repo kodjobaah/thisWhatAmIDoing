@@ -66,6 +66,34 @@ object WhatAmIDoingController extends Controller {
           }
         }
 
+       //Getting info about twitter
+       val twitterInvites = ActorUtils.countAllTwitterInvites(token).head.toInt
+       if (twitterInvites > 0) {      
+          val twitterAccept = ActorUtils.getTwitterAcceptanceCount(token).head.toInt
+          if (twitterAccept > 0) {
+	   val twitter = "number watching ("+twitterAccept+")"
+           val json = Json.obj("email" -> "Twitter", "firstName" -> twitter, "lastName" -> "")
+           acceptedUsersResults = acceptedUsersResults :+ json
+          } else {
+            val json = Json.obj("email" -> "Twitter", "firstName" -> "", "lastName" -> "")
+              response = response :+ json
+          }
+       }
+
+       //Getting info about facebook
+       val facebookInvites = ActorUtils.countAllFacebookInvites(token).head.toInt
+       if (facebookInvites > 0) {      
+          val facebookAccept = ActorUtils.getFacebookAcceptanceCount(token).head.toInt
+          if (facebookAccept > 0) {
+	   val facebook = "number watching ("+facebookAccept+")"
+           val json = Json.obj("email" -> "Facebook", "firstName" -> facebook, "lastName" -> "")
+           acceptedUsersResults = acceptedUsersResults :+ json
+          } else {
+            val json = Json.obj("email" -> "Facebook", "firstName" -> "", "lastName" -> "")
+              response = response :+ json
+          }
+       }
+
        Logger.info("---accepted:"+acceptedUsersResults)
        Logger.info("---not accepted:"+response)
 
@@ -166,13 +194,13 @@ object WhatAmIDoingController extends Controller {
         var streamId = ""
         if (invitedId.endsWith(Twitter)) {
 	      val referer = request.headers("Host")
-	      ActorUtils.associatedInviteTwitterWithReferal(invitedId,referer)
+	      ActorUtils.associatedInviteTwitterWithReferer(invitedId,referer)
 	      streamId = ActorUtils.findStreamForInviteTwitter(invitedId)
 	      locations = ActorUtils.fetchLocationForActiveStreamTwitter(invitedId)
 	   
         } else if (invitedId.endsWith(Facebook)) {
 	      val referer = request.headers("Host")
-	      ActorUtils.associatedInviteFacebookWithReferal(invitedId,referer)
+	      ActorUtils.associatedInviteFacebookWithReferer(invitedId,referer)
 	      streamId = ActorUtils.findStreamForInviteFacebook(invitedId)
 	     locations = ActorUtils.fetchLocationForActiveStreamFacebook(invitedId)
 

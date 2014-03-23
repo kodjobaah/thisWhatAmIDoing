@@ -464,6 +464,58 @@ def fetchLocationForActiveStreamFacebook(inviteId: String): String = {
 }
 
 
+  def countAllTwitterInvites(token: String): String = {
+
+    val res =s"""
+    match (tok:AuthenticationToken)
+    where tok.token="$token"
+    with tok
+    match (tok)-[u:USING]-(s)-[t:TO_WATCH]-(i:InviteTwitter)
+    return count(i) as count
+    """
+    Logger.info("--countAllTwitterInvites["+res+"]")
+    return res
+  }
+
+  def getTwitterAcceptanceCount(token: String): String = {
+
+    val res =s"""
+    match (tok:AuthenticationToken)
+    where tok.token="$token"
+    with tok
+    match (tok)-[u:USING]-(s)-[t:TO_WATCH]-(i:InviteTwitter)-[ur:USING_REFERER]-(r)
+    return count(r) as count
+    """
+    Logger.info("--getTwitterAcceptanceCount["+res+"]")
+    return res
+  }
+
+  def countAllFacebookInvites(token: String): String = {
+
+    val res =s"""
+    match (tok:AuthenticationToken)
+    where tok.token="$token"
+    with tok
+    match (tok)-[u:USING]-(s)-[t:TO_WATCH]-(i:InviteFacebook)
+    return count(i) as count
+    """
+    Logger.info("--countAllFacebookInvites["+res+"]")
+    return res
+  }
+
+  def getFacebookAcceptanceCount(token: String): String = {
+
+    val res =s"""
+    match (tok:AuthenticationToken)
+    where tok.token="$token"
+    with tok
+    match (tok)-[u:USING]-(s)-[t:TO_WATCH]-(i:InviteFacebook)-[ur:USING_REFERER]-(r)
+    return count(r) as count
+    """
+    Logger.info("--getFacebookAcceptanceCount["+res+"]")
+    return res
+  }
+
 
 
 }

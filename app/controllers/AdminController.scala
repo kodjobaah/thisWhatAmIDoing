@@ -322,7 +322,7 @@ object AdminController extends Controller {
             val myFormatter: DecimalFormat = new DecimalFormat("00");
             val output: String = myFormatter.format(d)
 
-            var dateString = formatDate(year.getOrElse(0000),month.getOrElse(00),day.getOrElse(00),time.getOrElse("00:00:00"))
+            var dateString = formatDate(year.getOrElse(0),month.getOrElse(0),day.getOrElse(0),time.getOrElse("00:00:00"))
             var json = Json.obj("id"->streamId, "title"->streamId, "start"->dateString,"allDay"->JsBoolean(false))
 
             checkIfStreamHasEnded(resEnded,streamId.get) match {
@@ -350,6 +350,7 @@ object AdminController extends Controller {
 
 
   def formatDate(year: BigDecimal, month: BigDecimal, day: BigDecimal, time: String): String =  {
+  
     val yearFormatter: DecimalFormat = new DecimalFormat("0000");
     val monthFormatter: DecimalFormat = new DecimalFormat("00");
 

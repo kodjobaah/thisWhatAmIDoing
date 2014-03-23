@@ -210,42 +210,42 @@ object CypherWriterFunction {
     associatedDayWithInvite
   }
 
-  def associateInviteTwitterWithReferal(inviteId: String, referal: String): () => Neo4jResult = {
+  def associateInviteTwitterWithReferer(inviteId: String, referal: String): () => Neo4jResult = {
     
-    val associatedInviteWithTwitterReferal: Function0[Neo4jResult] = () => {
+    val associatedInviteWithTwitterReferer: Function0[Neo4jResult] = () => {
       
       val dt = new DateTime();
       val day = dt.getDayOfMonth();
       val dayDescription = "day " + day + " - month " + dt.getMonthOfYear() + "- year " + dt.getYear()
       val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
 
-      val assocaiteInviteTwitterWithReferal = Cypher(CypherWriter.associateInviteTwitterWithReferal(inviteId, dayDescription, time,referal)).execute()
-      Logger("CypherWriterFunction.associateInviteTwitterWithReferal").info("this is associateInviteTwitterWithReferald: " + assocaiteInviteTwitterWithReferal)
+      val assocaiteInviteTwitterWithReferer = Cypher(CypherWriter.associateInviteTwitterWithReferer(inviteId, dayDescription, time,referal)).execute()
+      Logger("CypherWriterFunction.associateInviteTwitterWithReferer").info("this is associateInviteTwitterWithRefererd: " + assocaiteInviteTwitterWithReferer)
 
-      val neo4jResult = new Neo4jResult(List(assocaiteInviteTwitterWithReferal.toString()))
+      val neo4jResult = new Neo4jResult(List(assocaiteInviteTwitterWithReferer.toString()))
       neo4jResult
     }
 
-    associatedInviteWithTwitterReferal
+    associatedInviteWithTwitterReferer
   }
 
-  def associateInviteFacebookWithReferal(inviteId: String, referal: String): () => Neo4jResult = {
+  def associateInviteFacebookWithReferer(inviteId: String, referal: String): () => Neo4jResult = {
     
-    val associatedInviteWithFacebookReferal: Function0[Neo4jResult] = () => {
+    val associatedInviteWithFacebookReferer: Function0[Neo4jResult] = () => {
       
       val dt = new DateTime();
       val day = dt.getDayOfMonth();
       val dayDescription = "day " + day + " - month " + dt.getMonthOfYear() + "- year " + dt.getYear()
       val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
 
-      val assocaiteInviteFacebookWithReferal = Cypher(CypherWriter.associateInviteFacebookWithReferal(inviteId, dayDescription, time,referal)).execute()
-      Logger("CypherWriterFunction.associateInviteFacebookWithReferal").info("this is associateInviteFacebookWithReferald: " + assocaiteInviteFacebookWithReferal)
+      val assocaiteInviteFacebookWithReferer = Cypher(CypherWriter.associateInviteFacebookWithReferer(inviteId, dayDescription, time,referal)).execute()
+      Logger("CypherWriterFunction.associateInviteFacebookWithReferer").info("this is associateInviteFacebookWithRefererd: " + assocaiteInviteFacebookWithReferer)
 
-      val neo4jResult = new Neo4jResult(List(assocaiteInviteFacebookWithReferal.toString()))
+      val neo4jResult = new Neo4jResult(List(assocaiteInviteFacebookWithReferer.toString()))
       neo4jResult
     }
 
-    associatedInviteWithFacebookReferal
+    associatedInviteWithFacebookReferer
   }
 
 
@@ -322,6 +322,21 @@ object CypherWriterFunction {
     }
     createLocationForStream
   }
+
+  def invalidateAllStreams(token: String): () => Neo4jResult = {
+
+    val invalidate: Function0[Neo4jResult] = () => {
+      val invalidate = Cypher(CypherWriter.invalidateAllStreams(token)).execute()
+      Logger("CypherWriterFunction.invalidateAllStreams").info("this is invalidateAllStreams: " + invalidate)
+
+      val results: List[String] = List(invalidate.toString())
+      val neo4jResult = new Neo4jResult(results)
+      neo4jResult
+    }
+
+    invalidate
+  }
+
 
 
 }

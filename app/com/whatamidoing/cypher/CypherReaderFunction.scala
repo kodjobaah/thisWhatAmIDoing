@@ -276,6 +276,48 @@ object CypherReaderFunction {
  }
 
 
+  def countAllTwitterInvites(token: String): () => Neo4jResult = {
+    val countAllTwitterInvites: Function0[Neo4jResult] = () => {
+      val allInvites = Cypher(CypherReader.countAllTwitterInvites(token)).apply().map(row => (row[Int]("count"))).toList
+      val neo4jResult = new Neo4jResult(List(allInvites.head.toString))
+     // Logger("CypherBuilder.countAllTwitterInvites").info("number twitter invites:"+allInvites)
+      neo4jResult
+    }
+     countAllTwitterInvites
+  }
+
+  def countAllFacebookInvites(token: String): () => Neo4jResult = {
+    val countAllFacebookInvites: Function0[Neo4jResult] = () => {
+      val allInvites = Cypher(CypherReader.countAllFacebookInvites(token)).apply().map(row => (row[Int]("count"))).toList
+      val neo4jResult = new Neo4jResult(List(allInvites.head.toString))
+     // Logger("CypherBuilder.countAllFacebookInvites").info("number facebook invites:"+allInvites)
+      neo4jResult
+    }
+     countAllFacebookInvites
+  }
+
+  def getFacebookAcceptanceCount(token: String): () => Neo4jResult = {
+    val getFacebookAcceptanceCount: Function0[Neo4jResult] = () => {
+      val allInvites = Cypher(CypherReader.getFacebookAcceptanceCount(token)).apply().map(row => (row[Int]("count"))).toList
+      val neo4jResult = new Neo4jResult(List(allInvites.head.toString))
+      Logger("CypherBuilder.getFacebookAcceptanceCount").info("number facebook referers:"+allInvites)
+      neo4jResult
+    }
+     getFacebookAcceptanceCount
+  }
+
+  def getTwitterAcceptanceCount(token: String): () => Neo4jResult = {
+    val getTwitterAcceptanceCount: Function0[Neo4jResult] = () => {
+      val allInvites = Cypher(CypherReader.getTwitterAcceptanceCount(token)).apply().map(row => (row[Int]("count"))).toList
+      val neo4jResult = new Neo4jResult(List(allInvites.head.toString))
+      Logger("CypherBuilder.getTwitterAcceptanceCount").info("number facebook referers:"+allInvites)
+      neo4jResult
+    }
+     getTwitterAcceptanceCount
+  }
+
+
+
 
 
 }
