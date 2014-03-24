@@ -31,9 +31,6 @@ package com.whatamidoing.mail
         if (mail.attachment.isDefined) MultiPart
         else if (mail.richMessage.isDefined) Rich
         else Plain
-
-
-
  
       val commonsMail: Email = format match {
         case Plain => new SimpleEmail().setMsg(mail.message)
@@ -47,13 +44,18 @@ package com.whatamidoing.mail
         }
       }
 
-
-
       // TODO Set authentication from your configuration, sys properties or w/e
-      commonsMail.setHostName("smtp.googlemail.com")
-      commonsMail.setSmtpPort(465)
-      commonsMail.setAuthenticator(new DefaultAuthenticator("kodjobaah@gmail.com","xxxx"))
-      commonsMail.setSSLOnConnect(true)
+      import play.api.Play
+      implicit var currentPlay = Play.current
+      val mailUser = Play.current.configuration.getString("mail.user").get
+      val mailPassword = Play.current.configuration.getString("mail.password").get
+      val mailHost = Play.current.configuration.getString("mail.host").get
+      val mailPort = Play.current.configuration.getString("mail.port").get.toInt
+      val mailSsl = Play.current.configuration.getString("mail.ssl").get.toBoolean
+      commonsMail.setHostName(mailHost)
+      commonsMail.setSmtpPort(mailPort)
+      commonsMail.setAuthenticator(new DefaultAuthenticator(mailUser,mailPassword))
+      commonsMail.setSSLOnConnect(mailSsl)
       // Can't add these via fluent API because it produces exceptions
       mail.to foreach (commonsMail.addTo(_))
       mail.cc foreach (commonsMail.addCc(_))

@@ -4,3 +4,4 @@ tmp/
 project/target
 .idea
 .idea_modules
+conf/application.conf

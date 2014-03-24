@@ -193,13 +193,13 @@ object WhatAmIDoingController extends Controller {
       if (!invitedId.equalsIgnoreCase("no-invited-id")) {
         var streamId = ""
         if (invitedId.endsWith(Twitter)) {
-	      val referer = request.headers("Host")
+	      val referer = request.headers("X-Real-IP")
 	      ActorUtils.associatedInviteTwitterWithReferer(invitedId,referer)
 	      streamId = ActorUtils.findStreamForInviteTwitter(invitedId)
 	      locations = ActorUtils.fetchLocationForActiveStreamTwitter(invitedId)
 	   
         } else if (invitedId.endsWith(Facebook)) {
-	      val referer = request.headers("Host")
+	      val referer = request.headers("X-Real-IP")
 	      ActorUtils.associatedInviteFacebookWithReferer(invitedId,referer)
 	      streamId = ActorUtils.findStreamForInviteFacebook(invitedId)
 	     locations = ActorUtils.fetchLocationForActiveStreamFacebook(invitedId)

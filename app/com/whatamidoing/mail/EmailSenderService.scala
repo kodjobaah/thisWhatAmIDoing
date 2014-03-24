@@ -8,6 +8,10 @@ class EmailSenderService {
 
 
   import models.UserDetails
+  import play.api.Play
+  implicit var currentPlay = Play.current
+  val mailUser = Play.current.configuration.getString("mail.user").get
+
   
   def sendInviteEmail(email:String, invId: String, userDetail: UserDetails) = {
     val inviteeEmail = userDetail.email.getOrElse("no-email-supplied")
@@ -27,7 +31,7 @@ class EmailSenderService {
     """ 
     
     send a new Mail(
-      from = ("kodjobaah@gmail.com", "WAID (What Am I doing!!)"),
+      from = (mailUser, "WAID (What Am I doing!!)"),
       to = email,
       subject = "What Am I Doing",
        message = inviteMessage,
@@ -49,7 +53,7 @@ class EmailSenderService {
 	  </html>
       """
        send a new Mail(
-      from = ("kodjobaah@gmail.com", "WAID (What Am I doing!!)"),
+      from = (mailUser, "WAID (What Am I doing!!)"),
       
       to = email,
       subject = "WAID (What Am I Doing) - Change Password",
@@ -88,7 +92,7 @@ class EmailSenderService {
       """
       
        send a new Mail(
-      from = ("kodjobaah@gmail.com", "WAID (What Am I doing!!)"),
+      from = (mailUser, "WAID (What Am I doing!!)"),
       to = email,
       subject = "WAID (What Am I Doing) - Invite mail",
       richMessage = Some("YES"),
