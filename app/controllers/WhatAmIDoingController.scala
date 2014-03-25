@@ -16,6 +16,7 @@ object WhatAmIDoingController extends Controller {
 
   val Twitter: String = "TWITTER"
   val Facebook: String = "FACEBOOK"
+  val Linkedin: String = "LINKEDIN"	
 
   var emailSenderService = EmailSenderService()
 
@@ -153,6 +154,10 @@ object WhatAmIDoingController extends Controller {
       	var locations = List(Location())
 
         if (inviteId.endsWith(Twitter)) {
+	      streamId = ActorUtils.findStreamForInviteLinkedin(inviteId)
+	      locations = ActorUtils.fetchLocationForActiveStreamLinkedin(inviteId)
+
+        } else if (inviteId.endsWith(Twitter)) {
 	      streamId = ActorUtils.findStreamForInviteTwitter(inviteId)
 	      locations = ActorUtils.fetchLocationForActiveStreamTwitter(inviteId)
 	   
@@ -192,15 +197,22 @@ object WhatAmIDoingController extends Controller {
 
       if (!invitedId.equalsIgnoreCase("no-invited-id")) {
         var streamId = ""
-        if (invitedId.endsWith(Twitter)) {
-	      val referer = request.headers("X-Real-IP")
-	      ActorUtils.associatedInviteTwitterWithReferer(invitedId,referer)
+        if (invitedId.endsWith(Linkedin)) {
+	      val referer = request.headers.get("X-Real-IP").orElse(Option("127.0.0.1"))
+	      ActorUtils.associatedInviteLinkedinWithReferer(invitedId,referer.get)
+	      streamId = ActorUtils.findStreamForInviteLinkedin(invitedId)
+	      locations = ActorUtils.fetchLocationForActiveStreamLinkedin(invitedId)
+
+       } else  if (invitedId.endsWith(Twitter)) {
+
+	      val referer = request.headers.get("X-Real-IP").orElse(Option("127.0.0.1"))
+	      ActorUtils.associatedInviteTwitterWithReferer(invitedId,referer.get)
 	      streamId = ActorUtils.findStreamForInviteTwitter(invitedId)
 	      locations = ActorUtils.fetchLocationForActiveStreamTwitter(invitedId)
 	   
         } else if (invitedId.endsWith(Facebook)) {
-	      val referer = request.headers("X-Real-IP")
-	      ActorUtils.associatedInviteFacebookWithReferer(invitedId,referer)
+	      val referer = request.headers.get("X-Real-IP").orElse(Option("127.0.0.1"))
+	      ActorUtils.associatedInviteFacebookWithReferer(invitedId,referer.get)
 	      streamId = ActorUtils.findStreamForInviteFacebook(invitedId)
 	     locations = ActorUtils.fetchLocationForActiveStreamFacebook(invitedId)
 
@@ -268,6 +280,35 @@ object WhatAmIDoingController extends Controller {
 
   }
 
+  /**
+   * *
+   * Used to send an invite to some one to come and view the stream
+   */
+  def inviteLinkedin(token: String) = Action.async {
+    implicit request =>
+
+
+          var valid = ActorUtils.getValidToken(token)
+          if (valid.asInstanceOf[List[String]].size > 0) {
+            var streamName = ActorUtils.streamNameForToken(token)
+            if ((streamName != null) && (!streamName.isEmpty())) {
+              /*
+               * Checking to see if invite is already in the system
+              */
+
+                val invitedId = java.util.UUID.randomUUID().toString()+Linkedin
+                Logger.info("INIVITED ID:"+invitedId)
+                val results = ActorUtils.createInviteLinkedin(streamName,Linkedin, invitedId)
+                future(Ok(invitedId))
+
+            } else {
+              future(Ok("Unable to Invite No Stream"))
+            }
+          } else {
+            future(Ok("Unable To Invite"))
+          }
+
+  }
   /**
    * *
    * Used to send an invite to some one to come and view the stream
