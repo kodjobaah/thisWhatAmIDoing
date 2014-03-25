@@ -491,13 +491,13 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
 
 }
 
-  def countAllTwitterInvites(token: String): String = {
+  def countAllTwitterInvites(token: String, clause: String): String = {
 
     val res =s"""
     match (tok:AuthenticationToken)
     where tok.token="$token"
     with tok
-    match (tok)-[u:USING]-(s) where s.state="active"
+    match (tok)-[u:USING]-(s) $clause
     with s
     match (s)-[t:TO_WATCH]-(i:InviteTwitter)
     return count(i) as count
@@ -507,13 +507,13 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
   }
 
 
-  def countAllFacebookInvites(token: String): String = {
+  def countAllFacebookInvites(token: String, clause: String): String = {
 
     val res =s"""
     match (tok:AuthenticationToken)
     where tok.token="$token"
     with tok
-    match (tok)-[u:USING]-(s) where s.state="active"
+    match (tok)-[u:USING]-(s) $clause
     with s
     match (s)-[t:TO_WATCH]-(i:InviteFacebook)
     return count(i) as count
@@ -523,13 +523,13 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
   }
 
 
-  def countAllLinkedinInvites(token: String): String = {
+  def countAllLinkedinInvites(token: String, clause: String): String = {
 
     val res =s"""
     match (tok:AuthenticationToken)
     where tok.token="$token"
     with tok
-    match (tok)-[u:USING]-(s) where s.state="active"
+    match (tok)-[u:USING]-(s) $clause
     with s
     match (s)-[t:TO_WATCH]-(i:InviteLinkedin)
     return count(i) as count
@@ -539,13 +539,13 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
   }
 
 
-  def getTwitterAcceptanceCount(token: String): String = {
+  def getTwitterAcceptanceCount(token: String, clause: String): String = {
 
     val res =s"""
     match (tok:AuthenticationToken)
     where tok.token="$token"
     with tok
-    match (tok)-[u:USING]-(s) where s.state="active"
+    match (tok)-[u:USING]-(s) where s $clause
     with s
     match (s)-[t:TO_WATCH]-(i:InviteTwitter)-[ur:USING_REFERER]-(r)
     return count(r) as count
@@ -554,13 +554,13 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     return res
   }
 
-  def getLinkedinAcceptanceCount(token: String): String = {
+  def getLinkedinAcceptanceCount(token: String, clause: String): String = {
 
     val res =s"""
     match (tok:AuthenticationToken)
     where tok.token="$token"
     with tok
-    match (tok)-[u:USING]-(s) where s.state="active"
+    match (tok)-[u:USING]-(s) $clause
     with s
     match (s)-[t:TO_WATCH]-(i:InviteLinkedin)-[ur:USING_REFERER]-(r)
     return count(r) as count
@@ -570,13 +570,13 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
   }
 
 
-  def getFacebookAcceptanceCount(token: String): String = {
+  def getFacebookAcceptanceCount(token: String, clause: String): String = {
 
     val res =s"""
     match (tok:AuthenticationToken)
     where tok.token="$token"
     with tok
-    match (tok)-[u:USING]-(s) where s.state="active"
+    match (tok)-[u:USING]-(s) $clause
     with s
     match (s)-[t:TO_WATCH]-(i:InviteFacebook)-[ur:USING_REFERER]-(r)
     return count(r) as count
@@ -585,6 +585,45 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     return res
   }
 
+  def getReferersForLinkedin(stream: String): String = {
+
+    val res =s"""
+        match (s:Stream) where s.name="$stream"
+	with s
+	match (s)-[TO_WATCH]-(inv:InviteLinkedin)-[USING_REFERER]-(ref)
+	return ref.id as ip
+    """
+    Logger.info("--getRefererForLinkedIn["+res+"]")
+    return res
+  }
+
+  def getReferersForTwitter(stream: String): String = {
+
+    val res =s"""
+        match (s:Stream) where s.name="$stream"
+	with s
+	match (s)-[TO_WATCH]-(inv:InviteTwitter)-[USING_REFERER]-(ref)
+	return ref.id as ip
+    """
+    Logger.info("--getRefererForTwitter["+res+"]")
+    return res
+  }
+
+ def getReferersForFacebook(stream: String): String = {
+
+    val res =s"""
+        match (s:Stream) where s.name="$stream"
+	with s
+	match (s)-[TO_WATCH]-(inv:InviteFacebook)-[USING_REFERER]-(ref)
+	return ref.id as ip
+    """
+    Logger.info("--getRefererForFacebook["+res+"]")
+    return res
+  }
+
+
+
+ 
 
 
 }

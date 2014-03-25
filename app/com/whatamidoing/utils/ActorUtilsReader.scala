@@ -581,9 +581,9 @@ object ActorUtilsReader {
   }
 
 
-  def  countAllTwitterInvites(token: String): List[String] = {
+  def  countAllTwitterInvites(token: String,clause: String): List[String] = {
 
-    val countAllTwitterInvites = CypherReaderFunction.countAllTwitterInvites(token)
+    val countAllTwitterInvites = CypherReaderFunction.countAllTwitterInvites(token,clause)
     val countAllTwitterInvitesResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(countAllTwitterInvites)).mapTo[Any]
 
     var results = Await.result(countAllTwitterInvitesResponse, 30 seconds) match {
@@ -595,9 +595,9 @@ object ActorUtilsReader {
   }
 
 
-  def  countAllFacebookInvites(token: String): List[String] = {
+  def  countAllFacebookInvites(token: String, clause: String): List[String] = {
 
-    val countAllFacebookInvites = CypherReaderFunction.countAllFacebookInvites(token)
+    val countAllFacebookInvites = CypherReaderFunction.countAllFacebookInvites(token,clause)
     val countAllFacebookInvitesResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(countAllFacebookInvites)).mapTo[Any]
 
     var results = Await.result(countAllFacebookInvitesResponse, 30 seconds) match {
@@ -608,9 +608,9 @@ object ActorUtilsReader {
     results
   }
 
-  def  countAllLinkedinInvites(token: String): List[String] = {
+  def  countAllLinkedinInvites(token: String,clause: String): List[String] = {
 
-    val countAllLinkedinInvites = CypherReaderFunction.countAllLinkedinInvites(token)
+    val countAllLinkedinInvites = CypherReaderFunction.countAllLinkedinInvites(token,clause)
     val countAllLinkedinInvitesResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(countAllLinkedinInvites)).mapTo[Any]
 
     var results = Await.result(countAllLinkedinInvitesResponse, 30 seconds) match {
@@ -622,9 +622,9 @@ object ActorUtilsReader {
   }
 
 
-  def getFacebookAcceptanceCount(token: String): List[String] = {
+  def getFacebookAcceptanceCount(token: String, clause: String): List[String] = {
 
-    val getFacebookAcceptanceCount = CypherReaderFunction.getFacebookAcceptanceCount(token)
+    val getFacebookAcceptanceCount = CypherReaderFunction.getFacebookAcceptanceCount(token,clause)
     val getFacebookAcceptanceCountResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getFacebookAcceptanceCount)).mapTo[Any]
 
     var results = Await.result(getFacebookAcceptanceCountResponse, 30 seconds) match {
@@ -635,9 +635,9 @@ object ActorUtilsReader {
     results
   }
 
-  def getTwitterAcceptanceCount(token: String): List[String] = {
+  def getTwitterAcceptanceCount(token: String, clause: String): List[String] = {
 
-    val getTwitterAcceptanceCount = CypherReaderFunction.getTwitterAcceptanceCount(token)
+    val getTwitterAcceptanceCount = CypherReaderFunction.getTwitterAcceptanceCount(token,clause)
     val getTwitterAcceptanceCountResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getTwitterAcceptanceCount)).mapTo[Any]
 
     var results = Await.result(getTwitterAcceptanceCountResponse, 30 seconds) match {
@@ -648,9 +648,9 @@ object ActorUtilsReader {
     results
   }
 
- def getLinkedinAcceptanceCount(token: String): List[String] = {
+ def getLinkedinAcceptanceCount(token: String,clause: String): List[String] = {
 
-    val getLinkedinAcceptanceCount = CypherReaderFunction.getLinkedinAcceptanceCount(token)
+    val getLinkedinAcceptanceCount = CypherReaderFunction.getLinkedinAcceptanceCount(token,clause)
     val getLinkedinAcceptanceCountResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getLinkedinAcceptanceCount)).mapTo[Any]
 
     var results = Await.result(getLinkedinAcceptanceCountResponse, 30 seconds) match {
@@ -660,6 +660,89 @@ object ActorUtilsReader {
     }
     results
   }
+
+
+  def getReferersForLinkedin(stream: String): List[String] = {
+
+    val getReferersForLinkedin = CypherReaderFunction.getReferersForLinkedin(stream)
+    val getReferersForLinkedinResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getReferersForLinkedin)).mapTo[Any]
+
+    val results = Await.result(getReferersForLinkedinResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+
+             var result = List[String]()
+             for(res <- readResults.results){
+               var x: String = res match {
+                  case Some(ip) => ip.asInstanceOf[String]
+                  case _ => null
+                }
+		if (x != null) {
+		  
+		   result = result :+ x
+                }
+
+             }
+            Logger.info("results "+result)
+            result
+      }
+    }
+   results
+  }
+
+  def getReferersForTwitter(stream: String): List[String] = {
+
+    val getReferersForTwitter = CypherReaderFunction.getReferersForTwitter(stream)
+    val getReferersForTwitterResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getReferersForTwitter)).mapTo[Any]
+
+    val results = Await.result(getReferersForTwitterResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+
+             var result = List[String]()
+             for(res <- readResults.results){
+               var x: String = res match {
+                  case Some(ip) => ip.asInstanceOf[String]
+                  case _ => null
+                }
+		if (x != null) {
+		  
+		   result = result :+ x
+                }
+
+             }
+            Logger.info("results "+result)
+            result
+      }
+    }
+   results
+  }
+
+ def getReferersForFacebook(stream: String): List[String] = {
+
+    val getReferersForFacebook = CypherReaderFunction.getReferersForFacebook(stream)
+    val getReferersForFacebookResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getReferersForFacebook)).mapTo[Any]
+
+    val results = Await.result(getReferersForFacebookResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+
+             var result = List[String]()
+             for(res <- readResults.results){
+               var x: String = res match {
+                  case Some(ip) => ip.asInstanceOf[String]
+                  case _ => null
+                }
+		if (x != null) {
+		  
+		   result = result :+ x
+                }
+
+             }
+            Logger.info("results "+result)
+            result
+      }
+    }
+   results
+  }
+
 
 
 

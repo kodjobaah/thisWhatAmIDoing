@@ -296,9 +296,9 @@ object CypherReaderFunction {
     fetchLocationForActiveStreamLinkedin
  }
 
-  def countAllTwitterInvites(token: String): () => Neo4jResult = {
+  def countAllTwitterInvites(token: String, clause: String): () => Neo4jResult = {
     val countAllTwitterInvites: Function0[Neo4jResult] = () => {
-      val allInvites = Cypher(CypherReader.countAllTwitterInvites(token)).apply().map(row => (row[Int]("count"))).toList
+      val allInvites = Cypher(CypherReader.countAllTwitterInvites(token,clause)).apply().map(row => (row[Int]("count"))).toList
       val neo4jResult = new Neo4jResult(List(allInvites.head.toString))
      // Logger("CypherBuilder.countAllTwitterInvites").info("number twitter invites:"+allInvites)
       neo4jResult
@@ -306,9 +306,9 @@ object CypherReaderFunction {
      countAllTwitterInvites
   }
 
-  def countAllFacebookInvites(token: String): () => Neo4jResult = {
+  def countAllFacebookInvites(token: String,clause: String ): () => Neo4jResult = {
     val countAllFacebookInvites: Function0[Neo4jResult] = () => {
-      val allInvites = Cypher(CypherReader.countAllFacebookInvites(token)).apply().map(row => (row[Int]("count"))).toList
+      val allInvites = Cypher(CypherReader.countAllFacebookInvites(token,clause)).apply().map(row => (row[Int]("count"))).toList
       val neo4jResult = new Neo4jResult(List(allInvites.head.toString))
      // Logger("CypherBuilder.countAllFacebookInvites").info("number facebook invites:"+allInvites)
       neo4jResult
@@ -316,9 +316,9 @@ object CypherReaderFunction {
      countAllFacebookInvites
   }
 
-  def countAllLinkedinInvites(token: String): () => Neo4jResult = {
+  def countAllLinkedinInvites(token: String,clause: String): () => Neo4jResult = {
     val countAllLinkedinInvites: Function0[Neo4jResult] = () => {
-      val allInvites = Cypher(CypherReader.countAllLinkedinInvites(token)).apply().map(row => (row[Int]("count"))).toList
+      val allInvites = Cypher(CypherReader.countAllLinkedinInvites(token,clause)).apply().map(row => (row[Int]("count"))).toList
       val neo4jResult = new Neo4jResult(List(allInvites.head.toString))
      // Logger("CypherBuilder.countAllLinkedinInvites").info("number linkedin invites:"+allInvites)
       neo4jResult
@@ -327,9 +327,9 @@ object CypherReaderFunction {
   }
 
 
-  def getFacebookAcceptanceCount(token: String): () => Neo4jResult = {
+  def getFacebookAcceptanceCount(token: String, clause: String): () => Neo4jResult = {
     val getFacebookAcceptanceCount: Function0[Neo4jResult] = () => {
-      val allInvites = Cypher(CypherReader.getFacebookAcceptanceCount(token)).apply().map(row => (row[Int]("count"))).toList
+      val allInvites = Cypher(CypherReader.getFacebookAcceptanceCount(token,clause)).apply().map(row => (row[Int]("count"))).toList
       val neo4jResult = new Neo4jResult(List(allInvites.head.toString))
       Logger("CypherBuilder.getFacebookAcceptanceCount").info("number facebook referers:"+allInvites)
       neo4jResult
@@ -337,9 +337,9 @@ object CypherReaderFunction {
      getFacebookAcceptanceCount
   }
 
-  def getTwitterAcceptanceCount(token: String): () => Neo4jResult = {
+  def getTwitterAcceptanceCount(token: String, clause: String): () => Neo4jResult = {
     val getTwitterAcceptanceCount: Function0[Neo4jResult] = () => {
-      val allInvites = Cypher(CypherReader.getTwitterAcceptanceCount(token)).apply().map(row => (row[Int]("count"))).toList
+      val allInvites = Cypher(CypherReader.getTwitterAcceptanceCount(token,clause)).apply().map(row => (row[Int]("count"))).toList
       val neo4jResult = new Neo4jResult(List(allInvites.head.toString))
       Logger("CypherBuilder.getTwitterAcceptanceCount").info("number facebook referers:"+allInvites)
       neo4jResult
@@ -348,15 +348,45 @@ object CypherReaderFunction {
   }
 
 
-  def getLinkedinAcceptanceCount(token: String): () => Neo4jResult = {
+  def getLinkedinAcceptanceCount(token: String,clause: String): () => Neo4jResult = {
     val getLinkedinAcceptanceCount: Function0[Neo4jResult] = () => {
-      val allInvites = Cypher(CypherReader.getLinkedinAcceptanceCount(token)).apply().map(row => (row[Int]("count"))).toList
+      val allInvites = Cypher(CypherReader.getLinkedinAcceptanceCount(token,clause)).apply().map(row => (row[Int]("count"))).toList
       val neo4jResult = new Neo4jResult(List(allInvites.head.toString))
       Logger("CypherBuilder.getLinkedinAcceptanceCount").info("number facebook referers:"+allInvites)
       neo4jResult
     }
      getLinkedinAcceptanceCount
   }
+
+ def getReferersForLinkedin(stream: String): () => Neo4jResult = {
+
+    val getReferersForLinkedin: Function0[Neo4jResult] = () => {
+      val getReferersForLinkedin = Cypher(CypherReader.getReferersForLinkedin(stream)).apply().map(row => (row[Option[String]]("ip"))).toList
+      val neo4jResult = new Neo4jResult(getReferersForLinkedin)
+      neo4jResult
+    }
+    getReferersForLinkedin
+ }
+
+ def getReferersForTwitter(stream: String): () => Neo4jResult = {
+
+    val getReferersForTwitter: Function0[Neo4jResult] = () => {
+      val getReferersForTwitter = Cypher(CypherReader.getReferersForTwitter(stream)).apply().map(row => (row[Option[String]]("ip"))).toList
+      val neo4jResult = new Neo4jResult(getReferersForTwitter)
+      neo4jResult
+    }
+    getReferersForTwitter
+ }
+
+def getReferersForFacebook(stream: String): () => Neo4jResult = {
+
+    val getReferersForFacebook: Function0[Neo4jResult] = () => {
+      val getReferersForFacebook = Cypher(CypherReader.getReferersForFacebook(stream)).apply().map(row => (row[Option[String]]("ip"))).toList
+      val neo4jResult = new Neo4jResult(getReferersForFacebook)
+      neo4jResult
+    }
+    getReferersForFacebook
+ }
 
 
 }

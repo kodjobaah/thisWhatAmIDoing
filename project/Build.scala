@@ -17,6 +17,8 @@ object ApplicationBuild extends Build {
     "org.scalatest" %% "scalatest" % "2.0.RC1" % "test",
     "org.ostermiller" % "utils" % "1.07.00",
     "org.scalamock" %% "scalamock-scalatest-support" % "3.0.1" % "test" exclude ("org.scalatest", "scalatest_2.10"),
+
+    "com.maxmind.geoip" % "geoip-api" % "1.2.13-SNAPSHOT",
     "net.java.dev.jna" % "jna" % "3.5.2",
     "org.apache.commons" % "commons-lang3" % "3.0",
     "commons-cli" % "commons-cli" % "1.2",

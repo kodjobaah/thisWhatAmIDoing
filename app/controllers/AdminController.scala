@@ -24,6 +24,9 @@ import models.User
 import models.ForgottenPassword
 import models.ChangePassword
 import models.UserDetails
+import com.whatamidoing.services.LinkedinService
+import com.whatamidoing.services.TwitterService
+import com.whatamidoing.services.FacebookService
 
 import com.whatamidoing.mail.EmailSenderService
 
@@ -265,8 +268,48 @@ object AdminController extends Controller {
           }
         }
 
+       //Getting info about facebook
+       val facebookService: FacebookService = FacebookService()
+       val facebookCountResults = facebookService.getFacebookCount(token)
+       var referersFacebook = List[(Float,Float)]()
+      
+       if (facebookCountResults._1.size > 1) {
+       	 if (facebookCountResults._3.size < 1) {
+            response = response :+ facebookCountResults
+         } else {
+            acceptedUsersResults = acceptedUsersResults :+ facebookCountResults
+	    referersFacebook = facebookService.getFacebookReferers(streamId)
+         }
+       }
 
-        future(Ok(views.html.streamInvites(acceptedUsersResults,response)))
+       //Getting info about twitter
+       val twitterService: TwitterService = TwitterService()
+       val twitterCountResults = twitterService.getTwitterCount(token)
+       var referersTwitter = List[(Float,Float)]()
+       if (twitterCountResults._1.size > 1) {
+          if (twitterCountResults._3.size < 1) {
+              response = response :+ twitterCountResults
+           } else {
+              acceptedUsersResults = acceptedUsersResults :+ twitterCountResults
+	      referersTwitter = twitterService.getTwitterReferers(streamId)
+           }
+       }
+
+
+       val linkedinService: LinkedinService = LinkedinService()
+       val countResults = linkedinService.getLinkedInCount(token)
+       var referersLinkedin = List[(Float,Float)]()
+       if (countResults._1.size > 1) {
+          if (countResults._3.size < 1) {
+              response = response :+ countResults;
+           } else {
+              acceptedUsersResults = acceptedUsersResults :+ countResults
+	      referersLinkedin = linkedinService.getLinkedInReferers(streamId)
+           }
+        }
+
+        future(Ok(views.html.streamInvites(acceptedUsersResults,response,referersLinkedin,referersTwitter,referersFacebook)))
+
     }.getOrElse {
       future(Unauthorized(views.html.welcome(Index.userForm)))
     }

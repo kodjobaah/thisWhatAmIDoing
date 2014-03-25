@@ -71,9 +71,10 @@ object WhatAmIDoingController extends Controller {
         }
 
        //Getting info about twitter
-       val twitterInvites = ActorUtilsReader.countAllTwitterInvites(token).head.toInt
+       val clause = "where s.state=\"active\""
+       val twitterInvites = ActorUtilsReader.countAllTwitterInvites(token,clause).head.toInt
        if (twitterInvites > 0) {      
-          val twitterAccept = ActorUtilsReader.getTwitterAcceptanceCount(token).head.toInt
+          val twitterAccept = ActorUtilsReader.getTwitterAcceptanceCount(token,clause).head.toInt
           if (twitterAccept > 0) {
 	   val twitter = "number watching ("+twitterAccept+")"
            val json = Json.obj("email" -> "Twitter", "firstName" -> twitter, "lastName" -> "")
@@ -85,9 +86,9 @@ object WhatAmIDoingController extends Controller {
        }
 
        //Getting info about facebook
-       val facebookInvites = ActorUtilsReader.countAllFacebookInvites(token).head.toInt
+       val facebookInvites = ActorUtilsReader.countAllFacebookInvites(token,clause).head.toInt
        if (facebookInvites > 0) {      
-          val facebookAccept = ActorUtilsReader.getFacebookAcceptanceCount(token).head.toInt
+          val facebookAccept = ActorUtilsReader.getFacebookAcceptanceCount(token,clause).head.toInt
           if (facebookAccept > 0) {
 	   val facebook = "number watching ("+facebookAccept+")"
            val json = Json.obj("email" -> "Facebook", "firstName" -> facebook, "lastName" -> "")
@@ -99,9 +100,10 @@ object WhatAmIDoingController extends Controller {
        }
 
        //Getting info about linkedin
-       val linkedinInvites = ActorUtilsReader.countAllLinkedinInvites(token).head.toInt
+
+       val linkedinInvites = ActorUtilsReader.countAllLinkedinInvites(token,clause).head.toInt
        if (linkedinInvites > 0) {      
-          val linkedinAccept = ActorUtilsReader.getLinkedinAcceptanceCount(token).head.toInt
+          val linkedinAccept = ActorUtilsReader.getLinkedinAcceptanceCount(token,clause).head.toInt
           if (linkedinAccept > 0) {
 	   val linkedin = "number watching ("+linkedinAccept+")"
            val json = Json.obj("email" -> "Linkedin", "firstName" -> linkedin, "lastName" -> "")
