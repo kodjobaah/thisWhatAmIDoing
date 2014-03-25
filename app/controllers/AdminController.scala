@@ -14,6 +14,7 @@ import java.text.DecimalFormat
 import org.joda.time.DateTime
 
 import com.whatamidoing.utils.ActorUtils
+import com.whatamidoing.utils.ActorUtilsReader
 
 import play.api.data._
 import play.api.data.Forms._
@@ -64,7 +65,7 @@ object AdminController extends Controller {
 	    },
 	    userData => {
       	     var r = ActorUtils.updateUserDetails(token,userData.firstName,userData.lastName)
-      	     var res =  ActorUtils.fetchUserDetails(token)
+      	     var res =  ActorUtilsReader.fetchUserDetails(token)
 	     val filledForm = userDetailsForm.fill(res)
              future(Ok(views.html.userdetails(filledForm)))
 	    }
@@ -82,7 +83,7 @@ object AdminController extends Controller {
 
     session.get("whatAmIdoing-authenticationToken").map {
       token =>
-      	  var res =  ActorUtils.fetchUserDetails(token)
+      	  var res =  ActorUtilsReader.fetchUserDetails(token)
 
 	  val filledForm = userDetailsForm.fill(res)
 	  System.out.println(res)
@@ -113,7 +114,7 @@ object AdminController extends Controller {
         future(Ok(views.html.welcome(Index.userForm)))
      } else {
 
-       var change= ActorUtils.checkToSeeIfCheckPasswordIdIsValid(changePasswordId)     
+       var change= ActorUtilsReader.checkToSeeIfCheckPasswordIdIsValid(changePasswordId)     
        if (change.size == 0) {
           future(Ok(views.html.invalidchangepasswordid()))
        } else {
@@ -164,7 +165,7 @@ object AdminController extends Controller {
   def changePassword(changePasswordId: String) = Action.async { implicit request =>
 
 
-       var change= ActorUtils.checkToSeeIfCheckPasswordIdIsValid(changePasswordId)     
+       var change= ActorUtilsReader.checkToSeeIfCheckPasswordIdIsValid(changePasswordId)     
        if (change.size == 0) {
         future(Ok(views.html.invalidchangepasswordid()))
        } else {
@@ -192,7 +193,7 @@ object AdminController extends Controller {
   }
 
   private def findUserForForgottenPassword(form: Form[ForgottenPassword], userData: ForgottenPassword): Either[Form[ForgottenPassword], String] = {
-  	  var res = ActorUtils.searchForUser(userData.email)
+  	  var res = ActorUtilsReader.searchForUser(userData.email)
  	  val either = userData match {
     	      case ForgottenPassword(email) if !res.isEmpty => sendForgottenPasswordEmail(email)
     	      case _=> Left(Seq(FormError("email","error.notRegistered")))
@@ -237,7 +238,7 @@ object AdminController extends Controller {
     session.get("whatAmIdoing-authenticationToken").map {
       token =>
 
-        val acceptedUsers = ActorUtils.getUsersWhoHaveAcceptedToWatchStreamUsingStreamId(streamId)
+        val acceptedUsers = ActorUtilsReader.getUsersWhoHaveAcceptedToWatchStreamUsingStreamId(streamId)
         val acceptedUsersResponse = acceptedUsers.asInstanceOf[List[Tuple3[Option[String],Option[String],Option[String]]]]
 
         var acceptedUsersResults: Seq[Tuple3[String,String,String]] = Seq()
@@ -250,7 +251,7 @@ object AdminController extends Controller {
         }
 
 
-        val resInstance = ActorUtils.getUsersWhoHaveBeenInvitedToWatchStreamUsingStreamId(streamId)
+        val resInstance = ActorUtilsReader.getUsersWhoHaveBeenInvitedToWatchStreamUsingStreamId(streamId)
         val res = resInstance.asInstanceOf[List[Tuple3[Option[String], Option[String], Option[String]]]]
 
         var response: Seq[Tuple3[String,String,String]] = Seq()
@@ -305,13 +306,13 @@ object AdminController extends Controller {
         val mend = endTime.getMonthOfYear()
         val dend = endTime.getDayOfMonth()
 
-        var email = ActorUtils.getEmailUsingToken(token)
+        var email = ActorUtilsReader.getEmailUsingToken(token)
         Logger.info("THIS IS THE EMAIL:"+email)
 
-        val resInstanceEnded = ActorUtils.getStreamsForCalendarThatHaveEnded(email,y,yend,m,mend,d,dend)
+        val resInstanceEnded = ActorUtilsReader.getStreamsForCalendarThatHaveEnded(email,y,yend,m,mend,d,dend)
         val resEnded = resInstanceEnded.asInstanceOf[List[Tuple5[Option[BigDecimal],Option[BigDecimal],Option[BigDecimal],Option[String], Option[String]]]]
 
-        val resInstance = ActorUtils.getStreamsForCalendar(email,y,yend,m,mend,d,dend)
+        val resInstance = ActorUtilsReader.getStreamsForCalendar(email,y,yend,m,mend,d,dend)
         val res = resInstance.asInstanceOf[List[Tuple5[Option[BigDecimal],Option[BigDecimal],Option[BigDecimal],Option[String], Option[String]]]]
 
         var response: Seq[JsObject] = Seq()
@@ -412,7 +413,7 @@ object AdminController extends Controller {
       session.get("whatAmIdoing-authenticationToken").map {
         tokenAuth =>
 
-          val resInstance = ActorUtils.findAllInvitesForStream(token,iDisplayStart,iDisplayLength,iSortCol_0,sSortDir_0,streamId)
+          val resInstance = ActorUtilsReader.findAllInvitesForStream(token,iDisplayStart,iDisplayLength,iSortCol_0,sSortDir_0,streamId)
 
           val res = resInstance.asInstanceOf[List[Tuple5[Option[String], Option[String],String,Option[String],Option[String]]]]
 
@@ -428,7 +429,7 @@ object AdminController extends Controller {
           }
 
 
-          val numberOfRecords = ActorUtils.countAllInvitesForToken(token)
+          val numberOfRecords = ActorUtilsReader.countAllInvitesForToken(token)
           var sendBack = Json.obj(
             "sEcho" -> sEcho,
             "iTotalRecords" -> numberOfRecords,
@@ -457,7 +458,7 @@ object AdminController extends Controller {
           var token = request.queryString.get("token").get.head
 
 
-          val resInstance = ActorUtils.findAllStreamsForDay(token,displayStart,numberOfItems,sortColumn,sortDirection)
+          val resInstance = ActorUtilsReader.findAllStreamsForDay(token,displayStart,numberOfItems,sortColumn,sortDirection)
 
           val res = resInstance.asInstanceOf[List[Tuple5[String, String,String,Option[String],Option[String]]]]
 
@@ -473,7 +474,7 @@ object AdminController extends Controller {
           }
 
 
-          val numberOfRecords = ActorUtils.countNumberAllStreamsForDay(token)
+          val numberOfRecords = ActorUtilsReader.countNumberAllStreamsForDay(token)
           val h = numberOfRecords.head.toInt - totalDisplay
           var sendBack = Json.obj(
             "sEcho" -> sEcho,
@@ -493,9 +494,9 @@ object AdminController extends Controller {
 
       session.get("whatAmIdoing-authenticationToken").map {
         user =>
-          var valid = ActorUtils.getValidToken(user)
+          var valid = ActorUtilsReader.getValidToken(user)
           if (valid.asInstanceOf[List[String]].size > 0) {
-            var toks = ActorUtils.findAllTokensForUser(email).asInstanceOf[List[Option[String]]]
+            var toks = ActorUtilsReader.findAllTokensForUser(email).asInstanceOf[List[Option[String]]]
 
             var tokens: List[String] = List()
             for(x <- toks) {
@@ -531,7 +532,7 @@ object AdminController extends Controller {
             msg => {
 
 
-              var token = ActorUtils.getUserToken(userData.userName)
+              var token = ActorUtilsReader.getUserToken(userData.userName)
               Logger.info("active token associated with user["+token+"]")
 
               if (token.isEmpty || token.equalsIgnoreCase("-1")) {
@@ -550,7 +551,7 @@ object AdminController extends Controller {
   }
 
   private def authenticateUser(form: Form[User], userData: User): Either[Form[User], String] = {
-    var res = ActorUtils.searchForUser(userData.userName)
+    var res = ActorUtilsReader.searchForUser(userData.userName)
     val either = userData match {
       case User(username, password) if !res.isEmpty => validateUser(res, password)
       case _ => Left(Seq(FormError("Email", "error.notRegistered")))

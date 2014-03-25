@@ -8,6 +8,7 @@ import javax.imageio.ImageIO
 import play.api.Logger
 import sun.misc.BASE64Decoder
 import com.whatamidoing.utils.ActorUtils
+import com.whatamidoing.utils.ActorUtilsReader
 import akka.actor.ActorRef
 import play.api.Logger
 import play.api.libs.json._
@@ -67,7 +68,7 @@ class FrameSupervisor(username: String) extends Actor {
           system.stop(videoEncoder.get)
           videoEncoders -= token
 
-          var streamName = ActorUtils.findActiveStreamForToken(token)
+          var streamName = ActorUtilsReader.findActiveStreamForToken(token)
           Logger("FrameSupervisor.receive").info("stream name:" + streamName)
           if (!streamName.isEmpty()) {
             var res = ActorUtils.closeStream(streamName)

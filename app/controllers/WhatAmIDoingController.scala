@@ -9,10 +9,13 @@ import play.api.libs.json.{Json, JsObject}
 import scala.concurrent.future
 
 import com.whatamidoing.utils.ActorUtils
+import com.whatamidoing.utils.ActorUtilsReader
 import com.whatamidoing.mail.EmailSenderService
 import models.Messages._
 
 object WhatAmIDoingController extends Controller {
+
+      import models.Location
 
   val Twitter: String = "TWITTER"
   val Facebook: String = "FACEBOOK"
@@ -25,7 +28,7 @@ object WhatAmIDoingController extends Controller {
     	val token = tokenOption.getOrElse("not-token-provided")
 
     	if (!token.equalsIgnoreCase("not-token-provided")) {
-          val res = ActorUtils.findAllInvites(token)
+          val res = ActorUtilsReader.findAllInvites(token)
           future(Ok(res.mkString(",")))
        } else {
     		future(Ok("No token provided"))
@@ -40,7 +43,7 @@ object WhatAmIDoingController extends Controller {
 
       if (!token.equalsIgnoreCase("not-token-provided")) {
 
-        val acceptedUsers = ActorUtils.getUsersWhoHaveAcceptedToWatchStream(token)
+        val acceptedUsers = ActorUtilsReader.getUsersWhoHaveAcceptedToWatchStream(token)
         val acceptedUsersResponse = acceptedUsers.asInstanceOf[List[Tuple3[Option[String],Option[String],Option[String]]]]
 
         var acceptedUsersResults: Seq[JsObject] = Seq()
@@ -53,7 +56,7 @@ object WhatAmIDoingController extends Controller {
         }
 
 
-        val resInstance = ActorUtils.getUsersWhoHaveBeenInvitedToWatchStream(token)
+        val resInstance = ActorUtilsReader.getUsersWhoHaveBeenInvitedToWatchStream(token)
         val res = resInstance.asInstanceOf[List[Tuple3[Option[String], Option[String], Option[String]]]]
 
         var response: Seq[JsObject] = Seq()
@@ -68,9 +71,9 @@ object WhatAmIDoingController extends Controller {
         }
 
        //Getting info about twitter
-       val twitterInvites = ActorUtils.countAllTwitterInvites(token).head.toInt
+       val twitterInvites = ActorUtilsReader.countAllTwitterInvites(token).head.toInt
        if (twitterInvites > 0) {      
-          val twitterAccept = ActorUtils.getTwitterAcceptanceCount(token).head.toInt
+          val twitterAccept = ActorUtilsReader.getTwitterAcceptanceCount(token).head.toInt
           if (twitterAccept > 0) {
 	   val twitter = "number watching ("+twitterAccept+")"
            val json = Json.obj("email" -> "Twitter", "firstName" -> twitter, "lastName" -> "")
@@ -82,9 +85,9 @@ object WhatAmIDoingController extends Controller {
        }
 
        //Getting info about facebook
-       val facebookInvites = ActorUtils.countAllFacebookInvites(token).head.toInt
+       val facebookInvites = ActorUtilsReader.countAllFacebookInvites(token).head.toInt
        if (facebookInvites > 0) {      
-          val facebookAccept = ActorUtils.getFacebookAcceptanceCount(token).head.toInt
+          val facebookAccept = ActorUtilsReader.getFacebookAcceptanceCount(token).head.toInt
           if (facebookAccept > 0) {
 	   val facebook = "number watching ("+facebookAccept+")"
            val json = Json.obj("email" -> "Facebook", "firstName" -> facebook, "lastName" -> "")
@@ -94,6 +97,21 @@ object WhatAmIDoingController extends Controller {
               response = response :+ json
           }
        }
+
+       //Getting info about linkedin
+       val linkedinInvites = ActorUtilsReader.countAllLinkedinInvites(token).head.toInt
+       if (linkedinInvites > 0) {      
+          val linkedinAccept = ActorUtilsReader.getLinkedinAcceptanceCount(token).head.toInt
+          if (linkedinAccept > 0) {
+	   val linkedin = "number watching ("+linkedinAccept+")"
+           val json = Json.obj("email" -> "Linkedin", "firstName" -> linkedin, "lastName" -> "")
+           acceptedUsersResults = acceptedUsersResults :+ json
+          } else {
+            val json = Json.obj("email" -> "Linkedin", "firstName" -> "", "lastName" -> "")
+              response = response :+ json
+          }
+       }
+
 
        Logger.info("---accepted:"+acceptedUsersResults)
        Logger.info("---not accepted:"+response)
@@ -132,7 +150,7 @@ object WhatAmIDoingController extends Controller {
       val token = tokenOption.getOrElse("no-token-provided")
 
       if (!token.equalsIgnoreCase("no-token-provided")) {
-        var streamId = ActorUtils.findActiveStreamForToken(token)
+        var streamId = ActorUtilsReader.findActiveStreamForToken(token)
         if (!streamId.isEmpty()) {
           ActorUtils.closeStream(streamId)
         }
@@ -153,22 +171,22 @@ object WhatAmIDoingController extends Controller {
 	import models.Location
       	var locations = List(Location())
 
-        if (inviteId.endsWith(Twitter)) {
-	      streamId = ActorUtils.findStreamForInviteLinkedin(inviteId)
-	      locations = ActorUtils.fetchLocationForActiveStreamLinkedin(inviteId)
+        if (inviteId.endsWith(Linkedin)) {
+	      streamId = ActorUtilsReader.findStreamForInviteLinkedin(inviteId)
+	      locations = ActorUtilsReader.fetchLocationForActiveStreamLinkedin(inviteId)
 
         } else if (inviteId.endsWith(Twitter)) {
-	      streamId = ActorUtils.findStreamForInviteTwitter(inviteId)
-	      locations = ActorUtils.fetchLocationForActiveStreamTwitter(inviteId)
+	      streamId = ActorUtilsReader.findStreamForInviteTwitter(inviteId)
+	      locations = ActorUtilsReader.fetchLocationForActiveStreamTwitter(inviteId)
 	   
         } else if (inviteId.endsWith(Facebook)) {
-	     streamId = ActorUtils.findStreamForInviteFacebook(inviteId)
-	     locations = ActorUtils.fetchLocationForActiveStreamFacebook(inviteId)
+	     streamId = ActorUtilsReader.findStreamForInviteFacebook(inviteId)
+	     locations = ActorUtilsReader.fetchLocationForActiveStreamFacebook(inviteId)
 
         } else {
-          streamId = ActorUtils.findStreamForInvitedId(inviteId)
+          streamId = ActorUtilsReader.findStreamForInvitedId(inviteId)
           if(!streamId.isEmpty()){
-	     locations = ActorUtils.fetchLocationForActiveStream(inviteId)
+	     locations = ActorUtilsReader.fetchLocationForActiveStream(inviteId)
           }
         }
        
@@ -200,27 +218,27 @@ object WhatAmIDoingController extends Controller {
         if (invitedId.endsWith(Linkedin)) {
 	      val referer = request.headers.get("X-Forwarded-For").orElse(Option("127.0.0.1"))
 	      ActorUtils.associatedInviteLinkedinWithReferer(invitedId,referer.get)
-	      streamId = ActorUtils.findStreamForInviteLinkedin(invitedId)
-	      locations = ActorUtils.fetchLocationForActiveStreamLinkedin(invitedId)
+	      streamId = ActorUtilsReader.findStreamForInviteLinkedin(invitedId)
+	      locations = ActorUtilsReader.fetchLocationForActiveStreamLinkedin(invitedId)
 
        } else  if (invitedId.endsWith(Twitter)) {
 
 	      val referer = request.headers.get("X-Forwarded-For").orElse(Option("127.0.0.1"))
 	      ActorUtils.associatedInviteTwitterWithReferer(invitedId,referer.get)
-	      streamId = ActorUtils.findStreamForInviteTwitter(invitedId)
-	      locations = ActorUtils.fetchLocationForActiveStreamTwitter(invitedId)
+	      streamId = ActorUtilsReader.findStreamForInviteTwitter(invitedId)
+	      locations = ActorUtilsReader.fetchLocationForActiveStreamTwitter(invitedId)
 	   
         } else if (invitedId.endsWith(Facebook)) {
 	      val referer = request.headers.get("X-Forwarded-For").orElse(Option("127.0.0.1"))
 	      ActorUtils.associatedInviteFacebookWithReferer(invitedId,referer.get)
-	      streamId = ActorUtils.findStreamForInviteFacebook(invitedId)
-	     locations = ActorUtils.fetchLocationForActiveStreamFacebook(invitedId)
+	      streamId = ActorUtilsReader.findStreamForInviteFacebook(invitedId)
+	     locations = ActorUtilsReader.fetchLocationForActiveStreamFacebook(invitedId)
 
         } else {
-          streamId = ActorUtils.findStreamForInvitedId(invitedId)
+          streamId = ActorUtilsReader.findStreamForInvitedId(invitedId)
           if(!streamId.isEmpty()){
              ActorUtils.associatedInviteWithDayOfAcceptance(invitedId)
-	     locations = ActorUtils.fetchLocationForActiveStream(invitedId)
+	     locations = ActorUtilsReader.fetchLocationForActiveStream(invitedId)
 
           }
         }
@@ -241,7 +259,7 @@ object WhatAmIDoingController extends Controller {
 
  def createLocationForStream(token:String, latitude: Double, longitude: Double) = Action.async {
      implicit request =>
-          var valid = ActorUtils.getValidToken(token)
+          var valid = ActorUtilsReader.getValidToken(token)
           if (valid.asInstanceOf[List[String]].size > 0) {
 	     val res = ActorUtils.createLocationForStream(token,latitude,longitude)
 	     future(Ok("Location added"))
@@ -258,9 +276,9 @@ object WhatAmIDoingController extends Controller {
     implicit request =>
 
 
-          var valid = ActorUtils.getValidToken(token)
+          var valid = ActorUtilsReader.getValidToken(token)
           if (valid.asInstanceOf[List[String]].size > 0) {
-            var streamName = ActorUtils.streamNameForToken(token)
+            var streamName = ActorUtilsReader.streamNameForToken(token)
             if ((streamName != null) && (!streamName.isEmpty())) {
               /*
                * Checking to see if invite is already in the system
@@ -288,9 +306,9 @@ object WhatAmIDoingController extends Controller {
     implicit request =>
 
 
-          var valid = ActorUtils.getValidToken(token)
+          var valid = ActorUtilsReader.getValidToken(token)
           if (valid.asInstanceOf[List[String]].size > 0) {
-            var streamName = ActorUtils.streamNameForToken(token)
+            var streamName = ActorUtilsReader.streamNameForToken(token)
             if ((streamName != null) && (!streamName.isEmpty())) {
               /*
                * Checking to see if invite is already in the system
@@ -317,9 +335,9 @@ object WhatAmIDoingController extends Controller {
     implicit request =>
 
 
-          var valid = ActorUtils.getValidToken(token)
+          var valid = ActorUtilsReader.getValidToken(token)
           if (valid.asInstanceOf[List[String]].size > 0) {
-            var streamName = ActorUtils.streamNameForToken(token)
+            var streamName = ActorUtilsReader.streamNameForToken(token)
             if ((streamName != null) && (!streamName.isEmpty())) {
               /*
                * Checking to see if invite is already in the system
@@ -352,10 +370,10 @@ object WhatAmIDoingController extends Controller {
       if (!token.equalsIgnoreCase("no-token-provided")) {
         if (!emails.equalsIgnoreCase("no-email-provided")) {
 
-          var valid = ActorUtils.getValidToken(token)
+          var valid = ActorUtilsReader.getValidToken(token)
 
           if (valid.asInstanceOf[List[String]].size > 0) {
-            var streamName = ActorUtils.streamNameForToken(token)
+            var streamName = ActorUtilsReader.streamNameForToken(token)
             if ((streamName != null) && (!streamName.isEmpty())) {
               /*
                * Checking to see if invite is already in the system
@@ -367,7 +385,7 @@ object WhatAmIDoingController extends Controller {
               Logger.info("LIST OF EMAILS ["+listOfEmails+"] size = ["+listOfEmails.size+"]")
               for (email <- listOfEmails) {
 
-                val res = ActorUtils.searchForUser(email)
+                val res = ActorUtilsReader.searchForUser(email)
 
                 if (res.isEmpty()) {
                   val password = "test"
@@ -378,7 +396,7 @@ object WhatAmIDoingController extends Controller {
                 val invitedId = java.util.UUID.randomUUID().toString()
                 Logger.info("INIVITED ID:"+invitedId)
                 ActorUtils.createInvite(streamName, email, invitedId)
-		var userDetails = ActorUtils.fetchUserDetails(token)
+		var userDetails = ActorUtilsReader.fetchUserDetails(token)
 		Logger.info("----userdeteails:"+userDetails)
                 emailSenderService.sendInviteEmail(email, invitedId,userDetails)
 
@@ -411,7 +429,7 @@ object WhatAmIDoingController extends Controller {
         val ln = lastName.getOrElse("no-last-name-provided")
 
         if (!em.equalsIgnoreCase("no-email-address-provided")) {
-          var res = ActorUtils.searchForUser(em)
+          var res = ActorUtilsReader.searchForUser(em)
 
           Logger.info("results from searching for a user:" + p + ":")
           //Creating the user
@@ -438,7 +456,7 @@ object WhatAmIDoingController extends Controller {
                 var invalidateResults = ActorUtils.invalidateAllTokensForUser(em);
                 Logger.info("-- results from invalidating user:" + invalidateResults);
                 Logger.info("--getting token for user:" + em)
-                var token = ActorUtils.getUserToken(em)
+                var token = ActorUtilsReader.getUserToken(em)
                 Logger.info("---returned:" + token)
 
 
@@ -480,7 +498,7 @@ object WhatAmIDoingController extends Controller {
       Logger("WhatAmIDoingController.publishVideo").info(" token=" + token)
 
       if (!token.equalsIgnoreCase("no-token-supplied")) {
-        val res = ActorUtils.getValidToken(token)
+        val res = ActorUtilsReader.getValidToken(token)
         if (res.asInstanceOf[List[String]].size > 0) {
 
           val in = Iteratee.foreach[String](s => {

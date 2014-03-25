@@ -504,18 +504,6 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     return res
   }
 
-  def getTwitterAcceptanceCount(token: String): String = {
-
-    val res =s"""
-    match (tok:AuthenticationToken)
-    where tok.token="$token"
-    with tok
-    match (tok)-[u:USING]-(s)-[t:TO_WATCH]-(i:InviteTwitter)-[ur:USING_REFERER]-(r)
-    return count(r) as count
-    """
-    Logger.info("--getTwitterAcceptanceCount["+res+"]")
-    return res
-  }
 
   def countAllFacebookInvites(token: String): String = {
 
@@ -529,6 +517,48 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     Logger.info("--countAllFacebookInvites["+res+"]")
     return res
   }
+
+
+  def countAllLinkedinInvites(token: String): String = {
+
+    val res =s"""
+    match (tok:AuthenticationToken)
+    where tok.token="$token"
+    with tok
+    match (tok)-[u:USING]-(s)-[t:TO_WATCH]-(i:InviteLinkedin)
+    return count(i) as count
+    """
+    Logger.info("--countAllLinkedinInvites["+res+"]")
+    return res
+  }
+
+
+  def getTwitterAcceptanceCount(token: String): String = {
+
+    val res =s"""
+    match (tok:AuthenticationToken)
+    where tok.token="$token"
+    with tok
+    match (tok)-[u:USING]-(s)-[t:TO_WATCH]-(i:InviteTwitter)-[ur:USING_REFERER]-(r)
+    return count(r) as count
+    """
+    Logger.info("--getTwitterAcceptanceCount["+res+"]")
+    return res
+  }
+
+  def getLinkedinAcceptanceCount(token: String): String = {
+
+    val res =s"""
+    match (tok:AuthenticationToken)
+    where tok.token="$token"
+    with tok
+    match (tok)-[u:USING]-(s)-[t:TO_WATCH]-(i:InviteLinkedin)-[ur:USING_REFERER]-(r)
+    return count(r) as count
+    """
+    Logger.info("--getLinkedinAcceptanceCount["+res+"]")
+    return res
+  }
+
 
   def getFacebookAcceptanceCount(token: String): String = {
 
