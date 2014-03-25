@@ -260,6 +260,15 @@ object CypherReaderFunction {
     fetchUserDetails
  }
 
+ def fetchLocationForStream(stream: String): () => Neo4jResult = {
+    val fetchLocationForStream: Function0[Neo4jResult] = () => {
+      val fetchLocationForStream = Cypher(CypherReader.fetchLocationForStream(stream)).apply().map(row => (row[Option[Double]]("latitude"),row[Option[Double]]("longitude"))).toList
+      val neo4jResult = new Neo4jResult(fetchLocationForStream)
+      neo4jResult
+    }
+    fetchLocationForStream
+ }
+
  def fetchLocationForActiveStream(inviteId: String): () => Neo4jResult = {
     val fetchLocationForActiveStream: Function0[Neo4jResult] = () => {
       val fetchLocationForActiveStream = Cypher(CypherReader.fetchLocationForActiveStream(inviteId)).apply().map(row => (row[Option[Double]]("latitude"),row[Option[Double]]("longitude"))).toList

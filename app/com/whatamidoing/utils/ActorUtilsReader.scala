@@ -463,6 +463,35 @@ object ActorUtilsReader {
   }
 
   import models.Location
+  def fetchLocationForStream(stream: String): List[Location] = {
+
+    val fetchLocationForStream = CypherReaderFunction.fetchLocationForStream(stream)
+    val fetchLocationForStreamResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(fetchLocationForStream)).mapTo[Any]
+
+    val results = Await.result(fetchLocationForStreamResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+
+             var result = List[Location]()
+             for(res <- readResults.results){
+	       System.out.println("----fetch-location--resuls"+res)
+               var x: Location = res match {
+                  case (Some(latitude),Some(longitude)) => 
+		       				Location(latitude.asInstanceOf[Double],longitude.asInstanceOf[Double])
+                  case _ => null
+                }
+		if (result != null) {
+		   result = result :+ x
+		}
+
+             }
+
+            Logger.info("results "+result)
+            result
+      }
+    }
+   results
+  }
+
   def fetchLocationForActiveStream(inviteId: String): List[Location] = {
 
     val fetchLocationForActiveStream = CypherReaderFunction.fetchLocationForActiveStream(inviteId)

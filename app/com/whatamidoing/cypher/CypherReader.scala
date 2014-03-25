@@ -431,6 +431,18 @@ object CypherReader {
      return res
   }
 
+def fetchLocationForStream(stream: String): String = {
+
+        val res=s"""
+	   match (s:Stream) where s.name = "$stream"
+	    with s
+	    match (s)-[l:LOCATED_AT]-(loc)
+            return loc.latitude as latitude, loc.longitude as longitude
+       """
+       Logger.info("--fetchLocationForStream["+res+"]")
+       return res
+}
+
 def fetchLocationForActiveStream(inviteId: String): String = {
 
         val res=s"""

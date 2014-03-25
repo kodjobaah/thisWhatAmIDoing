@@ -308,7 +308,8 @@ object AdminController extends Controller {
            }
         }
 
-        future(Ok(views.html.streamInvites(acceptedUsersResults,response,referersLinkedin,referersTwitter,referersFacebook)))
+        var streamBroadCastLocations = ActorUtilsReader.fetchLocationForStream(streamId)
+        future(Ok(views.html.streamInvites(streamBroadCastLocations,acceptedUsersResults,response,referersLinkedin,referersTwitter,referersFacebook)))
 
     }.getOrElse {
       future(Unauthorized(views.html.welcome(Index.userForm)))
