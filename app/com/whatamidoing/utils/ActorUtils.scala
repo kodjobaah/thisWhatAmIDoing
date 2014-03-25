@@ -174,6 +174,23 @@ object ActorUtils {
     }
     inviteId
   }
+  def createInviteLinkedin(stream: String, linkedin: String, id: String) = {
+    val createInviteLinkedin= CypherWriterFunction.createInviteLinkedin(stream, linkedin, id)
+    val writeResponse: Future[Any] = ask(neo4jwriter, PerformOperation(createInviteLinkedin)).mapTo[Any]
+
+    var inviteId = Await.result(writeResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        if (results.results.size > 0) {
+         Logger("ActorUtils.createInviteTwitter").info("resuls["+results.results.head+"]");
+
+        } else {
+          ""
+
+        }
+      }
+    }
+    inviteId
+  }
 
   def findStreamForInvitedId(invitedId: String) = {
     val createInvite = CypherReaderFunction.findStreamForInvitedId(invitedId)
@@ -228,6 +245,25 @@ object ActorUtils {
     streamName
 
   }
+
+  def findStreamForInviteLinkedin(invitedId: String) = {
+    val inviteLinkedin = CypherReaderFunction.findStreamForInviteLinkedin(invitedId)
+    val readerResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(inviteLinkedin)).mapTo[Any]
+
+    var streamName = Await.result(readerResponse, 10 seconds) match {
+      case ReadOperationResult(results) => {
+
+        if (results.results.size > 0) {
+          results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
+      }
+    }
+    streamName
+
+  }
+
 
   def checkToSeeIfTwitterInviteAcceptedAlreadyByReferer(inviteId: String, referer: String) = {
     val checkToSeeIfTwitterInviteAcceptedAlreadyByReferer = CypherReaderFunction.checkToSeeIfTwitterInviteAcceptedAlreadyByReferer(inviteId,referer)
@@ -351,6 +387,24 @@ object ActorUtils {
     res
 
   }
+
+  def associatedInviteLinkedinWithReferer(inviteId: String, referal: String) = {
+    val associateInviteLinkedinWithReferer = CypherWriterFunction.associateInviteLinkedinWithReferer(inviteId,referal)
+    val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(associateInviteLinkedinWithReferer)).mapTo[Any]
+
+    var res = Await.result(writerResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        if (results.results.size > 0) {
+        results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
+      }
+    }
+    res
+
+  }
+
 
 
   
@@ -754,7 +808,6 @@ object ActorUtils {
 
              var result = List[Location]()
              for(res <- readResults.results){
-	       System.out.println("----fetch-location--resuls"+res)
                var x: Location = res match {
                   case (Some(latitude),Some(longitude)) => 
 		       				Location(latitude.asInstanceOf[Double],longitude.asInstanceOf[Double])
@@ -784,7 +837,6 @@ object ActorUtils {
 
              var result = List[Location]()
              for(res <- readResults.results){
-	       System.out.println("----fetch-location--resuls"+res)
                var x: Location = res match {
                   case (Some(latitude),Some(longitude)) => 
 		       				Location(latitude.asInstanceOf[Double],longitude.asInstanceOf[Double])
@@ -802,6 +854,35 @@ object ActorUtils {
     }
    results
   }
+
+  def fetchLocationForActiveStreamLinkedin(inviteId: String): List[Location] = {
+
+    val fetchLocationForActiveStreamLinkedin = CypherReaderFunction.fetchLocationForActiveStreamLinkedin(inviteId)
+    val fetchLocationForActiveStreamResponseLinkedin: Future[Any] = ask(neo4jreader, PerformReadOperation(fetchLocationForActiveStreamLinkedin)).mapTo[Any]
+
+    val results = Await.result(fetchLocationForActiveStreamResponseLinkedin, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+
+             var result = List[Location]()
+             for(res <- readResults.results){
+               var x: Location = res match {
+                  case (Some(latitude),Some(longitude)) => 
+		       				Location(latitude.asInstanceOf[Double],longitude.asInstanceOf[Double])
+                  case _ => null
+                }
+		if (result != null) {
+		   result = result :+ x
+		}
+
+             }
+
+            Logger.info("results "+result)
+            result
+      }
+    }
+   results
+  }
+
 
 
   def invalidateAllStreams(token: String) = {
