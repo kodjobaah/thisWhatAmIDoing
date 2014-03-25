@@ -198,20 +198,20 @@ object WhatAmIDoingController extends Controller {
       if (!invitedId.equalsIgnoreCase("no-invited-id")) {
         var streamId = ""
         if (invitedId.endsWith(Linkedin)) {
-	      val referer = request.headers.get("X-Real-IP").orElse(Option("127.0.0.1"))
+	      val referer = request.headers.get("X-Forwarded-For").orElse(Option("127.0.0.1"))
 	      ActorUtils.associatedInviteLinkedinWithReferer(invitedId,referer.get)
 	      streamId = ActorUtils.findStreamForInviteLinkedin(invitedId)
 	      locations = ActorUtils.fetchLocationForActiveStreamLinkedin(invitedId)
 
        } else  if (invitedId.endsWith(Twitter)) {
 
-	      val referer = request.headers.get("X-Real-IP").orElse(Option("127.0.0.1"))
+	      val referer = request.headers.get("X-Forwarded-For").orElse(Option("127.0.0.1"))
 	      ActorUtils.associatedInviteTwitterWithReferer(invitedId,referer.get)
 	      streamId = ActorUtils.findStreamForInviteTwitter(invitedId)
 	      locations = ActorUtils.fetchLocationForActiveStreamTwitter(invitedId)
 	   
         } else if (invitedId.endsWith(Facebook)) {
-	      val referer = request.headers.get("X-Real-IP").orElse(Option("127.0.0.1"))
+	      val referer = request.headers.get("X-Forwarded-For").orElse(Option("127.0.0.1"))
 	      ActorUtils.associatedInviteFacebookWithReferer(invitedId,referer.get)
 	      streamId = ActorUtils.findStreamForInviteFacebook(invitedId)
 	     locations = ActorUtils.fetchLocationForActiveStreamFacebook(invitedId)
