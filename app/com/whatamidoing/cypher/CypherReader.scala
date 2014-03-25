@@ -90,6 +90,19 @@ object CypherReader {
       return res
   }
 
+  def findStreamForInviteLinkedin(invitedId: String) : String = {
+    val res=s"""
+    		match (a:InviteLinkedin)
+    		where a.id = "$invitedId"
+    		with a
+    		match (a)-[:TO_WATCH]->(r)
+    		where r.state = "active"
+    		return r.name as name
+      """
+      return res
+  }
+
+
 
   def checkToSeeIfTwitterInviteAcceptedAlreadyByReferer(inviteId: String, referer: String) : String  = {
      val res=s"""
@@ -463,6 +476,20 @@ def fetchLocationForActiveStreamFacebook(inviteId: String): String = {
 
 }
 
+def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
+
+        val res=s"""
+	    match (i:InviteLinkedin) where i.id="$inviteId"
+	    with i
+	    match (i)-[to:TO_WATCH]-(s)
+	    with s
+	    match (s)-[l:LOCATED_AT]-(loc)
+            return loc.latitude as latitude, loc.longitude as longitude
+       """
+       Logger.info("--fetchLocationForActiveStreamLinkedin["+res+"]")
+       return res
+
+}
 
   def countAllTwitterInvites(token: String): String = {
 

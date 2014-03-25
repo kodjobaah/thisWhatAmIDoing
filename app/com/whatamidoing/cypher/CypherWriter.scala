@@ -141,8 +141,21 @@ object CypherWriter {
     
   }
 
+  def createInviteLinkedin(stream: String, linkedin: String, inviteId: String): String = {
 
+    val res=s"""
 
+                match (stream:Stream)
+    		where stream.name="$stream" 
+                with stream
+    		create (invite:InviteLinkedin {name:"$stream-$linkedin}", id:"$inviteId"})
+                with invite,stream
+    		create (invite)-[r:TO_WATCH]->(stream)
+    		return distinct invite.id as inviteId
+    """
+    return res
+    
+  }
 
 
   def invalidateAllTokensForUser(email: String): String = {
@@ -220,6 +233,19 @@ object CypherWriter {
       return res
   }
 
+  def associateInviteLinkedinWithReferer(inviteId:String, day: String, time: String,referer: String): String = {
+      val res=s"""
+    		match (inviteLinkedin:InviteLinkedin), (day:Day)
+    		where inviteLinkedin.id = "$inviteId" and day.description="$day"
+    		with inviteLinkedin,day
+                create (referer:Referer{id:"$referer"})
+                with inviteLinkedin,day,referer
+                create (inviteLinkedin)-[r:USING_REFERER]->(referer)-[a:ACCEPTED_ON {time:"$time"}]->(day)
+    		return r,referer
+      """
+     Logger.info("--associateInviteLinkedinReferer["+res+"]")
+      return res
+  }
 
   def createChangePassword(id: String) : String = {
       val t = s"""

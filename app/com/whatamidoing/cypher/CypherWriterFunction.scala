@@ -147,6 +147,21 @@ object CypherWriterFunction {
     createInviteFacebook
   }
 
+  def createInviteLinkedin(stream: String, linkedin: String, id: String): () => Neo4jResult = {
+
+    val createInviteLinkedin: Function0[Neo4jResult] = () => {
+
+      val createInviteLinkedin = Cypher(CypherWriter.createInviteLinkedin(stream, linkedin, id)).apply().map(row => (row[Option[String]]("inviteId"))).toList
+      Logger("CypherWriterFunction.createInviteLinkedin").info("this is createinviteLinkedin: " + createInviteLinkedin)
+
+      val neo4jResult = new Neo4jResult(createInviteLinkedin)
+      neo4jResult
+    }
+
+    createInviteLinkedin
+  }
+
+
 
 
   def invalidateToken(token: String): () => Neo4jResult = {
@@ -248,6 +263,23 @@ object CypherWriterFunction {
     associatedInviteWithFacebookReferer
   }
 
+  def associateInviteLinkedinWithReferer(inviteId: String, referal: String): () => Neo4jResult = {
+    
+    val associatedInviteWithLinkedinReferer: Function0[Neo4jResult] = () => {
+      val dt = new DateTime();
+      val day = dt.getDayOfMonth();
+      val dayDescription = "day " + day + " - month " + dt.getMonthOfYear() + "- year " + dt.getYear()
+      val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
+
+      val assocaiteInviteLinkedinWithReferer = Cypher(CypherWriter.associateInviteLinkedinWithReferer(inviteId, dayDescription, time,referal)).execute()
+      Logger("CypherWriterFunction.associateInviteLinkedinWithReferer").info("this is associateInviteLinkedinWithRefererd: " + assocaiteInviteLinkedinWithReferer)
+
+      val neo4jResult = new Neo4jResult(List(assocaiteInviteLinkedinWithReferer.toString()))
+      neo4jResult
+    }
+
+    associatedInviteWithLinkedinReferer
+  }
 
 
   def changePasswordRequest(email:String,changePasswordId: String): () => Neo4jResult = {
