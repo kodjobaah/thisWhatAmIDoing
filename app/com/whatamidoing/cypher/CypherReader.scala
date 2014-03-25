@@ -273,7 +273,7 @@ object CypherReader {
 
     match (a:AuthenticationToken) where a.token="$token" and a.valid = "true"
     with a
-    match (a:AuthenticationToken)-[r:USING]-(s:Stream)
+    match (a:AuthenticationToken)-[r:USING]-(s:Stream) where s.state="active"
     with s
     match (s:Stream)-[t:TO_WATCH]-(i:Invite)
     with i
@@ -288,7 +288,7 @@ object CypherReader {
   def getUsersWhoHaveAcceptedToWatchStreamUsingStreamId(streamId: String): String = {
     val res=s"""
           match (s:Stream)-[:TO_WATCH]-(i:Invite)-[ACCEPTED_ON]->(d:Day)
-          where s.id = "$streamId"
+          where s.id = "$streamId" and s.state="active"
           with i
           match (i:Invite)<-[:RECEIVED]-(u:User)
           return distinct u.email as email, u.firstName as firstName, u.lastName as lastName
@@ -301,7 +301,7 @@ object CypherReader {
   def getUsersWhoHaveBeenInvitedToWatchStreamUsingStreamId(streamId: String): String = {
     val res=s"""
      match s-[t:TO_WATCH]-i
-     where s.id = "$streamId"
+     where s.id = "$streamId" and s.state="active"
      with i
      match i-[:RECEIVED]-u
      where u.email is not null
@@ -436,7 +436,7 @@ def fetchLocationForActiveStream(inviteId: String): String = {
         val res=s"""
 	    match (i:Invite) where i.id="$inviteId"
 	    with i
-	    match (i)-[to:TO_WATCH]-(s)
+	    match (i)-[to:TO_WATCH]-(s) where s.state="active"
 	    with s
 	    match (s)-[l:LOCATED_AT]-(loc)
             return loc.latitude as latitude, loc.longitude as longitude
@@ -451,7 +451,7 @@ def fetchLocationForActiveStreamTwitter(inviteId: String): String = {
         val res=s"""
 	    match (i:InviteTwitter) where i.id="$inviteId"
 	    with i
-	    match (i)-[to:TO_WATCH]-(s)
+	    match (i)-[to:TO_WATCH]-(s) where s.state="active"
 	    with s
 	    match (s)-[l:LOCATED_AT]-(loc)
             return loc.latitude as latitude, loc.longitude as longitude
@@ -466,7 +466,7 @@ def fetchLocationForActiveStreamFacebook(inviteId: String): String = {
         val res=s"""
 	    match (i:InviteFacebook) where i.id="$inviteId"
 	    with i
-	    match (i)-[to:TO_WATCH]-(s)
+	    match (i)-[to:TO_WATCH]-(s) where s.state="active"
 	    with s
 	    match (s)-[l:LOCATED_AT]-(loc)
             return loc.latitude as latitude, loc.longitude as longitude
@@ -481,7 +481,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
         val res=s"""
 	    match (i:InviteLinkedin) where i.id="$inviteId"
 	    with i
-	    match (i)-[to:TO_WATCH]-(s)
+	    match (i)-[to:TO_WATCH]-(s) where s.state="active"
 	    with s
 	    match (s)-[l:LOCATED_AT]-(loc)
             return loc.latitude as latitude, loc.longitude as longitude
@@ -497,7 +497,9 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     match (tok:AuthenticationToken)
     where tok.token="$token"
     with tok
-    match (tok)-[u:USING]-(s)-[t:TO_WATCH]-(i:InviteTwitter)
+    match (tok)-[u:USING]-(s) where s.state="active"
+    with s
+    match (s)-[t:TO_WATCH]-(i:InviteTwitter)
     return count(i) as count
     """
     Logger.info("--countAllTwitterInvites["+res+"]")
@@ -511,7 +513,9 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     match (tok:AuthenticationToken)
     where tok.token="$token"
     with tok
-    match (tok)-[u:USING]-(s)-[t:TO_WATCH]-(i:InviteFacebook)
+    match (tok)-[u:USING]-(s) where s.state="active"
+    with s
+    match (s)-[t:TO_WATCH]-(i:InviteFacebook)
     return count(i) as count
     """
     Logger.info("--countAllFacebookInvites["+res+"]")
@@ -525,7 +529,9 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     match (tok:AuthenticationToken)
     where tok.token="$token"
     with tok
-    match (tok)-[u:USING]-(s)-[t:TO_WATCH]-(i:InviteLinkedin)
+    match (tok)-[u:USING]-(s) where s.state="active"
+    with s
+    match (s)-[t:TO_WATCH]-(i:InviteLinkedin)
     return count(i) as count
     """
     Logger.info("--countAllLinkedinInvites["+res+"]")
@@ -539,7 +545,9 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     match (tok:AuthenticationToken)
     where tok.token="$token"
     with tok
-    match (tok)-[u:USING]-(s)-[t:TO_WATCH]-(i:InviteTwitter)-[ur:USING_REFERER]-(r)
+    match (tok)-[u:USING]-(s) where s.state="active"
+    with s
+    match (s)-[t:TO_WATCH]-(i:InviteTwitter)-[ur:USING_REFERER]-(r)
     return count(r) as count
     """
     Logger.info("--getTwitterAcceptanceCount["+res+"]")
@@ -552,7 +560,9 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     match (tok:AuthenticationToken)
     where tok.token="$token"
     with tok
-    match (tok)-[u:USING]-(s)-[t:TO_WATCH]-(i:InviteLinkedin)-[ur:USING_REFERER]-(r)
+    match (tok)-[u:USING]-(s) where s.state="active"
+    with s
+    match (s)-[t:TO_WATCH]-(i:InviteLinkedin)-[ur:USING_REFERER]-(r)
     return count(r) as count
     """
     Logger.info("--getLinkedinAcceptanceCount["+res+"]")
@@ -566,7 +576,9 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     match (tok:AuthenticationToken)
     where tok.token="$token"
     with tok
-    match (tok)-[u:USING]-(s)-[t:TO_WATCH]-(i:InviteFacebook)-[ur:USING_REFERER]-(r)
+    match (tok)-[u:USING]-(s) where s.state="active"
+    with s
+    match (s)-[t:TO_WATCH]-(i:InviteFacebook)-[ur:USING_REFERER]-(r)
     return count(r) as count
     """
     Logger.info("--getFacebookAcceptanceCount["+res+"]")
