@@ -15,7 +15,7 @@ class TwitterService() {
 
 	         val mult = ip.split(",")
 		  mult.foreach {op =>
-		   val webserviceCall = url +op
+		   val webserviceCall = url +op.trim
                    import scala.concurrent._
 		   import scala.concurrent.duration._
 		   import play.api.libs.ws._
