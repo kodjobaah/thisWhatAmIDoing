@@ -557,7 +557,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     match (tok:AuthenticationToken)
     where tok.token="$token"
     with tok
-    match (tok)-[u:USING]-(s) where s $clause
+    match (tok)-[u:USING]-(s) $clause
     with s
     match (s)-[t:TO_WATCH]-(i:InviteTwitter)-[ur:USING_REFERER]-(r)
     return count(r) as count
