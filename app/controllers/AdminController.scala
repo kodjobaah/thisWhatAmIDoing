@@ -270,7 +270,7 @@ object AdminController extends Controller {
 
        //Getting info about facebook
        val facebookService: FacebookService = FacebookService()
-       val facebookCountResults = facebookService.getFacebookCount(token)
+       val facebookCountResults = facebookService.getFacebookCount(token,streamId)
        var referersFacebook = List[(Float,Float)]()
       
        if (facebookCountResults._1.size > 1) {
@@ -284,7 +284,7 @@ object AdminController extends Controller {
 
        //Getting info about twitter
        val twitterService: TwitterService = TwitterService()
-       val twitterCountResults = twitterService.getTwitterCount(token)
+       val twitterCountResults = twitterService.getTwitterCount(token,streamId)
        var referersTwitter = List[(Float,Float)]()
        if (twitterCountResults._1.size > 1) {
           if (twitterCountResults._3.size < 1) {
@@ -297,7 +297,7 @@ object AdminController extends Controller {
 
 
        val linkedinService: LinkedinService = LinkedinService()
-       val countResults = linkedinService.getLinkedInCount(token)
+       val countResults = linkedinService.getLinkedInCount(token,streamId)
        var referersLinkedin = List[(Float,Float)]()
        if (countResults._1.size > 1) {
           if (countResults._3.size < 1) {

@@ -33,9 +33,9 @@ class FacebookService() {
          referersFacebook
        }
 
-       def getFacebookCount(token: String): Tuple3[String,String,String] =  {
+       def getFacebookCount(token: String, streamId: String): Tuple3[String,String,String] =  {
        //Getting info about linkedin
-       val clause = ""
+       val clause = "where s.name=\""+streamId+"\""
        val facebookInvites = ActorUtilsReader.countAllFacebookInvites(token,clause).head.toInt
        var res = ("","","")
        if (facebookInvites > 0) {      

@@ -33,9 +33,9 @@ class LinkedinService() {
          referersLinkedin
        }
 
-       def getLinkedInCount(token: String): Tuple3[String,String,String] =  {
+       def getLinkedInCount(token: String, streamId: String): Tuple3[String,String,String] =  {
        //Getting info about linkedin
-       val clause = ""
+       val clause = "where s.name=\""+streamId+"\""
        val linkedinInvites = ActorUtilsReader.countAllLinkedinInvites(token,clause).head.toInt
        var res = ("","","")
        if (linkedinInvites > 0) {      
