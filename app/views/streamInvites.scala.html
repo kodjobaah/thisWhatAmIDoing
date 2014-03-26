@@ -70,15 +70,18 @@
     } 
         </thead>
         <tbody>
+	  <tr>
     @if(!linkedInRefs.isEmpty) {
-   <tr><td>  <div class="jumbotron col-md-6 col-md-offset-1" id="map"  style="width:200px; height: 200px;"> Location Was Not Supplied </div></td></tr>
+  <td>  <div class="jumbotron col-md-6 col-md-offset-1" id="map"  style="width:200px; height: 200px;"> Location Was Not Supplied </div></td>
    }
    @if(!facebookRefs.isEmpty) {
-   <tr><td>  <div class="jumbotron col-md-6 col-md-offset-1" id="facebookMap"  style="width:200px; height: 200px;"> Location Was Not Supplied </div></td></tr>
+  <td>  <div class="jumbotron col-md-6 col-md-offset-1" id="facebookMap"  style="width:200px; height: 200px;"> Location Was Not Supplied </div></td>
 }
    @if(!twitterRefs.isEmpty) {
-   <tr><td>  <div class="jumbotron col-md-6 col-md-offset-1" id="twitterMap"  style="width:200px; height: 200px;"> Location Was Not Supplied </div></td></tr>
+   <<td>  <div class="jumbotron col-md-6 col-md-offset-1" id="twitterMap"  style="width:200px; height: 200px;"> Location Was Not Supplied </div></td>
+     
 }
+</tr>
         </tbody>
     </table>
 
@@ -139,7 +142,7 @@
 
 
       map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 8,
+      zoom: 5,
       center: new google.maps.LatLng(@linkedInRefs.head._1, @linkedInRefs.head._2),
       mapTypeId: google.maps.MapTypeId.HYBRID
     });
@@ -179,7 +182,7 @@
 
 
       twitterMap = new google.maps.Map(document.getElementById('twitterMap'), {
-      zoom: 8,
+      zoom: 5,
       center: new google.maps.LatLng(@linkedInRefs.head._1, @linkedInRefs.head._2),
       mapTypeId: google.maps.MapTypeId.HYBRID
     });
@@ -214,7 +217,7 @@
 
 
       facebookMap = new google.maps.Map(document.getElementById('facebookMap'), {
-      zoom: 8,
+      zoom: 5,
       center: new google.maps.LatLng(@linkedInRefs.head._1, @linkedInRefs.head._2),
       mapTypeId: google.maps.MapTypeId.HYBRID
     });
