@@ -57,23 +57,24 @@
 
     <table class="table table-hover">
         <theah>
-    @if(!linkedInRefs.isEmpty) {
-        <th>Location of those viewed on LinkedIN</th>
+    @if(!facebookRefs.isEmpty) {
+        <th>Location of those viewed on Facebook</th>
     } 
+
 
     @if(!twitterRefs.isEmpty) {
         <th>Location of those viewed on Twitter</th>
     } 
 
-    @if(!facebookRefs.isEmpty) {
-        <th>Location of those viewed on Facebook</th>
+    @if(!linkedInRefs.isEmpty) {
+        <th>Location of those viewed on LinkedIN</th>
     } 
+
+
+
         </thead>
         <tbody>
 	  <tr>
-    @if(!linkedInRefs.isEmpty) {
-  <td>  <div class="jumbotron col-md-6 col-md-offset-1" id="map"  style="width:200px; height: 200px;"> Location Was Not Supplied </div></td>
-   }
    @if(!facebookRefs.isEmpty) {
   <td>  <div class="jumbotron col-md-6 col-md-offset-1" id="facebookMap"  style="width:200px; height: 200px;"> Location Was Not Supplied </div></td>
 }
@@ -81,6 +82,10 @@
    <<td>  <div class="jumbotron col-md-6 col-md-offset-1" id="twitterMap"  style="width:200px; height: 200px;"> Location Was Not Supplied </div></td>
      
 }
+    @if(!linkedInRefs.isEmpty) {
+  <td>  <div class="jumbotron col-md-6 col-md-offset-1" id="map"  style="width:200px; height: 200px;"> Location Was Not Supplied </div></td>
+   }
+
 </tr>
         </tbody>
     </table>
@@ -94,9 +99,9 @@
         var locations = [
             @for((loc,index) <- locations.zipWithIndex) {
               @if((index.asInstanceOf[Int] +1) == locations.size) {				   
-                 [@loc.latitude, @loc.longitude, @index+1]
+                 [@loc.latitude, @loc.longitude, @(index+1)]
 	       } else {
-                 [@loc.latitude, @loc.longitude, @index+1],
+                 [@loc.latitude, @loc.longitude, @(index+1)],
 	       }
              }
           ];
@@ -130,87 +135,88 @@
 
    var map;
    @if(!linkedInRefs.isEmpty) {
-        var locations = [
+        var locationsLinkedIn = [
             @for(((lat,lg),index) <- linkedInRefs.zipWithIndex) {
               @if((index.asInstanceOf[Int] +1) == linkedInRefs.size) {				   
-                 [@lat, @lg, @index+1]
+                 [@lat, @lg, @(index+1)]
 	       } else {
-                 [@lat, @lg, @index+1],
+                 [@lat, @lg, @(index+1)],
 	       }
              }
           ];
 
 
       map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 5,
+      zoom: 1,
       center: new google.maps.LatLng(@linkedInRefs.head._1, @linkedInRefs.head._2),
       mapTypeId: google.maps.MapTypeId.HYBRID
     });
   
     var infowindow = new google.maps.InfoWindow();
-    var marker, i;
+    var markerLinkedIn, i;
 
-    for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+    for (i = 0; i < locationsLinkedIn.length; i++) {  
+      markerLinkedIn = new google.maps.Marker({
+        position: new google.maps.LatLng(locationsLinkedIn[i][0], locationsLinkedIn[i][1]),
         map: map
       });
 
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      google.maps.event.addListener(markerLinkedIn, 'click', (function(markerLinkedIn, i) {
         return function() {
           infowindow.setContent("don't know");
-          infowindow.open(map, marker);
+          infowindow.open(map, markerLinkedIn);
         }
-      })(marker, i));
+      })(markerLinkedIn, i));
     }
   }
    
 
-
-
    var twitterMap;
    @if(!twitterRefs.isEmpty) {
-        var locations = [
+        var locationsTwitter = [
             @for(((lat,lg),index) <- twitterRefs.zipWithIndex) {
               @if((index.asInstanceOf[Int] +1) == twitterRefs.size) {				   
-                 [@lat, @lg, @index+1]
+                 [@lat, @lg, @(index+1)]
 	       } else {
-                 [@lat, @lg, @index+1],
+                 [@lat, @lg, @(index+1)],
 	       }
              }
           ];
 
 
       twitterMap = new google.maps.Map(document.getElementById('twitterMap'), {
-      zoom: 5,
+      zoom: 1,
       center: new google.maps.LatLng(@linkedInRefs.head._1, @linkedInRefs.head._2),
       mapTypeId: google.maps.MapTypeId.HYBRID
     });
 
     var twitterInfowindow = new google.maps.InfoWindow();
-    for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+    var markerTwitter, i;
+    for (i = 0; i < locationsTwitter.length; i++) {  
+      markerTwitter = new google.maps.Marker({
+        position: new google.maps.LatLng(locationsTwitter[i][0], locationsTwitter[i][1]),
         map: twitterMap
       });
 
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      google.maps.event.addListener(marker, 'click', (function(markerTwitter, i) {
         return function() {
           twitterInfowindow.setContent("don't know");
-          twitterInfowindow.open(twitterMap, marker);
+          twitterInfowindow.open(twitterMap, markerTwitter);
         }
-      })(marker, i));
+      })(markerTwitter, i));
     }
   }
 
+
+
    var facebookMap;
    @if(!facebookRefs.isEmpty) {
-        var locations = [
+        var locationsFacebook = [
             @for(((lat,lg),index) <- facebookRefs.zipWithIndex) {
               @if((index.asInstanceOf[Int] +1) == facebookRefs.size) {				   
-                 [@lat, @lg, @index+1]
+                 [@lat, @lg, @(index+1)]
 	       } else {
-                 [@lat, @lg, @index+1],
+                 [@lat, @lg, @(index+1)],
 	       }
              }
           ];
@@ -223,18 +229,19 @@
     });
 
     var facebookInfowindow = new google.maps.InfoWindow();
-    for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+    var markerFacebook, i;
+    for (i = 0; i < locationsFacebook.length; i++) {  
+      markerFacebook = new google.maps.Marker({
+        position: new google.maps.LatLng(locationsFacebook[i][0], locationsFacebook[i][1]),
         map: facebookMap
       });
 
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      google.maps.event.addListener(marker, 'click', (function(markerFacebook, i) {
         return function() {
           facebookInfowindow.setContent("don't know");
-          facebookInfowindow.open(facebookMap, marker);
+          facebookInfowindow.open(facebookMap, markerFacebook);
         }
-      })(marker, i));
+      })(markerFacebook, i));
    }
  }
 
