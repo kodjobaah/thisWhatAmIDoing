@@ -269,14 +269,14 @@ object AdminController extends Controller {
         }
 
        //Getting info about facebook
+        var socialSites: Seq[Tuple3[String,String,String]] = Seq()
        val facebookService: FacebookService = FacebookService()
        val facebookCountResults = facebookService.getFacebookCount(token,streamId)
        var referersFacebook = List[(Float,Float)]()
       
        if (facebookCountResults._1.size > 1) {
-       	 if (facebookCountResults._3.size < 1) {
-            response = response :+ facebookCountResults
-         } else {
+            socialSites = socialSites :+ facebookCountResults
+       	 if (facebookCountResults._3.size > 1) {
             acceptedUsersResults = acceptedUsersResults :+ facebookCountResults
 	    referersFacebook = facebookService.getFacebookReferers(streamId)
          }
@@ -287,29 +287,24 @@ object AdminController extends Controller {
        val twitterCountResults = twitterService.getTwitterCount(token,streamId)
        var referersTwitter = List[(Float,Float)]()
        if (twitterCountResults._1.size > 1) {
-          if (twitterCountResults._3.size < 1) {
-              response = response :+ twitterCountResults
-           } else {
-              acceptedUsersResults = acceptedUsersResults :+ twitterCountResults
+            socialSites = socialSites :+ twitterCountResults
+          if (twitterCountResults._3.size > 1) {
 	      referersTwitter = twitterService.getTwitterReferers(streamId)
            }
        }
-
 
        val linkedinService: LinkedinService = LinkedinService()
        val countResults = linkedinService.getLinkedInCount(token,streamId)
        var referersLinkedin = List[(Float,Float)]()
        if (countResults._1.size > 1) {
-          if (countResults._3.size < 1) {
-              response = response :+ countResults;
-           } else {
-              acceptedUsersResults = acceptedUsersResults :+ countResults
+            socialSites = socialSites :+ countResults
+          if (countResults._3.size > 1) {
 	      referersLinkedin = linkedinService.getLinkedInReferers(streamId)
            }
         }
 
         var streamBroadCastLocations = ActorUtilsReader.fetchLocationForStream(streamId)
-        future(Ok(views.html.streamInvites(streamBroadCastLocations,acceptedUsersResults,response,referersLinkedin,referersTwitter,referersFacebook)))
+        future(Ok(views.html.streamInvites(socialSites,streamBroadCastLocations,acceptedUsersResults,response,referersLinkedin,referersTwitter,referersFacebook)))
 
     }.getOrElse {
       future(Unauthorized(views.html.welcome(Index.userForm)))

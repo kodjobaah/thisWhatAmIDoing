@@ -43,9 +43,9 @@ class TwitterService() {
           val twitterAccept = ActorUtilsReader.getTwitterAcceptanceCount(token,clause).head.toInt
           if (twitterAccept > 0) {
 	   val accept = "("+twitterAccept+")"
-	   res = ("Twitter","number watched",accept)
+	   res = ("Twitter","number of viewers",accept)
           } else {
-	     res  = ("Twitter","","")
+	     res  = ("Twitter","no viewers","")
 
           }
        }  

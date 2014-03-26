@@ -42,9 +42,9 @@ class LinkedinService() {
           val linkedinAccept = ActorUtilsReader.getLinkedinAcceptanceCount(token,clause).head.toInt
           if (linkedinAccept > 0) {
 	   val accept = "("+linkedinAccept+")"
-	   res = ("LinkedIn","number watched",accept)
+	   res = ("LinkedIn","number viewers",accept)
           } else {
-	     res  = ("Linkedin","","")
+	     res  = ("Linkedin","no viewers","")
 
           }
        }  
