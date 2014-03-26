@@ -277,7 +277,6 @@ object AdminController extends Controller {
        if (facebookCountResults._1.size > 1) {
             socialSites = socialSites :+ facebookCountResults
        	 if (facebookCountResults._3.size > 1) {
-            acceptedUsersResults = acceptedUsersResults :+ facebookCountResults
 	    referersFacebook = facebookService.getFacebookReferers(streamId)
          }
        }
