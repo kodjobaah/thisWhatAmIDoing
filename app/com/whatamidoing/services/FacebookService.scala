@@ -42,7 +42,7 @@ class FacebookService() {
           val facebookAccept = ActorUtilsReader.getFacebookAcceptanceCount(token,clause).head.toInt
           if (facebookAccept > 0) {
 	   val accept = "("+facebookAccept+")"
-	   res = ("Facebook","number viewers",accept)
+	   res = ("Facebook","number of viewers",accept)
           } else {
 	     res  = ("Facebook","no viewers","")
 
