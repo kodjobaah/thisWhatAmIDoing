@@ -114,7 +114,7 @@
     for (i = 0; i < locations.length; i++) {  
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][0], locations[i][1]),
-        map: map
+        map: locationMap
       });
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
@@ -207,7 +207,7 @@
    @if(!facebookRefs.isEmpty) {
         var locations = [
             @for(((lat,lg),index) <- facebookRefs.zipWithIndex) {
-              @if((index.asInstanceOf[Int] +1) == twitterRefs.size) {				   
+              @if((index.asInstanceOf[Int] +1) == facebookRefs.size) {				   
                  [@lat, @lg, @index+1]
 	       } else {
                  [@lat, @lg, @index+1],
