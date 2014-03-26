@@ -12,16 +12,21 @@ class LinkedinService() {
 	var referersLinkedin = List[(Float,Float)]()
 	linkedInReferers.foreach {
 	  case ip: String => { 
-		  val webserviceCall = url +ip
-                  import scala.concurrent._
-		  import scala.concurrent.duration._
-		  import play.api.libs.ws._
-		  val res = WS.url(webserviceCall).get().map {
-		      response =>((response.json \"latitude").as[Float],(response.json \"longitude").as[Float])
-                  }
 
-		  val result = Await.result(res,5 seconds)
-		 referersLinkedin = referersLinkedin ::: List(result)
+	         val mult = ip.split(",")
+		  mult.foreach {op =>
+
+		    val webserviceCall = url +op
+                    import scala.concurrent._
+		    import scala.concurrent.duration._
+		    import play.api.libs.ws._
+		    val res = WS.url(webserviceCall).get().map {
+		      response =>((response.json \"latitude").as[Float],(response.json \"longitude").as[Float])
+                    }
+
+		    val result = Await.result(res,5 seconds)
+		    referersLinkedin = referersLinkedin ::: List(result)
+                  }
            }
  
 	 }
