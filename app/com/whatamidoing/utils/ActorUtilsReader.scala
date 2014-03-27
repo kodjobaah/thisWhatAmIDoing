@@ -251,7 +251,11 @@ object ActorUtilsReader {
 
     var results = Await.result(getCountOfAllUsersWhoHaveAcceptedToWatchStreamResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
-        readResults.results.head.asInstanceOf[BigDecimal]
+        if (readResults.results.size > 0) {
+          readResults.results.head.asInstanceOf[BigDecimal]
+	} else {
+	  BigDecimal(0)
+	}
       }
     }
     results
@@ -320,9 +324,13 @@ object ActorUtilsReader {
 
     var results = Await.result(countNumberAllStreamsForDayResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
-        readResults.results.head.asInstanceOf[BigDecimal]
+        if (readResults.results.size > 0) {
+          readResults.results.head.asInstanceOf[BigDecimal]
+	} else {
+	  BigDecimal(0)
+	}
       }
-    }
+ }
     results
   }
 
@@ -335,7 +343,11 @@ object ActorUtilsReader {
 
     var results = Await.result(countAllInvitesForTokenResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
-        readResults.results.head.asInstanceOf[BigDecimal]
+        if (readResults.results.size > 0) {
+          readResults.results.head.asInstanceOf[BigDecimal]
+	} else {
+	  BigDecimal(0)
+	}
       }
     }
     results
@@ -484,7 +496,6 @@ object ActorUtilsReader {
 
              var result = List[Location]()
              for(res <- readResults.results){
-	       System.out.println("----fetch-location--resuls"+res)
                var x: Location = res match {
                   case (Some(latitude),Some(longitude)) => 
 		       				Location(latitude.asInstanceOf[Double],longitude.asInstanceOf[Double])
@@ -628,7 +639,11 @@ object ActorUtilsReader {
 
     var results = Await.result(countAllTwitterInvitesResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
-        readResults.results.head.asInstanceOf[BigDecimal]
+        if (readResults.results.size > 0) {
+          readResults.results.head.asInstanceOf[BigDecimal]
+	} else {
+	  BigDecimal(0)
+	}
       }
     }
     results
@@ -641,7 +656,12 @@ object ActorUtilsReader {
     val countAllFacebookInvitesResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(countAllFacebookInvites)).mapTo[Any]
     var results = Await.result(countAllFacebookInvitesResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
-        readResults.results.head.asInstanceOf[BigDecimal]
+        if (readResults.results.size > 0) {
+          readResults.results.head.asInstanceOf[BigDecimal]
+	} else {
+	  BigDecimal(0)
+	}
+
       }
     }
     results
@@ -654,7 +674,11 @@ object ActorUtilsReader {
 
     var results = Await.result(countAllLinkedinInvitesResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
-        readResults.results.head.asInstanceOf[BigDecimal]
+        if (readResults.results.size > 0) {
+          readResults.results.head.asInstanceOf[BigDecimal]
+	} else {
+	  BigDecimal(0)
+	}
       }
     }
     results
@@ -668,7 +692,12 @@ object ActorUtilsReader {
 
     var results = Await.result(getFacebookAcceptanceCountResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
-        readResults.results.head.asInstanceOf[BigDecimal]
+        if (readResults.results.size > 0) {
+          readResults.results.head.asInstanceOf[BigDecimal]
+	} else {
+	  BigDecimal(0)
+	}
+
       }
     }
     Logger.info("---facebookaccept:"+results)
@@ -682,7 +711,12 @@ object ActorUtilsReader {
 
     var results = Await.result(getTwitterAcceptanceCountResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
-        readResults.results.head.asInstanceOf[BigDecimal]
+        if (readResults.results.size > 0) {
+          readResults.results.head.asInstanceOf[BigDecimal]
+	} else {
+	  BigDecimal(0)
+	}
+
       }
     }
     results
@@ -695,7 +729,12 @@ object ActorUtilsReader {
 
     var results = Await.result(getLinkedinAcceptanceCountResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
-        readResults.results.head.asInstanceOf[BigDecimal]
+        if (readResults.results.size > 0) {
+          readResults.results.head.asInstanceOf[BigDecimal]
+	} else {
+	  BigDecimal(0)
+	}
+
       }
     }
     results
