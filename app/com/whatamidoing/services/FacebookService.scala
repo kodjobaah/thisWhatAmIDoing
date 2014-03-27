@@ -36,10 +36,10 @@ class FacebookService() {
        def getFacebookCount(token: String, streamId: String): Tuple3[String,String,String] =  {
        //Getting info about linkedin
        val clause = "where s.name=\""+streamId+"\""
-       val facebookInvites = ActorUtilsReader.countAllFacebookInvites(token,clause).head.toInt
+       val facebookInvites = ActorUtilsReader.countAllFacebookInvites(token,clause).toInt
        var res = ("","","")
        if (facebookInvites > 0) {      
-          val facebookAccept = ActorUtilsReader.getFacebookAcceptanceCount(token,clause).head.toInt
+          val facebookAccept = ActorUtilsReader.getFacebookAcceptanceCount(token,clause).toInt
           if (facebookAccept > 0) {
 	   val accept = "("+facebookAccept+")"
 	   res = ("Facebook","number of viewers",accept)
@@ -50,6 +50,12 @@ class FacebookService() {
        }  
        return res;
        }      
+
+       def getCountOfAllViewers(token: String, streamId: String): Int = {
+              val streamClause = "where s.name=\""+streamId+"\""
+              val a  = ActorUtilsReader.getFacebookAcceptanceCount(token,streamClause).toInt
+	      a
+       }
 
 
 }

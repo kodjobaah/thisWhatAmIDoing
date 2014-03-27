@@ -513,7 +513,7 @@ object AdminController extends Controller {
 
 
           val numberOfRecords = ActorUtilsReader.countNumberAllStreamsForDay(token)
-          val h = numberOfRecords.head.toInt - totalDisplay
+          val h = numberOfRecords.toInt - totalDisplay
           var sendBack = Json.obj(
             "sEcho" -> sEcho,
             "iTotalRecords" -> numberOfRecords,

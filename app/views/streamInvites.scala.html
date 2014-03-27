@@ -93,7 +93,7 @@
      
 }
     @if(!linkedInRefs.isEmpty) {
-  <td>  <div class="jumbotron col-md-6 col-md-offset-1" id="map"  style="width:200px; height: 200px;"> Location Was Not Supplied </div></td>
+  <td>  <div class="jumbotron col-md-6 col-md-offset-1" id="linkedinMap"  style="width:200px; height: 200px;"> Location Was Not Supplied </div></td>
    }
 
 </tr>
@@ -124,62 +124,23 @@
     });
 
     var locationInfowindow = new google.maps.InfoWindow();
-    var marker, i;
+    var markerLocation, i;
 
     for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
+      markerLocation = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][0], locations[i][1]),
         map: locationMap
       });
 
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      google.maps.event.addListener(markerLocation, 'click', (function(markerLocation, i) {
         return function() {
           locationInfowindow.setContent("don't know");
-          locationInfowindow.open(locationMap, marker);
+          locationInfowindow.open(locationMap, markerLocation);
         }
-      })(marker, i));
+      })(markerLocation, i));
     }
 
    }
-
-
-   var map;
-   @if(!linkedInRefs.isEmpty) {
-        var locationsLinkedIn = [
-            @for(((lat,lg),index) <- linkedInRefs.zipWithIndex) {
-              @if((index.asInstanceOf[Int] +1) == linkedInRefs.size) {				   
-                 [@lat, @lg, @(index+1)]
-	       } else {
-                 [@lat, @lg, @(index+1)],
-	       }
-             }
-          ];
-
-
-      map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 1,
-      center: new google.maps.LatLng(@linkedInRefs.head._1, @linkedInRefs.head._2),
-      mapTypeId: google.maps.MapTypeId.HYBRID
-    });
-  
-    var infowindow = new google.maps.InfoWindow();
-    var markerLinkedIn, i;
-
-    for (i = 0; i < locationsLinkedIn.length; i++) {  
-      markerLinkedIn = new google.maps.Marker({
-        position: new google.maps.LatLng(locationsLinkedIn[i][0], locationsLinkedIn[i][1]),
-        map: map
-      });
-
-      google.maps.event.addListener(markerLinkedIn, 'click', (function(markerLinkedIn, i) {
-        return function() {
-          infowindow.setContent("don't know");
-          infowindow.open(map, markerLinkedIn);
-        }
-      })(markerLinkedIn, i));
-    }
-  }
-   
 
    var twitterMap;
    @if(!twitterRefs.isEmpty) {
@@ -201,23 +162,22 @@
     });
 
     var twitterInfowindow = new google.maps.InfoWindow();
-    var markerTwitter, i;
-    for (i = 0; i < locationsTwitter.length; i++) {  
+    var markerTwitter, j;
+    for (j = 0; j < locationsTwitter.length; j++) {  
       markerTwitter = new google.maps.Marker({
-        position: new google.maps.LatLng(locationsTwitter[i][0], locationsTwitter[i][1]),
+        position: new google.maps.LatLng(locationsTwitter[j][0], locationsTwitter[j][1]),
         map: twitterMap
       });
 
-      google.maps.event.addListener(marker, 'click', (function(markerTwitter, i) {
+      google.maps.event.addListener(markerTwitter, 'click', (function(markerTwitter, j) {
         return function() {
           twitterInfowindow.setContent("don't know");
           twitterInfowindow.open(twitterMap, markerTwitter);
         }
-      })(markerTwitter, i));
+      })(markerTwitter, j));
     }
   }
-
-
+  
 
    var facebookMap;
    @if(!facebookRefs.isEmpty) {
@@ -239,21 +199,58 @@
     });
 
     var facebookInfowindow = new google.maps.InfoWindow();
-    var markerFacebook, i;
-    for (i = 0; i < locationsFacebook.length; i++) {  
+    var markerFacebook, k;
+    for (k = 0; k < locationsFacebook.length; k++) {  
       markerFacebook = new google.maps.Marker({
-        position: new google.maps.LatLng(locationsFacebook[i][0], locationsFacebook[i][1]),
+        position: new google.maps.LatLng(locationsFacebook[k][0], locationsFacebook[k][1]),
         map: facebookMap
       });
 
-      google.maps.event.addListener(marker, 'click', (function(markerFacebook, i) {
+      google.maps.event.addListener(markerFacebook, 'click', (function(markerFacebook, i) {
         return function() {
           facebookInfowindow.setContent("don't know");
           facebookInfowindow.open(facebookMap, markerFacebook);
         }
-      })(markerFacebook, i));
+      })(markerFacebook, k));
    }
  }
+   var mapLinkedin;
+   @if(!linkedInRefs.isEmpty) {
+        var locationsLinkedIn = [
+            @for(((lat,lg),index) <- linkedInRefs.zipWithIndex) {
+              @if((index.asInstanceOf[Int] +1) == linkedInRefs.size) {				   
+                 [@lat, @lg, @(index+1)]
+	       } else {
+                 [@lat, @lg, @(index+1)],
+	       }
+             }
+          ];
+
+
+      mapLinkedin = new google.maps.Map(document.getElementById('linkedinMap'), {
+      zoom: 1,
+      center: new google.maps.LatLng(@linkedInRefs.head._1, @linkedInRefs.head._2),
+      mapTypeId: google.maps.MapTypeId.HYBRID
+    });
+
+    var linkedinInfowindow = new google.maps.InfoWindow();
+    var markerLinkedIn, l;
+
+    for (l = 0; l < locationsLinkedIn.length; l++) {  
+      markerLinkedIn = new google.maps.Marker({
+        position: new google.maps.LatLng(locationsLinkedIn[l][0], locationsLinkedIn[l][1]),
+        map: mapLinkedin
+      });
+
+      google.maps.event.addListener(markerLinkedIn, 'click', (function(markerLinkedIn, k) {
+        return function() {
+          linkedinInfowindow.setContent("don't know");
+          linkedinInfowindow.open(mapLinkedin, markerLinkedIn);
+        }
+      })(markerLinkedIn, l));
+    }
+  
+  }
 
 
 

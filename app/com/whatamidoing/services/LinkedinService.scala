@@ -36,10 +36,10 @@ class LinkedinService() {
        def getLinkedInCount(token: String, streamId: String): Tuple3[String,String,String] =  {
        //Getting info about linkedin
        val clause = "where s.name=\""+streamId+"\""
-       val linkedinInvites = ActorUtilsReader.countAllLinkedinInvites(token,clause).head.toInt
+       val linkedinInvites = ActorUtilsReader.countAllLinkedinInvites(token,clause).toInt
        var res = ("","","")
        if (linkedinInvites > 0) {      
-          val linkedinAccept = ActorUtilsReader.getLinkedinAcceptanceCount(token,clause).head.toInt
+          val linkedinAccept = ActorUtilsReader.getLinkedinAcceptanceCount(token,clause).toInt
           if (linkedinAccept > 0) {
 	   val accept = "("+linkedinAccept+")"
 	   res = ("LinkedIn","number of viewers",accept)
@@ -50,6 +50,13 @@ class LinkedinService() {
        }  
         return res;
        }      
+
+       def getCountOfAllViewers(token: String, streamId: String): Int = {
+              val streamClause = "where s.name=\""+streamId+"\""
+              val twitterAccept = ActorUtilsReader.getLinkedinAcceptanceCount(token,streamClause).toInt
+	      twitterAccept
+       }
+
 
 
 }

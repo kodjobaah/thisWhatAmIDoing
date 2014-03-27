@@ -21,6 +21,7 @@ POST /inviteFacebook		    controllers.WhatAmIDoingController.inviteFacebook(toke
 POST /inviteLinkedin		    controllers.WhatAmIDoingController.inviteLinkedin(token: String)
 GET /shareLocation                  controllers.WhatAmIDoingController.createLocationForStream(token:String, latitude: Double, longitude: Double)
 GET /getLocations                   controllers.WhatAmIDoingController.whatAreTheLocations(inviteId: String)
+POST /usersWatching                  controllers.WhatAmIDoingController.getCountOfAllUsersWatchingStream(token: String)
 
 GET  /calendar                      controllers.AdminController.getInvites
 GET /streamInvites                  controllers.AdminController.getStreamInvites(streamId: String)
@@ -32,6 +33,7 @@ GET /logout                         controllers.AdminController.logout
 GET /forgottenPassword              controllers.AdminController.forgottenPassword
 GET /changePassword	            controllers.AdminController.changePassword(changePasswordId: String)
 GET /userDetails		    controllers.AdminController.fetchUserDetails
+
 
 POST /login			    controllers.AdminController.login
 POST /changePasswordRequest	    controllers.AdminController.changePasswordRequest

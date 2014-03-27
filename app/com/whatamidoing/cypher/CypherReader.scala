@@ -142,7 +142,7 @@ object CypherReader {
     match (tok)-[u:USING]-(s)
     with s
     match (s)-[si:BROADCAST_ON]-(c)
-    return count(s) as count
+    return count(distinct s) as count
 
     """
     return res
@@ -155,7 +155,7 @@ object CypherReader {
     where tok.token="$token"
     with tok
     match  (tok:AuthenticationToken)-[:USING]-(stream1:Stream)-[:TO_WATCH]-(invite:Invite)
-    return count(invite) as count;
+    return count(distinct invite) as count;
 
 
     """
@@ -267,6 +267,22 @@ object CypherReader {
     Logger.info("accepted to watch ["+res+"]")
     return res
   }
+
+  def getCountOfAllUsersWhoHaveAcceptedToWatchStream(token: String): String = {
+    val res=s"""
+          match (a:AuthenticationToken) where a.token="$token" and a.valid = "true"
+          with a
+          match (a:AuthenticationToken)-[r:USING]-(s:Stream) where s.state = "active"
+          with s
+          match (s:Stream)-[TO_WATCH]-(i:Invite)-[:ACCEPTED_ON]->(d:Day)
+          with i
+          match (i:Invite)<-[:RECEIVED]-(u:User)
+          return count(distinct u.email)  as count
+    """
+    Logger.info("count of all accepted to watch ["+res+"]")
+    return res
+  }
+
 
   def getUsersWhoHaveBeenInvitedToWatchStream(token: String): String = {
     val res=s"""
@@ -512,7 +528,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     match (tok)-[u:USING]-(s) $clause
     with s
     match (s)-[t:TO_WATCH]-(i:InviteTwitter)
-    return count(i) as count
+    return count(distinct i) as count
     """
     Logger.info("--countAllTwitterInvites["+res+"]")
     return res
@@ -528,7 +544,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     match (tok)-[u:USING]-(s) $clause
     with s
     match (s)-[t:TO_WATCH]-(i:InviteFacebook)
-    return count(i) as count
+    return count(distinct i) as count
     """
     Logger.info("--countAllFacebookInvites["+res+"]")
     return res
@@ -544,54 +560,54 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     match (tok)-[u:USING]-(s) $clause
     with s
     match (s)-[t:TO_WATCH]-(i:InviteLinkedin)
-    return count(i) as count
+    return count(distinct i) as count
     """
     Logger.info("--countAllLinkedinInvites["+res+"]")
     return res
   }
 
 
-  def getTwitterAcceptanceCount(token: String, clause: String): String = {
+  def getTwitterAcceptanceCount(token: String, streamClause: String = ""): String = {
 
     val res =s"""
     match (tok:AuthenticationToken)
-    where tok.token="$token"
+    where tok.token="$token" 
     with tok
-    match (tok)-[u:USING]-(s) $clause
+    match (tok)-[u:USING]-(s) $streamClause
     with s
     match (s)-[t:TO_WATCH]-(i:InviteTwitter)-[ur:USING_REFERER]-(r)
-    return count(r) as count
+    return count(distinct r) as count
     """
     Logger.info("--getTwitterAcceptanceCount["+res+"]")
     return res
   }
 
-  def getLinkedinAcceptanceCount(token: String, clause: String): String = {
+  def getLinkedinAcceptanceCount(token: String, streamClause: String = ""): String = {
 
     val res =s"""
     match (tok:AuthenticationToken)
     where tok.token="$token"
     with tok
-    match (tok)-[u:USING]-(s) $clause
+    match (tok)-[u:USING]-(s) $streamClause
     with s
     match (s)-[t:TO_WATCH]-(i:InviteLinkedin)-[ur:USING_REFERER]-(r)
-    return count(r) as count
+    return count(distinct r) as count
     """
     Logger.info("--getLinkedinAcceptanceCount["+res+"]")
     return res
   }
 
 
-  def getFacebookAcceptanceCount(token: String, clause: String): String = {
+  def getFacebookAcceptanceCount(token: String, streamClause: String = ""): String = {
 
     val res =s"""
     match (tok:AuthenticationToken)
-    where tok.token="$token"
+    where tok.token="$token" 
     with tok
-    match (tok)-[u:USING]-(s) $clause
+    match (tok)-[u:USING]-(s) $streamClause
     with s
     match (s)-[t:TO_WATCH]-(i:InviteFacebook)-[ur:USING_REFERER]-(r)
-    return count(r) as count
+    return count(distinct r) as count
     """
     Logger.info("--getFacebookAcceptanceCount["+res+"]")
     return res

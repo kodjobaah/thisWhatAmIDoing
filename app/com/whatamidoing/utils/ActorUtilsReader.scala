@@ -245,6 +245,17 @@ object ActorUtilsReader {
     }
     results
   }
+  def getCountOfAllUsersWhoHaveAcceptedToWatchStream(token: String): BigDecimal = {
+    val getCountOfAllUsersWhoHaveAcceptedToWatchStream = CypherReaderFunction.getCountOfAllUsersWhoHaveAcceptedToWatchStream (token)
+    val  getCountOfAllUsersWhoHaveAcceptedToWatchStreamResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getCountOfAllUsersWhoHaveAcceptedToWatchStream)).mapTo[Any]
+
+    var results = Await.result(getCountOfAllUsersWhoHaveAcceptedToWatchStreamResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+        readResults.results.head.asInstanceOf[BigDecimal]
+      }
+    }
+    results
+  }
 
   def  getUsersWhoHaveAcceptedToWatchStream(token: String): List[String] = {
 
@@ -302,14 +313,14 @@ object ActorUtilsReader {
   }
 
 
-  def  countNumberAllStreamsForDay(token: String): List[String] = {
+  def  countNumberAllStreamsForDay(token: String): BigDecimal = {
 
     val countNumberAllStreamsForDay = CypherReaderFunction.countNumberAllStreamsForDay(token)
     val countNumberAllStreamsForDayResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(countNumberAllStreamsForDay)).mapTo[Any]
 
     var results = Await.result(countNumberAllStreamsForDayResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
-        readResults.results.asInstanceOf[List[String]]
+        readResults.results.head.asInstanceOf[BigDecimal]
       }
     }
     results
@@ -317,14 +328,14 @@ object ActorUtilsReader {
 
 
 
-  def  countAllInvitesForToken(token: String): List[String] = {
+  def  countAllInvitesForToken(token: String): BigDecimal = {
 
     val countAllInvitesForToken = CypherReaderFunction.countAllInvitesForToken(token)
     val countAllInvitesForTokenResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(countAllInvitesForToken)).mapTo[Any]
 
     var results = Await.result(countAllInvitesForTokenResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
-        readResults.results.asInstanceOf[List[String]]
+        readResults.results.head.asInstanceOf[BigDecimal]
       }
     }
     results
@@ -610,81 +621,81 @@ object ActorUtilsReader {
   }
 
 
-  def  countAllTwitterInvites(token: String,clause: String): List[String] = {
+  def  countAllTwitterInvites(token: String,clause: String): BigDecimal = {
 
     val countAllTwitterInvites = CypherReaderFunction.countAllTwitterInvites(token,clause)
     val countAllTwitterInvitesResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(countAllTwitterInvites)).mapTo[Any]
 
     var results = Await.result(countAllTwitterInvitesResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
-        readResults.results.asInstanceOf[List[String]]
+        readResults.results.head.asInstanceOf[BigDecimal]
       }
     }
     results
   }
 
 
-  def  countAllFacebookInvites(token: String, clause: String): List[String] = {
+  def  countAllFacebookInvites(token: String, clause: String): BigDecimal = {
 
     val countAllFacebookInvites = CypherReaderFunction.countAllFacebookInvites(token,clause)
     val countAllFacebookInvitesResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(countAllFacebookInvites)).mapTo[Any]
-
     var results = Await.result(countAllFacebookInvitesResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
-        readResults.results.asInstanceOf[List[String]]
+        readResults.results.head.asInstanceOf[BigDecimal]
       }
     }
     results
   }
 
-  def  countAllLinkedinInvites(token: String,clause: String): List[String] = {
+  def  countAllLinkedinInvites(token: String,clause: String): BigDecimal = {
 
     val countAllLinkedinInvites = CypherReaderFunction.countAllLinkedinInvites(token,clause)
     val countAllLinkedinInvitesResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(countAllLinkedinInvites)).mapTo[Any]
 
     var results = Await.result(countAllLinkedinInvitesResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
-        readResults.results.asInstanceOf[List[String]]
+        readResults.results.head.asInstanceOf[BigDecimal]
       }
     }
     results
   }
 
 
-  def getFacebookAcceptanceCount(token: String, clause: String): List[String] = {
+  def getFacebookAcceptanceCount(token: String, streamClause: String = ""): BigDecimal = {
 
-    val getFacebookAcceptanceCount = CypherReaderFunction.getFacebookAcceptanceCount(token,clause)
+    val getFacebookAcceptanceCount = CypherReaderFunction.getFacebookAcceptanceCount(token,streamClause)
     val getFacebookAcceptanceCountResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getFacebookAcceptanceCount)).mapTo[Any]
 
     var results = Await.result(getFacebookAcceptanceCountResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
-        readResults.results.asInstanceOf[List[String]]
+        readResults.results.head.asInstanceOf[BigDecimal]
       }
     }
+    Logger.info("---facebookaccept:"+results)
     results
   }
 
-  def getTwitterAcceptanceCount(token: String, clause: String): List[String] = {
+  def getTwitterAcceptanceCount(token: String, streamClause: String = "" ): BigDecimal = {
 
-    val getTwitterAcceptanceCount = CypherReaderFunction.getTwitterAcceptanceCount(token,clause)
+    val getTwitterAcceptanceCount = CypherReaderFunction.getTwitterAcceptanceCount(token, streamClause)
     val getTwitterAcceptanceCountResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getTwitterAcceptanceCount)).mapTo[Any]
 
     var results = Await.result(getTwitterAcceptanceCountResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
-        readResults.results.asInstanceOf[List[String]]
+        readResults.results.head.asInstanceOf[BigDecimal]
       }
     }
     results
   }
 
- def getLinkedinAcceptanceCount(token: String,clause: String): List[String] = {
+ def getLinkedinAcceptanceCount(token: String,streamClause: String =""): BigDecimal = {
 
-    val getLinkedinAcceptanceCount = CypherReaderFunction.getLinkedinAcceptanceCount(token,clause)
+    val getLinkedinAcceptanceCount = CypherReaderFunction.getLinkedinAcceptanceCount(token,streamClause)
     val getLinkedinAcceptanceCountResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getLinkedinAcceptanceCount)).mapTo[Any]
 
     var results = Await.result(getLinkedinAcceptanceCountResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
-        readResults.results.asInstanceOf[List[String]]
+        readResults.results.head.asInstanceOf[BigDecimal]
       }
     }
     results

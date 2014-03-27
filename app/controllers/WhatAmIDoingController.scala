@@ -11,6 +11,10 @@ import scala.concurrent.future
 import com.whatamidoing.utils.ActorUtils
 import com.whatamidoing.utils.ActorUtilsReader
 import com.whatamidoing.mail.EmailSenderService
+import com.whatamidoing.services.FacebookService
+import com.whatamidoing.services.TwitterService
+import com.whatamidoing.services.LinkedinService
+
 import models.Messages._
 
 object WhatAmIDoingController extends Controller {
@@ -72,9 +76,9 @@ object WhatAmIDoingController extends Controller {
 
        //Getting info about twitter
        val clause = "where s.state=\"active\""
-       val twitterInvites = ActorUtilsReader.countAllTwitterInvites(token,clause).head.toInt
+       val twitterInvites = ActorUtilsReader.countAllTwitterInvites(token,clause).toInt
        if (twitterInvites > 0) {      
-          val twitterAccept = ActorUtilsReader.getTwitterAcceptanceCount(token,clause).head.toInt
+          val twitterAccept = ActorUtilsReader.getTwitterAcceptanceCount(token,clause).toInt
           if (twitterAccept > 0) {
 	   val twitter = "number watching ("+twitterAccept+")"
            val json = Json.obj("email" -> "Twitter", "firstName" -> twitter, "lastName" -> "")
@@ -86,9 +90,9 @@ object WhatAmIDoingController extends Controller {
        }
 
        //Getting info about facebook
-       val facebookInvites = ActorUtilsReader.countAllFacebookInvites(token,clause).head.toInt
+       val facebookInvites = ActorUtilsReader.countAllFacebookInvites(token,clause).toInt
        if (facebookInvites > 0) {      
-          val facebookAccept = ActorUtilsReader.getFacebookAcceptanceCount(token,clause).head.toInt
+          val facebookAccept = ActorUtilsReader.getFacebookAcceptanceCount(token,clause).toInt
           if (facebookAccept > 0) {
 	   val facebook = "number watching ("+facebookAccept+")"
            val json = Json.obj("email" -> "Facebook", "firstName" -> facebook, "lastName" -> "")
@@ -101,9 +105,9 @@ object WhatAmIDoingController extends Controller {
 
        //Getting info about linkedin
 
-       val linkedinInvites = ActorUtilsReader.countAllLinkedinInvites(token,clause).head.toInt
+       val linkedinInvites = ActorUtilsReader.countAllLinkedinInvites(token,clause).toInt
        if (linkedinInvites > 0) {      
-          val linkedinAccept = ActorUtilsReader.getLinkedinAcceptanceCount(token,clause).head.toInt
+          val linkedinAccept = ActorUtilsReader.getLinkedinAcceptanceCount(token,clause).toInt
           if (linkedinAccept > 0) {
 	   val linkedin = "number watching ("+linkedinAccept+")"
            val json = Json.obj("email" -> "Linkedin", "firstName" -> linkedin, "lastName" -> "")
@@ -258,7 +262,39 @@ object WhatAmIDoingController extends Controller {
       }
   }
 
+  def getCountOfAllUsersWatchingStream(token: String) = Action.async {
+     implicit request =>
+          var valid = ActorUtilsReader.getValidToken(token)
+          if (valid.asInstanceOf[List[String]].size > 0) {
 
+            var streamName = ActorUtilsReader.streamNameForToken(token)
+            if ((streamName != null) && (!streamName.isEmpty())) {
+	       val facebookService: FacebookService = FacebookService()
+	       val facebookCount: BigDecimal = facebookService.getCountOfAllViewers(token,streamName)
+
+	       val twitterService: TwitterService = TwitterService()
+	       val twitterCount: BigDecimal  = twitterService.getCountOfAllViewers(token,streamName)
+
+
+	       val linkedinService: LinkedinService = LinkedinService()
+	       val linkedinCount: Int = linkedinService.getCountOfAllViewers(token,streamName)
+
+
+	       val totalUsersInvite =  ActorUtilsReader.getCountOfAllUsersWhoHaveAcceptedToWatchStream(token).toInt
+
+	       val total = facebookCount + twitterCount + linkedinCount + totalUsersInvite
+
+	       
+	       future(Ok(total.toString))
+            } else {	   
+              future(Ok("No active Stream"))
+	   }
+ 	  } else {
+	   future(Ok("TOKEN NOT VALID"))
+	  }
+ 
+
+ }
  def createLocationForStream(token:String, latitude: Double, longitude: Double) = Action.async {
      implicit request =>
           var valid = ActorUtilsReader.getValidToken(token)
@@ -534,4 +570,6 @@ object WhatAmIDoingController extends Controller {
 
       }
   }
+
+
 }
