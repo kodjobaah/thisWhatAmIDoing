@@ -270,6 +270,19 @@ object CypherReaderFunction {
     fetchUserDetails
  }
 
+
+ def fetchUserInformation(token: String): () => Neo4jResult = {
+
+    val fetchUserInformation: Function0[Neo4jResult] = () => {
+      System.out.println("user information")
+      val fetchUserInformation = Cypher(CypherReader.fetchUserInformation(token)).apply().map(row => (row[Option[String]]("email"),row[Option[String]]("firstName"),row[Option[String]]("lastName"),row[Option[String]]("domId"))).toList
+      System.out.println("results:"+fetchUserInformation)
+      val neo4jResult = new Neo4jResult(fetchUserInformation)
+      neo4jResult
+    }
+    fetchUserInformation
+ }
+
  def fetchLocationForStream(stream: String): () => Neo4jResult = {
     val fetchLocationForStream: Function0[Neo4jResult] = () => {
       val fetchLocationForStream = Cypher(CypherReader.fetchLocationForStream(stream)).apply().map(row => (row[Option[Double]]("latitude"),row[Option[Double]]("longitude"))).toList
@@ -412,5 +425,25 @@ def getReferersForFacebook(stream: String): () => Neo4jResult = {
     getReferersForFacebook
  }
 
+
+ def getRoomJid(token: String): () => Neo4jResult = {
+
+    val getRoomJid: Function0[Neo4jResult] = () => {
+    	val getRoomJid = Cypher(CypherReader.getRoomJid(token)).apply().map(row => (row[Option[String]]("jid"))).toList
+     	val neo4jResult = new Neo4jResult(getRoomJid)
+	neo4jResult
+    }
+    getRoomJid
+  }
+
+ def getRoomJidForStream(stream: String): () => Neo4jResult = {
+
+    val getRoomJidForStream: Function0[Neo4jResult] = () => {
+    	val getRoomJidForStream = Cypher(CypherReader.getRoomJidForStream(stream)).apply().map(row => (row[Option[String]]("jid"))).toList
+     	val neo4jResult = new Neo4jResult(getRoomJidForStream)
+	neo4jResult
+    }
+    getRoomJidForStream
+  }
 
 }

@@ -221,26 +221,32 @@ object WhatAmIDoingController extends Controller {
 
       if (!invitedId.equalsIgnoreCase("no-invited-id")) {
         var streamId = ""
+	var roomJid=""
+	var nickName=""
         if (invitedId.endsWith(Linkedin)) {
 	      val referer = request.headers.get("X-Forwarded-For").orElse(Option("127.0.0.1"))
 	      ActorUtils.associatedInviteLinkedinWithReferer(invitedId,referer.get)
 	      streamId = ActorUtilsReader.findStreamForInviteLinkedin(invitedId)
+
 	      locations = ActorUtilsReader.fetchLocationForActiveStreamLinkedin(invitedId)
+	      nickName="LinkedIn"
 
        } else  if (invitedId.endsWith(Twitter)) {
-
+       	       nickName="Twitter"
 	      val referer = request.headers.get("X-Forwarded-For").orElse(Option("127.0.0.1"))
 	      ActorUtils.associatedInviteTwitterWithReferer(invitedId,referer.get)
 	      streamId = ActorUtilsReader.findStreamForInviteTwitter(invitedId)
 	      locations = ActorUtilsReader.fetchLocationForActiveStreamTwitter(invitedId)
 	   
         } else if (invitedId.endsWith(Facebook)) {
+	      nickName="Facebook"
 	      val referer = request.headers.get("X-Forwarded-For").orElse(Option("127.0.0.1"))
 	      ActorUtils.associatedInviteFacebookWithReferer(invitedId,referer.get)
 	      streamId = ActorUtilsReader.findStreamForInviteFacebook(invitedId)
 	     locations = ActorUtilsReader.fetchLocationForActiveStreamFacebook(invitedId)
 
         } else {
+	   nickName="Friend"
           streamId = ActorUtilsReader.findStreamForInvitedId(invitedId)
           if(!streamId.isEmpty()){
              ActorUtils.associatedInviteWithDayOfAcceptance(invitedId)
@@ -253,9 +259,12 @@ object WhatAmIDoingController extends Controller {
           future(Ok(views.html.whatamidoingnoinviteId()))
         } else {
 
-	  Logger.info("--Locations["+locations+"]")
+
+	  roomJid = ActorUtilsReader.getRoomJidForStream(streamId)	  
 	  streamId = streamId.dropRight(3)+"m3u8"
-          future(Ok(views.html.whatamidoing(streamId,locations,invitedId)))
+	  val token = java.util.UUID.randomUUID().toString()
+	  nickName = token+"-DIDLY-SQUAT-"+nickName
+          future(Ok(views.html.whatamidoing(streamId,locations,invitedId,roomJid,nickName)).withSession("whatAmIdoing-xmpp"->token))
         }
       } else {
         future(Ok(views.html.whatamidoingnoinviteId()))
@@ -305,6 +314,29 @@ object WhatAmIDoingController extends Controller {
 	   future(Ok("Unable to add Location"))
 	  }
  }
+
+ def getRoomJid(token: String) = Action.async{
+
+     implicit request =>
+          var valid = ActorUtilsReader.getValidToken(token)
+          if (valid.asInstanceOf[List[String]].size > 0) {
+	     val jid = ActorUtilsReader.getRoomJid(token)
+	     import models.UserDetails
+	     if (jid.size > 0) {
+      	     val res: UserDetails =  ActorUtilsReader.fetchUserDetails(token)
+             val json = Json.obj("jid" -> jid, "nickname" -> res.firstName)
+	      future(Ok(json.toString()))
+             } else {
+	       val json = Json.obj()
+	       future(Ok(json.toString()))
+	     }
+ 	  } else {
+	    val json = Json.obj()
+	   future(Ok(json.toString()))
+	  }
+    }
+
+
 
   /**
    * *

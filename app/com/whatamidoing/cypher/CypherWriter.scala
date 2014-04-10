@@ -4,9 +4,9 @@ import play.Logger
 
 object CypherWriter {
   
-    def createUser(fn: String, ln: String, em: String, pw_hash: String): String = {
+    def createUser(fn: String, ln: String, em: String, pw_hash : String, domId : String): String = {
     val s = s"""
-              create (user:User {id:"$em", email:"$em", password:"$pw_hash",firstName:"$fn",lastName:"$ln"})
+              create (user:User {id:"$em", email:"$em", password:"$pw_hash",firstName:"$fn",lastName:"$ln" , domId: "domId"})
                """
 
     return s
@@ -324,9 +324,23 @@ object CypherWriter {
       return res
   }  
 
+  def associateRoomWithStream(token: String, roomId: String ): String = {
+      val res = s"""
+      match (a:AuthenticationToken) where a.token = "$token"
+      with a
+      match (s)-[u:USING]->(a)
+      where s.state="active"
+      with s
+      create (s)-[ur:USING_ROOM]->(rm:Room {id:"$roomId"})
+      return s,ur,rm
+      """
+      Logger.info("---associateRoomWithStream["+res+"]")
+      return res
+  }  
+
   def invalidateAllStreams(token: String) : String = {
       val res = s"""
-      match (t:AuthenticationToken) where t.token="c30f7e3f-33b9-41a5-8a83-ac35d90ff774"
+      match (t:AuthenticationToken) where t.token="$token"
       with t
       match (t)-[u:USING]-(s)
       set s.state = "inactive"
@@ -334,5 +348,17 @@ object CypherWriter {
       """
       Logger.info("---invalidateAllStreams["+res+"]")
       return res
+  }
+
+  def updateUserInformation(token: String, domId: String): String = {
+      val res= s"""
+      	  match (a)-[ht:HAS_TOKEN]-(b)
+     	  where b.valid="true" and b.token="$token"
+	  set a.domId = "$domId"
+     	  return a.domId
+     """
+     Logger.info("--updateUserInformation["+res+"]")
+     return res
+
   }
 }

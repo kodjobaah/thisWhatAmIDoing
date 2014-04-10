@@ -1,30 +1,70 @@
 @* whatamidoing Template File *@
-@(stream: String,locations:List[Location],inviteId: String)
+@(stream: String,locations:List[Location],inviteId: String, roomJid: String,nickname: String)
 
 @import models.Location
 
 @main("(WAID) What Am I Doing ?") {
 
-<!--
-<script src="@routes.Assets.at("javascripts/jwplayer/HLSprovider/test/jwplayer6/jwplayer.js")"></script>
--->
+<link 
+      href='@routes.Assets.at("converse/converse.css")'
+      rel='stylesheet'>
+
 <script src="http://www.whatamidoing.info/hlsapp/jwplayer/HLSprovider/test/jwplayer6/jwplayer.js"></script>
 <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHizctBV5_2T9EgbtZQAFHIjGiFrG3i1s&sensor=true">
     </script>
+
+
+<!--
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+-->
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/otr/build/dep/salsa20.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/otr/build/dep/bigint.js")'></script>
+    <!-- CryptoJS -->
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/otr/vendor/cryptojs/core.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/otr/vendor/cryptojs/enc-base64.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/crypto-js/src/md5.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/crypto-js/src/evpkdf.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/otr/vendor/cryptojs/cipher-core.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/otr/vendor/cryptojs/aes.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/otr/vendor/cryptojs/sha1.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/otr/vendor/cryptojs/sha256.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/otr/vendor/cryptojs/hmac.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/otr/vendor/cryptojs/pad-nopadding.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/otr/vendor/cryptojs/mode-ctr.js")'></script>
+    <!-- until here -->
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/otr/build/dep/eventemitter.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/otr/build/otr.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/strophe/strophe.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/strophe.roster/index.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/strophe.muc/index.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/strophe.vcard/index.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/strophe.disco/index.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/underscore/underscore.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/backbone//backbone.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/backbone.localStorage/backbone.localStorage.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/tinysort/src/jquery.tinysort.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/components/jed/jed.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/locale/en/LC_MESSAGES/en.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse.js/converse.js")'></script>
 
 }{
 
 <br/>
 <br/>
 <div class="row center-block">
-
+<input type="hidden" id="whatamidoing-nickname" value="@nickname">
+<input type="hidden" id="whatamidoing-roomjid" value="@roomJid">
   <div class="col-md-5 col-mod-offset-1">
     <div id="player">Loading video</div>
   </div>
   <div class="jumbotron col-md-6 col-md-offset-1" id="map"  style="width: 500px; height: 400px;"> Location Was Not Supplied </div>
 </div>
 
+<div class="row center-block">
+  <div class="col-md-5 col-mod-offset-1"></div>
+</div>
+<div id="conversejs"></div>
 
 <script>
   var map;
@@ -141,5 +181,27 @@ function removeMarkers(array) {
       array[i].setMap(null);
   }
 }
-</script>
+
+
+
+
+$(document).ready(function() {
+ converse.initialize({
+        auto_list_rooms: false,
+        auto_subscribe: false,
+        bosh_service_url: 'http://www.whatamidoing.info/http-bind/', // Please use this connection manager only for testing purposes
+        hide_muc_server: false,
+        i18n: locales.en, // Refer to ./locale/locales.js to see which locales are supported
+        prebind: true,
+        show_controlbox_by_default: true,
+        xhr_user_search: false
+    });
+ 
+ });
+
+  
+
+ </script>
 }
+
+

@@ -15,6 +15,7 @@ import play.api.libs.concurrent.Execution.Implicits.defaultContext
 
 import play.api.Logger
 import com.whatamidoing.actors.red5.FrameSupervisor
+import com.whatamidoing.actors.xmpp.XmppSupervisor
 import com.whatamidoing.actors.neo4j.Neo4JWriter
 import com.whatamidoing.actors.neo4j.Neo4JWriter._
 import com.whatamidoing.actors.neo4j.Neo4JReader
@@ -25,8 +26,9 @@ import controllers.WhatAmIDoingController
 object ActorUtils {
 
   val system = ActorSystem("whatamidoing-system")
-  implicit val timeout = Timeout(500 seconds)
+  implicit val timeout = Timeout(10 seconds)
   var frameSupervisor = system.actorOf(FrameSupervisor.props("hey"), "frameSupervisor")
+  var xmppSupervisor = system.actorOf(XmppSupervisor.props(), "xmppSupervisor")
   var neo4jwriter = system.actorOf(Neo4JWriter.props(), "neo-4j-writer-supervisor")
   var neo4jreader = system.actorOf(Neo4JReader.props(), "neo-4j-reader-supervisor")
   
@@ -352,6 +354,19 @@ object ActorUtils {
     res
   }
 
+
+  def associateRoomWithStream(token: String, roomId: String): String = {
+    var associateRoomWithStream = CypherWriterFunction.associateRoomWithStream(token,roomId)
+    val associateRoomWithStreamResponse: Future[Any] = ask(neo4jwriter, PerformOperation(associateRoomWithStream)).mapTo[Any]
+
+    var res = Await.result(associateRoomWithStreamResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        results.results.mkString
+      }
+    }
+    res
+  }
+
   def invalidateAllStreams(token: String) = {
 
     val invalidateAllStreams = CypherWriterFunction.invalidateAllStreams(token)
@@ -370,5 +385,57 @@ object ActorUtils {
   }
 
 
+  def updateUserInformation(token: String, domId: String) = {
 
+    val updateUserInformation = CypherWriterFunction.updateUserInformation(token,domId)
+    val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(updateUserInformation)).mapTo[Any]
+
+    var res = Await.result(writerResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        if (results.results.size > 0) {
+          results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
+      }
+    }
+    res
+  }
+
+  def createXmppDomain(domain: String) {
+      import models.Messages.CreateXMPPDomainMessage
+      val mess = CreateXMPPDomainMessage(domain)
+      
+      val response: Future[Any] = ask(xmppSupervisor, mess).mapTo[Any]
+      import models.Messages.Done
+      var res = Await.result(response, 10 seconds) match {
+      	  case Done(results) => {
+      	  Logger.info("--------results from creating---:"+results)
+      }
+    }
+
+
+  }
+
+ 
+  def createXmppGroup(roomJid: String, token: String) = {
+    import com.whatamidoing.actors.xmpp.CreateXMPPGroup
+    import models.Messages.CreateXMPPGroupMessage
+    val message = CreateXMPPGroupMessage(roomJid,token)
+    xmppSupervisor ! message
+  }
+
+
+  def createXmppRoom(roomJid: String) = {
+    import com.whatamidoing.actors.xmpp.CreateXMPPGroup
+    import models.Messages.CreateXMPPRoomMessage
+    val message = CreateXMPPRoomMessage(roomJid)
+    xmppSupervisor ! message
+  }
+
+  def removeRoom(roomJid: String) = {
+    import models.Messages.RemoveXMPPRoomMessage
+    val message =  RemoveXMPPRoomMessage(roomJid)
+    xmppSupervisor ! message
+  }
 }

@@ -16,4 +16,10 @@ object Messages {
     case class EncodeFrame(frame: String)
     case class EndTransmission()
 
+    case class CreateXMPPGroupMessage(val roomJid: String ="", val token: String ="")
+    case class CreateXMPPDomainMessage(val domain: String ="")
+    case class CreateXMPPRoomMessage(val roomJid: String = "")
+    case class RemoveXMPPRoomMessage(val roomJid: String = "")
+    case class Done(val status: Boolean = false)
+
 }

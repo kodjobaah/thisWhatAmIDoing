@@ -82,9 +82,10 @@ object CypherWriterFunction {
 
     import org.mindrot.jbcrypt.BCrypt
 
-    val createUser: Function0[Neo4jResult] = () => {
+      val createUser: Function0[Neo4jResult] = () => {
       val pw_hash = BCrypt.hashpw(p, BCrypt.gensalt())
-      val newRes = Cypher(CypherWriter.createUser(fn, ln, em, pw_hash)).execute()
+      val domJid = java.util.UUID.randomUUID.toString
+      val newRes = Cypher(CypherWriter.createUser(fn, ln, em, pw_hash,domJid)).execute()
 
       val token = java.util.UUID.randomUUID.toString
       val valid = "true"
@@ -355,6 +356,17 @@ object CypherWriterFunction {
     createLocationForStream
   }
 
+  def associateRoomWithStream(token: String, roomId: String): () => Neo4jResult = {
+   val associateRoomWithStream : Function0[Neo4jResult] = () => {
+      val associateRoomWithStream = Cypher(CypherWriter.associateRoomWithStream(token,roomId)).execute()
+      Logger("CypherWriterFunction.associateRoomWithStream(").info("this is associateRoomWithStream(: " + associateRoomWithStream)
+      val neo4jResult = new Neo4jResult(List(associateRoomWithStream.toString()))
+      neo4jResult
+    }
+    associateRoomWithStream
+  }
+
+
   def invalidateAllStreams(token: String): () => Neo4jResult = {
 
     val invalidate: Function0[Neo4jResult] = () => {
@@ -367,6 +379,20 @@ object CypherWriterFunction {
     }
 
     invalidate
+  }
+
+  def updateUserInformation(token: String, domId: String): () => Neo4jResult = {
+
+    val updateUserInformation: Function0[Neo4jResult] = () => {
+      val userInformation = Cypher(CypherWriter.updateUserInformation(token,domId)).execute()
+      Logger("CypherWriterFunction.updateUserInformation").info("this is updateUserInformation: " + userInformation)
+
+      val results: List[String] = List(userInformation.toString())
+      val neo4jResult = new Neo4jResult(results)
+      neo4jResult
+    }
+
+    updateUserInformation
   }
 
 

@@ -21,7 +21,8 @@ POST /inviteFacebook		    controllers.WhatAmIDoingController.inviteFacebook(toke
 POST /inviteLinkedin		    controllers.WhatAmIDoingController.inviteLinkedin(token: String)
 GET /shareLocation                  controllers.WhatAmIDoingController.createLocationForStream(token:String, latitude: Double, longitude: Double)
 GET /getLocations                   controllers.WhatAmIDoingController.whatAreTheLocations(inviteId: String)
-POST /usersWatching                  controllers.WhatAmIDoingController.getCountOfAllUsersWatchingStream(token: String)
+POST /usersWatching                 controllers.WhatAmIDoingController.getCountOfAllUsersWatchingStream(token: String)
+POST /getRoomJid                    controllers.WhatAmIDoingController.getRoomJid(token: String)
 
 GET  /calendar                      controllers.AdminController.getInvites
 GET /streamInvites                  controllers.AdminController.getStreamInvites(streamId: String)

@@ -246,7 +246,7 @@ object CypherReader {
     match (u:User)
     where u.email="$email"
     with u
-    match (u:User)-[HAS_TOKEN]-(tok:AuthenticationToken)-[:USING]-(stream:Stream)
+    match (u:User)-[ht:HAS_TOKEN]-(tok:AuthenticationToken)-[u:USING]-(stream:Stream)
     return distinct tok.token as token;
 
     """
@@ -436,16 +436,27 @@ object CypherReader {
   }
 
  def fetchUserDetails(token: String): String = {
-
      val res= s"""
-
-     match (a)-[HAS_TOKEN]-(b)
-     where b.valid="true" and b.token="$token"
-     return a.email as email, a.firstName as firstName , a.lastName as lastName
+     match (a:AuthenticationToken) where a.token="$token" and a.valid="true"
+     match (b)-[r:HAS_TOKEN]-(a)
+     return b.email as email, b.firstName as firstName , b.lastName as lastName
      """
      Logger.info("--fecthUserDetails["+res+"]")
      return res
   }
+
+
+ def fetchUserInformation(token: String): String = {
+
+     val res= s"""
+     	 match (a:AuthenticationToken) where a.token="$token"
+     	 match (b)-[r:HAS_TOKEN]-(a)
+     	 return b.email as email, b.firstName as firstName , b.lastName as lastName, b.domId as domId
+     """
+     Logger.info("--fecthUserInformation["+res+"]")
+     return res
+  }
+
 
 def fetchLocationForStream(stream: String): String = {
 
@@ -649,9 +660,34 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     return res
   }
 
+ def getRoomJid(token: String): String = {
+
+    val res =s"""
+       match (a:AuthenticationToken) where a.token = "$token"
+      with a
+      match s-[u:USING]->a
+      where s.state="active"
+      with s
+      match (s)-[ur:USING_ROOM]-(rm:Room)
+      return distinct rm.id as jid
+      """
+      Logger.info("--getGroupJid["+res+"]")
+    return res
+  }
 
 
- 
+  def getRoomJidForStream(stream: String): String = {
+      
+      val res = s"""
+      match (s:Stream) where s.name ="$stream"
+      with s
+      match (s)-[ur:USING_ROOM]-(rm:Room)
+      return distinct rm.id as jid
+      """
+      Logger.info("--getRoomJidForStream["+res+"]")
+      return res
+
+  }
 
 
 }

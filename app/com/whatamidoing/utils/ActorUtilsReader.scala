@@ -485,6 +485,44 @@ object ActorUtilsReader {
    results
   }
 
+  import models.UserInformation
+  def fetchUserInformation(token: String): UserInformation = {
+
+    val fetchUserInformation = CypherReaderFunction.fetchUserInformation(token)
+    val fetchUserInformationResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(fetchUserInformation)).mapTo[Any]
+
+    val results = Await.result(fetchUserInformationResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+
+             var result = UserInformation()
+             for(res <- readResults.results){
+               var x: UserInformation = res match {
+                  case (Some(email),Some(firstName),Some(lastName),Some(domId)) => { 
+		       	val u = "userInformation:"+email
+		       Logger.info("---------------ActorUtilsReader"+u)
+		       UserInformation(email.asInstanceOf[String],firstName.asInstanceOf[String],lastName.asInstanceOf[String],Option(domId.asInstanceOf[String]))
+		       }
+   		 case (Some(email),Some(firstName),Some(lastName),None) => { 
+		       UserInformation(email.asInstanceOf[String],firstName.asInstanceOf[String],lastName.asInstanceOf[String],None)
+
+		       
+		  }
+                  case _ => null
+                }
+		if (x != null) {
+		   result = x
+                }
+
+             }
+
+            Logger.info("results "+result)
+            result
+      }
+    }
+   results
+  }
+
+
   import models.Location
   def fetchLocationForStream(stream: String): List[Location] = {
 
@@ -617,6 +655,7 @@ object ActorUtilsReader {
                   case (Some(latitude),Some(longitude)) => 
 		       				Location(latitude.asInstanceOf[Double],longitude.asInstanceOf[Double])
                   case _ => null
+
                 }
 		if (result != null) {
 		   result = result :+ x
@@ -818,6 +857,72 @@ object ActorUtilsReader {
             Logger.info("results "+result)
             result
       }
+    }
+   results
+  }
+
+
+
+ def getRoomJid(token: String): String = {
+
+    val getRoomJid = CypherReaderFunction.getRoomJid(token)
+    val getRoomJidResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getRoomJid)).mapTo[Any]
+
+    val results = Await.result(getRoomJidResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+
+             var result = List[String]()
+             for(res <- readResults.results){
+               var x: String = res match {
+                  case Some(ip) => ip.asInstanceOf[String]
+                  case _ => null
+                }
+		if (x != null) {
+		  
+		   result = result :+ x
+                }
+
+             }
+            Logger.info("results "+result)
+	    if (result.size > 0) {
+               result.head
+	    } else {
+	      ""
+	    }
+      }
+
+    }
+   results
+  }
+
+ def getRoomJidForStream(stream: String): String = {
+
+    val getRoomJidForStream = CypherReaderFunction.getRoomJidForStream(stream)
+    val getRoomJidForStreamResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getRoomJidForStream)).mapTo[Any]
+
+    val results = Await.result(getRoomJidForStreamResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+
+             var result = List[String]()
+             for(res <- readResults.results){
+               var x: String = res match {
+                  case Some(ip) => ip.asInstanceOf[String]
+                  case _ => null
+                }
+		if (x != null) {
+		  
+		   result = result :+ x
+                }
+
+             }
+            Logger.info("results "+result)
+	    if (result.size > 0) {
+               result.head
+	    } else {
+	      ""
+	    }
+      }
+
     }
    results
   }
