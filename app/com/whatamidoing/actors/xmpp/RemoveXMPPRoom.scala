@@ -16,7 +16,7 @@ class RemoveXMPPRoom extends Actor {
       	   import org.jivesoftware.smack.ConnectionConfiguration
       	   import org.jivesoftware.smack.XMPPConnection
 
-      	   Connection.DEBUG_ENABLED = true
+//      	   Connection.DEBUG_ENABLED = true
 
 	   import play.api.Play
       	   implicit var currentPlay = Play.current

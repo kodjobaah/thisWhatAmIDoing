@@ -22,7 +22,7 @@ class CreateRoom()  extends Actor {
       	   import org.jivesoftware.smack.ConnectionConfiguration
       	   import org.jivesoftware.smack.XMPPConnection
 
-      	   Connection.DEBUG_ENABLED = true
+//      	   Connection.DEBUG_ENABLED = true
 
 
       	   // Create a connection to the jabber.org server.
