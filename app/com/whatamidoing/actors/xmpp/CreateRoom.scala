@@ -23,6 +23,9 @@ class CreateRoom()  extends Actor {
       	   import org.jivesoftware.smack.XMPPConnection
 
 //      	   Connection.DEBUG_ENABLED = true
+          import org.jivesoftware.smack.SmackConfiguration
+           SmackConfiguration.setLocalSocks5ProxyPort(-1)
+
 
 
       	   // Create a connection to the jabber.org server.

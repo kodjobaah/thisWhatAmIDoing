@@ -22,6 +22,9 @@ class CreateXMPPGroup() extends Actor {
 
 //      	   Connection.DEBUG_ENABLED = true
 
+          import org.jivesoftware.smack.SmackConfiguration
+           SmackConfiguration.setLocalSocks5ProxyPort(-1)
+
 	   import play.api.Play
       	   implicit var currentPlay = Play.current
       	   val xmppDomain = Play.current.configuration.getString("xmpp.domain").get

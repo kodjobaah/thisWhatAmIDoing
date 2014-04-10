@@ -17,6 +17,9 @@ class CreateXMPPDomain() extends Actor {
       	   import org.jivesoftware.smack.XMPPConnection
 
 //      	   Connection.DEBUG_ENABLED = true
+          import org.jivesoftware.smack.SmackConfiguration
+           SmackConfiguration.setLocalSocks5ProxyPort(-1)
+
 
 	   import play.api.Play
       	   implicit var currentPlay = Play.current
