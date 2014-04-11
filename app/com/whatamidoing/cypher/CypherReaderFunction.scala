@@ -446,4 +446,16 @@ def getReferersForFacebook(stream: String): () => Neo4jResult = {
     getRoomJidForStream
   }
 
+ def getUserInformationUsingInviteId(inviteId: String): () => Neo4jResult = {
+
+    val getUserInformationUsingInviteId: Function0[Neo4jResult] = () => {
+      val getUserInformationUsingInviteId = Cypher(CypherReader.getUserInformationUsingInviteId(inviteId)).apply().map(row => (row[Option[String]]("email"),row[Option[String]]("firstName"),row[Option[String]]("lastName"),row[Option[String]]("domId"))).toList
+      val neo4jResult = new Neo4jResult(getUserInformationUsingInviteId)
+      neo4jResult
+    }
+    getUserInformationUsingInviteId
+
+ }
+
+
 }

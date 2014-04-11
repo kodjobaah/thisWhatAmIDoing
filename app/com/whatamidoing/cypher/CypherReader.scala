@@ -689,5 +689,18 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
 
   }
 
+  def getUserInformationUsingInviteId(inviteId: String): String = {
+
+      val res = s"""
+          match (invite:Invite) where invite.id="$inviteId"
+	  with invite
+      	  match (invite)-[:RECEIVED]-(user)
+	  return user.email as email, user.firstName as firstName , user.lastName as lastName, user.domId as domId
+
+      """
+      Logger.info("---getUserInformationUsingInviteId--");
+      return res
+  }
+
 
 }

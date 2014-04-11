@@ -246,7 +246,13 @@ object WhatAmIDoingController extends Controller {
 	     locations = ActorUtilsReader.fetchLocationForActiveStreamFacebook(invitedId)
 
         } else {
-	   nickName="Friend"
+
+	    val userInformation = ActorUtilsReader.getUserInformationUsingInviteId(invitedId)
+	    if (userInformation.firstName.length < 1) {
+	       nickName = "Friend"
+	    } else {
+	       nickName= userInformation.firstName
+	   }
           streamId = ActorUtilsReader.findStreamForInvitedId(invitedId)
           if(!streamId.isEmpty()){
              ActorUtils.associatedInviteWithDayOfAcceptance(invitedId)

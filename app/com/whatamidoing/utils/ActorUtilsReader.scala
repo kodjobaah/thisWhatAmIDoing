@@ -498,7 +498,8 @@ object ActorUtilsReader {
              for(res <- readResults.results){
                var x: UserInformation = res match {
                   case (Some(email),Some(firstName),Some(lastName),Some(domId)) => { 
-		       	val u = "userInformation:"+email
+
+		  val u = "userInformation:"+email
 		       Logger.info("---------------ActorUtilsReader"+u)
 		       UserInformation(email.asInstanceOf[String],firstName.asInstanceOf[String],lastName.asInstanceOf[String],Option(domId.asInstanceOf[String]))
 		       }
@@ -927,6 +928,42 @@ object ActorUtilsReader {
    results
   }
 
+  import models.UserInformation
+ def getUserInformationUsingInviteId(inviteId: String): UserInformation = {
+
+    val getUserInformationUsingInviteId = CypherReaderFunction.getUserInformationUsingInviteId(inviteId)
+    val getUserInformationUsingInviteIdResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getUserInformationUsingInviteId)).mapTo[Any]
+
+    val results = Await.result(getUserInformationUsingInviteIdResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+
+             var result = UserInformation()
+             for(res <- readResults.results){
+               var x: UserInformation = res match {
+                  case (Some(email),Some(firstName),Some(lastName),Some(domId)) => { 
+		       val u = "userInformation:"+email
+		       Logger.info("---------------ActorUtilsReader"+u)
+		       UserInformation(email.asInstanceOf[String],firstName.asInstanceOf[String],lastName.asInstanceOf[String],Option(domId.asInstanceOf[String]))
+		       }
+   		 case (Some(email),Some(firstName),Some(lastName),None) => { 
+		       UserInformation(email.asInstanceOf[String],firstName.asInstanceOf[String],lastName.asInstanceOf[String],None)
+
+		       
+		  }
+                  case _ => null
+                }
+		if (x != null) {
+		   result = x
+                }
+
+             }
+
+            Logger.info("results "+result)
+            result
+      }
+    }
+   results
+  }
 
 
 
