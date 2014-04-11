@@ -37,8 +37,7 @@ object ApplicationBuild extends Build {
     resolvers ++= Seq(
       "anormcypher" at "http://repo.anormcypher.org/"),
     testOptions in Test := Nil,
-
-
+    libraryDependencies += filters,
     javaOptions in Test += "-Dconfig.file=webapp/conf/application.conf",
     scalacOptions += "-language:postfixOps",
     Keys.fork in run := true // Add your own project settings here      
