@@ -40,7 +40,7 @@ class CreateXMPPGroup() extends Actor {
       	   import org.jivesoftware.smack.XMPPException
       	   try { 
       	       conn.connect()  
-               Logger.info("---ABLE TO CONNECT:"+conn.isConnected())
+               Logger.debug("---ABLE TO CONNECT:"+conn.isConnected())
       	       conn.login(adminUserName, adminPassword)
 	       Logger.info("success:"+conn.isAuthenticated())
                Logger.info("---ABLE TO LOGIN:"+roomJid)

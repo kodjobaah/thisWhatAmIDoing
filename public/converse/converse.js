@@ -1761,7 +1761,7 @@ var Reflector = function(obj) {
 		var n = roomjid.lastIndexOf("@");
 		var domain = roomjid.substring(n+1,roomjid.length);
 		var roomname = roomjid.substring(0,n);
-                chatroom = converse.chatboxesview.showChatBox({
+                this.chatroom = converse.chatboxesview.showChatBox({
                     'id': domain,
                     'jid': roomjid,
                     'name': roomname,
@@ -3534,11 +3534,11 @@ var Reflector = function(obj) {
             tagName: 'a',
             className: 'toggle-online-users',
             id: 'toggle-controlbox',
-   /*
+
             events: {
                 'click': 'onClick'
             },
-*/
+
             attributes: {
                 'href': "#"
             },
@@ -3575,15 +3575,19 @@ var Reflector = function(obj) {
 
             onClick: function (e) {
                 e.preventDefault();
-                if ($("div#controlbox").is(':visible')) {
-                    var controlbox = converse.chatboxes.get('controlbox');
-                    if (converse.connection) {
-                        controlbox.destroy();
+                var view = converse.chatboxesview.views.controlbox.roomspanel.chatroom;
+		if(!$("div.chatroom").is(':visible')) {
+                     if (converse.connection) {
+			 converse.controlboxtoggle.showControlBox();
+		         var view = converse.chatboxesview.views.controlbox;
+			 view.createChatRoomOnRoomsPanel();
+			 $('#controlbox').remove();
                     } else {
-                        controlbox.trigger('hide');
+			this.connection = new Strophe.Connection(this.bosh_service_url);
+			this.connection.connect("whatamidoing","",this.onConnect);
+
                     }
-                } else {
-                    this.showControlBox();
+
                 }
             }
         });
