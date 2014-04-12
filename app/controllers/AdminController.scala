@@ -64,13 +64,13 @@ object AdminController extends Controller {
 
 	  bindForm.fold(
 	    formWithErrors => {
-               future(BadRequest(views.html.userdetails(formWithErrors)))
+               future(BadRequest(views.html.userdetails(formWithErrors,false)))
 	    },
 	    userData => {
       	     var r = ActorUtils.updateUserDetails(token,userData.firstName,userData.lastName)
       	     var res =  ActorUtilsReader.fetchUserDetails(token)
 	     val filledForm = userDetailsForm.fill(res)
-             future(Ok(views.html.userdetails(filledForm)))
+             future(Ok(views.html.userdetails(filledForm,true)))
 	    }
 	  )
       }.getOrElse {
@@ -89,8 +89,7 @@ object AdminController extends Controller {
       	  var res =  ActorUtilsReader.fetchUserDetails(token)
 
 	  val filledForm = userDetailsForm.fill(res)
-	  System.out.println(res)
-          future(Ok(views.html.userdetails(filledForm)))
+          future(Ok(views.html.userdetails(filledForm,false)))
       }.getOrElse {
          future(Unauthorized(views.html.welcome(Index.userForm)))
       }
