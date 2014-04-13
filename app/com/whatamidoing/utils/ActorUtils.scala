@@ -204,8 +204,8 @@ object ActorUtils {
 
   }
 
-  def associatedInviteTwitterWithReferer(inviteId: String, referal: String) = {
-    val associateInviteTwitterWithReferer = CypherWriterFunction.associateInviteTwitterWithReferer(inviteId,referal)
+  def associatedInviteTwitterWithReferer(inviteId: String, referal: String, sessionId: String) = {
+    val associateInviteTwitterWithReferer = CypherWriterFunction.associateInviteTwitterWithReferer(inviteId,referal,sessionId)
     val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(associateInviteTwitterWithReferer)).mapTo[Any]
 
     var res = Await.result(writerResponse, 10 seconds) match {
@@ -438,4 +438,56 @@ object ActorUtils {
     val message =  RemoveXMPPRoomMessage(roomJid)
     xmppSupervisor ! message
   }
+
+  def videoStreamStartedSocialMedia(sessionId: String) = {
+    val videoStreamStartedSocialMedia = CypherWriterFunction.videoStreamStartedSocialMedia(sessionId)
+    val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(videoStreamStartedSocialMedia)).mapTo[Any]
+
+    var res = Await.result(writerResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        if (results.results.size > 0) {
+        results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
+      }
+    }
+    res
+
+  }
+
+  def videoStreamStoppedSocialMedia(sessionId: String) = {
+    val videoStreamStoppedSocialMedia = CypherWriterFunction.videoStreamStoppedSocialMedia(sessionId)
+    val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(videoStreamStoppedSocialMedia)).mapTo[Any]
+
+    var res = Await.result(writerResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        if (results.results.size > 0) {
+        results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
+      }
+    }
+    res
+
+  }
+
+ def deactivateAllRefererStreamActions(sessionId: String) = {
+    val deactivateAllRefererStreamActions = CypherWriterFunction.deactivateAllRefererStreamActions(sessionId)
+    val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(deactivateAllRefererStreamActions)).mapTo[Any]
+
+    var res = Await.result(writerResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        if (results.results.size > 0) {
+        results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
+      }
+    }
+    res
+
+  }
+
 }

@@ -34,16 +34,31 @@ class TwitterService() {
          referersLinkedin
        }
 
-       def getTwitterCount(token: String, streamId: String): Tuple3[String,String,String] =  {
-       //Getting info about linkedin
-       val clause = "where s.name=\""+streamId+"\""
-       val twitterInvites = ActorUtilsReader.countAllTwitterInvites(token,clause).toInt
-       var res = ("","","")
-       if (twitterInvites > 0) {      
-          val twitterAccept = ActorUtilsReader.getTwitterAcceptanceCount(token,clause).toInt
+
+       def getTwitterViewersCount(token: String, streamId: String): Tuple3[String,String,String] =  {
+       	   //Getting info about linkedin
+       	   val clause = "where s.name=\""+streamId+"\""
+          val twitterAccept = ActorUtilsReader.getTwitterViewers(token,clause).toInt
+       	  var res = ("","","")
           if (twitterAccept > 0) {
-	   val accept = "("+twitterAccept+")"
-	   res = ("Twitter","number of viewers",accept)
+	     val accept = "("+twitterAccept+")"
+	     res = ("Twitter","number of viewers",accept)
+          } else {
+	     res  = ("Twitter","no viewers","")
+          }
+          return res;
+       }      
+
+       def getTwitterCount(token: String, streamId: String): Tuple3[String,String,String] =  {
+       	   //Getting info about linkedin
+       	   val clause = "where s.name=\""+streamId+"\""
+       	   val twitterInvites = ActorUtilsReader.countAllTwitterInvites(token,clause).toInt
+       	   var res = ("","","")
+       	   if (twitterInvites > 0) {      
+              val twitterAccept = ActorUtilsReader.getTwitterAcceptanceCount(token,clause).toInt
+          if (twitterAccept > 0) {
+	     val accept = "("+twitterAccept+")"
+	     res = ("Twitter","number of viewers",accept)
           } else {
 	     res  = ("Twitter","no viewers","")
 
@@ -55,11 +70,9 @@ class TwitterService() {
 
        def getCountOfAllViewers(token: String, streamId: String): Int = {
               val streamClause = "where s.name=\""+streamId+"\""
-              val twitterAccept = ActorUtilsReader.getTwitterAcceptanceCount(token,streamClause).toInt
+              val twitterAccept = ActorUtilsReader.getTwitterViewers(token,streamClause).toInt
 	      twitterAccept
        }
-
-
 
 }
 

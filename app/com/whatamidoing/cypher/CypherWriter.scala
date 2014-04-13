@@ -206,12 +206,15 @@ object CypherWriter {
       return res
   }
 
-  def associateInviteTwitterWithReferer(inviteId:String, day: String, time: String,referer: String): String = {
+
+
+
+  def associateInviteTwitterWithReferer(inviteId:String, day: String, time: String,referer: String, sessionId: String): String = {
       val res=s"""
     		match (inviteTwitter:InviteTwitter), (day:Day)
     		where inviteTwitter.id = "$inviteId" and day.description="$day"
     		with inviteTwitter,day
-                create (referer:Referer{id:"$referer"})
+                create (referer:Referer{id:"$referer" , sessionId: "$sessionId"})
                 with inviteTwitter,day,referer
                 create (inviteTwitter)-[r:USING_REFERER]->(referer)-[a:ACCEPTED_ON {time:"$time"}]->(day)
     		return r,referer
@@ -361,4 +364,50 @@ object CypherWriter {
      return res
 
   }
+
+  def deactivateAllRefererStreamActions(sessionId: String): String = {
+       val res=s"""
+    		match (referer:Referer) 
+		where referer.sessionId="$sessionId" 
+    		with referer
+                match (referer)-[sp:STOPPED_PLAYING|START_PLAYING]->(ss)
+		SET ss.state="inactive"
+    		return ss
+      """
+     Logger.info("--deactivateAllRefererStreamActions["+res+"]")
+      return res
+
+
+  }
+
+  def videoStreamStartedSocialMedia(sessionId: String, day: String, time: String): String = {
+      val res=s"""
+    		match (referer:Referer) , (day:Day)
+		where referer.sessionId="$sessionId" and day.description="$day"
+		with referer,day
+		create (streamStarted:STREAM_STARTED  {state:"active"})
+    		with streamStarted,referer,day
+                create (referer)-[ps:START_PLAYING]->(streamStarted)-[o:ON {time:"$time"}]->(day)
+    		return referer
+      """
+     Logger.info("--videoStreamStartedSocialMedia["+res+"]")
+      return res
+
+  }
+
+  def videoStreamStoppedSocialMedia(sessionId: String, day: String, time: String): String = {
+      val res=s"""
+    		match (referer:Referer) , (day:Day)
+		where referer.sessionId="$sessionId" and day.description="$day"
+		with referer,day
+		create (streamStopped:STREAM_STOPPED  {state:"active"})
+    		with streamStopped,referer,day
+                create (referer)-[ps:STOP_PLAYING]->(streamStoped)-[o:ON {time:"$time"}]->(day)
+    		return referer
+      """
+     Logger.info("--videoStreamStoppedSocialMedia["+res+"]")
+      return res
+
+  }
+
 }

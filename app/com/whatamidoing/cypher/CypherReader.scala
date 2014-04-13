@@ -103,19 +103,48 @@ object CypherReader {
   }
 
 
-
   def checkToSeeIfTwitterInviteAcceptedAlreadyByReferer(inviteId: String, referer: String) : String  = {
      val res=s"""
     		match (a:InviteTwitter), (b:Referer)
-    		where a.id = "$inviteId", b.id = "$referer"
+    		where a.id = "$inviteId" and  b.id = "$referer"
     		with a,b
                 match (a)-[r:USING_REFERAL]-(b)
     		return b.id as id
       """
+     Logger.info("---checkToSeeIfTwitterInviteAcceptedAlreadyByReferer["+res+"]")
       return res
  
 
   }
+
+  def checkToSeeIfFacebookInviteAcceptedAlreadyByReferer(inviteId: String, referer: String) : String  = {
+     val res=s"""
+    		match (a:InviteFacebook), (b:Referer)
+    		where a.id = "$inviteId" and  b.id = "$referer"
+    		with a,b
+                match (a)-[r:USING_REFERAL]-(b)
+    		return b.id as id
+      """
+     Logger.info("---checkToSeeIfFacebookInviteAcceptedAlreadyByReferer["+res+"]")
+      return res
+ 
+
+  }
+
+  def checkToSeeIfLinkedinInviteAcceptedAlreadyByReferer(inviteId: String, referer: String) : String  = {
+     val res=s"""
+    		match (a:InviteLinkedin), (b:Referer)
+    		where a.id = "$inviteId" and  b.id = "$referer"
+    		with a,b
+                match (a)-[r:USING_REFERAL]-(b)
+    		return b.id as id
+      """
+     Logger.info("---checkToSeeIfLinkedinInviteAcceptedAlreadyByReferer["+res+"]")
+      return res
+ 
+
+  }
+
 
   
   def findAllInvites(token: String): String = {
@@ -578,6 +607,52 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
   }
 
 
+  def getTwitterViewers(token: String, streamClause: String = ""): String = {
+
+    val res =s"""
+    match (tok:AuthenticationToken)
+    where tok.token="$token" 
+    with tok
+    match (tok)-[u:USING]-(s) $streamClause
+    with s
+    match (s)-[t:TO_WATCH]-(i:InviteTwitter)-[ur:USING_REFERER]-(r)-[ps:START_PLAYING]-(ss)
+    where ss.state="active"
+    return count(distinct ss) as count
+    """
+    Logger.info("--getTwitterViewers["+res+"]")
+    return res
+  }
+  def getLinkedinViewers(token: String, streamClause: String = ""): String = {
+
+    val res =s"""
+    match (tok:AuthenticationToken)
+    where tok.token="$token" 
+    with tok
+    match (tok)-[u:USING]-(s) $streamClause
+    with s
+    match (s)-[t:TO_WATCH]-(i:InviteLinkedin)-[ur:USING_REFERER]-(r)-[ps:START_PLAYING]-(ss)
+    where ss.state="active"
+    return count(distinct ss) as count
+    """
+    Logger.info("--getLinkedinViewers["+res+"]")
+    return res
+  }
+  def getFacebookViewers(token: String, streamClause: String = ""): String = {
+
+    val res =s"""
+    match (tok:AuthenticationToken)
+    where tok.token="$token" 
+    with tok
+    match (tok)-[u:USING]-(s) $streamClause
+    with s
+    match (s)-[t:TO_WATCH]-(i:InviteFacebook)-[ur:USING_REFERER]-(r)-[ps:START_PLAYING]-(ss)
+    where ss.state="active"
+    return count(distinct ss) as count
+    """
+    Logger.info("--getFacebookViewers["+res+"]")
+    return res
+  }
+
   def getTwitterAcceptanceCount(token: String, streamClause: String = ""): String = {
 
     val res =s"""
@@ -698,7 +773,8 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
 	  return user.email as email, user.firstName as firstName , user.lastName as lastName, user.domId as domId
 
       """
-      Logger.info("---getUserInformationUsingInviteId--");
+      Logger.info("---getUserInformationUsingInviteId--")
+
       return res
   }
 

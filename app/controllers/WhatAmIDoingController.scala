@@ -208,6 +208,19 @@ object WhatAmIDoingController extends Controller {
         System.out.println(result)
 	future(Ok(result))
   }
+  def videoStarted(sessionId: String) = Action.async {
+     	ActorUtils.deactivateAllRefererStreamActions(sessionId)
+     	ActorUtils.videoStreamStartedSocialMedia(sessionId)
+	future(Ok(Json.obj(""->"").toString))
+ }
+
+ def videoStopped(sessionId: String) = Action.async {
+     	ActorUtils.deactivateAllRefererStreamActions(sessionId)
+     	ActorUtils.videoStreamStoppedSocialMedia(sessionId)
+	future(Ok(Json.obj(""->"").toString))
+ }
+
+
   /**
    * Used to return the page for the user to view the stream
    
@@ -220,12 +233,17 @@ object WhatAmIDoingController extends Controller {
       var locations = List(Location())
 
       if (!invitedId.equalsIgnoreCase("no-invited-id")) {
+      	 val sessionId = java.util.UUID.randomUUID().toString()
         var streamId = ""
 	var roomJid=""
 	var nickName=""
         if (invitedId.endsWith(Linkedin)) {
 	      val referer = request.headers.get("X-Forwarded-For").orElse(Option("127.0.0.1"))
-	      ActorUtils.associatedInviteLinkedinWithReferer(invitedId,referer.get)
+
+	      val res = ActorUtilsReader.checkToSeeIfFacebookInviteAcceptedAlreadyByReferer(invitedId,referer.get)
+	      if (res.size < 1) {
+	      	 ActorUtils.associatedInviteLinkedinWithReferer(invitedId,referer.get)
+              }
 	      streamId = ActorUtilsReader.findStreamForInviteLinkedin(invitedId)
 
 	      locations = ActorUtilsReader.fetchLocationForActiveStreamLinkedin(invitedId)
@@ -233,17 +251,25 @@ object WhatAmIDoingController extends Controller {
 
        } else  if (invitedId.endsWith(Twitter)) {
        	       nickName="Twitter"
+
 	      val referer = request.headers.get("X-Forwarded-For").orElse(Option("127.0.0.1"))
-	      ActorUtils.associatedInviteTwitterWithReferer(invitedId,referer.get)
+
+	      val res = ActorUtilsReader.checkToSeeIfTwitterInviteAcceptedAlreadyByReferer(invitedId,referer.get)
+	      if (res.size < 1 ) {
+	      	 ActorUtils.associatedInviteTwitterWithReferer(invitedId,referer.get,sessionId)
+	      }
 	      streamId = ActorUtilsReader.findStreamForInviteTwitter(invitedId)
 	      locations = ActorUtilsReader.fetchLocationForActiveStreamTwitter(invitedId)
 	   
         } else if (invitedId.endsWith(Facebook)) {
 	      nickName="Facebook"
 	      val referer = request.headers.get("X-Forwarded-For").orElse(Option("127.0.0.1"))
-	      ActorUtils.associatedInviteFacebookWithReferer(invitedId,referer.get)
+	      val res = ActorUtilsReader.checkToSeeIfFacebookInviteAcceptedAlreadyByReferer(invitedId,referer.get)
+	      if (res.size < 1) {
+	          ActorUtils.associatedInviteFacebookWithReferer(invitedId,referer.get)
+              }
 	      streamId = ActorUtilsReader.findStreamForInviteFacebook(invitedId)
-	     locations = ActorUtilsReader.fetchLocationForActiveStreamFacebook(invitedId)
+	      locations = ActorUtilsReader.fetchLocationForActiveStreamFacebook(invitedId)
 
         } else {
 
@@ -268,9 +294,8 @@ object WhatAmIDoingController extends Controller {
 
 	  roomJid = ActorUtilsReader.getRoomJidForStream(streamId)	  
 	  streamId = streamId.dropRight(3)+"m3u8"
-	  val token = java.util.UUID.randomUUID().toString()
-	  nickName = token+"-DIDLY-SQUAT-"+nickName
-          future(Ok(views.html.whatamidoing(streamId,locations,invitedId,roomJid,nickName)).withSession("whatAmIdoing-xmpp"->token))
+	  nickName = sessionId+"-DIDLY-SQUAT-"+nickName
+          future(Ok(views.html.whatamidoing(streamId,locations,invitedId,roomJid,nickName,sessionId)).withSession("whatAmIdoing-xmpp"->sessionId))
         }
       } else {
         future(Ok(views.html.whatamidoingnoinviteId()))

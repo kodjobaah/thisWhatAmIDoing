@@ -167,13 +167,13 @@ object ActorUtilsReader {
   }
 
   /*
-   * NOTE: This is not currently being used
+   * 
    */
   def checkToSeeIfTwitterInviteAcceptedAlreadyByReferer(inviteId: String, referer: String) = {
     val checkToSeeIfTwitterInviteAcceptedAlreadyByReferer = CypherReaderFunction.checkToSeeIfTwitterInviteAcceptedAlreadyByReferer(inviteId,referer)
     val readerResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(checkToSeeIfTwitterInviteAcceptedAlreadyByReferer)).mapTo[Any]
 
-    var id = Await.result(readerResponse, 10 seconds) match {
+    var id = Await.result(readerResponse, 20 seconds) match {
       case ReadOperationResult(results) => {
 
         if (results.results.size > 0) {
@@ -186,6 +186,50 @@ object ActorUtilsReader {
    id
 
   }
+
+  /*
+   * 
+   */
+  def checkToSeeIfFacebookInviteAcceptedAlreadyByReferer(inviteId: String, referer: String) = {
+    val checkToSeeIfFacebookInviteAcceptedAlreadyByReferer = CypherReaderFunction.checkToSeeIfFacebookInviteAcceptedAlreadyByReferer(inviteId,referer)
+    val readerResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(checkToSeeIfFacebookInviteAcceptedAlreadyByReferer)).mapTo[Any]
+
+    var id = Await.result(readerResponse, 20 seconds) match {
+      case ReadOperationResult(results) => {
+
+        if (results.results.size > 0) {
+          results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
+      }
+    }
+   id
+
+  }
+
+  /*
+   * 
+   */
+  def checkToSeeIfLinkedinInviteAcceptedAlreadyByReferer(inviteId: String, referer: String) = {
+    val checkToSeeIfLinkedinInviteAcceptedAlreadyByReferer = CypherReaderFunction.checkToSeeIfLinkedinInviteAcceptedAlreadyByReferer(inviteId,referer)
+    val readerResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(checkToSeeIfLinkedinInviteAcceptedAlreadyByReferer)).mapTo[Any]
+
+    var id = Await.result(readerResponse, 20 seconds) match {
+      case ReadOperationResult(results) => {
+
+        if (results.results.size > 0) {
+          results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
+      }
+    }
+   id
+
+  }
+
+
 
   def findActiveStreamForToken(token: String): String = {
     
@@ -724,6 +768,23 @@ object ActorUtilsReader {
     results
   }
 
+  def getFacebookViewers(token: String, streamClause: String = "" ): BigDecimal = {
+
+    val getFacebookViewers = CypherReaderFunction.getFacebookViewers(token, streamClause)
+    val getFacebookViewersResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getFacebookViewers)).mapTo[Any]
+
+    var results = Await.result(getFacebookViewersResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+        if (readResults.results.size > 0) {
+          readResults.results.head.asInstanceOf[BigDecimal]
+	} else {
+	  BigDecimal(0)
+	}
+
+      }
+    }
+    results
+  }
 
   def getFacebookAcceptanceCount(token: String, streamClause: String = ""): BigDecimal = {
 
@@ -744,12 +805,50 @@ object ActorUtilsReader {
     results
   }
 
+
+  def getTwitterViewers(token: String, streamClause: String = "" ): BigDecimal = {
+
+    val getTwitterViewers = CypherReaderFunction.getTwitterViewers(token, streamClause)
+    val getTwitterViewersResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getTwitterViewers)).mapTo[Any]
+
+    var results = Await.result(getTwitterViewersResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+        if (readResults.results.size > 0) {
+          readResults.results.head.asInstanceOf[BigDecimal]
+	} else {
+	  BigDecimal(0)
+	}
+
+      }
+    }
+    results
+  }
+
   def getTwitterAcceptanceCount(token: String, streamClause: String = "" ): BigDecimal = {
 
     val getTwitterAcceptanceCount = CypherReaderFunction.getTwitterAcceptanceCount(token, streamClause)
     val getTwitterAcceptanceCountResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getTwitterAcceptanceCount)).mapTo[Any]
 
     var results = Await.result(getTwitterAcceptanceCountResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+        if (readResults.results.size > 0) {
+          readResults.results.head.asInstanceOf[BigDecimal]
+	} else {
+	  BigDecimal(0)
+	}
+
+      }
+    }
+    results
+  }
+
+
+  def getLinkedinViewers(token: String, streamClause: String = "" ): BigDecimal = {
+
+    val getLinkedinViewers = CypherReaderFunction.getLinkedinViewers(token, streamClause)
+    val getLinkedinViewersResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getLinkedinViewers)).mapTo[Any]
+
+    var results = Await.result(getLinkedinViewersResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
         if (readResults.results.size > 0) {
           readResults.results.head.asInstanceOf[BigDecimal]

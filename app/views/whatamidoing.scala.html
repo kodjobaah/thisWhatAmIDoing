@@ -1,5 +1,5 @@
 @* whatamidoing Template File *@
-@(stream: String,locations:List[Location],inviteId: String, roomJid: String,nickname: String)
+@(stream: String,locations:List[Location],inviteId: String, roomJid: String,nickname: String, sessionId: String)
 
 @import models.Location
 
@@ -113,6 +113,19 @@ if( /webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.user
     $("#player").empty();
     $("#player").append('<video  src="http://www.whatamidoing.info/hlsapp/@stream" height="300" width="400"></video>');
 } else {
+
+    function videoStartedPlaying() {
+        $.post( "@routes.WhatAmIDoingController.videoStarted(sessionId)");
+     }
+
+    function videoStoppedPlaying(event) {
+        $.post( "@routes.WhatAmIDoingController.videoStopped(sessionId)");
+    }
+ 
+    function problemsPlayingVideo() {
+       alert('problems playing stream -- try reloading the page');
+    }
+
     jwplayer("player").setup({
 
      playlist: [{
@@ -125,6 +138,9 @@ if( /webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.user
       height: 400,
       primary: "flash"
     });
+   jwplayer("").onPlay(videoStartedPlaying);
+   jwplayer("").onPause(videoStoppedPlaying);
+
 }
 </script>
 <script>

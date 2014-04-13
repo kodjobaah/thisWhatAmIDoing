@@ -53,8 +53,8 @@ class LinkedinService() {
 
        def getCountOfAllViewers(token: String, streamId: String): Int = {
               val streamClause = "where s.name=\""+streamId+"\""
-              val twitterAccept = ActorUtilsReader.getLinkedinAcceptanceCount(token,streamClause).toInt
-	      twitterAccept
+              val linkedinAccept = ActorUtilsReader.getLinkedinViewers(token,streamClause).toInt
+	      linkedinAccept
        }
 
 

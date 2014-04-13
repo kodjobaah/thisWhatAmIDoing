@@ -53,7 +53,7 @@ class FacebookService() {
 
        def getCountOfAllViewers(token: String, streamId: String): Int = {
               val streamClause = "where s.name=\""+streamId+"\""
-              val a  = ActorUtilsReader.getFacebookAcceptanceCount(token,streamClause).toInt
+              val a  = ActorUtilsReader.getFacebookViewers(token,streamClause).toInt
 	      a
        }
 

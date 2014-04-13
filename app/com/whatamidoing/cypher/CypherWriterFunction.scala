@@ -226,7 +226,8 @@ object CypherWriterFunction {
     associatedDayWithInvite
   }
 
-  def associateInviteTwitterWithReferer(inviteId: String, referal: String): () => Neo4jResult = {
+
+  def associateInviteTwitterWithReferer(inviteId: String, referal: String, sessionId: String): () => Neo4jResult = {
     
     val associatedInviteWithTwitterReferer: Function0[Neo4jResult] = () => {
       
@@ -235,7 +236,7 @@ object CypherWriterFunction {
       val dayDescription = "day " + day + " - month " + dt.getMonthOfYear() + "- year " + dt.getYear()
       val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
 
-      val assocaiteInviteTwitterWithReferer = Cypher(CypherWriter.associateInviteTwitterWithReferer(inviteId, dayDescription, time,referal)).execute()
+      val assocaiteInviteTwitterWithReferer = Cypher(CypherWriter.associateInviteTwitterWithReferer(inviteId, dayDescription, time,referal,sessionId)).execute()
       Logger("CypherWriterFunction.associateInviteTwitterWithReferer").info("this is associateInviteTwitterWithRefererd: " + assocaiteInviteTwitterWithReferer)
 
       val neo4jResult = new Neo4jResult(List(assocaiteInviteTwitterWithReferer.toString()))
@@ -395,6 +396,57 @@ object CypherWriterFunction {
     updateUserInformation
   }
 
+
+
+  def videoStreamStartedSocialMedia(sessionId: String): () => Neo4jResult = {
+
+    val videoStreamStartedSocialMedia: Function0[Neo4jResult] = () => {
+      
+      val dt = new DateTime();
+      val day = dt.getDayOfMonth();
+      val dayDescription = "day " + day + " - month " + dt.getMonthOfYear() + "- year " + dt.getYear()
+      val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
+
+      val videoStreamStartedSocialMedia = Cypher(CypherWriter.videoStreamStartedSocialMedia(sessionId, dayDescription, time)).execute()
+      Logger.info("this is videoStreamStartedSocialMedia: " + videoStreamStartedSocialMedia)
+
+      val neo4jResult = new Neo4jResult(List(videoStreamStartedSocialMedia.toString()))
+      neo4jResult
+    }
+
+    videoStreamStartedSocialMedia
+  }
+
+  def videoStreamStoppedSocialMedia(sessionId: String): () => Neo4jResult = {
+
+    val videoStreamStoppedSocialMedia: Function0[Neo4jResult] = () => {
+      
+      val dt = new DateTime();
+      val day = dt.getDayOfMonth();
+      val dayDescription = "day " + day + " - month " + dt.getMonthOfYear() + "- year " + dt.getYear()
+      val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
+
+      val videoStreamStoppedSocialMedia = Cypher(CypherWriter.videoStreamStoppedSocialMedia(sessionId, dayDescription, time)).execute()
+      Logger.info("this is videoStreamStoppedSocialMedia: " + videoStreamStoppedSocialMedia)
+
+      val neo4jResult = new Neo4jResult(List(videoStreamStoppedSocialMedia.toString()))
+      neo4jResult
+    }
+    videoStreamStoppedSocialMedia
+  }
+
+  def deactivateAllRefererStreamActions(sessionId: String): () => Neo4jResult = {
+
+    val deactivateAllRefererStreamActions: Function0[Neo4jResult] = () => {
+      
+      val deactivateAllRefererStreamActions = Cypher(CypherWriter.deactivateAllRefererStreamActions(sessionId)).execute()
+      Logger.info("this is deactivateAllRefererStreamActions: " + deactivateAllRefererStreamActions)
+
+      val neo4jResult = new Neo4jResult(List(deactivateAllRefererStreamActions.toString()))
+      neo4jResult
+    }
+    deactivateAllRefererStreamActions
+  }
 
 
 }
