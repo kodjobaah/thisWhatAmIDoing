@@ -861,7 +861,28 @@ object ActorUtilsReader {
     results
   }
 
+  def getEmailViewers(token: String, streamId: String = "" ): BigDecimal = {
+
+    val streamClause = "where s.name=\""+streamId+"\""
+    val getEmailViewers = CypherReaderFunction.getEmailViewers(token, streamClause)
+    val getEmailViewersResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getEmailViewers)).mapTo[Any]
+
+    var results = Await.result(getEmailViewersResponse, 30 seconds) match {
+      case ReadOperationResult(readResults) => {
+        if (readResults.results.size > 0) {
+          readResults.results.head.asInstanceOf[BigDecimal]
+	} else {
+	  BigDecimal(0)
+	}
+
+      }
+    }
+    results
+  }
+
+
  def getLinkedinAcceptanceCount(token: String,streamClause: String =""): BigDecimal = {
+
 
     val getLinkedinAcceptanceCount = CypherReaderFunction.getLinkedinAcceptanceCount(token,streamClause)
     val getLinkedinAcceptanceCountResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getLinkedinAcceptanceCount)).mapTo[Any]

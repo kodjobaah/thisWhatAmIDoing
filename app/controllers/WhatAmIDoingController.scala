@@ -208,16 +208,29 @@ object WhatAmIDoingController extends Controller {
         System.out.println(result)
 	future(Ok(result))
   }
-  def videoStarted(sessionId: String) = Action.async {
+  def videoStarted(sessionId: String, accessType: String) = Action.async {
+
+       if (accessType.equalsIgnoreCase("SOCIALMEDIA")) {
      	ActorUtils.deactivateAllRefererStreamActions(sessionId)
      	ActorUtils.videoStreamStartedSocialMedia(sessionId)
-	future(Ok(Json.obj(""->"").toString))
+      } else {
+ 	ActorUtils.deactivateAllStreamActions(sessionId)
+     	ActorUtils.videoStreamStarted(sessionId)
+      }
+      future(Ok(Json.obj(""->"").toString))
  }
 
- def videoStopped(sessionId: String) = Action.async {
+ def videoStopped(sessionId: String, accessType: String) = Action.async {
+
+       if (accessType.equalsIgnoreCase("SOCIALMEDIA")) {
      	ActorUtils.deactivateAllRefererStreamActions(sessionId)
      	ActorUtils.videoStreamStoppedSocialMedia(sessionId)
-	future(Ok(Json.obj(""->"").toString))
+       } else {
+	ActorUtils.deactivateAllStreamActions(sessionId)
+     	ActorUtils.videoStreamStopped(sessionId)
+       }
+    
+       future(Ok(Json.obj(""->"").toString))
  }
 
 
@@ -237,12 +250,13 @@ object WhatAmIDoingController extends Controller {
         var streamId = ""
 	var roomJid=""
 	var nickName=""
+	var accessType ="SOCIALMEDIA"
         if (invitedId.endsWith(Linkedin)) {
 	      val referer = request.headers.get("X-Forwarded-For").orElse(Option("127.0.0.1"))
 
 	      val res = ActorUtilsReader.checkToSeeIfFacebookInviteAcceptedAlreadyByReferer(invitedId,referer.get)
 	      if (res.size < 1) {
-	      	 ActorUtils.associatedInviteLinkedinWithReferer(invitedId,referer.get)
+	      	 ActorUtils.associatedInviteLinkedinWithReferer(invitedId,referer.get,sessionId)
               }
 	      streamId = ActorUtilsReader.findStreamForInviteLinkedin(invitedId)
 
@@ -251,6 +265,7 @@ object WhatAmIDoingController extends Controller {
 
        } else  if (invitedId.endsWith(Twitter)) {
        	       nickName="Twitter"
+
 
 	      val referer = request.headers.get("X-Forwarded-For").orElse(Option("127.0.0.1"))
 
@@ -266,13 +281,14 @@ object WhatAmIDoingController extends Controller {
 	      val referer = request.headers.get("X-Forwarded-For").orElse(Option("127.0.0.1"))
 	      val res = ActorUtilsReader.checkToSeeIfFacebookInviteAcceptedAlreadyByReferer(invitedId,referer.get)
 	      if (res.size < 1) {
-	          ActorUtils.associatedInviteFacebookWithReferer(invitedId,referer.get)
+	          ActorUtils.associatedInviteFacebookWithReferer(invitedId,referer.get,sessionId)
               }
 	      streamId = ActorUtilsReader.findStreamForInviteFacebook(invitedId)
 	      locations = ActorUtilsReader.fetchLocationForActiveStreamFacebook(invitedId)
 
         } else {
 
+	    accessType="EMAIL"
 	    val userInformation = ActorUtilsReader.getUserInformationUsingInviteId(invitedId)
 	    if (userInformation.firstName.length < 1) {
 	       nickName = "Friend"
@@ -280,6 +296,7 @@ object WhatAmIDoingController extends Controller {
 	       nickName= userInformation.firstName
 	   }
           streamId = ActorUtilsReader.findStreamForInvitedId(invitedId)
+	  Logger.info("----------STREAM ID:"+streamId)
           if(!streamId.isEmpty()){
              ActorUtils.associatedInviteWithDayOfAcceptance(invitedId)
 	     locations = ActorUtilsReader.fetchLocationForActiveStream(invitedId)
@@ -295,7 +312,7 @@ object WhatAmIDoingController extends Controller {
 	  roomJid = ActorUtilsReader.getRoomJidForStream(streamId)	  
 	  streamId = streamId.dropRight(3)+"m3u8"
 	  nickName = sessionId+"-DIDLY-SQUAT-"+nickName
-          future(Ok(views.html.whatamidoing(streamId,locations,invitedId,roomJid,nickName,sessionId)).withSession("whatAmIdoing-xmpp"->sessionId))
+          future(Ok(views.html.whatamidoing(streamId,locations,invitedId,roomJid,nickName,sessionId,accessType)).withSession("whatAmIdoing-xmpp"->sessionId))
         }
       } else {
         future(Ok(views.html.whatamidoingnoinviteId()))
@@ -320,7 +337,7 @@ object WhatAmIDoingController extends Controller {
 	       val linkedinCount: Int = linkedinService.getCountOfAllViewers(token,streamName)
 
 
-	       val totalUsersInvite =  ActorUtilsReader.getCountOfAllUsersWhoHaveAcceptedToWatchStream(token).toInt
+	       val totalUsersInvite =  ActorUtilsReader.getEmailViewers(token,streamName).toInt
 
 	       val total = facebookCount + twitterCount + linkedinCount + totalUsersInvite
 

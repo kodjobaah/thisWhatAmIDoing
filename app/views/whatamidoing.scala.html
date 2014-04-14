@@ -1,5 +1,5 @@
 @* whatamidoing Template File *@
-@(stream: String,locations:List[Location],inviteId: String, roomJid: String,nickname: String, sessionId: String)
+@(stream: String,locations:List[Location],inviteId: String, roomJid: String,nickname: String, sessionId: String, accessType: String)
 
 @import models.Location
 
@@ -115,11 +115,19 @@ if( /webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.user
 } else {
 
     function videoStartedPlaying() {
-        $.post( "@routes.WhatAmIDoingController.videoStarted(sessionId)");
+        @if(accessType == "SOCIALMEDIA") {
+        $.post( "@routes.WhatAmIDoingController.videoStarted(sessionId,accessType)");
+        }  else {
+        $.post( "@routes.WhatAmIDoingController.videoStarted(inviteId,accessType)");
+        }
      }
-
     function videoStoppedPlaying(event) {
-        $.post( "@routes.WhatAmIDoingController.videoStopped(sessionId)");
+
+        @if(accessType == "SOCIALMEDIA") {
+        $.post( "@routes.WhatAmIDoingController.videoStopped(sessionId,accessType)");
+        } else {
+          $.post( "@routes.WhatAmIDoingController.videoStopped(inviteId,accessType)");
+        }
     }
  
     function problemsPlayingVideo() {

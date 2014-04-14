@@ -246,7 +246,7 @@ object CypherWriterFunction {
     associatedInviteWithTwitterReferer
   }
 
-  def associateInviteFacebookWithReferer(inviteId: String, referal: String): () => Neo4jResult = {
+  def associateInviteFacebookWithReferer(inviteId: String, referal: String, sessionId: String): () => Neo4jResult = {
     
     val associatedInviteWithFacebookReferer: Function0[Neo4jResult] = () => {
       
@@ -255,7 +255,7 @@ object CypherWriterFunction {
       val dayDescription = "day " + day + " - month " + dt.getMonthOfYear() + "- year " + dt.getYear()
       val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
 
-      val assocaiteInviteFacebookWithReferer = Cypher(CypherWriter.associateInviteFacebookWithReferer(inviteId, dayDescription, time,referal)).execute()
+      val assocaiteInviteFacebookWithReferer = Cypher(CypherWriter.associateInviteFacebookWithReferer(inviteId, dayDescription, time,referal,sessionId)).execute()
       Logger("CypherWriterFunction.associateInviteFacebookWithReferer").info("this is associateInviteFacebookWithRefererd: " + assocaiteInviteFacebookWithReferer)
 
       val neo4jResult = new Neo4jResult(List(assocaiteInviteFacebookWithReferer.toString()))
@@ -265,7 +265,7 @@ object CypherWriterFunction {
     associatedInviteWithFacebookReferer
   }
 
-  def associateInviteLinkedinWithReferer(inviteId: String, referal: String): () => Neo4jResult = {
+  def associateInviteLinkedinWithReferer(inviteId: String, referal: String, sessionId: String): () => Neo4jResult = {
     
     val associatedInviteWithLinkedinReferer: Function0[Neo4jResult] = () => {
       val dt = new DateTime();
@@ -273,7 +273,7 @@ object CypherWriterFunction {
       val dayDescription = "day " + day + " - month " + dt.getMonthOfYear() + "- year " + dt.getYear()
       val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
 
-      val assocaiteInviteLinkedinWithReferer = Cypher(CypherWriter.associateInviteLinkedinWithReferer(inviteId, dayDescription, time,referal)).execute()
+      val assocaiteInviteLinkedinWithReferer = Cypher(CypherWriter.associateInviteLinkedinWithReferer(inviteId, dayDescription, time,referal,sessionId)).execute()
       Logger("CypherWriterFunction.associateInviteLinkedinWithReferer").info("this is associateInviteLinkedinWithRefererd: " + assocaiteInviteLinkedinWithReferer)
 
       val neo4jResult = new Neo4jResult(List(assocaiteInviteLinkedinWithReferer.toString()))
@@ -447,6 +447,60 @@ object CypherWriterFunction {
     }
     deactivateAllRefererStreamActions
   }
+
+
+
+  def videoStreamStarted(inviteId: String): () => Neo4jResult = {
+
+    val videoStreamStarted: Function0[Neo4jResult] = () => {
+      
+      val dt = new DateTime();
+      val day = dt.getDayOfMonth();
+      val dayDescription = "day " + day + " - month " + dt.getMonthOfYear() + "- year " + dt.getYear()
+      val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
+
+      val videoStreamStarted = Cypher(CypherWriter.videoStreamStarted(inviteId, dayDescription, time)).execute()
+      Logger.info("this is videoStreamStarted: " + videoStreamStarted)
+
+      val neo4jResult = new Neo4jResult(List(videoStreamStarted.toString()))
+      neo4jResult
+    }
+
+    videoStreamStarted
+  }
+
+  def videoStreamStopped(inviteId: String): () => Neo4jResult = {
+
+    val videoStreamStopped: Function0[Neo4jResult] = () => {
+      
+      val dt = new DateTime();
+      val day = dt.getDayOfMonth();
+      val dayDescription = "day " + day + " - month " + dt.getMonthOfYear() + "- year " + dt.getYear()
+      val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
+
+      val videoStreamStopped = Cypher(CypherWriter.videoStreamStopped(inviteId, dayDescription, time)).execute()
+      Logger.info("this is videoStreamStopped: " + videoStreamStopped)
+
+      val neo4jResult = new Neo4jResult(List(videoStreamStopped.toString()))
+      neo4jResult
+    }
+    videoStreamStopped
+  }
+
+  def deactivateAllStreamActions(inviteId: String): () => Neo4jResult = {
+
+    val deactivateAllStreamActions: Function0[Neo4jResult] = () => {
+      
+      val deactivateAllStreamActions = Cypher(CypherWriter.deactivateAllStreamActions(inviteId)).execute()
+      Logger.info("this is deactivateAllStreamActions: " + deactivateAllStreamActions)
+
+      val neo4jResult = new Neo4jResult(List(deactivateAllStreamActions.toString()))
+      neo4jResult
+    }
+    deactivateAllStreamActions
+  }
+
+
 
 
 }

@@ -223,12 +223,12 @@ object CypherWriter {
       return res
   }
 
-  def associateInviteFacebookWithReferer(inviteId:String, day: String, time: String,referer: String): String = {
+  def associateInviteFacebookWithReferer(inviteId:String, day: String, time: String,referer: String, sessionId: String): String = {
       val res=s"""
     		match (inviteFacebook:InviteFacebook), (day:Day)
     		where inviteFacebook.id = "$inviteId" and day.description="$day"
     		with inviteFacebook,day
-                create (referer:Referer{id:"$referer"})
+                create (referer:Referer{id:"$referer", sessionId: "$sessionId" })
                 with inviteFacebook,day,referer
                 create (inviteFacebook)-[r:USING_REFERER]->(referer)-[a:ACCEPTED_ON {time:"$time"}]->(day)
     		return r,referer
@@ -236,12 +236,12 @@ object CypherWriter {
       return res
   }
 
-  def associateInviteLinkedinWithReferer(inviteId:String, day: String, time: String,referer: String): String = {
+  def associateInviteLinkedinWithReferer(inviteId:String, day: String, time: String,referer: String ,sessionId: String): String = {
       val res=s"""
     		match (inviteLinkedin:InviteLinkedin), (day:Day)
     		where inviteLinkedin.id = "$inviteId" and day.description="$day"
     		with inviteLinkedin,day
-                create (referer:Referer{id:"$referer"})
+                create (referer:Referer{id:"$referer", sessionId: "$sessionId" })
                 with inviteLinkedin,day,referer
                 create (inviteLinkedin)-[r:USING_REFERER]->(referer)-[a:ACCEPTED_ON {time:"$time"}]->(day)
     		return r,referer
@@ -365,6 +365,22 @@ object CypherWriter {
 
   }
 
+
+  def deactivateAllStreamActions(inviteId: String): String = {
+       val res=s"""
+    		match (inv:Invite) 
+		where inv.id="$inviteId" 
+    		with inv
+                match (inv)-[sp:STOPPED_PLAYING|START_PLAYING]->(ss)
+		SET ss.state="inactive"
+    		return ss
+      """
+     Logger.info("--deactivateAllStreamActions["+res+"]")
+      return res
+
+
+  }
+
   def deactivateAllRefererStreamActions(sessionId: String): String = {
        val res=s"""
     		match (referer:Referer) 
@@ -380,6 +396,39 @@ object CypherWriter {
 
   }
 
+
+  def videoStreamStopped(inviteId: String, day: String, time: String): String = {
+      val res=s"""
+    		match (inv:Invite) , (day:Day)
+		where inv.id="$inviteId" and day.description="$day"
+		with inv,day
+		create (streamStopped:STREAM_STOPPED  {state:"active"})
+    		with streamStopped,inv,day
+                create (inv)-[ps:STOP_PLAYING]->(streamStopped)-[o:ON {time:"$time"}]->(day)
+    		return inv
+      """
+//     Logger.info("--videoStreamStopped["+res+"]")
+      return res
+
+  }
+
+  def videoStreamStarted(inviteId: String, day: String, time: String): String = {
+      val res=s"""
+    		match (inv:Invite) , (day:Day)
+		where inv.id="$inviteId" and day.description="$day"
+		with inv,day
+		create (streamStarted:STREAM_STARTED  {state:"active"})
+    		with streamStarted,inv,day
+                create (inv)-[ps:START_PLAYING]->(streamStarted)-[o:ON {time:"$time"}]->(day)
+    		return inv
+      """
+  //   Logger.info("--videoStreamStarted["+res+"]")
+      return res
+
+  }
+
+
+
   def videoStreamStartedSocialMedia(sessionId: String, day: String, time: String): String = {
       val res=s"""
     		match (referer:Referer) , (day:Day)
@@ -394,6 +443,7 @@ object CypherWriter {
       return res
 
   }
+
 
   def videoStreamStoppedSocialMedia(sessionId: String, day: String, time: String): String = {
       val res=s"""

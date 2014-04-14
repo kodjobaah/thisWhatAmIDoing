@@ -221,8 +221,8 @@ object ActorUtils {
 
   }
 
-  def associatedInviteFacebookWithReferer(inviteId: String, referal: String) = {
-    val associateInviteFacebookWithReferer = CypherWriterFunction.associateInviteFacebookWithReferer(inviteId,referal)
+  def associatedInviteFacebookWithReferer(inviteId: String, referal: String, sessionId: String) = {
+    val associateInviteFacebookWithReferer = CypherWriterFunction.associateInviteFacebookWithReferer(inviteId,referal,sessionId)
     val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(associateInviteFacebookWithReferer)).mapTo[Any]
 
     var res = Await.result(writerResponse, 10 seconds) match {
@@ -238,8 +238,8 @@ object ActorUtils {
 
   }
 
-  def associatedInviteLinkedinWithReferer(inviteId: String, referal: String) = {
-    val associateInviteLinkedinWithReferer = CypherWriterFunction.associateInviteLinkedinWithReferer(inviteId,referal)
+  def associatedInviteLinkedinWithReferer(inviteId: String, referal: String, sessionId: String) = {
+    val associateInviteLinkedinWithReferer = CypherWriterFunction.associateInviteLinkedinWithReferer(inviteId,referal,sessionId)
     val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(associateInviteLinkedinWithReferer)).mapTo[Any]
 
     var res = Await.result(writerResponse, 10 seconds) match {
@@ -489,5 +489,58 @@ object ActorUtils {
     res
 
   }
+
+
+  def videoStreamStarted(inviteId: String) = {
+    val videoStreamStarted = CypherWriterFunction.videoStreamStarted(inviteId)
+    val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(videoStreamStarted)).mapTo[Any]
+
+    var res = Await.result(writerResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        if (results.results.size > 0) {
+        results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
+      }
+    }
+    res
+
+  }
+
+  def videoStreamStopped(inviteId: String) = {
+    val videoStreamStopped = CypherWriterFunction.videoStreamStopped(inviteId)
+    val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(videoStreamStopped)).mapTo[Any]
+
+    var res = Await.result(writerResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        if (results.results.size > 0) {
+        results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
+      }
+    }
+    res
+
+  }
+
+ def deactivateAllStreamActions(inviteId: String) = {
+    val deactivateAllStreamActions = CypherWriterFunction.deactivateAllStreamActions(inviteId)
+    val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(deactivateAllStreamActions)).mapTo[Any]
+
+    var res = Await.result(writerResponse, 10 seconds) match {
+      case WriteOperationResult(results) => {
+        if (results.results.size > 0) {
+        results.results.head.asInstanceOf[String]
+        } else {
+          ""
+        }
+      }
+    }
+    res
+
+  }
+
 
 }

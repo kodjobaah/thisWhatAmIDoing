@@ -63,6 +63,7 @@ object CypherReader {
     		where r.state = "active"
     		return r.name as name
       """
+//      Logger.info("--findStreamForInviteId:["+res+"]")
       return res
   }
 
@@ -619,7 +620,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     where ss.state="active"
     return count(distinct ss) as count
     """
-    Logger.info("--getTwitterViewers["+res+"]")
+    //Logger.info("--getTwitterViewers["+res+"]")
     return res
   }
   def getLinkedinViewers(token: String, streamClause: String = ""): String = {
@@ -634,7 +635,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     where ss.state="active"
     return count(distinct ss) as count
     """
-    Logger.info("--getLinkedinViewers["+res+"]")
+    //Logger.info("--getLinkedinViewers["+res+"]")
     return res
   }
   def getFacebookViewers(token: String, streamClause: String = ""): String = {
@@ -649,9 +650,27 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     where ss.state="active"
     return count(distinct ss) as count
     """
-    Logger.info("--getFacebookViewers["+res+"]")
+  //  Logger.info("--getFacebookViewers["+res+"]")
     return res
   }
+
+
+  def getEmailViewers(token: String, streamClause: String = ""): String = {
+
+    val res =s"""
+    match (tok:AuthenticationToken)
+    where tok.token="$token" 
+    with tok
+    match (tok)-[u:USING]-(s) $streamClause
+    with s
+    match (s)-[t:TO_WATCH]-(i:Invite)-[ps:START_PLAYING]-(ss)
+    where ss.state="active"
+    return count(distinct ss) as count
+    """
+    Logger.info("--getEmailViewers["+res+"]")
+    return res
+  }
+
 
   def getTwitterAcceptanceCount(token: String, streamClause: String = ""): String = {
 
@@ -667,6 +686,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     Logger.info("--getTwitterAcceptanceCount["+res+"]")
     return res
   }
+
 
   def getLinkedinAcceptanceCount(token: String, streamClause: String = ""): String = {
 

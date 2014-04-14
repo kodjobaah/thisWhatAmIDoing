@@ -387,11 +387,23 @@ object CypherReaderFunction {
       val allInvites = Cypher(CypherReader.getFacebookViewers(token,streamClause)).apply().map(row => (row[BigDecimal]("count"))).toList
       val count = if (allInvites.size >0) allInvites.head else BigDecimal(0)
       val neo4jResult = new Neo4jResult(List(count))
-      Logger("CypherBuilder.getFacebookViewers").info("number facebook referers:"+allInvites)
+   //   Logger("CypherBuilder.getFacebookViewers").info("number facebook referers:"+allInvites)
       neo4jResult
     }
      getFacebookViewersCount
   }
+
+  def getEmailViewers(token: String, streamClause: String = ""): () => Neo4jResult = {
+    val getEmailViewersCount: Function0[Neo4jResult] = () => {
+      val allInvites = Cypher(CypherReader.getEmailViewers(token,streamClause)).apply().map(row => (row[BigDecimal]("count"))).toList
+      val count = if (allInvites.size >0) allInvites.head else BigDecimal(0)
+      val neo4jResult = new Neo4jResult(List(count))
+     // Logger("CypherBuilder.getEmailViewers").info("number email viewers:"+allInvites)
+      neo4jResult
+    }
+     getEmailViewersCount
+  }
+
 
 
   def getFacebookAcceptanceCount(token: String, streamClause: String): () => Neo4jResult = {
@@ -399,7 +411,7 @@ object CypherReaderFunction {
       val allInvites = Cypher(CypherReader.getFacebookAcceptanceCount(token,streamClause)).apply().map(row => (row[BigDecimal]("count"))).toList
       val count = if (allInvites.size >0) allInvites.head else BigDecimal(0)
       val neo4jResult = new Neo4jResult(List(count))
-      Logger("CypherBuilder.getFacebookAcceptanceCount").info("number facebook referers:"+allInvites)
+  //    Logger("CypherBuilder.getFacebookAcceptanceCount").info("number facebook referers:"+allInvites)
       neo4jResult
     }
      getFacebookAcceptanceCount
@@ -412,7 +424,7 @@ object CypherReaderFunction {
       val allInvites = Cypher(CypherReader.getTwitterViewers(token,streamClause)).apply().map(row => (row[BigDecimal]("count"))).toList
       val count = if (allInvites.size >0) allInvites.head else BigDecimal(0)
       val neo4jResult = new Neo4jResult(List(count))
-      Logger("CypherBuilder.getTwitterViewers").info("number twitter referers:"+allInvites)
+//      Logger("CypherBuilder.getTwitterViewers").info("number twitter referers:"+allInvites)
       neo4jResult
     }
      getTwitterViewersCount
