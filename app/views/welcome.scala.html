@@ -12,7 +12,7 @@
    <br />
    <p>
      <div class="row">
-       <div class="col-md-8 col-md-offset-2">
+       <div class="col-md-8">
 	 <div class="hero-unit">
 	   <p>Welcome to WAID (What Am I Doing) the app that allows you to share
 	     moments at the time of experience.</p>
@@ -26,47 +26,11 @@
 	   </p>
 	 </div>
        </div>
-    </div>
-    <hr/>
-   <div class="row">
 
-      <div class="col-md-4">
-          <div class="well">
-      <p class="lead">
-                 <p>Description of Mobile App Actions:</p>
-   
-<ul style="text-align:left;">
-<li><img src="/assets/images/share_blue.png"/><small>&nbsp;&nbsp;To start and stop sharing a live stream.</small></li>
-<li><img src="/assets/images/camera.png"/><small>&nbsp;&nbsp;To start and stop the camera</small></li>
-<li><strong>Send Location</strong><small>&nbsp;&nbsp;To allow viewers of your stream to see where you are on a map</small></li>
-<li><strong>Whoes Watching</strong><small>&nbsp;&nbsp;Fetches information about those you have invited to view your live stream</small></li>
-<li><strong>Views Area</strong><small>&nbsp;&nbsp;Total count of people watching the live stream</small></li>
-<li><img src="/assets/images/group_chat.png"/><small>&nbsp;&nbsp;To start chat conversations with viewers of the current stream</small></li>
-</p>
-        </div>
-
-      </div>
-      <div class="col-md-4">
-             <div class="well">
-                   <p>Mobile App Usage:</p>
-
-             <ul style="text-align:left;">
-  <li><small>Click on <img src="/assets/images/share_blue.png"/> to Start Sharing and <img src="/assets/images/camera.png" /> to Start Camera</small></li>
- <li><small>When see this </small><img src="/assets/images/ic_cable_connect.png" /><small> on the status bar and </small></br> <small>all the buttons are  enabled you are ready to invite people to view your stream.</small></li>
-  <li><small>You can send an email, post on facebook or tweet on twitter using the icons on the menu bar</small></li>
-  <li><small>Starting and Stopping the camera has no impact on the stream</small></li>
-  <li><small>Once you click on this </small><img src="assets/images/share_red.png"><small>the stream is no longer active</small></li>
-  <li><small>If you start sharing again you will need to re-invite your viewers so that they can view your new live stream.</small></li>
-  <li><small>After clicking on "Chat" you should see <img src="/assets/images/chat.png"/> on the status bar.</small></li>
-</ul>
-	  </div>
-    </div>
        <div class="col-md-4">
 	 <div class="well">
-	   <div class="page-header">
-	     <h1> <small>Login to view activity</small></h1>
-	   </div>
-	   @helper.form(action = routes.AdminController.login, 'class->"form-horizontal",'role -> "form") {
+	      <strong>Login to view activity</strong>
+	    @helper.form(action = routes.AdminController.login, 'class->"form-horizontal",'role -> "form") {
 	   @helper.inputText(myForm("Email"),'id -> "userName")
 	   @helper.inputPassword(myForm("password"))
 
@@ -77,6 +41,58 @@
        </div>
 
      </div>
+
+    </div>
+    <hr/>
+   <div class="row">
+
+      <div class="col-md-4">
+          <div class="well">
+      <p class="lead">
+                 <p>Description of Mobile App Actions:</p>
+   
+<ul class="list-group" style="text-align:left;">
+<li class="list-group-item" ><img src="/assets/images/share_blue.png"/><small>&nbsp;&nbsp;To start and stop sharing a live stream.</small></li>
+<li class="list-group-item" ><img src="/assets/images/camera.png"/><small>&nbsp;&nbsp;To start and stop the camera</small></li>
+<li class="list-group-item" ><strong>Send Location</strong><small>&nbsp;&nbsp;To allow viewers of your stream to see where you are on a map</small></li>
+<li class="list-group-item" ><strong>Whoes Accepted</strong><small>&nbsp;&nbsp;Fetches information about those you have invited to view your live stream</small></li>
+<li class="list-group-item" ><strong>Views Area</strong><small>&nbsp;&nbsp;Total count of people watching the live stream</small></li>
+<li class="list-group-item" ><img src="/assets/images/group_chat.png"/><small>&nbsp;&nbsp;To start chat conversations with viewers of the current stream</small></li>
+<li class="list-group-item" ><img src="/assets/images/logout.png"/><small>&nbsp;&nbsp;To log out from the program</small></li>
+</ul>
+</p>
+        </div>
+
+      </div>
+      <div class="col-md-4">
+             <div class="well">
+                   <p>Mobile App Usage:</p>
+
+ <ul class="list-group" style="text-align:left;">
+  <li class="list-group-item" ><small>Click on <img src="/assets/images/share_blue.png"/> to Start Sharing and <img src="/assets/images/camera.png" /> to Start Camera</small></li>
+ <li class="list-group-item" ><small>When you see this </small><img src="/assets/images/ic_cable_connect.png" /><small> on the status bar and </small></br> <small>all the buttons are  enabled you are ready to invite people to view your stream.</small></li>
+  <li class="list-group-item" ><small>You can send an email, post on facebook or tweet on twitter using the icons on the menu bar</small></li>
+  <li class="list-group-item" ><small>Starting and Stopping the camera has no impact on the stream</small></li>
+  <li class="list-group-item" ><small>Once you click on this </small><img src="assets/images/share_red.png"><small>the stream is no longer active</small></li>
+  <li class="list-group-item" ><small>If you start sharing again you will need to re-invite your viewers so that they can view your new live stream.</small></li>
+  <li class="list-group-item" ><small>After clicking on "Chat" you should see <img src="/assets/images/chat.png"/> on the status bar.</small></li>
+</ul>
+	  </div>
+    </div>
+
+      <div class="col-md-4">
+             <div class="well">
+                   <p>Sharing Actions</p>
+
+ <ul class="list-group" style="text-align:left;">
+  <li class="list-group-item" ><small><img src="/assets/images/mail.png"/>&nbsp;&nbsp;To invite via email </small></li>
+ <li class="list-group-item" ><small><img src="/assets/images/facebook.png" />&nbsp;&nbsp;To share stream on facebook</small></li>
+  <li class="list-group-item" ><small><img src="/assets/images/linkedin.png" />&nbsp;&nbsp;To share stream on linkedin </small></li>
+  <li class="list-group-item" ><small><img src="/assets/images/twitter.png"/>&nbsp;&nbsp;To share stream on twitter</small></li>
+</ul>
+	  </div>
+    </div>
+
 
 
 
