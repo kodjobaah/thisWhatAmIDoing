@@ -28,6 +28,7 @@ class RemoveXMPPRoom extends Actor {
       	   val xmppPort = Play.current.configuration.getString("xmpp.port").get
       	   val adminUserName = Play.current.configuration.getString("xmpp.admin.username").get
       	   val adminPassword = Play.current.configuration.getString("xmpp.admin.password").get
+      	   val mucAdmin = Play.current.configuration.getString("xmpp.muc.admin").get
 
 
       	   // Create a connection to the jabber.org server.
@@ -44,7 +45,7 @@ class RemoveXMPPRoom extends Actor {
 
                import com.whatamidoing.services.xmpp.AddHocCommands
 	       val adc = new AddHocCommands()
-	       adc.removeRoom(conn,roomJid)
+	       adc.removeRoom(conn,roomJid,mucAdmin)
       	    
      	    } finally {
                conn.disconnect()

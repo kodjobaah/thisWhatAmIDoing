@@ -21,7 +21,7 @@ object TestRemoveRoom extends App {
 
 	 import com.whatamidoing.services.xmpp.AddHocCommands
 	 val ahc = AddHocCommands()
-	 ahc.removeRoom(conn,"room20@muc.testme.my.xe")
+	 ahc.removeRoom(conn,"room20@muc.testme.my.xe","muc@my")
      } catch {
        case ioe: XMPPException => ioe.printStackTrace()
        case e: InterruptedException => e.printStackTrace()

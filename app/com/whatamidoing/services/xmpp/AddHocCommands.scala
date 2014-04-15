@@ -11,12 +11,11 @@ import smackx.packet.DataForm
 class AddHocCommands {
 
 
-  def removeRoom(conn: XMPPConnection, roomJid: String) {
+  def removeRoom(conn: XMPPConnection, roomJid: String, mucAdmin: String) {
 
      import com.whatamidoing.services.xmpp.AddVhostAdHocCommand
-     val jid ="muc@my"
      val node = "room-remove"
-     val setCommand = new AddVhostAdHocCommand(conn,node,jid)
+     val setCommand = new AddVhostAdHocCommand(conn,node,mucAdmin)
 
       setCommand.execute()
 
