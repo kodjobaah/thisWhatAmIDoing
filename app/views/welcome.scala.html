@@ -25,6 +25,48 @@
 	     If someone has already shared a stream with you then you were automatically registered and you should have received your password in an email. Click here to  <a href="@routes.AdminController.forgottenPassword"> Request a new password</a>
 	   </p>
 	 </div>
+     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item">
+      <img src="/assets/images/waid_front_no_record.png" alt="">
+      <div class="carousel-caption">
+        Before Live Streaming
+      </div>
+    </div>
+
+    <div class="item active">
+      <img src="/assets/images/waid_front_record.png" alt="">
+      <div class="carousel-caption">
+         Live Streaming and chatting
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="/assets/images/chat-web-page-scaled-1024x500.png" alt="">
+      <div class="carousel-caption">
+        Viewing Live Stream and chatting
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+
        </div>
 
        <div class="col-md-4">
@@ -32,7 +74,7 @@
 	      <strong>Login to view activity</strong>
 	    @helper.form(action = routes.AdminController.login, 'class->"form-horizontal",'role -> "form") {
 	   @helper.inputText(myForm("Email"),'id -> "userName")
-	   @helper.inputPassword(myForm("password"))
+	   @helper.inputPassword(myForm("Password"), 'id ->"password")
 
 	   <input type="submit" class="btn btn-lg" value='@play.api.i18n.Messages("login.submit.button")'> <a href="@routes.AdminController.forgottenPassword">Forgotten password</a>
 	   }
