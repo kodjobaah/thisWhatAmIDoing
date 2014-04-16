@@ -18,9 +18,9 @@ import com.xuggle.mediatool.ToolFactory
 import java.awt.image.BufferedImage
 import play.Logger
 
-class Xuggler(streamName: String) {
+class Xuggler( rtmpUrl: String, streamName: String) {
 
-  def this() = this("")
+  def this() = this("","")
 
   //Accessing the constants
   import Xuggler._
@@ -28,7 +28,7 @@ class Xuggler(streamName: String) {
    //ToolFactory.makeWriter("rtmp://192.168.0.101:1935/HTTP@FLV/"+streamName)
  //   ToolFactory.makeWriter("rtmp://192.168.1.110:1935/oflaDemo/"+streamName)
 //  val mediaWriter: IMediaWriter =  ToolFactory.makeWriter("rtmp://www.whatamidoing.info:1935/hlsapp/"+streamName)
-  val mediaWriter: IMediaWriter =  ToolFactory.makeWriter("rtmp://192.168.1.3:1935/hlsapp/"+streamName)
+  val mediaWriter: IMediaWriter =  ToolFactory.makeWriter(rtmpUrl+streamName)
   mediaWriter.addVideoStream(0, 0, ICodec.ID.CODEC_ID_FLV1, 352, 288)
   mediaWriter.getContainer().getContainerFormat().setOutputFormat("flv",streamName,null)
   //mediaWriter.addVideoStream(0, 0, ICodec.ID.CODEC_ID_FLV1,640, 480)
@@ -82,6 +82,10 @@ var startTime: Long = _
 
 object Xuggler {
 
-  def apply(streamName: String) = new Xuggler(streamName)
+  import play.api.Play
+  implicit var currentPlay = Play.current
+  val rtmpUrl: String = Play.current.configuration.getString("rtmp.url").get
+
+  def apply(streamName: String) = new Xuggler(rtmpUrl,streamName)
 
 }
