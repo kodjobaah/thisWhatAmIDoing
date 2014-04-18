@@ -1,6 +1,6 @@
 package com.whatamidoing.utils
 
-import akka.actor.ActorSystem
+import akka.actor.{ActorRef, ActorSystem}
 import com.whatamidoing.cypher.CypherReaderFunction
 import akka.pattern.ask
 import akka.pattern.AskTimeoutException
@@ -13,27 +13,31 @@ import scala.concurrent.future
 import com.whatamidoing.cypher.CypherWriterFunction
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 
-import play.api.Logger
+import play.api.{Play, Logger}
 import com.whatamidoing.actors.red5.FrameSupervisor
 import com.whatamidoing.actors.xmpp.XmppSupervisor
 import com.whatamidoing.actors.neo4j.Neo4JWriter
 import com.whatamidoing.actors.neo4j.Neo4JWriter._
 import com.whatamidoing.actors.neo4j.Neo4JReader
 import controllers.WhatAmIDoingController
-
+import com.typesafe.config.ConfigFactory
 
 
 object ActorUtils {
 
   val system = ActorSystem("whatamidoing-system")
+  val cl = ActorUtils.getClass().getClassLoader()
+  val priority = ActorSystem("priority", ConfigFactory.load(), Play.classloader(Play.current))
   implicit val timeout = Timeout(10 seconds)
-  var frameSupervisor = system.actorOf(FrameSupervisor.props("hey"), "frameSupervisor")
   var xmppSupervisor = system.actorOf(XmppSupervisor.props(), "xmppSupervisor")
   var neo4jwriter = system.actorOf(Neo4JWriter.props(), "neo-4j-writer-supervisor")
   var neo4jreader = system.actorOf(Neo4JReader.props(), "neo-4j-reader-supervisor")
-  
+
+  val frameSupervisors = scala.collection.mutable.Map[String, (ActorRef,String)]()
+
+  val Tag: String = "ActorUtils"
+
   import models.Messages._
-  
 
   import play.api.mvc.Results._
   def createUser(fn: String, ln: String, em: String, p: String) = {
@@ -85,9 +89,7 @@ object ActorUtils {
     var inviteId = Await.result(writeResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
         if (results.results.size > 0) {
-         Logger("ActorUtils.createInviteTwitter").info("results size["+results.results.size+"]");
-         Logger("ActorUtils.createInviteTwitter").info("resuls["+results.results.head+"]");
-
+          results.results.head.asInstanceOf[String]
         } else {
           ""
 
@@ -104,7 +106,8 @@ object ActorUtils {
     var inviteId = Await.result(writeResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
         if (results.results.size > 0) {
-         Logger("ActorUtils.createInviteTwitter").info("resuls["+results.results.head+"]");
+          results.results.head.asInstanceOf[String]
+        // Logger("ActorUtils.createInviteTwitter").info("resuls["+results.results.head+"]");
 
         } else {
           ""
@@ -121,7 +124,8 @@ object ActorUtils {
     var inviteId = Await.result(writeResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
         if (results.results.size > 0) {
-         Logger("ActorUtils.createInviteTwitter").info("resuls["+results.results.head+"]");
+          results.results.head.asInstanceOf[String]
+       //  Logger("ActorUtils.createInviteTwitter").info("resuls["+results.results.head+"]");
 
         } else {
           ""
@@ -539,6 +543,60 @@ object ActorUtils {
       }
     }
     res
+
+  }
+
+ def stopRtmpMessage(message:  StopVideo) {
+
+    val token = message.token
+
+    Logger(Tag).info("STOPING SELF")
+    frameSupervisors get token match {
+
+        case value: Option[_] => {
+            value get match {
+              case (actor, streamId) => {
+                actor ! message
+                frameSupervisors -= token
+              }
+            }
+        }
+      }
+
+  }
+
+
+  def sendRtmpMessage(message: RTMPMessage) {
+
+      val token = message.token
+
+      frameSupervisors get token match {
+
+        case None => {
+
+          //NOTE: If system goes down all active stream information will be lost
+          var streamName = token + "--" + java.util.UUID.randomUUID.toString
+          val createMessage = RTMPCreateStream(message.message,message.token,streamName);
+          var frameSupervisor = priority.actorOf(FrameSupervisor.props.withMailbox("priority-dispatch"), "frameSupervisor-"+streamName)
+          frameSupervisor ! createMessage
+          frameSupervisors += token -> (frameSupervisor,streamName)
+
+
+        }
+
+        case value: Option[_] => {
+                value get match {
+                  case (actor,streamId) => {
+                    val newMessage = RTMPMessage(message.message,message.token,streamId.asInstanceOf[String])
+                    actor ! newMessage
+
+                  }
+                }
+          }
+
+
+
+      }
 
   }
 

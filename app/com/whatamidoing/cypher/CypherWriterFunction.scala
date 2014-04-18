@@ -21,7 +21,7 @@ object CypherWriterFunction {
 
       val results: List[String] = List(closeStream.toString(), endStream.toString())
       val neo4jResult = new Neo4jResult(results)
-      Logger("CypherWriterFunction.closeStream").info("results from closing stream:" + results)
+     // Logger("CypherWriterFunction.closeStream").info("results from closing stream:" + results)
       neo4jResult
     }
     closeStream
@@ -40,9 +40,9 @@ object CypherWriterFunction {
 
       val linkSteamToToken = Cypher(CypherWriter.linkStreamToToken(stream, token)).execute()
 
-      Logger("CypherWriterFunction.createStream").info("this is createStream: " + createStream)
-      Logger("CypherWriterFunction.createStream").info("this is linkStream: " + linkStreamToDay)
-      Logger("CypherWriterFunction.createUser").info("this is three: " + linkSteamToToken)
+     // Logger("CypherWriterFunction.createStream").info("this is createStream: " + createStream)
+     // Logger("CypherWriterFunction.createStream").info("this is linkStream: " + linkStreamToDay)
+     // Logger("CypherWriterFunction.createUser").info("this is three: " + linkSteamToToken)
 
       val results: List[String] = List(createStream.toString(), linkStreamToDay.toString(), linkSteamToToken.toString())
       val neo4jResult = new Neo4jResult(results)
@@ -66,9 +66,9 @@ object CypherWriterFunction {
 
       val linkSteamToToken = Cypher(CypherWriter.linkStreamToToken(stream, token)).execute()
 
-      Logger("CypherWriterFunction.createStream").info("this is createStream: " + createStream)
-      Logger("CypherWriterFunction.createStream").info("this is linkStream: " + linkStreamToDay)
-      Logger("CypherWriterFunction.createUser").info("this is three: " + linkSteamToToken)
+    //  Logger("CypherWriterFunction.createStream").info("this is createStream: " + createStream)
+    //  Logger("CypherWriterFunction.createStream").info("this is linkStream: " + linkStreamToDay)
+    //  Logger("CypherWriterFunction.createUser").info("this is three: " + linkSteamToToken)
 
       val results: List[String] = List(createStream.toString(), linkStreamToDay.toString(), linkSteamToToken.toString())
       val neo4jResult = new Neo4jResult(results)
@@ -93,10 +93,6 @@ object CypherWriterFunction {
       val createToken = Cypher(CypherWriter.createToken(token, valid)).execute()
       val linkToken = Cypher(CypherWriter.linkUserToToken(em, token)).execute()
 
-      Logger("CypherWriterFunction.createUser").info("this is one: " + newRes)
-      Logger("CypherWriterFunction.createUser").info("this is two: " + createToken)
-      Logger("CypherWriterFunction.createUser").info("this is three: " + linkToken)
-
       val results: List[String] = List(newRes.toString(), createToken.toString(), linkToken.toString())
       val neo4jResult = new Neo4jResult(results)
       neo4jResult
@@ -109,8 +105,6 @@ object CypherWriterFunction {
     val createInvite: Function0[Neo4jResult] = () => {
 
       val createInvite = Cypher(CypherWriter.createInvite(stream, email, id)).execute()
-      Logger("CypherWriterFunction.createInvite").info("this is createinvite: " + createInvite)
-
       val results: List[String] = List(createInvite.toString())
       val neo4jResult = new Neo4jResult(results)
       neo4jResult
@@ -125,8 +119,6 @@ object CypherWriterFunction {
     val createInviteTwitter: Function0[Neo4jResult] = () => {
 
       val createInviteTwitter = Cypher(CypherWriter.createInviteTwitter(stream, twitter, id)).apply().map(row => (row[Option[String]]("inviteId"))).toList
-      Logger("CypherWriterFunction.inviteTwitter").info("this is createinviteTwitter: " + createInviteTwitter)
-
       val neo4jResult = new Neo4jResult(createInviteTwitter)
       neo4jResult
     }
@@ -139,7 +131,6 @@ object CypherWriterFunction {
     val createInviteFacebook: Function0[Neo4jResult] = () => {
 
       val createInviteFacebook = Cypher(CypherWriter.createInviteFacebook(stream, facebook, id)).apply().map(row => (row[Option[String]]("inviteId"))).toList
-      Logger("CypherWriterFunction.inviteFacebook").info("this is createinviteFacebook: " + createInviteFacebook)
 
       val neo4jResult = new Neo4jResult(createInviteFacebook)
       neo4jResult
@@ -153,7 +144,6 @@ object CypherWriterFunction {
     val createInviteLinkedin: Function0[Neo4jResult] = () => {
 
       val createInviteLinkedin = Cypher(CypherWriter.createInviteLinkedin(stream, linkedin, id)).apply().map(row => (row[Option[String]]("inviteId"))).toList
-      Logger("CypherWriterFunction.createInviteLinkedin").info("this is createinviteLinkedin: " + createInviteLinkedin)
 
       val neo4jResult = new Neo4jResult(createInviteLinkedin)
       neo4jResult
@@ -169,7 +159,6 @@ object CypherWriterFunction {
 
     val invalidate: Function0[Neo4jResult] = () => {
       val invalidate = Cypher(CypherWriter.invalidateToken(token)).execute()
-      Logger("CypherWriterFunction.invalidateToken").info("this is invalidateToken: " + invalidate)
 
       val results: List[String] = List(invalidate.toString())
       val neo4jResult = new Neo4jResult(results)
@@ -184,9 +173,7 @@ object CypherWriterFunction {
 
     val invalidate: Function0[Neo4jResult] = () => {
       val invalidate = Cypher(CypherWriter.invalidateAllTokensForUser(email)).execute()
-      Logger("CypherWriterFunction.invalidateAllTokensForUser").info("this is invalidateToken: " + invalidate)
-
-      val results: List[String] = List(invalidate.toString())
+       val results: List[String] = List(invalidate.toString())
       val neo4jResult = new Neo4jResult(results)
       neo4jResult
     }
@@ -198,7 +185,6 @@ object CypherWriterFunction {
   def createTokenForUser(token: String, email: String): () => Neo4jResult = {
     val createTokenForUser: Function0[Neo4jResult] = () => {
       val createTokenForUser = Cypher(CypherWriter.createTokenForUser(token, email)).execute()
-      Logger("CypherWriterFunction.createTokenForUser").info("this is createTokenForUser: " + createTokenForUser)
 
       val neo4jResult = new Neo4jResult(List(createTokenForUser.toString()))
       neo4jResult
@@ -217,7 +203,6 @@ object CypherWriterFunction {
       val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
 
       val assocaiteDayWithInvited = Cypher(CypherWriter.associateDayWithInvite(inviteId, dayDescription, time)).execute()
-      Logger("CypherWriterFunction.assocaiteDayWithInvited").info("this is associateDayWithInvited: " + assocaiteDayWithInvited)
 
       val neo4jResult = new Neo4jResult(List(assocaiteDayWithInvited.toString()))
       neo4jResult
@@ -237,7 +222,6 @@ object CypherWriterFunction {
       val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
 
       val assocaiteInviteTwitterWithReferer = Cypher(CypherWriter.associateInviteTwitterWithReferer(inviteId, dayDescription, time,referal,sessionId)).execute()
-      Logger("CypherWriterFunction.associateInviteTwitterWithReferer").info("this is associateInviteTwitterWithRefererd: " + assocaiteInviteTwitterWithReferer)
 
       val neo4jResult = new Neo4jResult(List(assocaiteInviteTwitterWithReferer.toString()))
       neo4jResult
@@ -256,7 +240,6 @@ object CypherWriterFunction {
       val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
 
       val assocaiteInviteFacebookWithReferer = Cypher(CypherWriter.associateInviteFacebookWithReferer(inviteId, dayDescription, time,referal,sessionId)).execute()
-      Logger("CypherWriterFunction.associateInviteFacebookWithReferer").info("this is associateInviteFacebookWithRefererd: " + assocaiteInviteFacebookWithReferer)
 
       val neo4jResult = new Neo4jResult(List(assocaiteInviteFacebookWithReferer.toString()))
       neo4jResult
@@ -274,7 +257,6 @@ object CypherWriterFunction {
       val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
 
       val assocaiteInviteLinkedinWithReferer = Cypher(CypherWriter.associateInviteLinkedinWithReferer(inviteId, dayDescription, time,referal,sessionId)).execute()
-      Logger("CypherWriterFunction.associateInviteLinkedinWithReferer").info("this is associateInviteLinkedinWithRefererd: " + assocaiteInviteLinkedinWithReferer)
 
       val neo4jResult = new Neo4jResult(List(assocaiteInviteLinkedinWithReferer.toString()))
       neo4jResult
@@ -294,7 +276,6 @@ object CypherWriterFunction {
       val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
 
       val changePasswordRequest = Cypher(CypherWriter.changePasswordRequest(email, dayDescription, time,changePasswordId)).execute()
-      Logger("CypherWriterFunction.changePasswordRequest").info("this is changedPasswordRequest: " + changePasswordRequest)
 
       val neo4jResult = new Neo4jResult(List(changePasswordRequest.toString()))
       neo4jResult
@@ -313,7 +294,6 @@ object CypherWriterFunction {
       val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
 
       val updatePassword = Cypher(CypherWriter.updatePassword(cpId, dayDescription, newPassword,time)).execute()
-      Logger("CypherWriterFunction.updatePassword").info("this is updatedPassword: " + updatePassword)
 
       val neo4jResult = new Neo4jResult(List(updatePassword.toString()))
       neo4jResult
@@ -327,9 +307,7 @@ object CypherWriterFunction {
     val deactivatePreviousChangePasswordRequest: Function0[Neo4jResult] = () => {
       
       val deactivatePreviousChangePasswordRequest = Cypher(CypherWriter.deactivatePreviousChangePasswordRequest(email)).execute()
-      Logger("CypherWriterFunction.deactivatePreviousChangePasswordRequest").info("this is deactivatePreviousChangePasswordRequest: " + deactivatePreviousChangePasswordRequest)
-
-      val neo4jResult = new Neo4jResult(List(deactivatePreviousChangePasswordRequest.toString()))
+       val neo4jResult = new Neo4jResult(List(deactivatePreviousChangePasswordRequest.toString()))
       neo4jResult
     }
     deactivatePreviousChangePasswordRequest
@@ -339,7 +317,6 @@ object CypherWriterFunction {
 
     val updateUserDetails: Function0[Neo4jResult] = () => {
       val updateUserDetails = Cypher(CypherWriter.updateUserDetails(token,firstName,lastName)).execute()
-      Logger("CypherWriterFunction.updateuserdetails").info("this is checkToSeeIfCheckPasswordIdIsValid: " + updateUserDetails)
       val neo4jResult = new Neo4jResult(List(updateUserDetails.toString()))
       neo4jResult
     }
@@ -360,7 +337,6 @@ object CypherWriterFunction {
   def associateRoomWithStream(token: String, roomId: String): () => Neo4jResult = {
    val associateRoomWithStream : Function0[Neo4jResult] = () => {
       val associateRoomWithStream = Cypher(CypherWriter.associateRoomWithStream(token,roomId)).execute()
-      Logger("CypherWriterFunction.associateRoomWithStream(").info("this is associateRoomWithStream(: " + associateRoomWithStream)
       val neo4jResult = new Neo4jResult(List(associateRoomWithStream.toString()))
       neo4jResult
     }
@@ -372,7 +348,6 @@ object CypherWriterFunction {
 
     val invalidate: Function0[Neo4jResult] = () => {
       val invalidate = Cypher(CypherWriter.invalidateAllStreams(token)).execute()
-      Logger("CypherWriterFunction.invalidateAllStreams").info("this is invalidateAllStreams: " + invalidate)
 
       val results: List[String] = List(invalidate.toString())
       val neo4jResult = new Neo4jResult(results)
@@ -386,7 +361,6 @@ object CypherWriterFunction {
 
     val updateUserInformation: Function0[Neo4jResult] = () => {
       val userInformation = Cypher(CypherWriter.updateUserInformation(token,domId)).execute()
-      Logger("CypherWriterFunction.updateUserInformation").info("this is updateUserInformation: " + userInformation)
 
       val results: List[String] = List(userInformation.toString())
       val neo4jResult = new Neo4jResult(results)
@@ -408,7 +382,6 @@ object CypherWriterFunction {
       val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
 
       val videoStreamStartedSocialMedia = Cypher(CypherWriter.videoStreamStartedSocialMedia(sessionId, dayDescription, time)).execute()
-      Logger.info("this is videoStreamStartedSocialMedia: " + videoStreamStartedSocialMedia)
 
       val neo4jResult = new Neo4jResult(List(videoStreamStartedSocialMedia.toString()))
       neo4jResult
@@ -427,7 +400,6 @@ object CypherWriterFunction {
       val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
 
       val videoStreamStoppedSocialMedia = Cypher(CypherWriter.videoStreamStoppedSocialMedia(sessionId, dayDescription, time)).execute()
-      Logger.info("this is videoStreamStoppedSocialMedia: " + videoStreamStoppedSocialMedia)
 
       val neo4jResult = new Neo4jResult(List(videoStreamStoppedSocialMedia.toString()))
       neo4jResult
@@ -440,7 +412,6 @@ object CypherWriterFunction {
     val deactivateAllRefererStreamActions: Function0[Neo4jResult] = () => {
       
       val deactivateAllRefererStreamActions = Cypher(CypherWriter.deactivateAllRefererStreamActions(sessionId)).execute()
-      Logger.info("this is deactivateAllRefererStreamActions: " + deactivateAllRefererStreamActions)
 
       val neo4jResult = new Neo4jResult(List(deactivateAllRefererStreamActions.toString()))
       neo4jResult
@@ -460,7 +431,6 @@ object CypherWriterFunction {
       val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
 
       val videoStreamStarted = Cypher(CypherWriter.videoStreamStarted(inviteId, dayDescription, time)).execute()
-      Logger.info("this is videoStreamStarted: " + videoStreamStarted)
 
       val neo4jResult = new Neo4jResult(List(videoStreamStarted.toString()))
       neo4jResult
@@ -479,7 +449,6 @@ object CypherWriterFunction {
       val time = dt.getHourOfDay() + ":" + dt.getMinuteOfHour + ":" + dt.getSecondOfMinute
 
       val videoStreamStopped = Cypher(CypherWriter.videoStreamStopped(inviteId, dayDescription, time)).execute()
-      Logger.info("this is videoStreamStopped: " + videoStreamStopped)
 
       val neo4jResult = new Neo4jResult(List(videoStreamStopped.toString()))
       neo4jResult
@@ -492,8 +461,6 @@ object CypherWriterFunction {
     val deactivateAllStreamActions: Function0[Neo4jResult] = () => {
       
       val deactivateAllStreamActions = Cypher(CypherWriter.deactivateAllStreamActions(inviteId)).execute()
-      Logger.info("this is deactivateAllStreamActions: " + deactivateAllStreamActions)
-
       val neo4jResult = new Neo4jResult(List(deactivateAllStreamActions.toString()))
       neo4jResult
     }

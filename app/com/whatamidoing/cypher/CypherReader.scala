@@ -112,7 +112,7 @@ object CypherReader {
                 match (a)-[r:USING_REFERAL]-(b)
     		return b.id as id
       """
-     Logger.info("---checkToSeeIfTwitterInviteAcceptedAlreadyByReferer["+res+"]")
+  //   Logger.info("---checkToSeeIfTwitterInviteAcceptedAlreadyByReferer["+res+"]")
       return res
  
 
@@ -126,7 +126,7 @@ object CypherReader {
                 match (a)-[r:USING_REFERAL]-(b)
     		return b.id as id
       """
-     Logger.info("---checkToSeeIfFacebookInviteAcceptedAlreadyByReferer["+res+"]")
+  //   Logger.info("---checkToSeeIfFacebookInviteAcceptedAlreadyByReferer["+res+"]")
       return res
  
 
@@ -140,7 +140,7 @@ object CypherReader {
                 match (a)-[r:USING_REFERAL]-(b)
     		return b.id as id
       """
-     Logger.info("---checkToSeeIfLinkedinInviteAcceptedAlreadyByReferer["+res+"]")
+  //   Logger.info("---checkToSeeIfLinkedinInviteAcceptedAlreadyByReferer["+res+"]")
       return res
  
 
@@ -309,7 +309,7 @@ object CypherReader {
           match (i:Invite)<-[:RECEIVED]-(u:User)
           return count(distinct u.email)  as count
     """
-    Logger.info("count of all accepted to watch ["+res+"]")
+   // Logger.info("count of all accepted to watch ["+res+"]")
     return res
   }
 
@@ -327,7 +327,7 @@ object CypherReader {
     where u.email is not null
     return distinct u.email as email, u.firstName as firstName, u.lastName as lastName
     """
-    Logger.info("invited to watch ["+res+"]")
+   // Logger.info("invited to watch ["+res+"]")
     return res
   }
 
@@ -340,7 +340,7 @@ object CypherReader {
           return distinct u.email as email, u.firstName as firstName, u.lastName as lastName
     """
 
-    Logger.info(res);
+   // Logger.info(res);
     return res
   }
 
@@ -353,7 +353,7 @@ object CypherReader {
      where u.email is not null
     return distinct u.email as email, u.firstName as firstName, u.lastName as lastName
     """
-    Logger.info(res)
+   // Logger.info(res)
     return res
   }
 
@@ -395,7 +395,7 @@ object CypherReader {
 
        """
     }
-    Logger.info(res)
+   // Logger.info(res)
     return res
   }
 
@@ -435,7 +435,7 @@ object CypherReader {
 
        """
     }
-    Logger.info(res)
+   // Logger.info(res)
     return res
   }
 
@@ -447,7 +447,7 @@ object CypherReader {
         where t.token="$token"
         return u.email as email
     """
-    Logger.info("getEmailUsingToken["+res+"]")
+   // Logger.info("getEmailUsingToken["+res+"]")
     return res
 
   }
@@ -460,7 +460,7 @@ object CypherReader {
         where cp.id = "$cpId" and cp.state="active"
     	return cp.state as state;
     """
-     Logger.info("--checkToSeeIfCheckPasswordIdIsValid["+res+"]")
+   //  Logger.info("--checkToSeeIfCheckPasswordIdIsValid["+res+"]")
      return res
 
   }
@@ -471,7 +471,7 @@ object CypherReader {
      match (b)-[r:HAS_TOKEN]-(a)
      return b.email as email, b.firstName as firstName , b.lastName as lastName
      """
-     Logger.info("--fecthUserDetails["+res+"]")
+    // Logger.info("--fecthUserDetails["+res+"]")
      return res
   }
 
@@ -483,7 +483,7 @@ object CypherReader {
      	 match (b)-[r:HAS_TOKEN]-(a)
      	 return b.email as email, b.firstName as firstName , b.lastName as lastName, b.domId as domId
      """
-     Logger.info("--fecthUserInformation["+res+"]")
+   //  Logger.info("--fecthUserInformation["+res+"]")
      return res
   }
 
@@ -496,7 +496,7 @@ def fetchLocationForStream(stream: String): String = {
 	    match (s)-[l:LOCATED_AT]-(loc)
             return loc.latitude as latitude, loc.longitude as longitude
        """
-       Logger.info("--fetchLocationForStream["+res+"]")
+     //  Logger.info("--fetchLocationForStream["+res+"]")
        return res
 }
 
@@ -510,7 +510,7 @@ def fetchLocationForActiveStream(inviteId: String): String = {
 	    match (s)-[l:LOCATED_AT]-(loc)
             return loc.latitude as latitude, loc.longitude as longitude
        """
-       Logger.info("--fetchLocationForActiveStream["+res+"]")
+      // Logger.info("--fetchLocationForActiveStream["+res+"]")
        return res
 
 }
@@ -525,7 +525,7 @@ def fetchLocationForActiveStreamTwitter(inviteId: String): String = {
 	    match (s)-[l:LOCATED_AT]-(loc)
             return loc.latitude as latitude, loc.longitude as longitude
        """
-       Logger.info("--fetchLocationForActiveStream["+res+"]")
+      // Logger.info("--fetchLocationForActiveStream["+res+"]")
        return res
 
 }
@@ -540,7 +540,7 @@ def fetchLocationForActiveStreamFacebook(inviteId: String): String = {
 	    match (s)-[l:LOCATED_AT]-(loc)
             return loc.latitude as latitude, loc.longitude as longitude
        """
-       Logger.info("--fetchLocationForActiveStream["+res+"]")
+       //Logger.info("--fetchLocationForActiveStream["+res+"]")
        return res
 
 }
@@ -555,7 +555,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
 	    match (s)-[l:LOCATED_AT]-(loc)
             return loc.latitude as latitude, loc.longitude as longitude
        """
-       Logger.info("--fetchLocationForActiveStreamLinkedin["+res+"]")
+      // Logger.info("--fetchLocationForActiveStreamLinkedin["+res+"]")
        return res
 
 }
@@ -571,7 +571,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     match (s)-[t:TO_WATCH]-(i:InviteTwitter)
     return count(distinct i) as count
     """
-    Logger.info("--countAllTwitterInvites["+res+"]")
+   // Logger.info("--countAllTwitterInvites["+res+"]")
     return res
   }
 
@@ -587,7 +587,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     match (s)-[t:TO_WATCH]-(i:InviteFacebook)
     return count(distinct i) as count
     """
-    Logger.info("--countAllFacebookInvites["+res+"]")
+   // Logger.info("--countAllFacebookInvites["+res+"]")
     return res
   }
 
@@ -603,7 +603,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     match (s)-[t:TO_WATCH]-(i:InviteLinkedin)
     return count(distinct i) as count
     """
-    Logger.info("--countAllLinkedinInvites["+res+"]")
+   // Logger.info("--countAllLinkedinInvites["+res+"]")
     return res
   }
 
@@ -667,7 +667,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     where ss.state="active"
     return count(distinct ss) as count
     """
-    Logger.info("--getEmailViewers["+res+"]")
+   // Logger.info("--getEmailViewers["+res+"]")
     return res
   }
 
@@ -683,7 +683,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     match (s)-[t:TO_WATCH]-(i:InviteTwitter)-[ur:USING_REFERER]-(r)
     return count(distinct r) as count
     """
-    Logger.info("--getTwitterAcceptanceCount["+res+"]")
+   // Logger.info("--getTwitterAcceptanceCount["+res+"]")
     return res
   }
 
@@ -699,7 +699,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     match (s)-[t:TO_WATCH]-(i:InviteLinkedin)-[ur:USING_REFERER]-(r)
     return count(distinct r) as count
     """
-    Logger.info("--getLinkedinAcceptanceCount["+res+"]")
+    //Logger.info("--getLinkedinAcceptanceCount["+res+"]")
     return res
   }
 
@@ -715,7 +715,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
     match (s)-[t:TO_WATCH]-(i:InviteFacebook)-[ur:USING_REFERER]-(r)
     return count(distinct r) as count
     """
-    Logger.info("--getFacebookAcceptanceCount["+res+"]")
+   // Logger.info("--getFacebookAcceptanceCount["+res+"]")
     return res
   }
 
@@ -727,7 +727,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
 	match (s)-[TO_WATCH]-(inv:InviteLinkedin)-[USING_REFERER]-(ref)
 	return ref.id as ip
     """
-    Logger.info("--getRefererForLinkedIn["+res+"]")
+   // Logger.info("--getRefererForLinkedIn["+res+"]")
     return res
   }
 
@@ -739,7 +739,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
 	match (s)-[TO_WATCH]-(inv:InviteTwitter)-[USING_REFERER]-(ref)
 	return ref.id as ip
     """
-    Logger.info("--getRefererForTwitter["+res+"]")
+   // Logger.info("--getRefererForTwitter["+res+"]")
     return res
   }
 
@@ -751,7 +751,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
 	match (s)-[TO_WATCH]-(inv:InviteFacebook)-[USING_REFERER]-(ref)
 	return ref.id as ip
     """
-    Logger.info("--getRefererForFacebook["+res+"]")
+   // Logger.info("--getRefererForFacebook["+res+"]")
     return res
   }
 
@@ -766,7 +766,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
       match (s)-[ur:USING_ROOM]-(rm:Room)
       return distinct rm.id as jid
       """
-      Logger.info("--getGroupJid["+res+"]")
+     // Logger.info("--getGroupJid["+res+"]")
     return res
   }
 
@@ -779,7 +779,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
       match (s)-[ur:USING_ROOM]-(rm:Room)
       return distinct rm.id as jid
       """
-      Logger.info("--getRoomJidForStream["+res+"]")
+      //Logger.info("--getRoomJidForStream["+res+"]")
       return res
 
   }
@@ -793,7 +793,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
 	  return user.email as email, user.firstName as firstName , user.lastName as lastName, user.domId as domId
 
       """
-      Logger.info("---getUserInformationUsingInviteId--")
+      //Logger.info("---getUserInformationUsingInviteId--")
 
       return res
   }

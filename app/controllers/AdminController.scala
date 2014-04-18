@@ -555,11 +555,13 @@ object AdminController extends Controller {
   def login = Action.async {
     implicit request =>
 
+      Logger.info("login")
       var userForm = controllers.Index.userForm
 
       var bindForm = userForm.bindFromRequest
       bindForm.fold(
         formWithErrors => {
+          Logger.info("login--errors")
           // binding failure, you retrieve the form containing errors:
           future(BadRequest(views.html.welcome(formWithErrors)))
         },

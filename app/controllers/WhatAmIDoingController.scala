@@ -609,6 +609,8 @@ object WhatAmIDoingController extends Controller {
 
   var v = 0
 
+  val Tag: String = "WhatAmIDoingController"
+
   def publishVideo(tokenOption: Option[String]) = WebSocket.async[String] {
     implicit request =>
 
@@ -619,19 +621,30 @@ object WhatAmIDoingController extends Controller {
         val res = ActorUtilsReader.getValidToken(token)
         if (res.asInstanceOf[List[String]].size > 0) {
 
+          import play.api.libs.iteratee.Concurrent
+          var channel: Option[Concurrent.Channel[String]] = None
+          var out: Enumerator[String] = Concurrent.unicast(c => channel = Some(c))
+
+
           val in = Iteratee.foreach[String](s => {
 
-            ActorUtils.frameSupervisor ! RTMPMessage(s, token)
+            if (s == "SERVICE_STOPPED") {
+              Logger.info("RECEIVED SERVICE STOPPED MESSAGE")
+              ActorUtils.stopRtmpMessage(StopVideo(token))
+              Logger.info("number of stuff:"+ActorUtils.frameSupervisors.size)
+              channel.foreach(_.eofAndEnd())
+            } else {
+              ActorUtils.sendRtmpMessage(RTMPMessage(s, token))
+            }
 
           }).map {
             x =>
-              println(x);
-              ActorUtils.frameSupervisor ! StopVideo(token)
-              Logger("WhatAmIDoingController.publishVideo").info("Disconnected")
+              ActorUtils.stopRtmpMessage(StopVideo(token))
+              Logger(Tag).info("publishVideo: Disconnected["+x+"]")
           }
 
           val resp = "Connection Established"
-          val out = Enumerator(resp)
+          out >>> Enumerator(resp)
           Future((in, out))
 
         } else {

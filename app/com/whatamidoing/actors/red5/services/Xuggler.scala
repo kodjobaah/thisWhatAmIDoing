@@ -25,17 +25,17 @@ class Xuggler( rtmpUrl: String, streamName: String) {
   //Accessing the constants
   import Xuggler._
 
-   //ToolFactory.makeWriter("rtmp://192.168.0.101:1935/HTTP@FLV/"+streamName)
- //   ToolFactory.makeWriter("rtmp://192.168.1.110:1935/oflaDemo/"+streamName)
-//  val mediaWriter: IMediaWriter =  ToolFactory.makeWriter("rtmp://www.whatamidoing.info:1935/hlsapp/"+streamName)
+  //ToolFactory.makeWriter("rtmp://192.168.0.101:1935/HTTP@FLV/"+streamName)
+  //   ToolFactory.makeWriter("rtmp://192.168.1.110:1935/oflaDemo/"+streamName)
+  //  val mediaWriter: IMediaWriter =  ToolFactory.makeWriter("rtmp://www.whatamidoing.info:1935/hlsapp/"+streamName)
   val mediaWriter: IMediaWriter =  ToolFactory.makeWriter(rtmpUrl+streamName)
   mediaWriter.addVideoStream(0, 0, ICodec.ID.CODEC_ID_FLV1, 352, 288)
   mediaWriter.getContainer().getContainerFormat().setOutputFormat("flv",streamName,null)
   //mediaWriter.addVideoStream(0, 0, ICodec.ID.CODEC_ID_FLV1,640, 480)
 
-var startTime: Long = _
-  
-  var count = 0  
+  var startTime: Long = _
+
+  var count = 0
   def transmitBufferedImage(image: BufferedImage) {
     import java.util.concurrent.TimeUnit
     import javax.imageio.ImageIO
@@ -44,13 +44,13 @@ var startTime: Long = _
     //Logger.info("ABOUT TO CREATE FILE");
     if (count == 0) {
 
-    	startTime = System.nanoTime()
-    Logger.info("CREATING FILE");
+      startTime = System.nanoTime()
+      Logger.info("CREATING FILE");
       //          val outputfile = new File("/tmp/image.jpg")
       //ImageIO.write(image, "jpg", outputfile)
     }
     count = 1
-    mediaWriter.encodeVideo(0, image, System.nanoTime() - startTime, TimeUnit.NANOSECONDS);
+    mediaWriter.encodeVideo(0, image, 100, TimeUnit.MILLISECONDS);
 
   }
   def transmitFrame(frame: Array[Byte]) = {
@@ -65,7 +65,7 @@ var startTime: Long = _
     val in: InputStream = new ByteArrayInputStream(frame);
 
     //          Logger("HMM").info("inputstream:"+in);
- 
+
     import com.jhlabs.image.UnsharpFilter
     val filter: UnsharpFilter = new UnsharpFilter()
     val bImageFromConvert: BufferedImage = filter.filter(ImageIO.read(in),null);

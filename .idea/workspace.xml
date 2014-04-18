@@ -2,7 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="855357b2-4bff-4ebb-b46f-54398f4536f1" name="Default" comment="added a calendar instead of a table for viewing past streams">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/com/whatamidoing/actors/mailbox/PriorityMailBox.scala" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/TestXMMP.scala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Tigase.scala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/#AdminController.scala#" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Arithmetic-Coding-1.0.jar" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtilsReader.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtilsReader.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/AdminController.scala" afterPath="$PROJECT_DIR$/app/controllers/AdminController.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/actors/xmpp/CreateXMPPGroup.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/actors/xmpp/CreateXMPPGroup.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriter.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriter.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriterFunction.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriterFunction.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/actors/red5/FrameSupervisor.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/actors/red5/FrameSupervisor.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Index.scala" afterPath="$PROJECT_DIR$/app/controllers/Index.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Messages.scala" afterPath="$PROJECT_DIR$/app/models/Messages.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala" afterPath="$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/com/whatamidoing/actors/red5/services/Xuggler.scala" afterPath="$PROJECT_DIR$/app/com/whatamidoing/actors/red5/services/Xuggler.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/plugins.sbt" afterPath="$PROJECT_DIR$/project/plugins.sbt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/routes" afterPath="$PROJECT_DIR$/conf/routes" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="thisWhatAmIDoing.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -15,7 +35,7 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="Commander">
     <leftPanel />
-    <rightPanel url="file://$PROJECT_DIR$" />
+    <rightPanel />
     <splitter proportion="0.5" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -183,7 +203,52 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala" line="51" class="com.whatamidoing.utils.ActorUtils$" package="com.whatamidoing.utils">
+      <breakpoint url="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala" line="55" class="com.whatamidoing.utils.ActorUtils$" package="com.whatamidoing.utils">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="jar:///opt/play/play-2.2.1/repository/cache/com.typesafe.akka/akka-actor_2.10/srcs/akka-actor_2.10-2.2.0-sources.jar!/akka/actor/DynamicAccess.scala" line="76" class="akka.actor.ReflectiveDynamicAccess" package="akka.actor">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="jar:///opt/play/play-2.2.1/repository/cache/com.typesafe.akka/akka-actor_2.10/srcs/akka-actor_2.10-2.2.0-sources.jar!/akka/actor/DynamicAccess.scala" line="66" class="akka.actor.ReflectiveDynamicAccess" package="akka.actor">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="jar:///opt/play/play-2.2.1/repository/cache/com.typesafe.akka/akka-actor_2.10/srcs/akka-actor_2.10-2.2.0-sources.jar!/akka/actor/DynamicAccess.scala" line="65" class="akka.actor.ReflectiveDynamicAccess" package="akka.actor">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -208,24 +273,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CreateXMPPGroup.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/xmpp/CreateXMPPGroup.scala">
+      <file leaf-file-name="ActorUtilsReader.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtilsReader.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="97" selection-start="1594" selection-end="1594" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1650">
+            <state line="802" column="6" selection-start="27333" selection-end="27333" vertical-scroll-proportion="0.0" vertical-offset="19632" max-vertical-offset="24046">
               <folding>
-                <element signature="e#38#61#0" expanded="true" />
-                <element signature="e#342#382#0" expanded="true" />
-                <element signature="e#2072#2107#0" expanded="true" />
+                <element signature="e#32#61#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Xuggler.scala" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/red5/services/Xuggler.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="36" selection-start="3009" selection-end="3009" vertical-scroll-proportion="0.9062218" vertical-offset="0" max-vertical-offset="1109">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -233,7 +287,52 @@
       <file leaf-file-name="application.conf" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conf/application.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="118" column="11" selection-start="3062" selection-end="3062" vertical-scroll-proportion="-39.76" vertical-offset="776" max-vertical-offset="1860">
+            <state line="125" column="78" selection-start="3176" selection-end="3176" vertical-scroll-proportion="-19.2" vertical-offset="2270" max-vertical-offset="2882">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PriorityMailBox.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/mailbox/PriorityMailBox.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="62" selection-start="852" selection-end="852" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="528">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CypherReaderFunction.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="7" selection-start="120" selection-end="120" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="11770">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CypherWriter.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriter.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="457" column="6" selection-start="13332" selection-end="13332" vertical-scroll-proportion="0.0" vertical-offset="9659" max-vertical-offset="10296">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conf/routes">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="32" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="331" max-vertical-offset="1188">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Index.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Index.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="50" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="528">
               <folding />
             </state>
           </provider>
@@ -242,61 +341,25 @@
       <file leaf-file-name="VideoEncoder.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/red5/VideoEncoder.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="7" selection-start="1886" selection-end="1886" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
+            <state line="19" column="11" selection-start="473" selection-end="473" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="1474">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FrameSupervisor.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/red5/FrameSupervisor.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="56" selection-start="3358" selection-end="3358" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1590">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CreateXMPPDomain.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/xmpp/CreateXMPPDomain.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="3" selection-start="625" selection-end="780" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminController.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="170" column="23" selection-start="5176" selection-end="5176" vertical-scroll-proportion="0.0" vertical-offset="2550" max-vertical-offset="9570">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WhatAmIDoingController.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="WhatAmIDoingController.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="517" column="35" selection-start="18315" selection-end="18315" vertical-scroll-proportion="0.0" vertical-offset="7755" max-vertical-offset="9915">
+            <state line="633" column="77" selection-start="22140" selection-end="22140" vertical-scroll-proportion="0.34379905" vertical-offset="13311" max-vertical-offset="14432">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActorUtils.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala">
+      <file leaf-file-name="CypherWriterFunction.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriterFunction.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="6" selection-start="3349" selection-end="3349" vertical-scroll-proportion="0.0" vertical-offset="1500" max-vertical-offset="8265">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Mail.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="0" selection-start="2435" selection-end="2435" vertical-scroll-proportion="0.0" vertical-offset="1005" max-vertical-offset="1155">
+            <state line="463" column="6" selection-start="17411" selection-end="17411" vertical-scroll-proportion="0.0" vertical-offset="9813" max-vertical-offset="10450">
               <folding />
             </state>
           </provider>
@@ -320,25 +383,33 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/conf/routes" />
-        <option value="$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala" />
         <option value="$PROJECT_DIR$/app/views/activitymain.scala.html" />
         <option value="$PROJECT_DIR$/app/views/main.scala.html" />
-        <option value="$PROJECT_DIR$/app/controllers/AdminController.scala" />
         <option value="$PROJECT_DIR$/app/views/invite.scala.html" />
         <option value="$PROJECT_DIR$/app/views/streamInvites.scala.html" />
-        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala" />
-        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" />
         <option value="$PROJECT_DIR$/app/views/whatamidoingnoinviteId.scala.html" />
         <option value="$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala" />
-        <option value="$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala" />
         <option value="$PROJECT_DIR$/app/views/whatamidoing.scala.htm.bakl" />
         <option value="$PROJECT_DIR$/app/views/whatamidoing.scala.html.2" />
         <option value="$PROJECT_DIR$/app/views/whatamidoing.scala.html" />
         <option value="$PROJECT_DIR$/app/views/welcome.scala.html" />
-        <option value="$PROJECT_DIR$/app/com/whatamidoing/actors/xmpp/CreateXMPPGroup.scala" />
         <option value="$PROJECT_DIR$/conf/application.conf" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/actors/xmpp/CreateXMPPGroup.scala" />
+        <option value="$PROJECT_DIR$/app/models/Messages.scala" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriter.scala" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriterFunction.scala" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/actors/red5/FrameSupervisor.scala" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtilsReader.scala" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/actors/mailbox/PriorityMailBox.scala" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala" />
+        <option value="$PROJECT_DIR$/conf/routes" />
+        <option value="$PROJECT_DIR$/app/controllers/AdminController.scala" />
+        <option value="$PROJECT_DIR$/app/controllers/Index.scala" />
+        <option value="$PROJECT_DIR$/app/com/whatamidoing/actors/red5/VideoEncoder.scala" />
         <option value="$PROJECT_DIR$/app/com/whatamidoing/actors/red5/services/Xuggler.scala" />
+        <option value="$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala" />
       </list>
     </option>
   </component>
@@ -347,11 +418,14 @@
       <facet id="thisIsWhatIAmDoing/invalid/Scala" />
     </ignored-facets>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState />
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="102" />
-    <option name="y" value="34" />
-    <option name="width" value="1816" />
-    <option name="height" value="1250" />
+    <option name="x" value="229" />
+    <option name="y" value="22" />
+    <option name="width" value="1775" />
+    <option name="height" value="1159" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -384,12 +458,68 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisIsWhatIAmDoing-build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisIsWhatIAmDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisIsWhatIAmDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unit.com.whatamidoing.utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisIsWhatIAmDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="thisWhatAmIDoing" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -400,6 +530,38 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="thisWhatAmIDoing" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Build.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -444,6 +606,60 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="whatamidoing" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -472,36 +688,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="xmpp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whatamidoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="actors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xmpp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CreateXMPPDomain.scala" />
-              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -559,10 +745,6 @@
               <option name="myItemId" value="red5" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FrameSupervisor.scala" />
-              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -593,6 +775,36 @@
               <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Xuggler.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thisWhatAmIDoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whatamidoing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="actors" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="neo4j" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -618,70 +830,18 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisIsWhatIAmDoing-build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisIsWhatIAmDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisIsWhatIAmDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="unit.com.whatamidoing.utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisWhatAmIDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thisIsWhatIAmDoing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_directory_selection" value="$PROJECT_DIR$/app" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Facets" />
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -1075,7 +1235,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="102" y="34" width="1816" height="1250" extended-state="0" />
+    <frame x="229" y="22" width="1775" height="1159" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1083,19 +1243,20 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32735848" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24971752" sideWeight="0.6722615" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3993174" sideWeight="0.5151515" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39834407" sideWeight="0.5151515" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4778157" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24844074" sideWeight="0.6996587" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24811156" sideWeight="0.6996587" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SBT Execute" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294596" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30214205" sideWeight="0.67254406" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31144685" sideWeight="0.67254406" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4778157" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="IntelliGuard" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TF Uploader" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
@@ -1103,9 +1264,8 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3274559" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.443686" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295053" sideWeight="0.5632768" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44339624" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924527" sideWeight="0.5632768" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1137,51 +1297,62 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/welcome.scala.html">
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/xmpp/CreateXMPPDomain.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
+        <state line="23" column="3" selection-start="625" selection-end="780" vertical-scroll-proportion="0.0" vertical-offset="506" max-vertical-offset="1694">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="517" column="35" selection-start="18315" selection-end="18315" vertical-scroll-proportion="0.0" vertical-offset="11374" max-vertical-offset="14542">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="0" selection-start="2188" selection-end="2188" vertical-scroll-proportion="0.0" vertical-offset="1364" max-vertical-offset="12144">
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#ul#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="false" />
+            <element signature="e#1461#1485#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="0" selection-start="2435" selection-end="2435" vertical-scroll-proportion="0.0" vertical-offset="1474" max-vertical-offset="1694" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/welcome.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="214" column="8" selection-start="5374" selection-end="5374" vertical-scroll-proportion="0.0" vertical-offset="3210" max-vertical-offset="5850">
-          <folding />
-        </state>
+        <state line="214" column="8" selection-start="5374" selection-end="5374" vertical-scroll-proportion="0.0" vertical-offset="3210" max-vertical-offset="5850" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/whatamidoing.scala.html.3">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="98" selection-start="1052" selection-end="1129" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="600">
-          <folding />
-        </state>
+        <state line="27" column="98" selection-start="1052" selection-end="1129" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="600" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/whatamidoing.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="45" selection-start="685" selection-end="685" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="840">
-          <folding />
-        </state>
+        <state line="26" column="45" selection-start="685" selection-end="685" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="840" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/red5/services/Xuggler.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="48" selection-start="959" selection-end="959" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="1305">
-          <folding />
-        </state>
+        <state line="29" column="48" selection-start="959" selection-end="959" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="1305" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="23" selection-start="4969" selection-end="4969" vertical-scroll-proportion="0.0" vertical-offset="2505" max-vertical-offset="8985">
-          <folding />
-        </state>
+        <state line="167" column="23" selection-start="4969" selection-end="4969" vertical-scroll-proportion="0.0" vertical-offset="2505" max-vertical-offset="8985" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala">
@@ -1194,15 +1365,15 @@
     <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="122" column="6" selection-start="3978" selection-end="3978" vertical-scroll-proportion="0.0" vertical-offset="1830" max-vertical-offset="8670">
-          <folding />
+          <folding>
+            <element signature="e#1461#1485#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="0" selection-start="1983" selection-end="1983" vertical-scroll-proportion="0.0" vertical-offset="975" max-vertical-offset="1125">
-          <folding />
-        </state>
+        <state line="65" column="0" selection-start="1983" selection-end="1983" vertical-scroll-proportion="0.0" vertical-offset="975" max-vertical-offset="1125" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/invite.scala.html">
@@ -1213,11 +1384,6 @@
     <entry file="jar://$PROJECT_DIR$/lib/xuggle-xuggler-5.4.jar!/com/xuggle/mediatool/ToolFactory.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="13" selection-start="163" selection-end="163" vertical-scroll-proportion="-3.4" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="60" selection-start="4229" selection-end="4229" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/whatamidoingnoinviteId.scala.html">
@@ -1235,65 +1401,14 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="0" selection-start="2435" selection-end="2435" vertical-scroll-proportion="0.0" vertical-offset="1005" max-vertical-offset="1155">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="23" selection-start="5176" selection-end="5176" vertical-scroll-proportion="0.0" vertical-offset="2550" max-vertical-offset="9570">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="312" column="8" selection-start="8207" selection-end="8207" vertical-scroll-proportion="0.0" vertical-offset="4680" max-vertical-offset="12105">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="6" selection-start="3349" selection-end="3349" vertical-scroll-proportion="0.0" vertical-offset="1500" max-vertical-offset="8265">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="517" column="35" selection-start="18315" selection-end="18315" vertical-scroll-proportion="0.0" vertical-offset="7755" max-vertical-offset="9915">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/whatamidoing.scala.html.3">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="98" selection-start="1052" selection-end="1129" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="600">
-          <folding />
-        </state>
+        <state line="27" column="98" selection-start="1052" selection-end="1129" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="600" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/whatamidoing.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="45" selection-start="5831" selection-end="5831" vertical-scroll-proportion="0.0" vertical-offset="1680" max-vertical-offset="3555">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/welcome.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="16" selection-start="2406" selection-end="2406" vertical-scroll-proportion="-27.5" vertical-offset="345" max-vertical-offset="3075">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#ul#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="false" />
-          </folding>
-        </state>
+        <state line="112" column="45" selection-start="5831" selection-end="5831" vertical-scroll-proportion="0.0" vertical-offset="1680" max-vertical-offset="3555" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/xmpp/CreateXMPPDomain.scala">
@@ -1303,41 +1418,216 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/application.conf">
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/mail/Mail.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="11" selection-start="3062" selection-end="3062" vertical-scroll-proportion="-39.76" vertical-offset="776" max-vertical-offset="1860">
+        <state line="46" column="32" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1694" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/Build.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="7" selection-start="163" selection-end="163" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1100">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/red5/VideoEncoder.scala">
+    <entry file="jar:///opt/play/play-2.2.1/repository/cache/com.typesafe.akka/akka-actor_2.10/srcs/akka-actor_2.10-2.2.0-sources.jar!/akka/dispatch/Mailboxes.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="7" selection-start="1886" selection-end="1886" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
+        <state line="195" column="61" selection-start="8236" selection-end="8236" vertical-scroll-proportion="0.0" vertical-offset="4290" max-vertical-offset="5038">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///opt/play/play-2.2.1/repository/cache/com.typesafe.akka/akka-actor_2.10/srcs/akka-actor_2.10-2.2.0-sources.jar!/akka/actor/ActorRefProvider.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="717" column="0" selection-start="26795" selection-end="26795" vertical-scroll-proportion="0.0" vertical-offset="15235" max-vertical-offset="16588">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///opt/play/play-2.2.1/repository/cache/com.typesafe.akka/akka-actor_2.10/srcs/akka-actor_2.10-2.2.0-sources.jar!/akka/actor/dungeon/Children.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="0" selection-start="1672" selection-end="1672" vertical-scroll-proportion="0.0" vertical-offset="539" max-vertical-offset="4576">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///opt/play/play-2.2.1/framework/sbt/boot/scala-2.10.2/lib/scala-library.jar!/scala/util/Failure.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///opt/play/play-2.2.1/repository/cache/com.typesafe.akka/akka-actor_2.10/srcs/akka-actor_2.10-2.2.0-sources.jar!/akka/dispatch/Mailbox.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="94" selection-start="1079" selection-end="1079" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="15246">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/plugins.sbt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="7" selection-start="1057" selection-end="1057" vertical-scroll-proportion="0.0" vertical-offset="572" max-vertical-offset="880">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///opt/play/play-2.2.1/repository/cache/com.typesafe.akka/akka-actor_2.10/srcs/akka-actor_2.10-2.2.0-sources.jar!/akka/actor/DynamicAccess.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="0" selection-start="2632" selection-end="2632" vertical-scroll-proportion="0.0" vertical-offset="1430" max-vertical-offset="2398">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///opt/play/play-2.2.1/repository/cache/com.typesafe.akka/akka-actor_2.10/srcs/akka-actor_2.10-2.2.0-sources.jar!/akka/actor/ActorSystem.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="213" column="37" selection-start="10153" selection-end="10153" vertical-scroll-proportion="0.0" vertical-offset="4686" max-vertical-offset="17050">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Messages.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="15" selection-start="420" selection-end="420" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="682">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/xmpp/CreateXMPPGroup.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="97" selection-start="1594" selection-end="1594" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1650">
+        <state line="11" column="6" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2266">
           <folding>
-            <element signature="e#38#61#0" expanded="true" />
             <element signature="e#342#382#0" expanded="true" />
-            <element signature="e#2072#2107#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/services/FacebookService.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="7" selection-start="2006" selection-end="2006" vertical-scroll-proportion="0.0" vertical-offset="208" max-vertical-offset="1474">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/services/TwitterService.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="6" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0" vertical-offset="1189" max-vertical-offset="1826">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReaderFunction.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="7" selection-start="120" selection-end="120" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="11770">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherReader.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="795" column="8" selection-start="22589" selection-end="22589" vertical-scroll-proportion="0.5855573" vertical-offset="17117" max-vertical-offset="17754">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriter.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="457" column="6" selection-start="13332" selection-end="13332" vertical-scroll-proportion="0.0" vertical-offset="9659" max-vertical-offset="10296">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/cypher/CypherWriterFunction.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="463" column="6" selection-start="17411" selection-end="17411" vertical-scroll-proportion="0.0" vertical-offset="9813" max-vertical-offset="10450">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/red5/FrameSupervisor.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="56" selection-start="3358" selection-end="3358" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1590">
+        <state line="96" column="6" selection-start="3057" selection-end="3057" vertical-scroll-proportion="2.4707692" vertical-offset="0" max-vertical-offset="1848">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtilsReader.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="802" column="6" selection-start="27333" selection-end="27333" vertical-scroll-proportion="0.0" vertical-offset="19632" max-vertical-offset="24046">
+          <folding>
+            <element signature="e#32#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/application.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="78" selection-start="3176" selection-end="3176" vertical-scroll-proportion="-19.2" vertical-offset="2270" max-vertical-offset="2882">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/mailbox/PriorityMailBox.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="62" selection-start="852" selection-end="852" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="528">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/utils/ActorUtils.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="581" column="66" selection-start="18539" selection-end="18539" vertical-scroll-proportion="0.7582418" vertical-offset="11815" max-vertical-offset="12914">
+          <folding>
+            <element signature="e#1461#1485#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/routes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="32" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="331" max-vertical-offset="1188">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="558" column="41" selection-start="19277" selection-end="19277" vertical-scroll-proportion="0.40188384" vertical-offset="11404" max-vertical-offset="13464">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/welcome.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="16" selection-start="2406" selection-end="2406" vertical-scroll-proportion="-0.7096774" vertical-offset="1452" max-vertical-offset="4510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Index.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="50" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="528">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/red5/VideoEncoder.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="11" selection-start="473" selection-end="473" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="1474">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/com/whatamidoing/actors/red5/services/Xuggler.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="36" selection-start="3009" selection-end="3009" vertical-scroll-proportion="0.9062218" vertical-offset="0" max-vertical-offset="1109">
+        <state line="52" column="40" selection-start="1887" selection-end="1887" vertical-scroll-proportion="0.48351648" vertical-offset="418" max-vertical-offset="1606">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/WhatAmIDoingController.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="633" column="77" selection-start="22140" selection-end="22140" vertical-scroll-proportion="0.34379905" vertical-offset="13311" max-vertical-offset="14432">
           <folding />
         </state>
       </provider>
@@ -1394,11 +1684,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>thisIsWhatIAmDoing</last-edited>
+          <last-edited>thisIsWhatIAmDoing-build</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

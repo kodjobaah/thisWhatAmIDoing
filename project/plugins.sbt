@@ -4,6 +4,8 @@ import Defaults._
 // Comment to get more information during initialization
 logLevel := Level.Info
 
+offline := true
+
 
 // The Typesafe repository
 resolvers ++= Seq(

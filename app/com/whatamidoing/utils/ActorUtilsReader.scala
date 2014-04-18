@@ -17,8 +17,7 @@ object ActorUtilsReader {
 
   val system = ActorSystem("whatamidoing-system")
   implicit val timeout = Timeout(500 seconds)
-  var frameSupervisor = system.actorOf(FrameSupervisor.props("hey"), "frameSupervisor")
-  var neo4jreader = system.actorOf(Neo4JReader.props(), "neo-4j-reader-supervisor")
+  var neo4jreader = ActorUtils.neo4jreader
 
   import models.Messages._
 
@@ -37,7 +36,7 @@ object ActorUtilsReader {
             "-1"
           }
         } else {
-         "-1"
+          "-1"
         }
       }
     }
@@ -183,7 +182,7 @@ object ActorUtilsReader {
         }
       }
     }
-   id
+    id
 
   }
 
@@ -204,7 +203,7 @@ object ActorUtilsReader {
         }
       }
     }
-   id
+    id
 
   }
 
@@ -225,23 +224,23 @@ object ActorUtilsReader {
         }
       }
     }
-   id
+    id
 
   }
 
 
 
   def findActiveStreamForToken(token: String): String = {
-    
+
     val findStreamForToken = CypherReaderFunction.findActiveStreamForToken(token)
     import com.whatamidoing.actors.neo4j.Neo4JReader._
     val getValidTokenResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(findStreamForToken)).mapTo[Any]
 
     var streamName = Await.result(getValidTokenResponse, 10 seconds) match {
       case ReadOperationResult(readResults) => {
-        
+
         if (readResults.results.size > 0 ) {
-        	readResults.results.head.asInstanceOf[String]
+          readResults.results.head.asInstanceOf[String]
         } else {
           ""
         }
@@ -251,16 +250,16 @@ object ActorUtilsReader {
   }
 
 
-   def  findAllInvites(email: String): List[String] = {
-    
+  def  findAllInvites(email: String): List[String] = {
+
     val findAllInvites = CypherReaderFunction.findAllInvites(email)
     val findAllInvitesResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(findAllInvites)).mapTo[Any]
 
     var results = Await.result(findAllInvitesResponse, 10 seconds) match {
       case ReadOperationResult(readResults) => {
-    	  readResults.results.asInstanceOf[List[String]]
-      	}
+        readResults.results.asInstanceOf[List[String]]
       }
+    }
     results
   }
 
@@ -297,9 +296,9 @@ object ActorUtilsReader {
       case ReadOperationResult(readResults) => {
         if (readResults.results.size > 0) {
           readResults.results.head.asInstanceOf[BigDecimal]
-	} else {
-	  BigDecimal(0)
-	}
+        } else {
+          BigDecimal(0)
+        }
       }
     }
     results
@@ -370,11 +369,11 @@ object ActorUtilsReader {
       case ReadOperationResult(readResults) => {
         if (readResults.results.size > 0) {
           readResults.results.head.asInstanceOf[BigDecimal]
-	} else {
-	  BigDecimal(0)
-	}
+        } else {
+          BigDecimal(0)
+        }
       }
- }
+    }
     results
   }
 
@@ -389,9 +388,9 @@ object ActorUtilsReader {
       case ReadOperationResult(readResults) => {
         if (readResults.results.size > 0) {
           readResults.results.head.asInstanceOf[BigDecimal]
-	} else {
-	  BigDecimal(0)
-	}
+        } else {
+          BigDecimal(0)
+        }
       }
     }
     results
@@ -428,8 +427,8 @@ object ActorUtilsReader {
 
 
   def  getStreamsForCalendarThatHaveEnded(email: String, startYear: Int, endYear: Int,
-                             startMonth: Int, endMonth : Int,
-                             startDay: Int, endDay: Int): List[String] = {
+                                          startMonth: Int, endMonth : Int,
+                                          startDay: Int, endDay: Int): List[String] = {
 
     val getStreamsForCalendarThatHaveEnded = CypherReaderFunction.getStreamsForCalendarThatHaveEnded(email,startYear,endYear,startMonth,endMonth,startDay, endDay)
     val getStreamsForCalendarThatHaveEndedResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getStreamsForCalendarThatHaveEnded)).mapTo[Any]
@@ -451,25 +450,25 @@ object ActorUtilsReader {
     val results = Await.result(getEmailUsingTokenResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
 
-             var result =""
-             for(res <- readResults.results){
+        var result =""
+        for(res <- readResults.results){
 
-               var x: String = res match {
-                  case Some(s:String) => s
-                  case None => "?"
-                }
+          var x: String = res match {
+            case Some(s:String) => s
+            case None => "?"
+          }
 
-               if (!x.equals("?")) {
-                 result = x
-               }
-             }
+          if (!x.equals("?")) {
+            result = x
+          }
+        }
 
-            Logger.info("results "+result)
-            result
+        Logger.info("results "+result)
+        result
       }
     }
-   results
-}
+    results
+  }
 
 
   def checkToSeeIfCheckPasswordIdIsValid(cpId: String):String = {
@@ -480,24 +479,24 @@ object ActorUtilsReader {
     val results = Await.result(checkToSeeIfCheckPasswordIdIsValidResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
 
-             var result =""
-             for(res <- readResults.results){
+        var result =""
+        for(res <- readResults.results){
 
-               var x: String = res match {
-                  case Some(s:String) => s
-                  case None => "?"
-                }
+          var x: String = res match {
+            case Some(s:String) => s
+            case None => "?"
+          }
 
-               if (!x.equals("?")) {
-                 result = x
-               }
-             }
+          if (!x.equals("?")) {
+            result = x
+          }
+        }
 
-            Logger.info("results "+result)
-            result
+        Logger.info("results "+result)
+        result
       }
     }
-   results
+    results
   }
 
 
@@ -510,23 +509,23 @@ object ActorUtilsReader {
     val results = Await.result(fetchUserDetailsResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
 
-             var result = UserDetails()
-             for(res <- readResults.results){
-               var x: UserDetails = res match {
-                  case (Some(email),Some(firstName),Some(lastName)) => UserDetails(Option(email.asInstanceOf[String]),firstName.asInstanceOf[String],lastName.asInstanceOf[String])
-                  case _ => null
-                }
-		if (x != null) {
-		   result = x
-                }
+        var result = UserDetails()
+        for(res <- readResults.results){
+          var x: UserDetails = res match {
+            case (Some(email),Some(firstName),Some(lastName)) => UserDetails(Option(email.asInstanceOf[String]),firstName.asInstanceOf[String],lastName.asInstanceOf[String])
+            case _ => null
+          }
+          if (x != null) {
+            result = x
+          }
 
-             }
+        }
 
-            Logger.info("results "+result)
-            result
+        Logger.info("results "+result)
+        result
       }
     }
-   results
+    results
   }
 
   import models.UserInformation
@@ -538,33 +537,33 @@ object ActorUtilsReader {
     val results = Await.result(fetchUserInformationResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
 
-             var result = UserInformation()
-             for(res <- readResults.results){
-               var x: UserInformation = res match {
-                  case (Some(email),Some(firstName),Some(lastName),Some(domId)) => { 
+        var result = UserInformation()
+        for(res <- readResults.results){
+          var x: UserInformation = res match {
+            case (Some(email),Some(firstName),Some(lastName),Some(domId)) => {
 
-		  val u = "userInformation:"+email
-		       Logger.info("---------------ActorUtilsReader"+u)
-		       UserInformation(email.asInstanceOf[String],firstName.asInstanceOf[String],lastName.asInstanceOf[String],Option(domId.asInstanceOf[String]))
-		       }
-   		 case (Some(email),Some(firstName),Some(lastName),None) => { 
-		       UserInformation(email.asInstanceOf[String],firstName.asInstanceOf[String],lastName.asInstanceOf[String],None)
+              val u = "userInformation:"+email
+              Logger.info("---------------ActorUtilsReader"+u)
+              UserInformation(email.asInstanceOf[String],firstName.asInstanceOf[String],lastName.asInstanceOf[String],Option(domId.asInstanceOf[String]))
+            }
+            case (Some(email),Some(firstName),Some(lastName),None) => {
+              UserInformation(email.asInstanceOf[String],firstName.asInstanceOf[String],lastName.asInstanceOf[String],None)
 
-		       
-		  }
-                  case _ => null
-                }
-		if (x != null) {
-		   result = x
-                }
 
-             }
+            }
+            case _ => null
+          }
+          if (x != null) {
+            result = x
+          }
 
-            Logger.info("results "+result)
-            result
+        }
+
+        Logger.info("results "+result)
+        result
       }
     }
-   results
+    results
   }
 
 
@@ -577,24 +576,24 @@ object ActorUtilsReader {
     val results = Await.result(fetchLocationForStreamResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
 
-             var result = List[Location]()
-             for(res <- readResults.results){
-               var x: Location = res match {
-                  case (Some(latitude),Some(longitude)) => 
-		       				Location(latitude.asInstanceOf[Double],longitude.asInstanceOf[Double])
-                  case _ => null
-                }
-		if (result != null) {
-		   result = result :+ x
-		}
+        var result = List[Location]()
+        for(res <- readResults.results){
+          var x: Location = res match {
+            case (Some(latitude),Some(longitude)) =>
+              Location(latitude.asInstanceOf[Double],longitude.asInstanceOf[Double])
+            case _ => null
+          }
+          if (result != null) {
+            result = result :+ x
+          }
 
-             }
+        }
 
-            Logger.info("results "+result)
-            result
+        Logger.info("results "+result)
+        result
       }
     }
-   results
+    results
   }
 
   def fetchLocationForActiveStream(inviteId: String): List[Location] = {
@@ -605,25 +604,25 @@ object ActorUtilsReader {
     val results = Await.result(fetchLocationForActiveStreamResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
 
-             var result = List[Location]()
-             for(res <- readResults.results){
-	       System.out.println("----fetch-location--resuls"+res)
-               var x: Location = res match {
-                  case (Some(latitude),Some(longitude)) => 
-		       				Location(latitude.asInstanceOf[Double],longitude.asInstanceOf[Double])
-                  case _ => null
-                }
-		if (result != null) {
-		   result = result :+ x
-		}
+        var result = List[Location]()
+        for(res <- readResults.results){
+          System.out.println("----fetch-location--resuls"+res)
+          var x: Location = res match {
+            case (Some(latitude),Some(longitude)) =>
+              Location(latitude.asInstanceOf[Double],longitude.asInstanceOf[Double])
+            case _ => null
+          }
+          if (result != null) {
+            result = result :+ x
+          }
 
-             }
+        }
 
-            Logger.info("results "+result)
-            result
+        //Logger.info("results "+result)
+        result
       }
     }
-   results
+    results
   }
 
 
@@ -636,24 +635,24 @@ object ActorUtilsReader {
     val results = Await.result(fetchLocationForActiveStreamResponseTwitter, 30 seconds) match {
       case ReadOperationResult(readResults) => {
 
-             var result = List[Location]()
-             for(res <- readResults.results){
-               var x: Location = res match {
-                  case (Some(latitude),Some(longitude)) => 
-		       				Location(latitude.asInstanceOf[Double],longitude.asInstanceOf[Double])
-                  case _ => null
-                }
-		if (result != null) {
-		   result = result :+ x
-		}
+        var result = List[Location]()
+        for(res <- readResults.results){
+          var x: Location = res match {
+            case (Some(latitude),Some(longitude)) =>
+              Location(latitude.asInstanceOf[Double],longitude.asInstanceOf[Double])
+            case _ => null
+          }
+          if (result != null) {
+            result = result :+ x
+          }
 
-             }
+        }
 
-            Logger.info("results "+result)
-            result
+       // Logger.info("results "+result)
+        result
       }
     }
-   results
+    results
   }
 
 
@@ -666,24 +665,24 @@ object ActorUtilsReader {
     val results = Await.result(fetchLocationForActiveStreamResponseFacebook, 30 seconds) match {
       case ReadOperationResult(readResults) => {
 
-             var result = List[Location]()
-             for(res <- readResults.results){
-               var x: Location = res match {
-                  case (Some(latitude),Some(longitude)) => 
-		       				Location(latitude.asInstanceOf[Double],longitude.asInstanceOf[Double])
-                  case _ => null
-                }
-		if (result != null) {
-		   result = result :+ x
-		}
+        var result = List[Location]()
+        for(res <- readResults.results){
+          var x: Location = res match {
+            case (Some(latitude),Some(longitude)) =>
+              Location(latitude.asInstanceOf[Double],longitude.asInstanceOf[Double])
+            case _ => null
+          }
+          if (result != null) {
+            result = result :+ x
+          }
 
-             }
+        }
 
-            Logger.info("results "+result)
-            result
+       // Logger.info("results "+result)
+        result
       }
     }
-   results
+    results
   }
 
   def fetchLocationForActiveStreamLinkedin(inviteId: String): List[Location] = {
@@ -694,25 +693,25 @@ object ActorUtilsReader {
     val results = Await.result(fetchLocationForActiveStreamResponseLinkedin, 30 seconds) match {
       case ReadOperationResult(readResults) => {
 
-             var result = List[Location]()
-             for(res <- readResults.results){
-               var x: Location = res match {
-                  case (Some(latitude),Some(longitude)) => 
-		       				Location(latitude.asInstanceOf[Double],longitude.asInstanceOf[Double])
-                  case _ => null
+        var result = List[Location]()
+        for(res <- readResults.results){
+          var x: Location = res match {
+            case (Some(latitude),Some(longitude)) =>
+              Location(latitude.asInstanceOf[Double],longitude.asInstanceOf[Double])
+            case _ => null
 
-                }
-		if (result != null) {
-		   result = result :+ x
-		}
+          }
+          if (result != null) {
+            result = result :+ x
+          }
 
-             }
+        }
 
-            Logger.info("results "+result)
-            result
+       // Logger.info("results "+result)
+        result
       }
     }
-   results
+    results
   }
 
 
@@ -725,9 +724,9 @@ object ActorUtilsReader {
       case ReadOperationResult(readResults) => {
         if (readResults.results.size > 0) {
           readResults.results.head.asInstanceOf[BigDecimal]
-	} else {
-	  BigDecimal(0)
-	}
+        } else {
+          BigDecimal(0)
+        }
       }
     }
     results
@@ -742,9 +741,9 @@ object ActorUtilsReader {
       case ReadOperationResult(readResults) => {
         if (readResults.results.size > 0) {
           readResults.results.head.asInstanceOf[BigDecimal]
-	} else {
-	  BigDecimal(0)
-	}
+        } else {
+          BigDecimal(0)
+        }
 
       }
     }
@@ -760,9 +759,9 @@ object ActorUtilsReader {
       case ReadOperationResult(readResults) => {
         if (readResults.results.size > 0) {
           readResults.results.head.asInstanceOf[BigDecimal]
-	} else {
-	  BigDecimal(0)
-	}
+        } else {
+          BigDecimal(0)
+        }
       }
     }
     results
@@ -777,9 +776,9 @@ object ActorUtilsReader {
       case ReadOperationResult(readResults) => {
         if (readResults.results.size > 0) {
           readResults.results.head.asInstanceOf[BigDecimal]
-	} else {
-	  BigDecimal(0)
-	}
+        } else {
+          BigDecimal(0)
+        }
 
       }
     }
@@ -795,13 +794,13 @@ object ActorUtilsReader {
       case ReadOperationResult(readResults) => {
         if (readResults.results.size > 0) {
           readResults.results.head.asInstanceOf[BigDecimal]
-	} else {
-	  BigDecimal(0)
-	}
+        } else {
+          BigDecimal(0)
+        }
 
       }
     }
-    Logger.info("---facebookaccept:"+results)
+    //Logger.info("---facebookaccept:"+results)
     results
   }
 
@@ -815,9 +814,9 @@ object ActorUtilsReader {
       case ReadOperationResult(readResults) => {
         if (readResults.results.size > 0) {
           readResults.results.head.asInstanceOf[BigDecimal]
-	} else {
-	  BigDecimal(0)
-	}
+        } else {
+          BigDecimal(0)
+        }
 
       }
     }
@@ -833,9 +832,9 @@ object ActorUtilsReader {
       case ReadOperationResult(readResults) => {
         if (readResults.results.size > 0) {
           readResults.results.head.asInstanceOf[BigDecimal]
-	} else {
-	  BigDecimal(0)
-	}
+        } else {
+          BigDecimal(0)
+        }
 
       }
     }
@@ -852,9 +851,9 @@ object ActorUtilsReader {
       case ReadOperationResult(readResults) => {
         if (readResults.results.size > 0) {
           readResults.results.head.asInstanceOf[BigDecimal]
-	} else {
-	  BigDecimal(0)
-	}
+        } else {
+          BigDecimal(0)
+        }
 
       }
     }
@@ -871,9 +870,9 @@ object ActorUtilsReader {
       case ReadOperationResult(readResults) => {
         if (readResults.results.size > 0) {
           readResults.results.head.asInstanceOf[BigDecimal]
-	} else {
-	  BigDecimal(0)
-	}
+        } else {
+          BigDecimal(0)
+        }
 
       }
     }
@@ -881,7 +880,7 @@ object ActorUtilsReader {
   }
 
 
- def getLinkedinAcceptanceCount(token: String,streamClause: String =""): BigDecimal = {
+  def getLinkedinAcceptanceCount(token: String,streamClause: String =""): BigDecimal = {
 
 
     val getLinkedinAcceptanceCount = CypherReaderFunction.getLinkedinAcceptanceCount(token,streamClause)
@@ -891,9 +890,9 @@ object ActorUtilsReader {
       case ReadOperationResult(readResults) => {
         if (readResults.results.size > 0) {
           readResults.results.head.asInstanceOf[BigDecimal]
-	} else {
-	  BigDecimal(0)
-	}
+        } else {
+          BigDecimal(0)
+        }
 
       }
     }
@@ -909,23 +908,23 @@ object ActorUtilsReader {
     val results = Await.result(getReferersForLinkedinResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
 
-             var result = List[String]()
-             for(res <- readResults.results){
-               var x: String = res match {
-                  case Some(ip) => ip.asInstanceOf[String]
-                  case _ => null
-                }
-		if (x != null) {
-		  
-		   result = result :+ x
-                }
+        var result = List[String]()
+        for(res <- readResults.results){
+          var x: String = res match {
+            case Some(ip) => ip.asInstanceOf[String]
+            case _ => null
+          }
+          if (x != null) {
 
-             }
-            Logger.info("results "+result)
-            result
+            result = result :+ x
+          }
+
+        }
+        Logger.info("results "+result)
+        result
       }
     }
-   results
+    results
   }
 
   def getReferersForTwitter(stream: String): List[String] = {
@@ -936,26 +935,26 @@ object ActorUtilsReader {
     val results = Await.result(getReferersForTwitterResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
 
-             var result = List[String]()
-             for(res <- readResults.results){
-               var x: String = res match {
-                  case Some(ip) => ip.asInstanceOf[String]
-                  case _ => null
-                }
-		if (x != null) {
-		  
-		   result = result :+ x
-                }
+        var result = List[String]()
+        for(res <- readResults.results){
+          var x: String = res match {
+            case Some(ip) => ip.asInstanceOf[String]
+            case _ => null
+          }
+          if (x != null) {
 
-             }
-            Logger.info("results "+result)
-            result
+            result = result :+ x
+          }
+
+        }
+        Logger.info("results "+result)
+        result
       }
     }
-   results
+    results
   }
 
- def getReferersForFacebook(stream: String): List[String] = {
+  def getReferersForFacebook(stream: String): List[String] = {
 
     val getReferersForFacebook = CypherReaderFunction.getReferersForFacebook(stream)
     val getReferersForFacebookResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getReferersForFacebook)).mapTo[Any]
@@ -963,28 +962,28 @@ object ActorUtilsReader {
     val results = Await.result(getReferersForFacebookResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
 
-             var result = List[String]()
-             for(res <- readResults.results){
-               var x: String = res match {
-                  case Some(ip) => ip.asInstanceOf[String]
-                  case _ => null
-                }
-		if (x != null) {
-		  
-		   result = result :+ x
-                }
+        var result = List[String]()
+        for(res <- readResults.results){
+          var x: String = res match {
+            case Some(ip) => ip.asInstanceOf[String]
+            case _ => null
+          }
+          if (x != null) {
 
-             }
-            Logger.info("results "+result)
-            result
+            result = result :+ x
+          }
+
+        }
+        Logger.info("results "+result)
+        result
       }
     }
-   results
+    results
   }
 
 
 
- def getRoomJid(token: String): String = {
+  def getRoomJid(token: String): String = {
 
     val getRoomJid = CypherReaderFunction.getRoomJid(token)
     val getRoomJidResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getRoomJid)).mapTo[Any]
@@ -992,31 +991,31 @@ object ActorUtilsReader {
     val results = Await.result(getRoomJidResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
 
-             var result = List[String]()
-             for(res <- readResults.results){
-               var x: String = res match {
-                  case Some(ip) => ip.asInstanceOf[String]
-                  case _ => null
-                }
-		if (x != null) {
-		  
-		   result = result :+ x
-                }
+        var result = List[String]()
+        for(res <- readResults.results){
+          var x: String = res match {
+            case Some(ip) => ip.asInstanceOf[String]
+            case _ => null
+          }
+          if (x != null) {
 
-             }
-            Logger.info("results "+result)
-	    if (result.size > 0) {
-               result.head
-	    } else {
-	      ""
-	    }
+            result = result :+ x
+          }
+
+        }
+        Logger.info("results "+result)
+        if (result.size > 0) {
+          result.head
+        } else {
+          ""
+        }
       }
 
     }
-   results
+    results
   }
 
- def getRoomJidForStream(stream: String): String = {
+  def getRoomJidForStream(stream: String): String = {
 
     val getRoomJidForStream = CypherReaderFunction.getRoomJidForStream(stream)
     val getRoomJidForStreamResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getRoomJidForStream)).mapTo[Any]
@@ -1024,32 +1023,32 @@ object ActorUtilsReader {
     val results = Await.result(getRoomJidForStreamResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
 
-             var result = List[String]()
-             for(res <- readResults.results){
-               var x: String = res match {
-                  case Some(ip) => ip.asInstanceOf[String]
-                  case _ => null
-                }
-		if (x != null) {
-		  
-		   result = result :+ x
-                }
+        var result = List[String]()
+        for(res <- readResults.results){
+          var x: String = res match {
+            case Some(ip) => ip.asInstanceOf[String]
+            case _ => null
+          }
+          if (x != null) {
 
-             }
-            Logger.info("results "+result)
-	    if (result.size > 0) {
-               result.head
-	    } else {
-	      ""
-	    }
+            result = result :+ x
+          }
+
+        }
+        Logger.info("results "+result)
+        if (result.size > 0) {
+          result.head
+        } else {
+          ""
+        }
       }
 
     }
-   results
+    results
   }
 
   import models.UserInformation
- def getUserInformationUsingInviteId(inviteId: String): UserInformation = {
+  def getUserInformationUsingInviteId(inviteId: String): UserInformation = {
 
     val getUserInformationUsingInviteId = CypherReaderFunction.getUserInformationUsingInviteId(inviteId)
     val getUserInformationUsingInviteIdResponse: Future[Any] = ask(neo4jreader, PerformReadOperation(getUserInformationUsingInviteId)).mapTo[Any]
@@ -1057,32 +1056,31 @@ object ActorUtilsReader {
     val results = Await.result(getUserInformationUsingInviteIdResponse, 30 seconds) match {
       case ReadOperationResult(readResults) => {
 
-             var result = UserInformation()
-             for(res <- readResults.results){
-               var x: UserInformation = res match {
-                  case (Some(email),Some(firstName),Some(lastName),Some(domId)) => { 
-		       val u = "userInformation:"+email
-		       Logger.info("---------------ActorUtilsReader"+u)
-		       UserInformation(email.asInstanceOf[String],firstName.asInstanceOf[String],lastName.asInstanceOf[String],Option(domId.asInstanceOf[String]))
-		       }
-   		 case (Some(email),Some(firstName),Some(lastName),None) => { 
-		       UserInformation(email.asInstanceOf[String],firstName.asInstanceOf[String],lastName.asInstanceOf[String],None)
+        var result = UserInformation()
+        for(res <- readResults.results){
+          var x: UserInformation = res match {
+            case (Some(email),Some(firstName),Some(lastName),Some(domId)) => {
+              val u = "userInformation:"+email
+              UserInformation(email.asInstanceOf[String],firstName.asInstanceOf[String],lastName.asInstanceOf[String],Option(domId.asInstanceOf[String]))
+            }
+            case (Some(email),Some(firstName),Some(lastName),None) => {
+              UserInformation(email.asInstanceOf[String],firstName.asInstanceOf[String],lastName.asInstanceOf[String],None)
 
-		       
-		  }
-                  case _ => null
-                }
-		if (x != null) {
-		   result = x
-                }
 
-             }
+            }
+            case _ => null
+          }
+          if (x != null) {
+            result = x
+          }
 
-            Logger.info("results "+result)
-            result
+        }
+
+
+        result
       }
     }
-   results
+    results
   }
 
 

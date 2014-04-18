@@ -219,7 +219,7 @@ object CypherWriter {
                 create (inviteTwitter)-[r:USING_REFERER]->(referer)-[a:ACCEPTED_ON {time:"$time"}]->(day)
     		return r,referer
       """
-     Logger.info("--associateInviteTwitterReferer["+res+"]")
+    // Logger.info("--associateInviteTwitterReferer["+res+"]")
       return res
   }
 
@@ -246,7 +246,7 @@ object CypherWriter {
                 create (inviteLinkedin)-[r:USING_REFERER]->(referer)-[a:ACCEPTED_ON {time:"$time"}]->(day)
     		return r,referer
       """
-     Logger.info("--associateInviteLinkedinReferer["+res+"]")
+    // Logger.info("--associateInviteLinkedinReferer["+res+"]")
       return res
   }
 
@@ -268,7 +268,7 @@ object CypherWriter {
 	 create u-[r:CHANGE_PASSWORD_REQUEST]->cp-[m:MADE_ON {time:"$time"}]->d
 	 return u,d,cp
      """
-     Logger.info("--change password["+res+"]")
+    // Logger.info("--change password["+res+"]")
      return res
   }
 
@@ -284,7 +284,7 @@ object CypherWriter {
       create cp-[c:CHANGED_ON {time:"$time"}]->day
       return a, cp,day
     """
-     Logger.info("--update password["+res+"]")
+   //  Logger.info("--update password["+res+"]")
     return res
   }
   
@@ -297,7 +297,7 @@ object CypherWriter {
        set c.state = "inactive"
        return a,c
     """
-     Logger.info("--deactivePreviousChangePasswordRequest["+res+"]")
+   //  Logger.info("--deactivePreviousChangePasswordRequest["+res+"]")
     return res
   }
 
@@ -307,7 +307,7 @@ object CypherWriter {
       set a.firstName = "$firstName", a.lastName="$lastName"
       return a;
       """
-      Logger.info("--updateuserdetails["+res+"]")
+   //   Logger.info("--updateuserdetails["+res+"]")
       return res;
 
  }
@@ -323,7 +323,7 @@ object CypherWriter {
       create (s)-[l:LOCATED_AT]->(ul:Location {latitude:$latitude,longitude:$longitude})
       return ul,l,s
       """
-      Logger.info("---createLocationForStream["+res+"]")
+    //  Logger.info("---createLocationForStream["+res+"]")
       return res
   }  
 
@@ -337,7 +337,7 @@ object CypherWriter {
       create (s)-[ur:USING_ROOM]->(rm:Room {id:"$roomId"})
       return s,ur,rm
       """
-      Logger.info("---associateRoomWithStream["+res+"]")
+    //  Logger.info("---associateRoomWithStream["+res+"]")
       return res
   }  
 
@@ -349,7 +349,7 @@ object CypherWriter {
       set s.state = "inactive"
       return s
       """
-      Logger.info("---invalidateAllStreams["+res+"]")
+    //  Logger.info("---invalidateAllStreams["+res+"]")
       return res
   }
 
@@ -360,7 +360,7 @@ object CypherWriter {
 	  set a.domId = "$domId"
      	  return a.domId
      """
-     Logger.info("--updateUserInformation["+res+"]")
+    // Logger.info("--updateUserInformation["+res+"]")
      return res
 
   }
@@ -375,7 +375,7 @@ object CypherWriter {
 		SET ss.state="inactive"
     		return ss
       """
-     Logger.info("--deactivateAllStreamActions["+res+"]")
+    // Logger.info("--deactivateAllStreamActions["+res+"]")
       return res
 
 
@@ -390,7 +390,7 @@ object CypherWriter {
 		SET ss.state="inactive"
     		return ss
       """
-     Logger.info("--deactivateAllRefererStreamActions["+res+"]")
+    // Logger.info("--deactivateAllRefererStreamActions["+res+"]")
       return res
 
 
@@ -439,7 +439,7 @@ object CypherWriter {
                 create (referer)-[ps:START_PLAYING]->(streamStarted)-[o:ON {time:"$time"}]->(day)
     		return referer
       """
-     Logger.info("--videoStreamStartedSocialMedia["+res+"]")
+    // Logger.info("--videoStreamStartedSocialMedia["+res+"]")
       return res
 
   }
@@ -455,7 +455,7 @@ object CypherWriter {
                 create (referer)-[ps:STOP_PLAYING]->(streamStoped)-[o:ON {time:"$time"}]->(day)
     		return referer
       """
-     Logger.info("--videoStreamStoppedSocialMedia["+res+"]")
+    // Logger.info("--videoStreamStoppedSocialMedia["+res+"]")
       return res
 
   }
