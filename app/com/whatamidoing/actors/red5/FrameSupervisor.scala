@@ -52,7 +52,8 @@ class FrameSupervisor extends Actor {
         domId = userInformation.domId.get
       }
 
-      val streamName = sn + ".flv"
+     val streamName = sn + ".flv"
+     // val streamName = sn
 
       var res = ActorUtils.createStream(token, streamName)
 
@@ -73,6 +74,7 @@ class FrameSupervisor extends Actor {
     case StopVideo(token) => {
 
           Logger(Tag).info("ACTOR FOUND STOPPING VIDEOENCODER[:" + token + "]")
+          videoEncoder ! EndTransmission
           context.stop(videoEncoder)
 
           var streamName = ActorUtilsReader.findActiveStreamForToken(token)

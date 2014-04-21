@@ -51,6 +51,7 @@ class VideoEncoder(streamName: String) extends Actor {
 
       }
       case EndTransmission => {
+        xuggler.close()
         
       }
    }

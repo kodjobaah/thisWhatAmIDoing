@@ -20,6 +20,7 @@ import play.Logger
 
 class Xuggler( rtmpUrl: String, streamName: String) {
 
+  Logger.info("INSIDE CONSTRUCTOR:"+rtmpUrl+streamName)
   def this() = this("","")
 
   //Accessing the constants
@@ -29,11 +30,19 @@ class Xuggler( rtmpUrl: String, streamName: String) {
   //   ToolFactory.makeWriter("rtmp://192.168.1.110:1935/oflaDemo/"+streamName)
   //  val mediaWriter: IMediaWriter =  ToolFactory.makeWriter("rtmp://www.whatamidoing.info:1935/hlsapp/"+streamName)
   val mediaWriter: IMediaWriter =  ToolFactory.makeWriter(rtmpUrl+streamName)
+  mediaWriter.getContainer()
+  //mediaWriter.open();
+  //mediaWriter.setForceInterleave(true);
+  //val outFormat: IContainerFormat  = IContainerFormat.make();
+  //outFormat.setOutputFormat("flv", rtmpUrl+streamName, null);
+  //val container: IContainer  = mediaWriter.getContainer();
+  //container.open(rtmpUrl+streamName, IContainer.Type.WRITE, outFormat);
   mediaWriter.addVideoStream(0, 0, ICodec.ID.CODEC_ID_FLV1, 352, 288)
-  mediaWriter.getContainer().getContainerFormat().setOutputFormat("flv",streamName,null)
+ //mediaWriter.getContainer().getContainerFormat().setOutputFormat("flv",streamName,null)
   //mediaWriter.addVideoStream(0, 0, ICodec.ID.CODEC_ID_FLV1,640, 480)
 
   var startTime: Long = _
+
 
   var count = 0
   def transmitBufferedImage(image: BufferedImage) {
@@ -44,13 +53,15 @@ class Xuggler( rtmpUrl: String, streamName: String) {
     //Logger.info("ABOUT TO CREATE FILE");
     if (count == 0) {
 
-      startTime = System.nanoTime()
+      startTime = System.currentTimeMillis()
       Logger.info("CREATING FILE");
-      //          val outputfile = new File("/tmp/image.jpg")
-      //ImageIO.write(image, "jpg", outputfile)
+      val outputfile = new File("/tmp/image.jpg")
+      ImageIO.write(image, "jpg", outputfile)
+      count = 1
+    } else {
+       startTime = startTime + 100
     }
-    count = 1
-    mediaWriter.encodeVideo(0, image, 100, TimeUnit.MILLISECONDS);
+        mediaWriter.encodeVideo(0, image, startTime, TimeUnit.MILLISECONDS);
 
   }
   def transmitFrame(frame: Array[Byte]) = {
@@ -76,6 +87,10 @@ class Xuggler( rtmpUrl: String, streamName: String) {
     if (bImageFromConvert != null)
       mediaWriter.encodeVideo(0, bImageFromConvert, System.nanoTime() - startTime, TimeUnit.NANOSECONDS);
 
+  }
+
+  def close(){
+    mediaWriter.getContainer().writeHeader()
   }
 
 }

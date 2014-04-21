@@ -21,6 +21,7 @@ import com.whatamidoing.actors.neo4j.Neo4JWriter._
 import com.whatamidoing.actors.neo4j.Neo4JReader
 import controllers.WhatAmIDoingController
 import com.typesafe.config.ConfigFactory
+import models.Neo4jResult
 
 
 object ActorUtils {
@@ -47,53 +48,51 @@ object ActorUtils {
     val writeResponse: Future[Any] = ask(neo4jwriter, PerformOperation(createUser)).mapTo[Any]
 
     var writeResult: scala.concurrent.Future[play.api.mvc.SimpleResult] = writeResponse.flatMap(
-      {
-        case WriteOperationResult(results) => {
+    {
+      case WriteOperationResult(results) => {
 
-          var res = ActorUtilsReader.getUserToken(em)
-          if (res != "-1") {
-            future(Ok("USER CREATED - ADDED AUTHENTICATION TOKEN TO SESSISON").withSession(
-              "whatAmIdoing-authenticationToken" -> res))
-          } else {
-            future(Ok("USER CREATE - AUTHENTICATION TOKEN NOT ADDED"))
-          }
+        var res = ActorUtilsReader.getUserToken(em)
+        if (res != "-1") {
+          future(Ok("USER CREATED - ADDED AUTHENTICATION TOKEN TO SESSISON").withSession(
+            "whatAmIdoing-authenticationToken" -> res))
+        } else {
+          future(Ok("USER CREATE - AUTHENTICATION TOKEN NOT ADDED"))
         }
+      }
 
-      })
+    })
     writeResult
   }
 
 
+  def getStringValueFronResult(results:Neo4jResult ): String= {
+    if (results.results.size > 0) {
+      results.results.head.asInstanceOf[String]
+    } else {
+      ""
+    }
 
+  }
   def createInvite(stream: String, email: String, id: String) = {
     val createInvite = CypherWriterFunction.createInvite(stream, email, id)
-    val writeResponse: Future[Any] = ask(neo4jwriter, PerformOperation(createInvite)).mapTo[Any]
-
-    var streamName = Await.result(writeResponse, 10 seconds) match {
-      case WriteOperationResult(results) => {
-        if (results.results.size > 0) {
-          results.results.head.asInstanceOf[String]
-        } else {
-          ""
-
+    val writeResponse: Future[WriteOperationResult] = ask(neo4jwriter, PerformOperation(createInvite)).mapTo[WriteOperationResult]
+    var streamName = writeResponse  map { r => r match {
+       case WriteOperationResult(results) => {
+         getStringValueFronResult(results)
         }
       }
     }
     streamName
+
   }
 
   def createInviteTwitter(stream: String, twitter: String, id: String) = {
     val createInviteTwitter= CypherWriterFunction.createInviteTwitter(stream, twitter, id)
-    val writeResponse: Future[Any] = ask(neo4jwriter, PerformOperation(createInviteTwitter)).mapTo[Any]
-
-    var inviteId = Await.result(writeResponse, 10 seconds) match {
+    val writeResponse: Future[WriteOperationResult] = ask(neo4jwriter, PerformOperation(createInviteTwitter)).mapTo[WriteOperationResult]
+    var inviteId = writeResponse  map { r => r match {
       case WriteOperationResult(results) => {
-        if (results.results.size > 0) {
-          results.results.head.asInstanceOf[String]
-        } else {
-          ""
-
-        }
+         getStringValueFronResult(results)
+       }
       }
     }
     inviteId
@@ -101,48 +100,32 @@ object ActorUtils {
 
   def createInviteFacebook(stream: String, facebook: String, id: String) = {
     val createInviteFacebook= CypherWriterFunction.createInviteFacebook(stream, facebook, id)
-    val writeResponse: Future[Any] = ask(neo4jwriter, PerformOperation(createInviteFacebook)).mapTo[Any]
-
-    var inviteId = Await.result(writeResponse, 10 seconds) match {
+    val writeResponse: Future[WriteOperationResult] = ask(neo4jwriter, PerformOperation(createInviteFacebook)).mapTo[WriteOperationResult]
+    var inviteId = writeResponse  map { r => r match {
       case WriteOperationResult(results) => {
-        if (results.results.size > 0) {
-          results.results.head.asInstanceOf[String]
-        // Logger("ActorUtils.createInviteTwitter").info("resuls["+results.results.head+"]");
-
-        } else {
-          ""
-
-        }
+        getStringValueFronResult(results)
       }
+    }
     }
     inviteId
   }
   def createInviteLinkedin(stream: String, linkedin: String, id: String) = {
     val createInviteLinkedin= CypherWriterFunction.createInviteLinkedin(stream, linkedin, id)
-    val writeResponse: Future[Any] = ask(neo4jwriter, PerformOperation(createInviteLinkedin)).mapTo[Any]
-
-    var inviteId = Await.result(writeResponse, 10 seconds) match {
+    val writeResponse: Future[WriteOperationResult] = ask(neo4jwriter, PerformOperation(createInviteLinkedin)).mapTo[WriteOperationResult]
+    var inviteId = writeResponse  map { r => r match {
       case WriteOperationResult(results) => {
-        if (results.results.size > 0) {
-          results.results.head.asInstanceOf[String]
-       //  Logger("ActorUtils.createInviteTwitter").info("resuls["+results.results.head+"]");
-
-        } else {
-          ""
-
-        }
+        getStringValueFronResult(results)
       }
+    }
     }
     inviteId
   }
 
 
-
-
-
   def invalidateToken(token: String) = {
     val invalidateToken = CypherWriterFunction.invalidateToken(token)
     val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(invalidateToken)).mapTo[Any]
+
 
     var res = Await.result(writerResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
@@ -153,6 +136,7 @@ object ActorUtils {
         }
       }
     }
+
     res
   }
 
@@ -182,7 +166,7 @@ object ActorUtils {
     var res = Await.result(writerResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
         if (results.results.size > 0) {
-        	results.results.head.asInstanceOf[String]
+          results.results.head.asInstanceOf[String]
         } else {
           ""
         }
@@ -198,7 +182,7 @@ object ActorUtils {
     var res = Await.result(writerResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
         if (results.results.size > 0) {
-        results.results.head.asInstanceOf[String]
+          results.results.head.asInstanceOf[String]
         } else {
           ""
         }
@@ -215,7 +199,7 @@ object ActorUtils {
     var res = Await.result(writerResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
         if (results.results.size > 0) {
-        results.results.head.asInstanceOf[String]
+          results.results.head.asInstanceOf[String]
         } else {
           ""
         }
@@ -232,7 +216,7 @@ object ActorUtils {
     var res = Await.result(writerResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
         if (results.results.size > 0) {
-        results.results.head.asInstanceOf[String]
+          results.results.head.asInstanceOf[String]
         } else {
           ""
         }
@@ -249,7 +233,7 @@ object ActorUtils {
     var res = Await.result(writerResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
         if (results.results.size > 0) {
-        results.results.head.asInstanceOf[String]
+          results.results.head.asInstanceOf[String]
         } else {
           ""
         }
@@ -261,7 +245,7 @@ object ActorUtils {
 
 
 
-  
+
   def createStream(token: String, streamName: String): String = {
     // Logger("FrameSupervisor-receive").info("creating actor for token:"+streamName)
 
@@ -275,9 +259,9 @@ object ActorUtils {
     }
     res
   }
-  
-  
- def closeStream(streamName: String) = {
+
+
+  def closeStream(streamName: String) = {
     var closeStream = CypherWriterFunction.closeStream(streamName)
     val writeResponse: Future[Any] = ask(neo4jwriter, PerformOperation(closeStream)).mapTo[Any]
 
@@ -320,7 +304,7 @@ object ActorUtils {
     res
   }
 
- def deactivatePreviousChangePasswordRequest(email: String): String = {
+  def deactivatePreviousChangePasswordRequest(email: String): String = {
 
     var stream = CypherWriterFunction.deactivatePreviousChangePasswordRequest(email)
     val writeResponse: Future[Any] = ask(neo4jwriter, PerformOperation(stream)).mapTo[Any]
@@ -333,7 +317,7 @@ object ActorUtils {
     res
   }
 
- def updateUserDetails(token:String, firstName: String, lastName: String): String = {
+  def updateUserDetails(token:String, firstName: String, lastName: String): String = {
 
     var updateUserDetails = CypherWriterFunction.updateUserDetails(token,firstName,lastName)
     val updateUserDetailsResponse: Future[Any] = ask(neo4jwriter, PerformOperation(updateUserDetails)).mapTo[Any]
@@ -407,21 +391,21 @@ object ActorUtils {
   }
 
   def createXmppDomain(domain: String) {
-      import models.Messages.CreateXMPPDomainMessage
-      val mess = CreateXMPPDomainMessage(domain)
-      
-      val response: Future[Any] = ask(xmppSupervisor, mess).mapTo[Any]
-      import models.Messages.Done
-      var res = Await.result(response, 10 seconds) match {
-      	  case Done(results) => {
-      	  Logger.info("--------results from creating---:"+results)
+    import models.Messages.CreateXMPPDomainMessage
+    val mess = CreateXMPPDomainMessage(domain)
+
+    val response: Future[Any] = ask(xmppSupervisor, mess).mapTo[Any]
+    import models.Messages.Done
+    var res = Await.result(response, 10 seconds) match {
+      case Done(results) => {
+        Logger.info("--------results from creating---:"+results)
       }
     }
 
 
   }
 
- 
+
   def createXmppGroup(roomJid: String, token: String) = {
     import com.whatamidoing.actors.xmpp.CreateXMPPGroup
     import models.Messages.CreateXMPPGroupMessage
@@ -450,7 +434,7 @@ object ActorUtils {
     var res = Await.result(writerResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
         if (results.results.size > 0) {
-        results.results.head.asInstanceOf[String]
+          results.results.head.asInstanceOf[String]
         } else {
           ""
         }
@@ -467,7 +451,7 @@ object ActorUtils {
     var res = Await.result(writerResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
         if (results.results.size > 0) {
-        results.results.head.asInstanceOf[String]
+          results.results.head.asInstanceOf[String]
         } else {
           ""
         }
@@ -477,14 +461,14 @@ object ActorUtils {
 
   }
 
- def deactivateAllRefererStreamActions(sessionId: String) = {
+  def deactivateAllRefererStreamActions(sessionId: String) = {
     val deactivateAllRefererStreamActions = CypherWriterFunction.deactivateAllRefererStreamActions(sessionId)
     val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(deactivateAllRefererStreamActions)).mapTo[Any]
 
     var res = Await.result(writerResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
         if (results.results.size > 0) {
-        results.results.head.asInstanceOf[String]
+          results.results.head.asInstanceOf[String]
         } else {
           ""
         }
@@ -502,7 +486,7 @@ object ActorUtils {
     var res = Await.result(writerResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
         if (results.results.size > 0) {
-        results.results.head.asInstanceOf[String]
+          results.results.head.asInstanceOf[String]
         } else {
           ""
         }
@@ -519,7 +503,7 @@ object ActorUtils {
     var res = Await.result(writerResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
         if (results.results.size > 0) {
-        results.results.head.asInstanceOf[String]
+          results.results.head.asInstanceOf[String]
         } else {
           ""
         }
@@ -529,14 +513,14 @@ object ActorUtils {
 
   }
 
- def deactivateAllStreamActions(inviteId: String) = {
+  def deactivateAllStreamActions(inviteId: String) = {
     val deactivateAllStreamActions = CypherWriterFunction.deactivateAllStreamActions(inviteId)
     val writerResponse: Future[Any] = ask(neo4jwriter, PerformOperation(deactivateAllStreamActions)).mapTo[Any]
 
     var res = Await.result(writerResponse, 10 seconds) match {
       case WriteOperationResult(results) => {
         if (results.results.size > 0) {
-        results.results.head.asInstanceOf[String]
+          results.results.head.asInstanceOf[String]
         } else {
           ""
         }
@@ -546,57 +530,57 @@ object ActorUtils {
 
   }
 
- def stopRtmpMessage(message:  StopVideo) {
+  def stopRtmpMessage(message:  StopVideo) {
 
     val token = message.token
 
     Logger(Tag).info("STOPING SELF")
     frameSupervisors get token match {
 
-        case value: Option[_] => {
-            value get match {
-              case (actor, streamId) => {
-                actor ! message
-                frameSupervisors -= token
-              }
-            }
+      case value: Option[_] => {
+        value get match {
+          case (actor, streamId) => {
+            actor ! message
+            frameSupervisors -= token
+          }
         }
       }
+    }
 
   }
 
 
   def sendRtmpMessage(message: RTMPMessage) {
 
-      val token = message.token
+    val token = message.token
 
-      frameSupervisors get token match {
+    frameSupervisors get token match {
 
-        case None => {
+      case None => {
 
-          //NOTE: If system goes down all active stream information will be lost
-          var streamName = token + "--" + java.util.UUID.randomUUID.toString
-          val createMessage = RTMPCreateStream(message.message,message.token,streamName);
-          var frameSupervisor = priority.actorOf(FrameSupervisor.props.withMailbox("priority-dispatch"), "frameSupervisor-"+streamName)
-          frameSupervisor ! createMessage
-          frameSupervisors += token -> (frameSupervisor,streamName)
-
-
-        }
-
-        case value: Option[_] => {
-                value get match {
-                  case (actor,streamId) => {
-                    val newMessage = RTMPMessage(message.message,message.token,streamId.asInstanceOf[String])
-                    actor ! newMessage
-
-                  }
-                }
-          }
-
+        //NOTE: If system goes down all active stream information will be lost
+        var streamName = token + "--" + java.util.UUID.randomUUID.toString
+        val createMessage = RTMPCreateStream(message.message,message.token,streamName);
+        var frameSupervisor = priority.actorOf(FrameSupervisor.props.withMailbox("priority-dispatch"), "frameSupervisor-"+streamName)
+        frameSupervisor ! createMessage
+        frameSupervisors += token -> (frameSupervisor,streamName)
 
 
       }
+
+      case value: Option[_] => {
+        value get match {
+          case (actor,streamId) => {
+            val newMessage = RTMPMessage(message.message,message.token,streamId.asInstanceOf[String])
+            actor ! newMessage
+
+          }
+        }
+      }
+
+
+
+    }
 
   }
 

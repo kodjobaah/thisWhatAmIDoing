@@ -7,6 +7,7 @@
 
 GET  /				    controllers.Index.index
 
+POST /closeChannel              controllers.WhatAmIDoingController.closeChannel(token: String)
 POST /videoStarted		        controllers.WhatAmIDoingController.videoStarted(sessionId:String,accessType: String)
 POST /videoStopped		        controllers.WhatAmIDoingController.videoStopped(sessionId:String, accessType: String)
 POST /findAllInvites		    controllers.WhatAmIDoingController.findAllInvites(token: Option[String])

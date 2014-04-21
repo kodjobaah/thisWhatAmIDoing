@@ -16,6 +16,8 @@ import com.whatamidoing.services.TwitterService
 import com.whatamidoing.services.LinkedinService
 
 import models.Messages._
+import play.api.libs.iteratee.Concurrent
+import com.whatamidoing.actors.red5.FrameSupervisor
 
 object WhatAmIDoingController extends Controller {
 
@@ -26,6 +28,9 @@ object WhatAmIDoingController extends Controller {
   val Linkedin: String = "LINKEDIN"	
 
   var emailSenderService = EmailSenderService()
+  //NOTE: Not being used because makes the Controller stateful--will cause problems when clustering
+  val openChannels = scala.collection.mutable.Map[String,  play.api.libs.iteratee.Enumerator[String]]()
+
 
   def findAllInvites(tokenOption: Option[String]) = Action.async{implicit request =>
 
@@ -611,7 +616,7 @@ object WhatAmIDoingController extends Controller {
 
   val Tag: String = "WhatAmIDoingController"
 
-  def publishVideo(tokenOption: Option[String]) = WebSocket.async[String] {
+  def publishVideo(tokenOption: Option[String]) =  WebSocket.async[String]  {
     implicit request =>
 
       val token = tokenOption.getOrElse("no-token-supplied")
@@ -626,13 +631,24 @@ object WhatAmIDoingController extends Controller {
           var out: Enumerator[String] = Concurrent.unicast(c => channel = Some(c))
 
 
+          Logger.info("ENTTEING");
           val in = Iteratee.foreach[String](s => {
 
             if (s == "SERVICE_STOPPED") {
               Logger.info("RECEIVED SERVICE STOPPED MESSAGE")
               ActorUtils.stopRtmpMessage(StopVideo(token))
               Logger.info("number of stuff:"+ActorUtils.frameSupervisors.size)
-              channel.foreach(_.eofAndEnd())
+              out >>> Enumerator.eof
+             // NOTE: This makes this object statefull
+             // openChannels -= token
+            } else if (s == Enumerator.eof){
+              Logger.info("RECEIVED SERVICE EOF STOPPING")
+              ActorUtils.stopRtmpMessage(StopVideo(token))
+              Logger.info("number of stuff:"+ActorUtils.frameSupervisors.size)
+              out >>> Enumerator.eof
+              // NOTE: This makes this object statefull
+              //openChannels -= token
+
             } else {
               ActorUtils.sendRtmpMessage(RTMPMessage(s, token))
             }
@@ -640,12 +656,16 @@ object WhatAmIDoingController extends Controller {
           }).map {
             x =>
               ActorUtils.stopRtmpMessage(StopVideo(token))
+              openChannels -= token
               Logger(Tag).info("publishVideo: Disconnected["+x+"]")
           }
 
           val resp = "Connection Established"
           out >>> Enumerator(resp)
+          // NOTE: This makes this object statefull
+          openChannels += token -> out
           Future((in, out))
+         // (in, out)
 
         } else {
           // Just consume and ignore the input
@@ -653,6 +673,7 @@ object WhatAmIDoingController extends Controller {
           val resp = "TOKEN NOT VALID"
           val out = Enumerator(resp)
           Future((in, out))
+          //(in, out)
         }
 
       } else {
@@ -660,9 +681,38 @@ object WhatAmIDoingController extends Controller {
         var resp = "TOKEN NOT SUPPLIED"
         val out = Enumerator(resp)
         Future((in, out))
+        //(in, out)
 
       }
   }
 
+  /**
+   * This is not being used:
+   * @param token
+   * @return
+   */
+  def closeChannel(token: String) = Action.async{implicit request =>
 
+     openChannels get token match {
+
+      case None => {
+        future(Ok("none"))
+      }
+      case value: Option[_] => {
+        value get match {
+          case channel => {
+            Logger.info("RECEIVED SERVICE STOPPED SIGNALE")
+            ActorUtils.stopRtmpMessage(StopVideo(token))
+            Logger.info("number of stuff:"+ActorUtils.frameSupervisors.size)
+            channel   >>> Enumerator.eof
+
+            openChannels -= token
+            future(Ok("stopped"))
+
+          }
+        }
+      }
+    }
+
+}
 }
