@@ -626,9 +626,6 @@ object WhatAmIDoingController extends Controller {
         val res = ActorUtilsReader.getValidToken(token)
         if (res.asInstanceOf[List[String]].size > 0) {
 
-          import play.api.libs.iteratee.Concurrent
-          var channel: Option[Concurrent.Channel[String]] = None
-          var out: Enumerator[String] = Concurrent.unicast(c => channel = Some(c))
 
 
           Logger.info("ENTTEING");
@@ -638,14 +635,14 @@ object WhatAmIDoingController extends Controller {
               Logger.info("RECEIVED SERVICE STOPPED MESSAGE")
               ActorUtils.stopRtmpMessage(StopVideo(token))
               Logger.info("number of stuff:"+ActorUtils.frameSupervisors.size)
-              out >>> Enumerator.eof
+            //  out >>> Enumerator.eof
              // NOTE: This makes this object statefull
              // openChannels -= token
             } else if (s == Enumerator.eof){
               Logger.info("RECEIVED SERVICE EOF STOPPING")
               ActorUtils.stopRtmpMessage(StopVideo(token))
               Logger.info("number of stuff:"+ActorUtils.frameSupervisors.size)
-              out >>> Enumerator.eof
+              // out >>> Enumerator.eof
               // NOTE: This makes this object statefull
               //openChannels -= token
 
@@ -656,14 +653,15 @@ object WhatAmIDoingController extends Controller {
           }).map {
             x =>
               ActorUtils.stopRtmpMessage(StopVideo(token))
-              openChannels -= token
+           //   openChannels -= token
               Logger(Tag).info("publishVideo: Disconnected["+x+"]")
           }
 
           val resp = "Connection Established"
-          out >>> Enumerator(resp)
+          val out = Enumerator(resp)
           // NOTE: This makes this object statefull
-          openChannels += token -> out
+         // openChannels += token -> out
+          Logger(Tag).info("connection established")
           Future((in, out))
          // (in, out)
 
