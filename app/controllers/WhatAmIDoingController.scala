@@ -371,6 +371,7 @@ object WhatAmIDoingController extends Controller {
       val valid = ActorUtilsReader.getValidToken(token)
       if (valid.asInstanceOf[List[String]].size > 0) {
         val jid = ActorUtilsReader.getRoomJid(token)
+        Logger.info("roomjid:"+jid)
         import models.UserDetails
         if (jid.size > 0) {
           val res: UserDetails = ActorUtilsReader.fetchUserDetails(token)
