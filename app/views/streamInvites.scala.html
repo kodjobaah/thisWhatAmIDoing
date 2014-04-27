@@ -10,7 +10,7 @@
            <th>Stream broadcast Location</th>
         </thead>
         <tbody>
-   <tr><td>  <div class="jumbotron col-md-6 col-md-offset-1" id="locationMap"  style="width:200px; height: 200px;"> Location Was Not Supplied </div></td></tr>
+   <tr><td>  <div class="col-md-6 col-md-offset-1 ui-widget-content" id="locationMap"  style="width:200px; height: 200px;"> Location Was Not Supplied </div></td></tr>
         </tbody>
     </table>
 
@@ -103,6 +103,7 @@
  
 
   <script>
+      $( "#locationMap" ).resizable();
 
   var locationMap;
    @if(!locations.isEmpty) {

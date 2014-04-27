@@ -1,32 +1,31 @@
 package com.whatamidoing.cypher
 
-import play.Logger
 
 object CypherWriter {
-  
-    def createUser(fn: String, ln: String, em: String, pw_hash : String, domId : String): String = {
+
+  def createUser(fn: String, ln: String, em: String, pw_hash: String, domId: String): String = {
     val s = s"""
               create (user:User {id:"$em", email:"$em", password:"$pw_hash",firstName:"$fn",lastName:"$ln" , domId: "domId"})
                """
 
-    return s
+    s
   }
 
   def createToken(token: String, valid: String): String = {
     val t = s"""
                  create (token:AuthenticationToken {id:"$token" ,token:"$token",valid:"$valid"})
                 """
-    return t
+    t
   }
 
- def createStream(stream: String): String = {
+  def createStream(stream: String): String = {
     val t = s"""
                  create (stream:Stream {id:"$stream",name:"$stream", state:"active"})
                 """
-    return t
+    t
   }
- 
- def linkStreamToToken(stream: String, token: String): String = {
+
+  def linkStreamToToken(stream: String, token: String): String = {
     val t = s"""
     
     		match (a:Stream), (b:AuthenticationToken)
@@ -34,12 +33,12 @@ object CypherWriter {
     		create a-[r:USING]->b
     		return r
     """
-    return t
-   
- }
- 
- def invalidateAuthenticationTokenForUser(token: String): String = {
- 
+    t
+
+  }
+
+  def invalidateAuthenticationTokenForUser(token: String): String = {
+
     val t = s"""
     		match (a:AuthenticationToken)
     		where a.token ="$token"
@@ -50,19 +49,19 @@ object CypherWriter {
     		SET c.valid = "false"
     		return c as token;
     """
-    return t
-}
- 
- def linkStreamToDay(stream: String, day: String, time: String): String = {
+    t
+  }
+
+  def linkStreamToDay(stream: String, day: String, time: String): String = {
     val t = s"""
     			match (a:Stream), (b:Day)
     			where a.name="$stream" AND b.description="$day"
     			create a-[r:BROADCAST_ON {time:"$time"}]->b
                 return r
     			"""
-    return t
+    t
   }
- 
+
   def linkUserToToken(em: String, token: String): String = {
     val linkToToken = s"""
  			  match (a:User), (b:AuthenticationToken)
@@ -70,11 +69,11 @@ object CypherWriter {
 			  create a-[r:HAS_TOKEN]->b
 			  return r
 			  """
-    return linkToToken
+    linkToToken
   }
 
-  def associateStreamCloseToDay(stream: String, day: String, time: String): String  = {
-     val linkCloseStreamToDay = s"""
+  def associateStreamCloseToDay(stream: String, day: String, time: String): String = {
+    val linkCloseStreamToDay = s"""
      
  			  match (a:Stream), (b:Day)
 			  where a.name="$stream" AND b.description = "$day"
@@ -82,37 +81,35 @@ object CypherWriter {
 			  return r
 			  
 			  """
-    return linkCloseStreamToDay    
+    linkCloseStreamToDay
   }
-  
+
   def closeStream(stream: String): String = {
-    
-    val res=s"""
+
+    val res = s"""
     		match (stream:Stream)
     		where stream.name="$stream"
     		SET stream.state ="inactive"
     		return stream.state as state
     """
-    return res
+    res
   }
-  
+
   def createInvite(stream: String, email: String, id: String): String = {
-    
-    val res=s"""
+  val res = s"""
     		match (stream:Stream), (user:User)
     		where stream.name="$stream" and user.email="$email"
-    		create (invite:Invite {name:"${stream}-${email}", id:"$id"}),
+    		create (invite:Invite {name:"$stream-$email", id:"$id"}),
     		(invite)-[r:TO_WATCH]->(stream),
     		(user)-[s:RECEIVED]->(invite)
     		return s,r
     """
-    return res
-    
+    res
   }
 
   def createInviteTwitter(stream: String, twitter: String, inviteId: String): String = {
-    
-    val res=s"""
+
+    val res = s"""
                 match (stream:Stream)
     		where stream.name="$stream" 
                 with stream
@@ -121,13 +118,13 @@ object CypherWriter {
     		create (invite)-[r:TO_WATCH]->(stream)
     		return distinct invite.id as inviteId
     """
-    return res
-    
+    res
+
   }
 
   def createInviteFacebook(stream: String, facebook: String, inviteId: String): String = {
 
-    val res=s"""
+    val res = s"""
 
                 match (stream:Stream)
     		where stream.name="$stream" 
@@ -137,13 +134,13 @@ object CypherWriter {
     		create (invite)-[r:TO_WATCH]->(stream)
     		return distinct invite.id as inviteId
     """
-    return res
-    
+    res
+
   }
 
   def createInviteLinkedin(stream: String, linkedin: String, inviteId: String): String = {
 
-    val res=s"""
+    val res = s"""
 
                 match (stream:Stream)
     		where stream.name="$stream" 
@@ -153,13 +150,13 @@ object CypherWriter {
     		create (invite)-[r:TO_WATCH]->(stream)
     		return distinct invite.id as inviteId
     """
-    return res
-    
+    res
+
   }
 
 
   def invalidateAllTokensForUser(email: String): String = {
-    val res=s"""
+    val res = s"""
         match (u:User)
         where u.email="$email"
         with u
@@ -167,24 +164,23 @@ object CypherWriter {
         set tok.valid = "false"
         return tok.valid as valid
       """
-    return res
-
+    res
 
   }
-  
-  def invalidateToken(token: String) : String = {
-      val res=s"""
+
+  def invalidateToken(token: String): String = {
+    val res = s"""
     		match (a:AuthenticationToken)
     		where a.token = "$token"
     		SET a.valid ="false"
     		return a.valid as valid
       """
-      return res
-    
+    res
+
   }
-  
+
   def createTokenForUser(token: String, email: String): String = {
-      val res=s"""
+    val res = s"""
     		match (a:User)
     		where a.email = "$email"
     		with a
@@ -192,25 +188,23 @@ object CypherWriter {
     		create a-[r:HAS_TOKEN]->token
     		return r
       """
-      return res
+    res
   }
-  
-  def associateDayWithInvite(inviteId:String, day: String, time: String): String = {
-      val res=s"""
+
+  def associateDayWithInvite(inviteId: String, day: String, time: String): String = {
+    val res = s"""
     		match (a:Invite), (b:Day)
     		where a.id = "$inviteId" and b.description="$day"
     		with a,b
     		create a-[r:ACCEPTED_ON {time:"$time"}]->b
     		return r
       """
-      return res
+    res
   }
 
 
-
-
-  def associateInviteTwitterWithReferer(inviteId:String, day: String, time: String,referer: String, sessionId: String): String = {
-      val res=s"""
+  def associateInviteTwitterWithReferer(inviteId: String, day: String, time: String, referer: String, sessionId: String): String = {
+    val res = s"""
     		match (inviteTwitter:InviteTwitter), (day:Day)
     		where inviteTwitter.id = "$inviteId" and day.description="$day"
     		with inviteTwitter,day
@@ -220,11 +214,11 @@ object CypherWriter {
     		return r,referer
       """
     // Logger.info("--associateInviteTwitterReferer["+res+"]")
-      return res
+    res
   }
 
-  def associateInviteFacebookWithReferer(inviteId:String, day: String, time: String,referer: String, sessionId: String): String = {
-      val res=s"""
+  def associateInviteFacebookWithReferer(inviteId: String, day: String, time: String, referer: String, sessionId: String): String = {
+    val res = s"""
     		match (inviteFacebook:InviteFacebook), (day:Day)
     		where inviteFacebook.id = "$inviteId" and day.description="$day"
     		with inviteFacebook,day
@@ -233,11 +227,11 @@ object CypherWriter {
                 create (inviteFacebook)-[r:USING_REFERER]->(referer)-[a:ACCEPTED_ON {time:"$time"}]->(day)
     		return r,referer
       """
-      return res
+    res
   }
 
-  def associateInviteLinkedinWithReferer(inviteId:String, day: String, time: String,referer: String ,sessionId: String): String = {
-      val res=s"""
+  def associateInviteLinkedinWithReferer(inviteId: String, day: String, time: String, referer: String, sessionId: String): String = {
+    val res = s"""
     		match (inviteLinkedin:InviteLinkedin), (day:Day)
     		where inviteLinkedin.id = "$inviteId" and day.description="$day"
     		with inviteLinkedin,day
@@ -247,19 +241,19 @@ object CypherWriter {
     		return r,referer
       """
     // Logger.info("--associateInviteLinkedinReferer["+res+"]")
-      return res
+    res
   }
 
-  def createChangePassword(id: String) : String = {
-      val t = s"""
+  def createChangePassword(id: String): String = {
+    val t = s"""
 	   create (changePassword:ChangePassword {id:"$id",state:"active"})
 	   """
-     return t
+    t
   }
 
-  def changePasswordRequest(email:String, day: String, time: String, changePasswordId: String): String = {
+  def changePasswordRequest(email: String, day: String, time: String, changePasswordId: String): String = {
 
-     val res=s"""
+    val res = s"""
      	 match (u:User), (d:Day)
 	 where u.email = "$email" and d.description="$day"
 	 with u,d
@@ -269,10 +263,10 @@ object CypherWriter {
 	 return u,d,cp
      """
     // Logger.info("--change password["+res+"]")
-     return res
+    res
   }
 
-  def updatePassword(cpId: String, day:String, newPassword: String, time:String): String = {
+  def updatePassword(cpId: String, day: String, newPassword: String, time: String): String = {
 
     val res = s"""
       match (cp:ChangePassword), (day:Day)
@@ -284,10 +278,10 @@ object CypherWriter {
       create cp-[c:CHANGED_ON {time:"$time"}]->day
       return a, cp,day
     """
-   //  Logger.info("--update password["+res+"]")
-    return res
+    //  Logger.info("--update password["+res+"]")
+    res
   }
-  
+
   def deactivatePreviousChangePasswordRequest(email: String): String = {
 
     val res = s"""
@@ -297,24 +291,24 @@ object CypherWriter {
        set c.state = "inactive"
        return a,c
     """
-   //  Logger.info("--deactivePreviousChangePasswordRequest["+res+"]")
-    return res
+    //  Logger.info("--deactivePreviousChangePasswordRequest["+res+"]")
+    res
   }
 
   def updateUserDetails(token: String, firstName: String, lastName: String): String = {
-      val res = s"""
+    val res = s"""
       match a-[HAS_TOKEN]-t where t.token = "$token"
       set a.firstName = "$firstName", a.lastName="$lastName"
       return a;
       """
-   //   Logger.info("--updateuserdetails["+res+"]")
-      return res;
+    //   Logger.info("--updateuserdetails["+res+"]")
+    res
 
- }
+  }
 
   def createLocationForStream(token: String, latitude: Double, longitude: Double): String = {
 
-      val res = s"""
+    val res = s"""
       match (a:AuthenticationToken) where a.token = "$token"
       with a
       match s-[u:USING]->a
@@ -324,11 +318,11 @@ object CypherWriter {
       return ul,l,s
       """
     //  Logger.info("---createLocationForStream["+res+"]")
-      return res
-  }  
+    res
+  }
 
-  def associateRoomWithStream(token: String, roomId: String ): String = {
-      val res = s"""
+  def associateRoomWithStream(token: String, roomId: String): String = {
+    val res = s"""
       match (a:AuthenticationToken) where a.token = "$token"
       with a
       match (s)-[u:USING]->(a)
@@ -338,11 +332,11 @@ object CypherWriter {
       return s,ur,rm
       """
     //  Logger.info("---associateRoomWithStream["+res+"]")
-      return res
-  }  
+    res
+  }
 
-  def invalidateAllStreams(token: String) : String = {
-      val res = s"""
+  def invalidateAllStreams(token: String): String = {
+    val res = s"""
       match (t:AuthenticationToken) where t.token="$token"
       with t
       match (t)-[u:USING]-(s)
@@ -350,24 +344,24 @@ object CypherWriter {
       return s
       """
     //  Logger.info("---invalidateAllStreams["+res+"]")
-      return res
+    res
   }
 
   def updateUserInformation(token: String, domId: String): String = {
-      val res= s"""
+    val res = s"""
       	  match (a)-[ht:HAS_TOKEN]-(b)
      	  where b.valid="true" and b.token="$token"
 	  set a.domId = "$domId"
      	  return a.domId
      """
     // Logger.info("--updateUserInformation["+res+"]")
-     return res
+    res
 
   }
 
 
   def deactivateAllStreamActions(inviteId: String): String = {
-       val res=s"""
+    val res = s"""
     		match (inv:Invite) 
 		where inv.id="$inviteId" 
     		with inv
@@ -376,13 +370,13 @@ object CypherWriter {
     		return ss
       """
     // Logger.info("--deactivateAllStreamActions["+res+"]")
-      return res
+    res
 
 
   }
 
   def deactivateAllRefererStreamActions(sessionId: String): String = {
-       val res=s"""
+    val res = s"""
     		match (referer:Referer) 
 		where referer.sessionId="$sessionId" 
     		with referer
@@ -391,14 +385,13 @@ object CypherWriter {
     		return ss
       """
     // Logger.info("--deactivateAllRefererStreamActions["+res+"]")
-      return res
-
+    res
 
   }
 
 
   def videoStreamStopped(inviteId: String, day: String, time: String): String = {
-      val res=s"""
+    val res = s"""
     		match (inv:Invite) , (day:Day)
 		where inv.id="$inviteId" and day.description="$day"
 		with inv,day
@@ -407,13 +400,13 @@ object CypherWriter {
                 create (inv)-[ps:STOP_PLAYING]->(streamStopped)-[o:ON {time:"$time"}]->(day)
     		return inv
       """
-//     Logger.info("--videoStreamStopped["+res+"]")
-      return res
+    //     Logger.info("--videoStreamStopped["+res+"]")
+    res
 
   }
 
   def videoStreamStarted(inviteId: String, day: String, time: String): String = {
-      val res=s"""
+    val res = s"""
     		match (inv:Invite) , (day:Day)
 		where inv.id="$inviteId" and day.description="$day"
 		with inv,day
@@ -422,15 +415,14 @@ object CypherWriter {
                 create (inv)-[ps:START_PLAYING]->(streamStarted)-[o:ON {time:"$time"}]->(day)
     		return inv
       """
-  //   Logger.info("--videoStreamStarted["+res+"]")
-      return res
+    //   Logger.info("--videoStreamStarted["+res+"]")
+    res
 
   }
 
 
-
   def videoStreamStartedSocialMedia(sessionId: String, day: String, time: String): String = {
-      val res=s"""
+    val res = s"""
     		match (referer:Referer) , (day:Day)
 		where referer.sessionId="$sessionId" and day.description="$day"
 		with referer,day
@@ -440,13 +432,13 @@ object CypherWriter {
     		return referer
       """
     // Logger.info("--videoStreamStartedSocialMedia["+res+"]")
-      return res
+    res
 
   }
 
 
   def videoStreamStoppedSocialMedia(sessionId: String, day: String, time: String): String = {
-      val res=s"""
+    val res = s"""
     		match (referer:Referer) , (day:Day)
 		where referer.sessionId="$sessionId" and day.description="$day"
 		with referer,day
@@ -456,7 +448,7 @@ object CypherWriter {
     		return referer
       """
     // Logger.info("--videoStreamStoppedSocialMedia["+res+"]")
-      return res
+    res
 
   }
 

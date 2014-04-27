@@ -61,7 +61,7 @@ object CypherReader {
     		with a
     		match (a)-[:TO_WATCH]->(r)
     		where r.state = "active"
-    		return r.name as name
+    		return r.id as name
       """
 //      Logger.info("--findStreamForInviteId:["+res+"]")
       return res
@@ -74,7 +74,7 @@ object CypherReader {
     		with a
     		match (a)-[:TO_WATCH]->(r)
     		where r.state = "active"
-    		return r.name as name
+    		return r.id as name
       """
       return res
   }
@@ -86,7 +86,7 @@ object CypherReader {
     		with a
     		match (a)-[:TO_WATCH]->(r)
     		where r.state = "active"
-    		return r.name as name
+    		return r.id as name
       """
       return res
   }
@@ -98,7 +98,7 @@ object CypherReader {
     		with a
     		match (a)-[:TO_WATCH]->(r)
     		where r.state = "active"
-    		return r.name as name
+    		return r.id as name
       """
       return res
   }
@@ -373,7 +373,7 @@ object CypherReader {
          match (y:Year)-[:MONTH]-(m:Month)-[:DAY]-(d:Day)-[broadcast:BROADCAST_ENDED_ON]-(s:Stream)-[:USING]-(t:AuthenticationToken)-[:HAS_TOKEN]-(u:User)
          where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
          and (m.value >= $startMonth and m.value <= $endMonth)  and (d.value >= $startDay  and d.value <= $endDay)
-         return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
+         return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,s.name as streamName,u.email as email
 
        """
 
@@ -382,7 +382,7 @@ object CypherReader {
       match (y:Year)-[:MONTH]-(m:Month)-[:DAY]-(d:Day)-[broadcast:BROADCAST_ENDED_ON]-(s:Stream)-[:USING]-(t:AuthenticationToken)-[:HAS_TOKEN]-(u:User)
       where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
       and (m.value >= $startMonth and m.value <= $endMonth)
-      return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
+      return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,s.name as streamName,u.email as email
 
        """
 
@@ -391,7 +391,7 @@ object CypherReader {
       res = s"""
        match (y:Year)-[:MONTH]-(m:Month)-[:DAY]-(d:Day)-[broadcast:BROADCAST_ENDED_ON]-(s:Stream)-[:USING]-(t:AuthenticationToken)-[:HAS_TOKEN]-(u:User)
        where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
-       return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
+       return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,s.name as streamName,u.email as email
 
        """
     }
@@ -413,7 +413,7 @@ object CypherReader {
          match (y:Year)-[:MONTH]-(m:Month)-[:DAY]-(d:Day)-[broadcast:BROADCAST_ON]-(s:Stream)-[:USING]-(t:AuthenticationToken)-[:HAS_TOKEN]-(u:User)
          where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
          and (m.value >= $startMonth and m.value <= $endMonth)  and (d.value >= $startDay  and d.value <= $endDay)
-         return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
+         return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,s.name as streamName, u.email as email
 
        """
 
@@ -422,7 +422,7 @@ object CypherReader {
       match (y:Year)-[:MONTH]-(m:Month)-[:DAY]-(d:Day)-[broadcast:BROADCAST_ON]-(s:Stream)-[:USING]-(t:AuthenticationToken)-[:HAS_TOKEN]-(u:User)
       where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
       and (m.value >= $startMonth and m.value <= $endMonth)
-      return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
+      return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,s.name as streamName, u.email as email
 
        """
 
@@ -431,7 +431,7 @@ object CypherReader {
       res = s"""
        match (y:Year)-[:MONTH]-(m:Month)-[:DAY]-(d:Day)-[broadcast:BROADCAST_ON]-(s:Stream)-[:USING]-(t:AuthenticationToken)-[:HAS_TOKEN]-(u:User)
        where u.email="$email" and (y.value >= $startYear and y.value <= $endYear)
-       return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,u.email as email
+       return y.value as year, m.value as month, d.value as day, broadcast.time as time,s.id as streamId,s.name as streamName,u.email as email
 
        """
     }
@@ -491,7 +491,7 @@ object CypherReader {
 def fetchLocationForStream(stream: String): String = {
 
         val res=s"""
-	   match (s:Stream) where s.name = "$stream"
+	   match (s:Stream) where s.id = "$stream"
 	    with s
 	    match (s)-[l:LOCATED_AT]-(loc)
             return loc.latitude as latitude, loc.longitude as longitude
@@ -722,7 +722,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
   def getReferersForLinkedin(stream: String): String = {
 
     val res =s"""
-        match (s:Stream) where s.name="$stream"
+        match (s:Stream) where s.id="$stream"
 	with s
 	match (s)-[TO_WATCH]-(inv:InviteLinkedin)-[USING_REFERER]-(ref)
 	return ref.id as ip
@@ -734,7 +734,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
   def getReferersForTwitter(stream: String): String = {
 
     val res =s"""
-        match (s:Stream) where s.name="$stream"
+        match (s:Stream) where s.id="$stream"
 	with s
 	match (s)-[TO_WATCH]-(inv:InviteTwitter)-[USING_REFERER]-(ref)
 	return ref.id as ip
@@ -746,7 +746,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
  def getReferersForFacebook(stream: String): String = {
 
     val res =s"""
-        match (s:Stream) where s.name="$stream"
+        match (s:Stream) where s.id="$stream"
 	with s
 	match (s)-[TO_WATCH]-(inv:InviteFacebook)-[USING_REFERER]-(ref)
 	return ref.id as ip
@@ -774,7 +774,7 @@ def fetchLocationForActiveStreamLinkedin(inviteId: String): String = {
   def getRoomJidForStream(stream: String): String = {
       
       val res = s"""
-      match (s:Stream) where s.name ="$stream"
+      match (s:Stream) where s.id ="$stream"
       with s
       match (s)-[ur:USING_ROOM]-(rm:Room)
       return distinct rm.id as jid

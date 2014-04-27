@@ -6,28 +6,28 @@ object CypherInfrastructure {
     val t = s"""
                  create (timeline:TimeLine {value:"timeline"})
                 """
-    return t;
+    t
   }
   
   def createYear(year: Int): String = {
     val t = s"""
                  create (year:Year {value:$year})
                 """
-    return t;
+    t
   }
   
   def createMonth(month: Int, description: String): String = {
     val t = s"""
                  create (month:Month {value:$month, description: "$description"})
                 """
-    return t;
+    t
   }
   
    def createDay(day: Int, description: String): String = {
     val t = s"""
                  create (day:Day {value:$day, description: "$description"})
                 """
-    return t;
+    t
   }
   
   
@@ -39,7 +39,7 @@ object CypherInfrastructure {
 			  create a-[r:YEAR]->b
 			  return r
 			  """
-    return linkMonthWithYear
+    linkMonthWithYear
    
  }
 
@@ -50,7 +50,7 @@ object CypherInfrastructure {
 			  create a-[r:MONTH]->b
 			  return r
 			  """
-    return linkMonthWithYear
+    linkMonthWithYear
    
  }
 
@@ -61,7 +61,7 @@ object CypherInfrastructure {
 			  create a-[r:DAY]->b
 			  return r
 			  """
-    return linkToToken
+    linkToToken
   }
   
 }

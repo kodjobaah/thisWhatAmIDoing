@@ -1,9 +1,13 @@
 <component name="libraryTable">
   <library name="SBT: org.mockito:mockito-all:1.9.5">
     <CLASSES>
-      <root url="jar://C:/play-2.2.1/repository/cache/org.mockito/mockito-all/jars/mockito-all-1.9.5.jar!/" />
+      <root url="jar:///opt/play/play-2.2.2/repository/cache/org.mockito/mockito-all/jars/mockito-all-1.9.5.jar!/" />
     </CLASSES>
-    <JAVADOC />
-    <SOURCES />
+    <JAVADOC>
+      <root url="jar:///opt/play/play-2.2.2/repository/cache/org.mockito/mockito-all/docs/mockito-all-1.9.5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar:///opt/play/play-2.2.2/repository/cache/org.mockito/mockito-all/srcs/mockito-all-1.9.5-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

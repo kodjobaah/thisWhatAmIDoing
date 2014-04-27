@@ -1,7 +1,6 @@
 package com.whatamidoing.mail
 
 
-import com.whatamidoing.mail.mailer.Mail
 import com.whatamidoing.mail.mailer._
 
 class EmailSenderService {
@@ -9,11 +8,12 @@ class EmailSenderService {
 
   import models.UserDetails
   import play.api.Play
+
   implicit var currentPlay = Play.current
   val mailUser = Play.current.configuration.getString("mail.user").get
 
-  
-  def sendInviteEmail(email:String, invId: String, userDetail: UserDetails) = {
+
+  def sendInviteEmail(email: String, invId: String, userDetail: UserDetails) = {
     val inviteeEmail = userDetail.email.getOrElse("no-email-supplied")
     val firstname = userDetail.firstName
     val inviteMessage = s"""
@@ -28,20 +28,20 @@ class EmailSenderService {
     </div>
     </body>
     </html>
-    """ 
-    
+    """
+
     send a new Mail(
       from = (mailUser, "WAID (What Am I doing!!)"),
       to = email,
       subject = "What Am I Doing",
-       message = inviteMessage,
+      message = inviteMessage,
       richMessage = Some("YES"))
-  
+
   }
 
-  def sendLinkToChangePassword(email:String, changePasswordId: String) = {
+  def sendLinkToChangePassword(email: String, changePasswordId: String) = {
 
-      val forgottenPassword = s"""
+    val forgottenPassword = s"""
        	  <html>
 	    <body>
 	      <div>
@@ -52,20 +52,21 @@ class EmailSenderService {
             </body>
 	  </html>
       """
-       send a new Mail(
+    send a new Mail(
       from = (mailUser, "WAID (What Am I doing!!)"),
-      
+
       to = email,
       subject = "WAID (What Am I Doing) - Change Password",
       message = forgottenPassword,
       richMessage = Some("YES")
-      )
+    )
 
 
   }
-  def sendRegistrationEmail(email:String, password: String) = {
 
-          val inviteMessage = s"""
+  def sendRegistrationEmail(email: String, password: String) = {
+
+    val inviteMessage = s"""
              <html>
               <body>
                <div>
@@ -90,19 +91,19 @@ class EmailSenderService {
              </body>
             </html>
       """
-      
-       send a new Mail(
+
+    send a new Mail(
       from = (mailUser, "WAID (What Am I doing!!)"),
       to = email,
       subject = "WAID (What Am I Doing) - Invite mail",
       richMessage = Some("YES"),
       message = inviteMessage)
-     
+
   }
 }
 
 object EmailSenderService {
-  
+
   def apply() = new EmailSenderService()
-  
+
 }
