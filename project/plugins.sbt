@@ -1,11 +1,7 @@
-import sbt._
-import Defaults._
-
 // Comment to get more information during initialization
 logLevel := Level.Info
 
 offline := true
-
 
 // The Typesafe repository
 resolvers ++= Seq(
@@ -17,8 +13,6 @@ resolvers ++= Seq(
 		Resolver.url("Typesafe ivy repository", new URL("http://typesafe.artifactoryonline.com/typesafe/ivy-releases/"))(Resolver.defaultIvyPatterns)
 )
 
-// Use the Play sbt plugin for Play projects
-addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.2.2")
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-atmos-play" % "0.3.2")
 
@@ -32,3 +26,20 @@ addSbtPlugin("de.johoop" % "jacoco4sbt" % "2.1.0")
 
 addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.4")
 
+
+// The Play plugin
+addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.3.3")
+
+// web plugins
+
+addSbtPlugin("com.typesafe.sbt" % "sbt-coffeescript" % "1.0.0")
+
+addSbtPlugin("com.typesafe.sbt" % "sbt-less" % "1.0.0")
+
+addSbtPlugin("com.typesafe.sbt" % "sbt-jshint" % "1.0.1")
+
+addSbtPlugin("com.typesafe.sbt" % "sbt-rjs" % "1.0.1")
+
+addSbtPlugin("com.typesafe.sbt" % "sbt-digest" % "1.0.0")
+
+addSbtPlugin("com.typesafe.sbt" % "sbt-mocha" % "1.0.0")

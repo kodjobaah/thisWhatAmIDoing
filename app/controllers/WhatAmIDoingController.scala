@@ -6,7 +6,7 @@ import play.api.Logger
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import play.api.libs.json.{Json, JsObject}
 
-import scala.concurrent.future
+import scala.concurrent.Future
 
 import com.whatamidoing.utils.ActorUtils
 import com.whatamidoing.utils.ActorUtilsReader
@@ -34,9 +34,9 @@ object WhatAmIDoingController extends Controller {
 
       if (!token.equalsIgnoreCase("not-token-provided")) {
         val res = ActorUtilsReader.findAllInvites(token)
-        future(Ok(res.mkString(",")))
+        Future.successful(Ok(res.mkString(",")))
       } else {
-        future(Ok("No token provided"))
+        Future.successful(Ok("No token provided"))
       }
 
   }
@@ -126,9 +126,9 @@ object WhatAmIDoingController extends Controller {
           "accepted" -> acceptedUsersResults,
           "notAccepted" -> response
         )
-        future(Ok(sendBack))
+        Future.successful(Ok(sendBack))
       } else {
-        future(Ok("No token provided"))
+        Future.successful(Ok("No token provided"))
       }
 
   }
@@ -161,9 +161,9 @@ object WhatAmIDoingController extends Controller {
           ActorUtils.closeStream(streamId)
         }
         val valid = ActorUtils.invalidateToken(token)
-        future(Ok(valid).withNewSession)
+        Future.successful(Ok(valid).withNewSession)
       } else {
-        future(Ok("No token provided").withNewSession)
+        Future.successful(Ok("No token provided").withNewSession)
       }
   }
 
@@ -206,7 +206,7 @@ object WhatAmIDoingController extends Controller {
         result = Json.arr(listOfLocations)
       }
       System.out.println(result)
-      future(Ok(result))
+      Future.successful(Ok(result))
   }
 
   def videoStarted(sessionId: String, accessType: String) = Action.async {
@@ -218,7 +218,7 @@ object WhatAmIDoingController extends Controller {
       ActorUtils.deactivateAllStreamActions(sessionId)
       ActorUtils.videoStreamStarted(sessionId)
     }
-    future(Ok(Json.obj("" -> "").toString()))
+    Future.successful(Ok(Json.obj("" -> "").toString()))
   }
 
   def videoStopped(sessionId: String, accessType: String) = Action.async {
@@ -231,7 +231,7 @@ object WhatAmIDoingController extends Controller {
       ActorUtils.videoStreamStopped(sessionId)
     }
 
-    future(Ok(Json.obj("" -> "").toString()))
+    Future.successful(Ok(Json.obj("" -> "").toString()))
   }
 
 
@@ -306,17 +306,19 @@ object WhatAmIDoingController extends Controller {
         }
 
         if (streamId.isEmpty) {
-          future(Ok(views.html.whatamidoingnoinviteId()))
+          Future.successful(Ok(views.html.whatamidoingnoinviteId()))
         } else {
 
 
           roomJid = ActorUtilsReader.getRoomJidForStream(streamId)
-          streamId = streamId.dropRight(3) + "m3u8"
+          //streamId = streamId.dropRight(3) + "m3u8"
+          streamId = streamId + ".m3u8"
+
           nickName = sessionId + "-DIDLY-SQUAT-" + nickName
-          future(Ok(views.html.whatamidoing(streamId, locations, invitedId, roomJid, nickName, sessionId, accessType)).withSession("whatAmIdoing-xmpp" -> sessionId))
+          Future.successful(Ok(views.html.whatamidoing(streamId, locations, invitedId, roomJid, nickName, sessionId, accessType)).withSession("whatAmIdoing-xmpp" -> sessionId))
         }
       } else {
-        future(Ok(views.html.whatamidoingnoinviteId()))
+        Future.successful(Ok(views.html.whatamidoingnoinviteId()))
       }
   }
 
@@ -343,12 +345,12 @@ object WhatAmIDoingController extends Controller {
           val total = facebookCount + twitterCount + linkedinCount + totalUsersInvite
 
 
-          future(Ok(total.toString()))
+          Future.successful(Ok(total.toString()))
         } else {
-          future(Ok("No active Stream"))
+          Future.successful(Ok("No active Stream"))
         }
       } else {
-        future(Ok("TOKEN NOT VALID"))
+        Future.successful(Ok("TOKEN NOT VALID"))
       }
 
 
@@ -359,9 +361,9 @@ object WhatAmIDoingController extends Controller {
       val valid = ActorUtilsReader.getValidToken(token)
       if (valid.asInstanceOf[List[String]].size > 0) {
         ActorUtils.createLocationForStream(token, latitude, longitude)
-        future(Ok("Location added"))
+        Future.successful(Ok("Location added"))
       } else {
-        future(Ok("Unable to add Location"))
+        Future.successful(Ok("Unable to add Location"))
       }
   }
 
@@ -376,14 +378,14 @@ object WhatAmIDoingController extends Controller {
         if (jid.size > 0) {
           val res: UserDetails = ActorUtilsReader.fetchUserDetails(token)
           val json = Json.obj("jid" -> jid, "nickname" -> res.firstName)
-          future(Ok(json.toString()))
+          Future.successful(Ok(json.toString()))
         } else {
           val json = Json.obj()
-          future(Ok(json.toString()))
+          Future.successful(Ok(json.toString()))
         }
       } else {
         val json = Json.obj()
-        future(Ok(json.toString()))
+        Future.successful(Ok(json.toString()))
       }
   }
 
@@ -407,13 +409,13 @@ object WhatAmIDoingController extends Controller {
           val invitedId = java.util.UUID.randomUUID.toString + Twitter
           Logger.info("INIVITED ID:" + invitedId)
           ActorUtils.createInviteTwitter(streamName, Twitter, invitedId)
-          future(Ok(invitedId))
+          Future.successful(Ok(invitedId))
 
         } else {
-          future(Ok("Unable to Invite No Stream"))
+          Future.successful(Ok("Unable to Invite No Stream"))
         }
       } else {
-        future(Ok("Unable To Invite"))
+        Future.successful(Ok("Unable To Invite"))
       }
 
   }
@@ -437,13 +439,13 @@ object WhatAmIDoingController extends Controller {
           val invitedId = java.util.UUID.randomUUID.toString + Linkedin
           Logger.info("INIVITED ID:" + invitedId)
           ActorUtils.createInviteLinkedin(streamName, Linkedin, invitedId)
-          future(Ok(invitedId))
+          Future.successful(Ok(invitedId))
 
         } else {
-          future(Ok("Unable to Invite No Stream"))
+          Future.successful(Ok("Unable to Invite No Stream"))
         }
       } else {
-        future(Ok("Unable To Invite"))
+        Future.successful(Ok("Unable To Invite"))
       }
 
   }
@@ -467,13 +469,13 @@ object WhatAmIDoingController extends Controller {
           val invitedId = java.util.UUID.randomUUID.toString + Facebook
           Logger.info("INIVITED ID:" + invitedId)
           ActorUtils.createInviteFacebook(streamName, Facebook, invitedId)
-          future(Ok(invitedId))
+          Future.successful(Ok(invitedId))
 
         } else {
-          future(Ok("Unable to Invite No Stream"))
+          Future.successful(Ok("Unable to Invite No Stream"))
         }
       } else {
-        future(Ok("Unable To Invite"))
+        Future.successful(Ok("Unable To Invite"))
       }
 
   }
@@ -524,19 +526,19 @@ object WhatAmIDoingController extends Controller {
               }
 
 
-              future(Ok("Done"))
+              Future.successful(Ok("Done"))
 
             } else {
-              future(Ok("Unable to Invite No Stream"))
+              Future.successful(Ok("Unable to Invite No Stream"))
             }
           } else {
-            future(Ok("Unable To Invite"))
+            Future.successful(Ok("Unable To Invite"))
           }
         } else {
-          future(Ok("No email provided"))
+          Future.successful(Ok("No email provided"))
         }
       } else {
-        future(Ok("No token provided"))
+        Future.successful(Ok("No token provided"))
       }
   }
 
@@ -580,20 +582,20 @@ object WhatAmIDoingController extends Controller {
                 val token = java.util.UUID.randomUUID.toString
                 ActorUtils.createTokenForUser(token, em)
                 Logger.info("---Token Created:" + token)
-                future(Ok("ADDED AUTHENTICATION TOKEN TO SESSISON").withSession(
+                Future.successful(Ok("ADDED AUTHENTICATION TOKEN TO SESSISON").withSession(
                   "whatAmIdoing-authenticationToken" -> token))
 
               } else {
-                future(Ok("PASSWORD NOT VALID"))
+                Future.successful(Ok("PASSWORD NOT VALID"))
               }
 
             } else {
-              future(Ok("Password not supplied"))
+              Future.successful(Ok("Password not supplied"))
             }
           }
 
         } else {
-          future(Ok("Email not supplied"))
+          Future.successful(Ok("Email not supplied"))
         }
 
     }

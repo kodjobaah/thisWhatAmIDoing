@@ -55,7 +55,7 @@ object AdminController extends Controller {
   def updateUserDetails() = Action.async {
     implicit request =>
 
-      session.get("whatAmIdoing-authenticationToken").map {
+      request.session.get("whatAmIdoing-authenticationToken").map {
         token =>
 
           val bindForm = userDetailsForm.bindFromRequest
@@ -81,7 +81,7 @@ object AdminController extends Controller {
   def fetchUserDetails = Action.async {
     implicit request =>
 
-      session.get("whatAmIdoing-authenticationToken").map {
+      request.session.get("whatAmIdoing-authenticationToken").map {
         token =>
           val res = ActorUtilsReader.fetchUserDetails(token)
           val filledForm = userDetailsForm.fill(res)
@@ -231,7 +231,7 @@ object AdminController extends Controller {
   def logout = Action.async {
     implicit request =>
 
-      session.get("whatAmIdoing-authenticationToken").map {
+      request.session.get("whatAmIdoing-authenticationToken").map {
         token =>
           ActorUtils.invalidateToken(token)
       }
@@ -241,7 +241,7 @@ object AdminController extends Controller {
   def getStreamInvites(streamId: String) = Action.async {
     implicit request =>
 
-      session.get("whatAmIdoing-authenticationToken").map {
+      request.session.get("whatAmIdoing-authenticationToken").map {
         token =>
 
           val acceptedUsers = ActorUtilsReader.getUsersWhoHaveAcceptedToWatchStreamUsingStreamId(streamId)
@@ -331,7 +331,7 @@ object AdminController extends Controller {
   def getStreams(start: String, end: String) = Action.async {
     implicit request =>
 
-      session.get("whatAmIdoing-authenticationToken").map {
+      request.session.get("whatAmIdoing-authenticationToken").map {
         token =>
           Logger.info("start[" + start + "] end [" + end + "]")
 
@@ -434,7 +434,7 @@ object AdminController extends Controller {
   def getInvites = Action.async {
     implicit request =>
 
-      session.get("whatAmIdoing-authenticationToken").map {
+      request.session.get("whatAmIdoing-authenticationToken").map {
         token =>
           future(Ok(views.html.invite()))
       }.getOrElse {
@@ -446,7 +446,7 @@ object AdminController extends Controller {
   def listInvites(sEcho: Int, iDisplayLength: Int, iDisplayStart: Int, iSortCol_0: Int, sSortDir_0: String, streamId: String, token: String) = Action.async {
     implicit request =>
 
-      session.get("whatAmIdoing-authenticationToken").map {
+      request.session.get("whatAmIdoing-authenticationToken").map {
         tokenAuth =>
 
           val resInstance = ActorUtilsReader.findAllInvitesForStream(token, iDisplayStart, iDisplayLength, iSortCol_0, sSortDir_0, streamId)
@@ -483,7 +483,7 @@ object AdminController extends Controller {
   def list = Action.async {
     implicit request =>
 
-      session.get("whatAmIdoing-authenticationToken").map {
+      request.session.get("whatAmIdoing-authenticationToken").map {
         tokenAuth =>
 
           val sEcho = request.queryString.get("sEcho").get.head.toInt
@@ -527,7 +527,7 @@ object AdminController extends Controller {
   def findAllStreams(email: String) = Action.async {
     implicit request =>
 
-      session.get("whatAmIdoing-authenticationToken").map {
+      request.session.get("whatAmIdoing-authenticationToken").map {
         user =>
           val valid = ActorUtilsReader.getValidToken(user)
           if (valid.asInstanceOf[List[String]].size > 0) {

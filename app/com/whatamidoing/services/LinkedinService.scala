@@ -2,6 +2,7 @@ package com.whatamidoing.services
 
 import com.whatamidoing.utils.ActorUtilsReader
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
+import play.api.Play.current
 
 class LinkedinService() {
 

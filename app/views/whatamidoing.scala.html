@@ -9,7 +9,7 @@
       href='@routes.Assets.at("converse/converse.css")'
       rel='stylesheet'>
 
-<script src="http://www.whatamidoing.info/hlsapp/jwplayer/HLSprovider/test/jwplayer6/jwplayer.js"></script>
+<script src='@routes.Assets.at("/jwplayer/HLSprovider/test/jwplayer6/jwplayer.js")'></script>
 <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHizctBV5_2T9EgbtZQAFHIjGiFrG3i1s&sensor=true">
     </script>
@@ -111,7 +111,7 @@ if( /Android/i.test(navigator.userAgent) ) {
 }
 if( /webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     $("#player").empty();
-    $("#player").append('<video  src="http://www.whatamidoing.info/hlsapp/@stream" height="300" width="400"></video>');
+    $("#player").append('<video  src="http://www.whatamidoing.info:8080/hlsapp/@stream" height="300" width="400"></video>');
 } else {
 
     function videoStartedPlaying() {
@@ -138,8 +138,8 @@ if( /webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.user
 
      playlist: [{
        // file is the url to m3u8 file
-       file:'http://www.whatamidoing.info/hlsapp/@stream',
-       provider: 'http://www.whatamidoing.info/hlsapp/jwplayer/HLSprovider/test/jwplayer6/HLSProvider6.swf',
+       file:'http://www.whatamidoing.info:8080/hlsapp/@stream',
+       provider: '@routes.Assets.at("/jwplayer/HLSprovider/test/jwplayer6/HLSProvider6.swf")',
        type:'hls'
       }],
       width: 500,
@@ -224,6 +224,10 @@ $(document).ready(function() {
  });
 
 $(window).unload(function() {
+    videoStoppedPlaying();
+});
+
+$(window).bind('beforeunload',function(){
     videoStoppedPlaying();
 });
 
